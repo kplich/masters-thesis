@@ -1,11 +1,11 @@
-# Literature review
+# From UI sketches to a machine-readable representation - literature review
 ## Review plan
 **NOTE:** there was an initial informal study that helped inform the direction of research and formulate research questions
 
 ### Methodology
 based on:
-- [Guidance on Conducting a Systematic Literature Review](https://doi.org/10.1177/0739456X17723971)
-- [Systematic Literature Review in Computer Science - A Practical Guide](http://dx.doi.org/10.13140/RG.2.2.35453.87524)
+- [[Guidance on Conducting a Systematic Literature Review]]
+- [[Systematic Literature Review in Computer Science - A Practical Guide]]
 - [Guidelines for Performing Systematic Literature Reviews in Software Engineering](https://www.researchgate.net/publication/258968007_Kitchenham_B_Guidelines_for_performing_Systematic_Literature_Reviews_in_software_engineering_EBSE_Technical_Report_EBSE-2007-01)
 
 ### Research questions
