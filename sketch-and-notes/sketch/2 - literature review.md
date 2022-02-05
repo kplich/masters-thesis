@@ -52,10 +52,10 @@ keywords from the questions, with synonyms or related terms
 - inform the architecture/techniques/solutions used in the method
 
 #### RQ 1
-- based on the keywords above, no systematic review has been found (on 4.02.2022)
-- two articles touching on the topic (that are not reviews) found:
-	- [Evaluating user interface generation approaches: model-based versus model-driven development](https://doi.org/10.1007/s10270-018-0698-x)
-	- [Past, Present, and Future of Model-Based User Interface Development](http://dx.doi.org/10.1524/icom.2011.0026)
+- based on the keywords above, no on-topic systematic review has been found (on 4.02.2022)
+- two articles touching on the topic found:
+	- [Evaluating user interface generation approaches: model-based versus model-driven  development](https://doi.org/10.1007/s10270-018-0698-x) - an SLR, but not exactly on topic?
+	- [Past, Present, and Future of Model-Based User Interface Development](http://dx.doi.org/10.1524/icom.2011.0026) - not an SLR, but more on topic
 - the articles provide extra lists of references that might be worth considering during the review
 - additional keyword/term identified: "model based user interface development"
 
@@ -67,7 +67,7 @@ keywords from the questions, with synonyms or related terms
 - specify databases
 - specify final list of keywords
 - additional search criteria, to be used where possible:
-	- papers from the last 20 years (informed by the pre-review research, possibly rich history of solutions)
+	- papers from around the last 20 years (informed by the pre-review research, possibly rich history of solutions)
 	- papers only related to computer science/software engineering/etc.
 	- papers primarily in English; German or Polish acceptable if need be
 - perform searches (adjust the search strings for each database)
