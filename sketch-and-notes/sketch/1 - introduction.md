@@ -7,7 +7,7 @@
 - additionally, manual translation makes the resulting artifact not universal (especially when developing directly in a programming language) - choice of language/framework is usually an irreversible decision; should a developer want to create a prototype in a different language or design software, there's little possibility of translating the artifact between those two and the manual work needs to be done again[^7]
 - the goal of thesis is to address these problems and propose a method of translating a paper-based sketch of a user interface to an intermediate representation that can be converted into artifacts more specific to certain technologies and softwares
 
-[^1]: how much, exactly?
+[^1]: how much, exactly? quote paper from [[Evaluating user interface generation approaches - model-based versus model-driven development]] (first section)
 
 [^2]: how did that happen, maybe elaborate?
 
