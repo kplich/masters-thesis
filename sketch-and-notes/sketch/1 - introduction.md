@@ -1,4 +1,4 @@
-# From UI sketches to a machine-readable representation - introduction
+# Introduction
 - computing technology is more and more ubiquitous; it's not only for academics or office workers - since the turn of the century, everyday people can also use computers thanks to pretty and easy to use **graphical user interfaces**[^2]
 - designing an appealing GUI has never been an easy task for various reasons and it still takes a significant amount of time[^1] and is an important activity while designing software;
 - there are many programs that can be used to design user interfaces; nevertheless, despite years of technological advancements both in the industry and in the academia[^3], paper sketches are still one of the most popular[^4] ways of creating UIs, especially during prototyping or in the early stages of development

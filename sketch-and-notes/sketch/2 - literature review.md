@@ -1,4 +1,4 @@
-# From UI sketches to a machine-readable representation - literature review
+# Literature review
 ## Review plan
 **NOTE:** there was an initial informal study that helped inform the direction of research and formulate research questions
 
