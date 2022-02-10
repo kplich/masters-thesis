@@ -53,11 +53,13 @@ keywords from the questions, with synonyms or related terms
 
 #### RQ 1
 - based on the keywords above, no on-topic systematic review has been found (on 4.02.2022)
-- two articles touching on the topic found:
-	- [Evaluating user interface generation approaches: model-based versus model-driven  development](https://doi.org/10.1007/s10270-018-0698-x) - an SLR, but not exactly on topic?
-	- [Past, Present, and Future of Model-Based User Interface Development](http://dx.doi.org/10.1524/icom.2011.0026) - not an SLR, but more on topic
-- the articles provide extra lists of references that might be worth considering during the review
-- additional keyword/term identified: "model based user interface development"
+- J. Vanderdonckt performed several semi-formal reviews of user interface description languages over the years; the authors describe the criteria of evaluation/description of languages but document it rather scantly; they claim to attempt to describe a UI for a simple application, however no code or UI examples are provided; moreover, the last review seems to have been published in 2010, that is more than 10 years from now; this justifies another review
+    - [A Review of XML-compliant User Interface Description Languages](A%20Review%20of%20XML-compliant%20User%20Interface%20Description%20Languages.md) (2003)
+    - [A Theoretical Survey of User Interface Description Languages - Preliminary Results](A%20Theoretical%20Survey%20of%20User%20Interface%20Description%20Languages%20-%20Preliminary%20Results.md) (2009)
+    - [A Theoretical Survey of User Interface Description Languages - Complementary Results](A%20Theoretical%20Survey%20of%20User%20Interface%20Description%20Languages%20-%20Complementary%20Results.md) (2010)
+- the articles provide references that might serve as a benchmark for the effectiveness of the review
+- [based on the review](Which%20papers%20from%20UIDL%20reviews%20do%20I%20include%20in%20the%20literature%20review.md), 13 papers about UIDLs described are going to be included in the review; papers not found through the primary search are going to be added *before* the first screening of inclusion
+- additional keyword/term identified: "user interface description language/UIDL”
 
 #### RQ 2
 - TODO: look for an SLR

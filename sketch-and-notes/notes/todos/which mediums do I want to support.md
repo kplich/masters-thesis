@@ -1,0 +1,2 @@
+- paper sketches mostly lend themselves to screen-based UIs
+    - **does this have to be the case?** maybe it’s possible to design a non-visual (speech-based) UI on paper and then extract it and translate it into UIDL

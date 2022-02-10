@@ -70,7 +70,7 @@ tooling available:
 ## Paper structure
 ![methodology](Pasted%20image%2020220207232557.png)
 
-authors refer to three other papers[^2] [^3] [^4] regarding **a survey of UI definition languages**, which might be more appropriate for the purpose of this review
+authors refer to [three](A%20Review%20of%20XML-compliant%20User%20Interface%20Description%20Languages.md)[^4] [other](A%20Theoretical%20Survey%20of%20User%20Interface%20Description%20Languages%20-%20Preliminary%20Results.md)[^2] papers[^3]  regarding **a survey of UI definition languages**, which might be more appropriate for the purpose of this review
 
 [^1]: Myers, B.A.: User interface software tools. ACM Trans. Comput. Hum. Interact. (TOCHI) 2(1), 64–103 (1995)
 [^2]: Guerrero-García, J., Gonzalez-Calleros, J.M., Vanderdonckt, J., Muñoz-Arteaga, J.: A theoretical survey of user interface description languages: preliminary results. In: Web Congress, 2009. LA-WEB’09. Latin American, pp. 36–43. IEEE (2009)
