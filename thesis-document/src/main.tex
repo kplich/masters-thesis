@@ -1,0 +1,31 @@
+%! Author = Kamil Plich
+%! Date = 03.03.2022
+
+% Preamble
+\documentclass[11pt]{article}
+
+% Packages
+\usepackage{hyperref} % make all cross-references hyperlinks
+\usepackage{todonotes} % for to-do notes
+\usepackage[outputdir={../auxil}]{minted} % for code highlighting
+\usepackage{csquotes} % for quotations
+
+% Document
+\begin{document}
+
+    \title{From UI sketches to a machine-readable representation}
+    \author{Kamil Plich}
+    \date{\today}
+    \maketitle
+
+    \begin{abstract}
+        \input{0-abstract/main.tex}
+    \end{abstract}
+
+    \include{1-introduction/main}
+    \include{2-literature-review/main}
+
+    \bibliography{main}
+    \bibliographystyle{plain}
+
+\end{document}
