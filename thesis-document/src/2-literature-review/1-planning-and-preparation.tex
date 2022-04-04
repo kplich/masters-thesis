@@ -1,10 +1,13 @@
 \subsection[Planning and preparation]{Planning and preparation for review}\label{subsec:planning-and-preparation-for-review}
 
+This section describes all measures undertaken before the proper review:
 \begin{itemize}
-    \item preparation for actual searching in databases
-    \item justification and search for existing reviews
+    \item formulation of research questions
+    \item definition of search keywords
+    \item justifying a review
+    \item formulation of search strings
     \item choice of search engines
-    \item final selection of keywords and general search strings
+    \item description of the review protocol
 \end{itemize}
 
 \subsubsection{Research questions}
@@ -13,95 +16,68 @@
 
 \paragraph{RQ 1: What approaches are used for modelling graphical user interfaces?}
 The premise of the work is to transform graphical data into an abstract representation;
-its choice is an extremely important one as it might impact the whole solution.
+its choice is therefore an extremely important one, as it might impact the whole solution.
 
 \paragraph{RQ 2: How can a graphical representation of GUI be converted to a machine-readable one?}
-How do others do it, what initial and final representations do they use, what are the results, strengths, and limitations
+What methods are used?
+What are their results, strengths, and limitations?
+What initial and final representations do these methods use?
 
 \subsubsection{Keywords}
-keywords extracted from the questions, with synonyms or related terms
+The keywords have been extracted from the proposed research questions
+and have been supplemented with their synonyms or related terms.
 
 \paragraph{RQ 1}
 
 \begin{itemize}
-    \item graphical user interface
-    \begin{itemize}
-        \item GUI
-        \item UI
-        \item user interface
-        \item graphical interface
-    \end{itemize}
-    \item modelling
-    \begin{itemize}
-        \item (abstract/platform-independent) (meta-)model
-        \item (abstract/platform-independent) representation
-        \item modelling language
-        \item specification
-    \end{itemize}
+    \item \textbf{graphical user interface}/user interface/graphical interface/GUI/UI
+    \item \textbf{modelling}/(meta-)model/representation/(modelling) language/specification
 \end{itemize}
 
 \paragraph{RQ 2}
 
 \begin{itemize}
-    \item graphical user interface
-    \begin{itemize}
-        \item GUI
-        \item UI
-        \item user interface
-        \item graphical interface
-    \end{itemize}
-    \item sketch
-    \begin{itemize}
-        \item prototype
-        \item mockup
-    \end{itemize}
-    \item convert
-    \begin{itemize}
-        \item transform(ation)
-        \item rewrite/rewriting
-        \item recreate/recreating
-        \item generate/generation
-    \end{itemize}
-    \item machine(-readable)
-    \begin{itemize}
-        \item code
-        \item implementation
-    \end{itemize}
+    \item \textbf{graphical user interface}/GUI/UI/user interface/graphical interface
+    \item \textbf{sketch}/prototype/mockup
+    \item \textbf{convert(-sion)}/transform(ation)/rewrite(-ing)/recreate(-ing/-ion)/generate(-ing/-ion)
+    \item \textbf{representation}/code
 \end{itemize}
 
 \subsubsection[Justification]{Justification for the review}
+
+The goal of this review is to:
 \begin{itemize}
-    \item identify the state of the art
-    \item point out gaps and further the body of knowledge
-    \item build upon relevant and useful knowledge
-    \item inform the architecture/techniques/solutions used in the method
-    \item discussion of any existing reviews (and their effect on the need for another review)
+    \item describe the state of the art in the field
+    \item point out gaps in the body of knowledge
+    \item inform the architecture/techniques utilised in the method
+    \item discuss any existing reviews (and how they justify or preclude another review)
 \end{itemize}
 
 \paragraph{RQ 1}
-based on the keywords above, no systematic review of the topic has been found (on 4.02.2022)
-Vanderdonckt et al.\ performed several~\cite{souchon_review_2003,guerrero_garcia_theoretical_2009,guerrero_garcia_theoretical_2011} semi-formal reviews of
-\emph{user interface description languages} (UIDLs) over the years;
-the authors describe the criteria of evaluation/description of languages but document it rather scantly;
-they claim to attempt to describe a UI for a simple application, however no code or UI examples are provided;
-moreover, the last review seems to have been published in 2010, that is more than 10 years from now;
-this justifies another review
+Based on the keywords above, no systematic review of the topic has been found (as of 4.02.2022.)
+Vanderdonckt et al.\ performed several~\cite{souchon_review_2003,guerrero_garcia_theoretical_2009,guerrero_garcia_theoretical_2011}
+semi-formal reviews of \emph{user interface description languages} (UIDLs) over the years.
+The authors describe the criteria of evaluation and description of UIDLs but document them rather scantly.
+Although they claim to attempt to describe a UI for a simple application, no code or UI examples are provided.
+Moreover, the last review seems to have been published in 2010 \textendash that is more than 10 years from now;
+this justifies another review that takes into account more recent developments within the domain.
+13 papers referenced in the three reviews mentioned are going to be included in the following review
+\emph{before} the second screening of inclusion (based on introductions and conclusions);
+they might serve as a benchmark for its effectiveness (they should also show up in the results of the primary search).
 
-based on the review, 13 papers about UIDLs described are going to be included in the review;
-these works might serve as a benchmark for the effectiveness of the review (they should also show up in the results of the primary search);
-papers not found through the primary search are going to be added \emph{before} the first screening of inclusion;
-additional keyword/term identified:
+Additionally, the reviews helped identify additional keywords/terms not defined previously:
 \begin{itemize}
-    \item \enquote{user interface description language}/\enquote{UIDL}
-    \item \enquote{multi-platform}/\enquote{multi-device}
-    \item \enquote{platform-independent}/\enquote{device-independent}
+    \item user interface description language/UIDL
+    \item multi-platform/multi-device
+    \item platform-independent/device-independent
 \end{itemize}
 
 \paragraph{RQ 2}
 \todo[inline]{look for an SLR}
 
 \subsubsection{Choice of search engines}
-for the literature review, the following search engines will be used:
+
+The following search engines will be used:
 \begin{itemize}
     \item Scopus\footnote{\url{https://scopus.com}}
     \item IEEE Xplore\footnote{\url{https://ieeexplore.ieee.org}}
@@ -110,19 +86,27 @@ for the literature review, the following search engines will be used:
     \item DBLP\footnote{\url{https://dblp.uni-trier.de/}}
     \item Semantic Scholar\footnote{\url{https://semanticscholar.org}}
 \end{itemize}
+The engines listed are well-accepted in the scientific community and index a wide variety of publications.
 
 \subsubsection{General search strings}
 
+Based on keywords from the previous sections, general search strings are defined.
+They will not be used directly in queries but will provide a basis for engine-specific queries.
+
 \paragraph{RQ 1}
 
-separation of actually three specific parts (and inclusion of the UIDL term):
+The search string (shown in Listing~\ref{lst:general-search-string-rq-1})
+comprises two complementary parts connected by an \texttt{OR} operator.
+The first one is a conjunction of three more specific parts:
 \begin{itemize}
-    \item GUI
-    \item abstraction from a platform/device
-    \item description using a model
+    \item a set of terms relating to graphical user interfaces
+    \item a set of terms describing abstracting from a platform/device
+    \item a set of terms about modelling/describing
 \end{itemize}
+The second part mentions UIDLs directly (the term does not fit neatly into the other part of the string.)
 
 \begin{listing}
+    \caption{The general search string for RQ 1}
     \begin{minted}{text}
 (
     ("graphical user interface" OR "user interface"
@@ -140,22 +124,25 @@ OR
     "UIDL" OR "user interface description language"
 )
     \end{minted}
+    \label{lst:general-search-string-rq-1}
 \end{listing}
-
-the string will be adjusted to each of the search engines' syntax
 
 \paragraph{RQ 2}
 \todo[inline]{specify general search strings}
 
 \subsubsection{Additional search criteria}
 
-additional search criteria, to be used where possible:
+To improve and narrow down the results of the searches, additional criteria are to be used:
 \begin{itemize}
-    \item papers published in and after 2000 \textendash with the emergence of the widely available Web and mobile devices \todo{is the timing correct here?}, the need for portable user interfaces should become apparent in the number of papers;\ while a 20-year span might include now-obsolete solutions, it might be necessary (as shown by the existing UIDL report) to gain a complete picture of the domain
-    \item papers only related to computer science/software engineering/etc.
-    \item papers primarily in English;
-    German or Polish acceptable if need be
+    \item papers ought to be related only to computer science/software engineering/etc.
+    \item papers should be published not earlier than in 2000
+    \item papers should be written in English
 \end{itemize}
+
+The restriction of the publication date is motivated by the emergence of the widely available Web and mobile devices \todo{is the timing correct here?};
+the need for portable user interfaces should become apparent in the number of relevant papers.
+While a 20-year span might include now-obsolete solutions, it might be necessary
+(as exemplified by the previously mentioned UIDL report) to gain a complete picture of the domain.
 
 \subsubsection[Protocol]{Protocol (further steps, executed separately for each RQ)}
 \begin{itemize}
