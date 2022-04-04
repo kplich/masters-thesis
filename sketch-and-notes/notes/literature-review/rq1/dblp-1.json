@@ -1,0 +1,179 @@
+{
+"result":{
+"query":"UIDL*|user* interface* description* language*",
+"status":{
+"@code":"200",
+"text":"OK"
+},
+"time":{
+"@unit":"msecs",
+"text":"2.48"
+},
+"completions":{
+"@total":"2",
+"@computed":"2",
+"@sent":"2",
+"c":[
+{
+"@sc":"15",
+"@dc":"14",
+"@oc":"15",
+"@id":"45060812",
+"text":"language"
+},
+{
+"@sc":"10",
+"@dc":"10",
+"@oc":"10",
+"@id":"45060836",
+"text":"languages"
+}
+]
+},
+"hits":{
+"@total":"23",
+"@computed":"23",
+"@sent":"23",
+"@first":"0",
+"hit":[{
+"@score":"8",
+"@id":"2718652",
+"info":{"authors":{"author":[{"@pid":"11/3468","text":"Eric Barboni"},{"@pid":"14/8695","text":"Célia Martinie"},{"@pid":"90/6738","text":"David Navarre"},{"@pid":"95/1112","text":"Philippe A. Palanque"},{"@pid":"43/410","text":"Marco Winckler"}]},"title":"Bridging the gap between a behavioural formal description technique and a user interface description language - Enhancing ICO with a graphical user interface markup language.","venue":"Sci. Comput. Program.","volume":"86","pages":"3-29","year":"2014","type":"Journal Articles","access":"open","key":"journals/scp/BarboniMNPW14","doi":"10.1016/J.SCICO.2013.04.001","ee":"https://doi.org/10.1016/j.scico.2013.04.001","url":"https://dblp.org/rec/journals/scp/BarboniMNPW14"},
+"url":"URL#2718652"
+},
+{
+"@score":"6",
+"@id":"611461",
+"info":{"authors":{"author":[{"@pid":"268/8727","text":"Alex Moldovan"},{"@pid":"268/8436","text":"Vlad Nicula"},{"@pid":"268/8594","text":"Ionut Pasca"},{"@pid":"04/790","text":"Mihai Popa"},{"@pid":"268/8570","text":"Jaya Krishna Namburu"},{"@pid":"159/4070","text":"Anamaria Oros"},{"@pid":"262/6245","text":"Paul Brie"}]},"title":"OpenUIDL, A User Interface Description Language for Runtime Omni-Channel User Interfaces.","venue":"Proc. ACM Hum. Comput. Interact.","volume":"4","number":"EICS","pages":"86:1-86:52","year":"2020","type":"Journal Articles","access":"closed","key":"journals/pacmhci/MoldovanNPPNOB20","doi":"10.1145/3397874","ee":"https://doi.org/10.1145/3397874","url":"https://dblp.org/rec/journals/pacmhci/MoldovanNPPNOB20"},
+"url":"URL#611461"
+},
+{
+"@score":"6",
+"@id":"3082811",
+"info":{"authors":{"author":[{"@pid":"54/3582","text":"Gerrit Meixner"},{"@pid":"24/9870","text":"Marius Orfgen"},{"@pid":"118/3531","text":"Moritz Kümmerling"}]},"title":"Evaluation of User Interface Description Languages for Model-Based User Interface Development in the German Automotive Industry.","venue":"HCI","pages":"411-420","year":"2013","type":"Conference and Workshop Papers","access":"closed","key":"conf/hci/MeixnerOK13","doi":"10.1007/978-3-642-39232-0_45","ee":"https://doi.org/10.1007/978-3-642-39232-0_45","url":"https://dblp.org/rec/conf/hci/MeixnerOK13"},
+"url":"URL#3082811"
+},
+{
+"@score":"6",
+"@id":"4248747",
+"info":{"authors":{"author":[{"@pid":"01/1662","text":"Orit Shaer"},{"@pid":"j/RobertJKJacob","text":"Robert J. K. Jacob"},{"@pid":"59/5344","text":"Mark Green"},{"@pid":"l/KrisLuyten","text":"Kris Luyten"}]},"title":"User interface description languages for next generation user interfaces.","venue":"CHI Extended Abstracts","pages":"3949-3952","year":"2008","type":"Conference and Workshop Papers","access":"closed","key":"conf/chi/ShaerJGL08","doi":"10.1145/1358628.1358964","ee":"https://doi.org/10.1145/1358628.1358964","url":"https://dblp.org/rec/conf/chi/ShaerJGL08"},
+"url":"URL#4248747"
+},
+{
+"@score":"5",
+"@id":"2718775",
+"info":{"authors":{"author":[{"@pid":"l/VLopezJaquero","text":"Víctor López-Jaquero"},{"@pid":"v/JeanVanderdonckt","text":"Jean Vanderdonckt"}]},"title":"Preface to the special issue on Software Support for User Interface Description Languages (UIDL 2011).","venue":"Sci. Comput. Program.","volume":"86","pages":"1-2","year":"2014","type":"Journal Articles","access":"open","key":"journals/scp/Lopez-JaqueroV14","doi":"10.1016/J.SCICO.2013.10.001","ee":"https://doi.org/10.1016/j.scico.2013.10.001","url":"https://dblp.org/rec/journals/scp/Lopez-JaqueroV14"},
+"url":"URL#2718775"
+},
+{
+"@score":"5",
+"@id":"4192303",
+"info":{"authors":{"author":[{"@pid":"19/4459","text":"James Helms"},{"@pid":"95/5152","text":"Marc Abrams"}]},"title":"Retrospective on UI description languages, based on eight years&apos; experience with the User Interface Markup Language (UIML).","venue":"Int. J. Web Eng. Technol.","volume":"4","number":"2","pages":"138-162","year":"2008","type":"Journal Articles","access":"closed","key":"journals/ijwet/HelmsA08","doi":"10.1504/IJWET.2008.018095","ee":"https://doi.org/10.1504/IJWET.2008.018095","url":"https://dblp.org/rec/journals/ijwet/HelmsA08"},
+"url":"URL#4192303"
+},
+{
+"@score":"4",
+"@id":"720546",
+"info":{"authors":{"author":[{"@pid":"37/4190-58","text":"Yang Li 0058"},{"@pid":"62/2655","text":"Gang Li"},{"@pid":"44/9922","text":"Luheng He"},{"@pid":"168/1910","text":"Jingjie Zheng"},{"@pid":"93/6234","text":"Hong Li"},{"@pid":"81/5354","text":"Zhiwei Guan"}]},"title":"Widget Captioning - Generating Natural Language Description for Mobile User Interface Elements.","venue":"EMNLP","pages":"5495-5510","year":"2020","type":"Conference and Workshop Papers","access":"open","key":"conf/emnlp/LiLHZLG20","doi":"10.18653/V1/2020.EMNLP-MAIN.443","ee":"https://doi.org/10.18653/v1/2020.emnlp-main.443","url":"https://dblp.org/rec/conf/emnlp/LiLHZLG20"},
+"url":"URL#720546"
+},
+{
+"@score":"4",
+"@id":"893346",
+"info":{"authors":{"author":[{"@pid":"37/4190-58","text":"Yang Li 0058"},{"@pid":"62/2655","text":"Gang Li"},{"@pid":"44/9922","text":"Luheng He"},{"@pid":"168/1910","text":"Jingjie Zheng"},{"@pid":"93/6234","text":"Hong Li"},{"@pid":"81/5354","text":"Zhiwei Guan"}]},"title":"Widget Captioning - Generating Natural Language Description for Mobile User Interface Elements.","venue":"CoRR","volume":"abs/2010.04295","year":"2020","type":"Informal Publications","access":"open","key":"journals/corr/abs-2010-04295","ee":"https://arxiv.org/abs/2010.04295","url":"https://dblp.org/rec/journals/corr/abs-2010-04295"},
+"url":"URL#893346"
+},
+{
+"@score":"4",
+"@id":"2771883",
+"info":{"authors":{"author":[{"@pid":"20/5153","text":"Reyes Juárez-Ramírez"},{"@pid":"122/2233","text":"Carlos Huertas"},{"@pid":"122/2165","text":"Sergio Inzunza"}]},"title":"Automated Generation of User-Interface Prototypes Based on Controlled Natural Language Description.","venue":"COMPSAC Workshops","pages":"246-251","year":"2014","type":"Conference and Workshop Papers","access":"closed","key":"conf/compsac/Juarez-RamirezHI14","doi":"10.1109/COMPSACW.2014.44","ee":"https://doi.org/10.1109/COMPSACW.2014.44","url":"https://dblp.org/rec/conf/compsac/Juarez-RamirezHI14"},
+"url":"URL#2771883"
+},
+{
+"@score":"4",
+"@id":"3336125",
+"info":{"authors":{"author":[{"@pid":"93/10256","text":"Michael Tschernuth"},{"@pid":"11/10257","text":"Michael Lettner"},{"@pid":"34/4020","text":"Rene Mayrhofer"}]},"title":"Unify localization using user interface description languages and a navigation context-aware translation tool.","venue":"EICS","pages":"179-188","year":"2012","type":"Conference and Workshop Papers","access":"closed","key":"conf/eics/TschernuthLM12","doi":"10.1145/2305484.2305514","ee":"https://doi.org/10.1145/2305484.2305514","url":"https://dblp.org/rec/conf/eics/TschernuthLM12"},
+"url":"URL#3336125"
+},
+{
+"@score":"4",
+"@id":"3583545",
+"info":{"authors":{"author":[{"@pid":"214/2669","text":"Bassel F. Saab"},{"@pid":"41/2261","text":"Mohamed S. Hajji"}]},"title":"Toward a Standardized XMAN Presentation Layer with Consideration of User Interface Description Languages.","venue":"DeSE","pages":"570-575","year":"2011","type":"Conference and Workshop Papers","access":"closed","key":"conf/dese/SaabH11","doi":"10.1109/DESE.2011.66","ee":"http://doi.ieeecomputersociety.org/10.1109/DeSE.2011.66","url":"https://dblp.org/rec/conf/dese/SaabH11"},
+"url":"URL#3583545"
+},
+{
+"@score":"4",
+"@id":"3637002",
+"info":{"authors":{"author":[{"@pid":"75/2847","text":"Adrien Coyette"},{"@pid":"18/5442","text":"David Faure"},{"@pid":"58/1594","text":"Juan Manuel González-Calleros"},{"@pid":"v/JeanVanderdonckt","text":"Jean Vanderdonckt"}]},"title":"Software Support for User Interface Description Language.","venue":"INTERACT","pages":"740-741","year":"2011","type":"Conference and Workshop Papers","access":"open","key":"conf/interact/CoyetteFGV11","doi":"10.1007/978-3-642-23768-3_142","ee":"https://doi.org/10.1007/978-3-642-23768-3_142","url":"https://dblp.org/rec/conf/interact/CoyetteFGV11"},
+"url":"URL#3637002"
+},
+{
+"@score":"4",
+"@id":"3760922",
+"info":{"authors":{"author":[{"@pid":"75/2615","text":"Bruno Dumas"},{"@pid":"04/4239","text":"Denis Lalanne"},{"@pid":"18/2679","text":"Rolf Ingold"}]},"title":"Description languages for multimodal interaction - a set of guidelines and its illustration with SMUIML.","venue":"J. Multimodal User Interfaces","volume":"3","number":"3","pages":"237-247","year":"2010","type":"Journal Articles","access":"closed","key":"journals/jmui/DumasLI10","doi":"10.1007/S12193-010-0043-3","ee":"https://doi.org/10.1007/s12193-010-0043-3","url":"https://dblp.org/rec/journals/jmui/DumasLI10"},
+"url":"URL#3760922"
+},
+{
+"@score":"4",
+"@id":"4012352",
+"info":{"authors":{"author":[{"@pid":"59/3064","text":"Jeffrey Nichols"},{"@pid":"54/1970","text":"Brad A. Myers"}]},"title":"Creating a lightweight user interface description language - An overview and analysis of the personal universal controller project.","venue":"ACM Trans. Comput. Hum. Interact.","volume":"16","number":"4","pages":"17:1-17:37","year":"2009","type":"Journal Articles","access":"closed","key":"journals/tochi/NicholsM09","doi":"10.1145/1614390.1614392","ee":"https://doi.org/10.1145/1614390.1614392","url":"https://dblp.org/rec/journals/tochi/NicholsM09"},
+"url":"URL#4012352"
+},
+{
+"@score":"4",
+"@id":"4104185",
+"info":{"authors":{"author":[{"@pid":"77/3392","text":"Josefina Guerrero García"},{"@pid":"58/1594","text":"Juan Manuel González-Calleros"},{"@pid":"v/JeanVanderdonckt","text":"Jean Vanderdonckt"},{"@pid":"91/2708","text":"Jaime Muñoz Arteaga"}]},"title":"A Theoretical Survey of User Interface Description Languages - Preliminary Results.","venue":"LA-WEB/CLIHC","pages":"36-43","year":"2009","type":"Conference and Workshop Papers","access":"closed","key":"conf/la-web/GarciaCVA09","doi":"10.1109/LA-WEB.2009.40","ee":"https://doi.org/10.1109/LA-WEB.2009.40","url":"https://dblp.org/rec/conf/la-web/GarciaCVA09"},
+"url":"URL#4104185"
+},
+{
+"@score":"4",
+"@id":"4702692",
+"info":{"authors":{"author":[{"@pid":"80/4339","text":"Wolfgang Broll"},{"@pid":"88/3558","text":"Irma Lindt"},{"@pid":"32/5842","text":"Michael Wittkämper"}]},"title":"Mixed reality user interface description language.","venue":"SIGGRAPH Research Posters","pages":"156","year":"2006","type":"Conference and Workshop Papers","access":"closed","key":"conf/siggraph/BrollLW06","doi":"10.1145/1179622.1179802","ee":"https://doi.org/10.1145/1179622.1179802","url":"https://dblp.org/rec/conf/siggraph/BrollLW06"},
+"url":"URL#4702692"
+},
+{
+"@score":"4",
+"@id":"4705366",
+"info":{"authors":{"author":[{"@pid":"42/7573","text":"Takuto Yanagida"},{"@pid":"01/1717","text":"Hidetoshi Nonaka"},{"@pid":"09/4875","text":"Masahito Kurihara"}]},"title":"User-Preferred Interface Design with Abstract Interaction Description Language.","venue":"SMC","pages":"2458-2463","year":"2006","type":"Conference and Workshop Papers","access":"closed","key":"conf/smc/YanagidaNK06","doi":"10.1109/ICSMC.2006.385232","ee":"https://doi.org/10.1109/ICSMC.2006.385232","url":"https://dblp.org/rec/conf/smc/YanagidaNK06"},
+"url":"URL#4705366"
+},
+{
+"@score":"4",
+"@id":"4953486",
+"info":{"authors":{"author":[{"@pid":"72/3980","text":"Manuel-Jesús Prieto"},{"@pid":"s/MiguelAngelSicilia","text":"Miguel-Ángel Sicilia"},{"@pid":"33/4309","text":"David Palomar"}]},"title":"Extending user interface description languages for personalization on heterogeneous devices.","venue":"ICWI","pages":"961-964","year":"2004","type":"Conference and Workshop Papers","access":"unavailable","key":"conf/iadis/PrietoSP04","url":"https://dblp.org/rec/conf/iadis/PrietoSP04"},
+"url":"URL#4953486"
+},
+{
+"@score":"4",
+"@id":"4968269",
+"info":{"authors":{"author":[{"@pid":"11/3405","text":"Quentin Limbourg"},{"@pid":"v/JeanVanderdonckt","text":"Jean Vanderdonckt"}]},"title":"USIXML - A User Interface Description Language Supporting Multiple Levels of Independence.","venue":"ICWE Workshops","pages":"325-338","year":"2004","type":"Conference and Workshop Papers","access":"unavailable","key":"conf/icwe/LimbourgV04","url":"https://dblp.org/rec/conf/icwe/LimbourgV04"},
+"url":"URL#4968269"
+},
+{
+"@score":"4",
+"@id":"5005344",
+"info":{"authors":{"author":[{"@pid":"80/3244","text":"Edoardo Ardizzone"},{"@pid":"50/4351","text":"Vincenzo Cannella"},{"@pid":"77/4301","text":"Daniele Peri"},{"@pid":"37/3879","text":"Roberto Pirrone"}]},"title":"Automatic Generation of User Interface unisng the Set Description Language.","venue":"WSCG","pages":"209-212","year":"2004","type":"Conference and Workshop Papers","access":"unavailable","key":"conf/wscg/ArdizzoneCPP04","url":"https://dblp.org/rec/conf/wscg/ArdizzoneCPP04"},
+"url":"URL#5005344"
+},
+{
+"@score":"4",
+"@id":"5071628",
+"info":{"authors":{"author":[{"@pid":"73/6012","text":"Nathalie Souchon"},{"@pid":"v/JeanVanderdonckt","text":"Jean Vanderdonckt"}]},"title":"A Review of XML-compliant User Interface Description Languages.","venue":"DSV-IS","pages":"377-391","year":"2003","type":"Conference and Workshop Papers","access":"closed","key":"conf/dsvis/SouchonV03","doi":"10.1007/978-3-540-39929-2_26","ee":"https://doi.org/10.1007/978-3-540-39929-2_26","url":"https://dblp.org/rec/conf/dsvis/SouchonV03"},
+"url":"URL#5071628"
+},
+{
+"@score":"4",
+"@id":"5108081",
+"info":{"authors":{"author":[{"@pid":"79/2041","text":"Giuseppe Avellino"},{"@pid":"92/1512","text":"Stefano Beco"},{"@pid":"123/5154","text":"Fabrizio Pacini"},{"@pid":"38/5533","text":"Alessandro Maraschini"},{"@pid":"41/4765","text":"Annalisa Terracina"}]},"title":"Job Description Language and User Interface in a Grid context - The EU DataGrid experience.","venue":"PARCO","pages":"635-642","year":"2003","type":"Conference and Workshop Papers","access":"unavailable","key":"conf/parco/AvellinoBPMT03","url":"https://dblp.org/rec/conf/parco/AvellinoBPMT03"},
+"url":"URL#5108081"
+},
+{
+"@score":"4",
+"@id":"5266795",
+"info":{"authors":{"author":[{"@pid":"l/KrisLuyten","text":"Kris Luyten"},{"@pid":"16/1276","text":"Karin Coninx"}]},"title":"An XML-Based Runtime User Interface Description Language for Mobile Computing Devices.","venue":"DSV-IS","pages":"1-15","year":"2001","type":"Conference and Workshop Papers","access":"closed","key":"conf/dsvis/LuytenC01","doi":"10.1007/3-540-45522-1_1","ee":"https://doi.org/10.1007/3-540-45522-1_1","url":"https://dblp.org/rec/conf/dsvis/LuytenC01"},
+"url":"URL#5266795"
+}
+]
+}
+}
+}
