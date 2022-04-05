@@ -1,14 +1,6 @@
 \subsection[Planning and preparation]{Planning and preparation for review}\label{subsec:planning-and-preparation-for-review}
 
-This section describes all measures undertaken before the proper review:
-\begin{itemize}
-    \item formulation of research questions
-    \item definition of search keywords
-    \item justifying a review
-    \item formulation of search strings
-    \item choice of search engines
-    \item description of the review protocol
-\end{itemize}
+This section describes measures undertaken in preparation for the search of relevant literature and its review \textendash\ including formulation of research questions and search strings.
 
 \subsubsection{Research questions}
 
@@ -23,6 +15,27 @@ What methods are used?
 What are their results, strengths, and limitations?
 What initial and final representations do these methods use?
 
+\subsubsection[Justification]{Justification for the review}
+
+This review aims to \textbf{describe the state of the art} in the field, point out its gaps, and \textbf{demonstrate possible solutions} that can be used to address the thesis problem.
+To provide background for the literature review, existing reviews
+relevant to previously formulated research questions are discussed below.
+
+\paragraph{RQ 1}
+Based on the keywords above, no systematic review of the topic has been found (as of 4.02.2022.)
+Vanderdonckt et al.\ performed several~\cite{souchon_review_2003,guerrero_garcia_theoretical_2009,guerrero_garcia_theoretical_2011}
+semi-formal reviews of \emph{user interface description languages} (UIDLs) over the years.
+The authors describe the criteria of evaluation and description of UIDLs but document them rather scantly.
+Although they claim to attempt to describe a UI for a simple application, no code or UI examples are provided.
+Moreover, the last review seems to have been published in 2010 \textendash\ more than 10 years from now;
+this justifies another review that would take into account more recent developments within the domain.
+13 papers referenced in the three reviews mentioned are going to be included in the following review
+\emph{before} the second screening for inclusion (based on introductions and conclusions);
+they might serve as a benchmark for its effectiveness (they should also show up in the results of the primary search).
+
+\paragraph{RQ 2}
+\todo[inline]{look for an SLR}
+
 \subsubsection{Keywords}
 The keywords have been extracted from the proposed research questions
 and have been supplemented with their synonyms or related terms.
@@ -32,6 +45,8 @@ and have been supplemented with their synonyms or related terms.
 \begin{itemize}
     \item \textbf{graphical user interface}/user interface/graphical interface/GUI/UI
     \item \textbf{modelling}/(meta-)model/representation/(modelling) language/specification
+    \item \textbf{multi-platform}/multi-device/platform-independent/device-independent
+    \item \textbf{user interface description language}/UIDL
 \end{itemize}
 
 \paragraph{RQ 2}
@@ -42,38 +57,6 @@ and have been supplemented with their synonyms or related terms.
     \item \textbf{convert(-sion)}/transform(ation)/rewrite(-ing)/recreate(-ing/-ion)/generate(-ing/-ion)
     \item \textbf{representation}/code
 \end{itemize}
-
-\subsubsection[Justification]{Justification for the review}
-
-The goal of this review is to:
-\begin{itemize}
-    \item describe the state of the art in the field
-    \item point out gaps in the body of knowledge
-    \item inform the architecture/techniques utilised in the method
-    \item discuss any existing reviews (and how they justify or preclude another review)
-\end{itemize}
-
-\paragraph{RQ 1}
-Based on the keywords above, no systematic review of the topic has been found (as of 4.02.2022.)
-Vanderdonckt et al.\ performed several~\cite{souchon_review_2003,guerrero_garcia_theoretical_2009,guerrero_garcia_theoretical_2011}
-semi-formal reviews of \emph{user interface description languages} (UIDLs) over the years.
-The authors describe the criteria of evaluation and description of UIDLs but document them rather scantly.
-Although they claim to attempt to describe a UI for a simple application, no code or UI examples are provided.
-Moreover, the last review seems to have been published in 2010 \textendash that is more than 10 years from now;
-this justifies another review that takes into account more recent developments within the domain.
-13 papers referenced in the three reviews mentioned are going to be included in the following review
-\emph{before} the second screening of inclusion (based on introductions and conclusions);
-they might serve as a benchmark for its effectiveness (they should also show up in the results of the primary search).
-
-Additionally, the reviews helped identify additional keywords/terms not defined previously:
-\begin{itemize}
-    \item user interface description language/UIDL
-    \item multi-platform/multi-device
-    \item platform-independent/device-independent
-\end{itemize}
-
-\paragraph{RQ 2}
-\todo[inline]{look for an SLR}
 
 \subsubsection{Choice of search engines}
 
@@ -139,21 +122,7 @@ To improve and narrow down the results of the searches, additional criteria are 
     \item papers should be written in English
 \end{itemize}
 
-The restriction of the publication date is motivated by the emergence of the widely available Web and mobile devices \todo{is the timing correct here?};
+The restriction of the publication date is\todo{is the timing correct here?} motivated by the emergence of the widely available Web and mobile devices;
 the need for portable user interfaces should become apparent in the number of relevant papers.
 While a 20-year span might include now-obsolete solutions, it might be necessary
 (as exemplified by the previously mentioned UIDL report) to gain a complete picture of the domain.
-
-\subsubsection[Protocol]{Protocol (further steps, executed separately for each RQ)}
-\begin{itemize}
-    \item perform searches (adjust the search strings for each database)
-    \item document search results (search base, search date, number of items, exact search string)
-    \item refine search strings, if the need arises
-    \item first screening for inclusion;\ based on titles and abstracts, introductions and conclusions
-    \item possible exclusion criteria:
-    \item paper not relevant enough
-    \item paper too vague
-    \item document any other criteria/reasons for exclusion
-    \item second screening for inclusion based on full text
-    \item data extraction and analysis (specify more thoroughly later?)
-\end{itemize}
