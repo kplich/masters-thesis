@@ -3,38 +3,37 @@
 \paragraph{Searches and initial screening}
 
 \begin{table}[]
-    \begin{threeparttable}[b]
-        \centering
-        \caption{Criteria used in chosen search engines}
-        \begin{tabular}{rllll}
-            \toprule
-            \multicolumn{1}{l}{\textbf{Search engine}} & \textbf{Search area}        & \textbf{Years} & \textbf{Subject area} & \textbf{Languages} \\
-            \midrule
-            Scopus                                     & titles, abstracts, keywords & 2000--2022     & computer science      & English            \\
-            IEEE                                       & all metadata\tnote{1}       & 2000--2022     & ---                   & ---                \\
-            ACM                                        & titles                      & 2000--2022     & ---                   & ---                \\
-            SpringerLink                               & titles                      & 2000--2022     & ---                   & ---                \\
-            Semantic Scholar                           & ---                         & 2000--2022     & computer science      & ---                \\
-            DBLP                                       & ---                         & ---            & ---                   & ---                \\
-            \bottomrule
-            \label{tab:search-criteria-used}
-        \end{tabular}
-        \begin{tablenotes}
-            \item [1] \url{https://ieeexplore.ieee.org/Xplorehelp/searching-ieee-xplore/command-search#summary-of-data-fields}
-        \end{tablenotes}
-    \end{threeparttable}
+    \centering
+    \caption{Criteria used in chosen search engines}
+    \begin{tabular}{rllll}
+        \toprule
+        \multicolumn{1}{l}{\textbf{Search engine}} & \textbf{Search area}        & \textbf{Years} & \textbf{Subject area} & \textbf{Languages} \\
+        \midrule
+        Scopus                                     & titles, abstracts, keywords & 2000--2022     & computer science      & English            \\
+        IEEE Xplore                                & all metadata                & 2000--2022     & ---                   & ---                \\
+        ACM                                        & titles, abstracts           & 2000--2022     & ---                   & ---                \\
+        SpringerLink                               & titles                      & 2000--2022     & ---                   & ---                \\
+        Semantic Scholar                           & ---                         & 2000--2022     & computer science      & ---                \\
+        DBLP                                       & ---                         & ---            & ---                   & ---                \\
+        \bottomrule
+        \label{tab:search-criteria-used}
+    \end{tabular}
 \end{table}
 
 Exact search criteria used in each of the engines are shown in Table~\ref{tab:search-criteria-used}.
 For most databases, the searches were executed using the previously formulated search string with adaptations particular to the database's search engine.
 Two exceptions were Semantic Scholar and DBLP: in their cases, the search engine did not have enough support for complex combinations of terms.
-To make up for this shortcoming, two searches queries were used for these engines: \verb|user interface description language| and \verb|abstract user interface description|.
+To make up for this shortcoming, two searches queries were used for these engines: \texttt{user interface description language} and \texttt{abstract user interface description}.
 Both of them match the original search query and should be viewed as a subset of all queries that could be created from the combinations of terms used.
 Executing searches with more term combinations was deemed unpractical due to required effort and possible results.
 
-Due to limitations of the search engines, the searches were often limited in area, considering either only document titles or all metadata;
-only Scopus provides the most sensible option of searching solely in titles, abstracts and keywords.
-The search area was adjusted as to give a sensible and manageable number of results (some queries returned tens of thousands of items -- a number impossible to work with.)
+To find as many relevant literature items as possible, engines' capabilities for narrowing the search area were used.
+Scopus provided the most sensible option of searching within titles, abstracts and keywords out of the box.
+IEEE provided a similar \emph{all metadata}\footnote{\url{https://ieeexplore.ieee.org/Xplorehelp/searching-ieee-xplore/command-search\#summary-of-data-fields}} option, including \enquote{abstract, title text, and indexing terms}.
+ACM's search engine required manual crafting of a query searching within titles and abstracts;
+there's no possibility of searching by index terms/keywords.
+SpringerLink database only allows narrowing the search to the title area (it was necessary as full-text search returned tens of thousands of results.)
+The rest of the engines did not allow any narrowing of search results.
 
 \begin{table}[]
     \begin{threeparttable}[b]
@@ -48,26 +47,25 @@ The search area was adjusted as to give a sensible and manageable number of resu
             IEEE                                                & 17.03.2022                               & 261                                         & 24                                                               \\
             ACM                                                 & 20.03.2022                               & 178                                         & 18                                                               \\
             SpringerLink                                        & 21.03.2022                               & 293                                         & 17                                                               \\
-            \multirow{2}{*}{Semantic Scholar\tnote{1}}          & \multirow{2}{*}{26.03.2022}              & 36\ 600\tnote{2}                       & \multirow{2}{*}{28}                                              \\
-                                                                &                                          & 17\ 600\tnote{3}                       &                                                                  \\
-            \multirow{2}{*}{DBLP}                               & \multirow{2}{*}{30.03.2022}              & 23\tnote{2}                                 & \multirow{2}{*}{10}                                              \\
-                                                                &                                          & 4\tnote{3}                                  &                                                                  \\
+            \multirow{2}{*}{Semantic Scholar}                   & \multirow{2}{*}{26.03.2022}              & 36\ 600 (100)\tnote{1}                       & \multirow{2}{*}{28}                                              \\
+                                                                &                                          & 17\ 600 (100)\tnote{2}                       &                                                                  \\
+            \multirow{2}{*}{DBLP}                               & \multirow{2}{*}{30.03.2022}              & 23\tnote{1}                                 & \multirow{2}{*}{10}                                              \\
+                                                                &                                          & 4\tnote{2}                                  &                                                                  \\
             \midrule
             \multicolumn{3}{r}{\textbf{Total}} & 119 \\
             \bottomrule
             \label{tab:results-first-stage-review-rq-1}
         \end{tabular}
         \begin{tablenotes}
-            \item [1] Only the first 10 pages of \emph{most relevant} documents were considered.
-            \item [2] Number of results for query\ \verb|user interface description language|.
-            \item [3] Number of results for query\ \verb|abstract user interface description|.
+            \item [1] Number of results for query \texttt{user interface description language}.
+            \item [2] Number of results for query \texttt{abstract user interface description}.
         \end{tablenotes}
     \end{threeparttable}
 \end{table}
 
 The results of the search are presented in Table~\ref{tab:results-first-stage-review-rq-1}.
 Excepting searches using Semantic Scholar, all results have been taken into consideration during the first screening.
-As these searches returned too many results, only 10 pages of \emph{most relevant} documents (100 in total) were scanned for papers.
+As they returned too many results, only 10 pages of \emph{most relevant}\footnote{\url{https://www.semanticscholar.org/faq\#ranking-function}} documents (100 in total) were scanned for papers.
 
 After concluding the searches, all the documents were compiled together in a single list.
-Exclusion of duplicates and unavailable papers resulted in a collection of 119 items eligible for the second screening for inclusion.
+Inclusion of papers referenced in the previously mentioned reviews, as well as exclusion of duplicate and unavailable papers resulted in a collection of 119 items eligible for the second screening for inclusion.
