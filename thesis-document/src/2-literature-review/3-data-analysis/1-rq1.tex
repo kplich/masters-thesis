@@ -1,3 +1,352 @@
 \subsubsection{RQ 1}\label{subsubsec:rq-1}
 
-\todo[inline]{Results of analysis of papers for RQ 1}
+the papers have been carefully reviewed and compared.
+sometimes additional papers related to the original ones have also been reviewed for completeness.
+
+analysis of the selected contribution shows that there are three or four types of approaches to modelling and describing UIs: UML meta-models, domain-specific languages (DSLs), typical UIDLs and ontologies.
+\todo{maybe this section would better belong to the summary of this review?}UML meta-models and languages are closely related \textemdash\ it's often the case (e.g.\ as in~\cite{Karu2013-po} or~\cite{moldovan2020open}) that a language is defined on the basis of a UML meta-model.
+the difference between a domain-specific language and a UIDL also need not be too clear \textemdash\ in the end, both are formal, textual representations of a model;
+what could be used as a distinguishing feature is the friendliness of syntax and goals of the language: DSLs in general tend to have a narrower focus and syntax that's more familiar to domain experts;
+classic UIDLs, on the other hand, aim for completeness and technical proficiency.
+
+\paragraph{The Cameleon Framework}
+before presenting the criteria for evaluation, an important development in the field of model-based UI development in the form of the Cameleon Reference Framework~\cite{calvary_cameleon_framework_2002} ought to be presented.
+
+The framework defines and formalizes the software development aspects of multi-target UIs (for multiple types of users, platforms and environments) and provides (as the name suggests) a reference for evaluation of tools and approaches in the area of MBUID\@.
+
+for the purpose of this analysis, the main takeaway is that the framework recommends modelling the UIs in four stages, ordered from the most to the least abstract:
+\begin{itemize}
+    \item tasks and concepts (T+C) \textemdash\ analysis of the interface on the functional and conceptual level, no or little thought given to specifics of the interaction
+    \begin{itemize}
+        \item task: A goal, together with some procedure or set of actions that will achieve the goal~\cite{calvary_cameleon_glossary_2002}.
+        \item concept: anything relevant to the user that helps them accomplish tasks in the domain
+    \end{itemize}
+    \item abstract UI (AUI) \textemdash\ a definition that introduces a certain structure to the interaction, but doesn't make assumptions about its modality (there might be talk of \enquote{multiple selection} but it's not yet known whether it'll be realized through voice, telephone keyboard or a touchscreen)
+    \item concrete UI (CUI) \textemdash\ in this stage, the modality and the \enquote{look and feel} of the UI are known and the specification is only technology-independent;
+    e.g.\ the definition assumes a WIMP UI and specifies a text input \textemdash\ however, it's not yet decided, what technology (C++ with Qt, Java with Swing/JavaFX or HTML with JS) will be used to realize it
+    \item final UI (FUI) \textemdash\ simply the final product in a particular technology that can be executed
+\end{itemize}
+
+models can be transformed between stages in relationships of abstraction and reification.
+e.g.\ the abstract UI stage abstracts the \enquote{lower} CUI stage \textemdash\ the modality-specific information is lost (can't be expressed in the more abstract stage).
+conversely, the AUI stage reifies the T+C model by adding more information about the structure of the UI\@.
+a relationship of translation of models in the same stage (e.g.\ AUIs for different modalities) completes this part of the framework.
+
+\paragraph{Evaluation criteria}
+
+the following set of criteria is a result of comparing the selected papers.
+while it might not the most comprehensive, it should suffice to succinctly summarize the features of each language and highlight the differences between them.
+when the approach doesn't have any support for a certain area, then the evaluation ends with an \emph{unknown} result.
+to aid readability of tables, each criterion has been abbreviated to a single letter that represents it.
+
+\todo[inline]{unknown vs none \textemdash\ what would be the difference?}
+
+\subparagraph{Comprehensiveness (Compr)}
+this criterion evaluates how broad the approach is \textemdash\ that is, what's the most abstract modelling stage (according to the Cameleon framework) it supports.
+unless specified otherwise, an indication means that the approach supports all levels below
+
+\subparagraph{Expressiveness (Expr)}
+this criterion expresses an \textbf{informal and subjective} judgement of the range of \textbf{concrete UI controls} that the approach supports.
+the evaluation could have three results:
+\begin{itemize}
+    \item low \textemdash\ means that the approach would only support a set of essential controls, such as buttons, input fields and links.
+    \item medium \textemdash\ means that the approach expands its support also to support a more extensive set of controls (e.g.\ selects, different input types, media elements, etc.)
+    \item high \textemdash\ means that the approach supports more complex controls that could be realized as a composition of more simple controls, such as tab containers, layout containers, decorative separators, progress indicators, etc.
+\end{itemize}
+
+\subparagraph{Support for logic (Logic)}
+this criterion communicates to what extent does the approach allow a developer specify the behavior of the components/whole interface.
+it can be
+\begin{itemize}
+    \item support for internal logic \textemdash\ internal state of the UI and its transitions
+    \item support for external logic \textemdash\ connection with the function application core
+\end{itemize}
+Support for internal logic encompasses inclusion of such mechanisms as component state/data binding, events/triggers, actions, expressions/conditions, or even scripting.
+support for external logic can be realized through including the description of business services or functional core methods in the specifications of presentation components;
+although the border between the internal and the external logic need not be clear (the external logic needs to be called from somewhere within the UI) and the whole criterion could be viewed as a spectrum, it's relatively useful to judge the approaches from both ends in this regard.
+
+\subparagraph{Code generation (Gen)}
+generation of software is the ultimate promise and goal of model-based development.
+therefore, it's important for a modelling approach to support transforming a model into as functional of an app as possible.
+this criterion evaluates what technologies does the approach support.
+most supported technologies include:
+\begin{itemize}
+    \item desktop applications (native widget toolkits, such as Qt with C++ or Swing with Java)
+    \item HTML (plain documents, possibly with embedded JavaScript)
+    \item single-page applications (SPAs) (frameworks such as Angular, React or Vue)
+    \item legacy mobile applications (apps for PDAs, utilizing WAP, Java ME, etc.)
+    \item smartphone apps (for Android phones or iPhones)
+    \item terminal apps
+    \item others (including voice-enabled and conversational apps)
+\end{itemize}
+
+\subparagraph{Developer support (Supp)}
+in modern development practice, a technology is only a part of what is often called a \enquote{developer experience} \textemdash\ for efficient work, adequate tooling supporting a language/model is a necessity.
+this criterion talks about the support for the approach outside of the language definition.
+the review found two ways of supporting development: providing of a dedicated development environment and definition of a development process using the modelling approach.
+
+\subparagraph{Availability (Avail)}
+the specification and documentation of the language (in a human- or machine-readable form) must be available when one wants to utilize it.
+this criterion judges the extent to which it's possible to access these resources.
+an important factor for the availability and sustainable development is also, whether the approach is a commercial or a non-profit (usually academic) contribution \textemdash\ commercial approaches may be viewed as more volatile and less reliable than open ones.
+most languages have been found to be unavailable to the broader public.
+sometimes, they're mentioned outside of scientific literature and only rarely their full specification is available to everyone.
+
+\paragraph{Approaches based on UML}
+
+only two papers have been found.
+
+one models layout elements using UML classes~\cite{Blankenhorn2004-og}.
+an interesting thing to point out is that it uses UML Diagram Interchange specification (i.e.~how are classes positioned/colored/etc.) to convey spatial relationships between them.
+however, the approach isn't too advanced \textemdash\ it only supports a basic set of graphical UIs controls: forms, links images and text.
+support for logic is limited to modelling navigation between the elements.
+apart from possibility of transforming the model into a description in another UIDL, there's little mention of any mechanism for generating code from the model
+
+the other meta-model is used in a broader approach (called MANTRA) for designing multiple interfaces for a single application core~\cite{Botterweck2011-ra}.
+thus, work displays a higher level of maturity: in four steps, an abstract UI models is gradually adapted and transformed into a final UI.
+the examples described demonstrate that the approach supports a standard set of controls in web, desktop and pre-smartphone mobile apps.
+
+\subparagraph{Summary}
+
+\begin{table}[]
+    \centering
+    \begin{threeparttable}[b]
+        \caption{Summary of the UML meta-models reviewed.}
+        \label{tab:uml-meta-models}
+        \renewcommand{\tabularxcolumn}[1]{>{\normalsize}m{#1}}
+        \newcolumntype{C}{>{\centering\arraybackslash}X}
+        \begin{tabularx}{0.8\textwidth}[b]{lrCC}
+            % @formatter:off
+            \toprule
+            \multicolumn{2}{r}{}                               & \textbf{Blankenhorn (2004)}~\cite{Blankenhorn2004-og} & \textbf{Botterweck (2011)}~\cite{Botterweck2011-ra}  \\ \midrule
+            \multicolumn{2}{l}{\textbf{Compr}}                 & CUI                                                   & AUI                                                  \\
+            \multicolumn{2}{l}{\textbf{Expr}}                  & low                                                   & medium/high                                          \\
+            \multirow{2}{*}{\textbf{Logic}}    & int           & navigation                                            & navigation, events                                   \\
+                                               & ext           & none                                                  & integration~with~WSDL                                \\
+            \multicolumn{2}{l}{\textbf{Gen}}                   & none                                                  & desktop, HTML, mobile~(legacy)                       \\
+            \multirow{2}{*}{\textbf{Supp}}    & tool\tnote{1}  & none                                                  & none                                                 \\
+                                               & proc          & none                                                  & a 4-step process for developing a line of UIs        \\
+            \multicolumn{2}{l}{\textbf{Avail}}                 & unknown                                               & unknown                                              \\
+            \bottomrule
+            % @formatter:on
+        \end{tabularx}
+        \begin{tablenotes}
+            \item [1] Not applicable \textemdash\ tooling for UML models is assumed to be widely available.
+            \item [2] Not enough information to decide.
+        \end{tablenotes}
+    \end{threeparttable}
+\end{table}
+
+the table~\ref{tab:uml-meta-models} summarizes the findings about the two approaches.
+an upside of using UML is that (once available) such meta-models are easy to work with (and \textemdash\ g.~extend) \textemdash\ there's wide tooling support available for editing and transforming UML meta-models.
+unfortunately, none of the models presented in the works don't seem to be available anywhere
+additionally, UML (and model-based development in general) isn't that widely adopted.
+
+\paragraph{Declarative approaches}
+
+there were three papers found describing what could be named a declarative approach \textemdash\ one that provides a user with a DSL that can then be used to render a UI.
+
+approach presented by Hanus and Kluß~\cite{Hanus2008-hm} is implemented in a programming language Curry.
+it can be used for implementation of UIs when paired with a generation library (e.g.\ for desktop or HTML UIs)
+the library only supports a modest set of concrete (graphical) UI controls.
+however, what's noteworthy, it's freely available\footnote{\url{https://git.ps.informatik.uni-kiel.de/curry-packages/ui}} (at the time of writing, 2022-11-22) and open-source.
+
+Karu~\cite{Karu2013-po} proposed a DSL for abstract modelling of UIs supported by a UML meta-model.
+it could be argued it supports modelling even at the most abstract T+C level through abstract specification of use cases and interactions integrated with business services (although there's no explicit modelling for concepts)
+a noteworthy feature is the descriptiveness and readability of the language.
+these features come at a cost of expressiveness \textemdash\ the demonstration only shows most basic of UI controls.
+then, the author claims to have generated UIs in multiple modalities from the description;
+unfortunately, neither those, nor the language aren't available.
+
+Quid is a project presented by Molina~\cite{molina2019quid} and backed by a company.
+as such, the entry is publicly available\footnote{\url{https://quid.metadev.pro/}} (at the time of writing), together with an editor, though it's closed-source.
+the contribution is a language for specifying web components.
+one of the most modern developments, supports code generation for multiple SPA frameworks (Angular, React, etc.)
+the syntax of the language is also rather minimal which aids cleanness and readability.
+unfortunately, it also doesn't support to broad of a set of concrete UI controls.
+
+\subparagraph{Summary}
+
+\begin{table}[]
+    \centering
+    \caption{Summary of the declarative approaches reviewed.}
+    \label{tab:declarative-approaches-review}
+    \renewcommand{\tabularxcolumn}[1]{>{\normalsize}m{#1}}
+    \newcolumntype{C}{>{\centering\arraybackslash}X}
+    \begin{tabularx}{\textwidth}{lrCCC}
+        % @formatter:off
+        \toprule
+        \multicolumn{2}{r}{}                      & \textbf{Hanus (2009)}~\cite{Hanus2008-hm}         & \textbf{Karu (2013)}~\cite{Karu2013-po} & \textbf{Quid (2019)}~\cite{molina2019quid}   \\ \midrule
+        \multicolumn{2}{l}{\textbf{Compr}}        & CUI                                               & AUI                                     & CUI                                          \\
+        \multicolumn{2}{l}{\textbf{Expr}}         & low/medium                                        & low (probably)                          & low/medium                                   \\
+        \multirow{2}{*}{\textbf{Logic}}    & int  & state, data binding, expressions, events, scripts & events, navigation                      & state, events, scripts                       \\
+                                           & ext  & programming language capabilities                 & references to business services         & none                                         \\
+        \multicolumn{2}{l}{\textbf{Gen}}          & desktop, HTML                                     & desktop, HTML, others                   & SPA                                          \\
+        \multirow{2}{*}{\textbf{Supp}}    & tool  & none                                              & none                                    & web editor                                   \\
+                                           & proc & none                                              & none                                    & none                                         \\
+        \multicolumn{2}{l}{\textbf{Avail}}        & available, open-source                            & unknown                                 & available, closed-source                     \\
+        \bottomrule
+        % @formatter:on
+    \end{tabularx}
+\end{table}
+
+the table~\ref{tab:declarative-approaches-review} summarizes the findings.
+while the approaches show a lot of promise \textemdash\ show it's possible to support abstract UI, logic and code generation for multiple targets and modalities, at the moment they have too many drawbacks (small set of UI controls, unavailability, esoteric implementation) to gain wider recognition.
+
+\paragraph{UIDLs}
+
+UIML~\cite{Abrams1999-ei}, presented by Abrams et al.\ is one the earliest (1999) approaches proposed.
+it allows developers to specify an abstract representation of the interface in terms of structure, data, and events that the UI should handle.
+additionally, it's possible to complement the description with device-dependent stylesheets and mapping of UI events to application logic.
+on its own, the language doesn't seem to support descriptions of concrete UIs;
+however, it provides some mechanism of extensions \enquote{closely aligned with appliances or application domains}.
+it's one of two languages that's still available \textemdash\ it has been standardized by the oasis group\footnote{\url{https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=uiml}}.
+
+XIML~\cite{puerta2001ximl} presented by Puerta et al.\ used to be a language focused on \enquote{representation and manipulation of interaction data}.
+judging by literature reviews of other works, it might have been pretty relevant back in the day.
+nowadays, it was difficult to assess the language;
+the only piece of literature found wasn't rich in details.
+additionally, the technology was proprietary.
+the project website is unavailable.
+
+other approaches from that time include work by Mueller et al.~\cite{Mueller2001-un} as a part of an approach to MBUID~\cite{elwert1995Modelling} and a thesis by Pfisterer~\cite{pfistererSemantic2002}.
+The first work is based on transformations of an abstract interface model into a functional artifact.
+thanks to the abstraction level, it's possible to generate UIs for modalities other than graphical.
+the other two contributions only focus on the concrete level.
+Pfisterer's solution (dubbed SUIT) mostly focuses on creating an abstract description of native desktop applications.
+Its distinguishing feature is a mechanism for decoupling the interface definition from functional core while providing integration for remote procedure calls.
+Unfortunately, the implementation was only a prototype, therefore it only supported a small set of widgets from a single toolkit.
+
+another UIDL presented a little later worth mentioning is UsiXML, presented by Limbourg et al.~\cite{limbourg2004usixml,limbourgusixml}.
+the language claims to thoroughly support modelling on all stages as outlined in the Cameleon framework, as well as transforming these models as required.
+it seems to have been a mature and complex project, although now it doesn't seem popular;
+its website is still available but doesn't contain any useful resources (such as the language specification or related tools).
+
+a similar language is MARIA~\cite{Paterno2009-nj} (a successor to TERESA~\cite{Mori2004-sr} \textemdash\ a modelling tool and an accompanying language).
+while the language didn't support modelling on the tasks-and-concepts level, it was similarly comprehensive in other aspects, such as transformations and tool support.
+additional noteworthy feature was direct integration with business services described in WSDL \textemdash\ the language was dedicated for service-oriented applications.
+unfortunately, it's also practically unavailable these days \textemdash\ there's no information about the language beyond academic publications and a Wikipedia entry.
+
+the last (and the newest) entry from the review is OpenUIDL~\cite{moldovan2020open}, authored by Moldovan et al. \textemdash\ developers of the teleportHQ platform\footnote{\url{https://teleporthq.io/}}.
+it comes after what could be regarded as a period of stagnation in the area \textemdash\ little to none noteworthy research has been published in the 2010s with the intention of modernizing some of the previous ideas.
+a welcome change is an embrace of more modern and well-accepted technologies (the language is specified as a JSON schema and a set of TypeScript interfaces) as well as opening the whole ecosystem to the general public by sharing the source code through GitHub.
+because of the definition of syntax, it lies a bit closer to the group of domain-specific languages;
+here, it's still classified as a UIDL due to the similar role of JSON and XML as data transport formats.
+although the paper claims that the language should be able to support multiple modalities, judging by code generators provided (as well as the company's website), the language's main focus seems to be on describing interfaces for the Web.
+
+\begin{table}[]
+    \centering
+    \begin{threeparttable}[b]
+        \caption{Table summarizing the UIDLs reviewed.}
+        \label{tab:uidls-review}
+        \renewcommand{\tabularxcolumn}[1]{>{\normalsize}m{#1}}
+        \newcolumntype{C}{>{\small\centering\arraybackslash}X}
+        \begin{tabularx}{\textwidth}{lrCCC}
+            % @formatter:off
+            \toprule
+            \multicolumn{2}{r}{}                      & \textbf{OpenUIDL (2020)}~\cite{moldovan2020open}  & \textbf{XIML (2001)}~\cite{puerta2001ximl} & \textbf{UIML (1999)}~\cite{Abrams1999-ei} \\ \midrule
+            \multicolumn{2}{l}{\textbf{Compr}}        & AUI\tnote{1}                                      & T+C                                        & AUI\tnote{2}                              \\
+            \multicolumn{2}{l}{\textbf{Expr}}         & medium/high                                       & unknown                                    & low\tnote{2}                              \\
+            \multirow{2}{*}{\textbf{Logic}}    & int  & state, events, expressions, navigation            & unknown                                    & events                                    \\
+                                               & ext  & none                                              & unknown                                    & UI-backend mappings                       \\
+            \multicolumn{2}{l}{\textbf{Gen}}          & SPA                                               & unknown                                    & unknown\tnote{2}                          \\
+            \multirow{2}{*}{\textbf{Supp}}     & tool & web editor                                        & unknown                                    & unknown                                   \\
+                                               & proc & SPEM disciplines for a development process        & none                                       & none                                      \\
+            \multicolumn{2}{l}{\textbf{Avail}}        & available, open source                            & none                                       & available, standardized                   \\
+            \bottomrule
+            \toprule
+            \multicolumn{2}{r}{}                      & & \textbf{MARIA (2009)}~\cite{Paterno2009-nj}  & \textbf{Mueller (2001)}~\cite{Mueller2001-un} \\ \midrule
+            \multicolumn{2}{l}{\textbf{Compr}}        & & AUI                                          & AUI                                           \\
+            \multicolumn{2}{l}{\textbf{Expr}}         & & unknown\tnote{3}                             & medium/high                                   \\
+            \multirow{2}{*}{\textbf{Logic}}    & int  & & events, scripts                              & unknown                                       \\
+                                               & ext  & & integration~with~WSDL                        & unknown                                       \\
+            \multicolumn{2}{l}{\textbf{Gen}}          & & desktop, HTML, mobile~(legacy)               & desktop, HTML, mobile~(legacy), others        \\
+            \multirow{2}{*}{\textbf{Supp}}     & tool & & tool for editing models                      & unknown                                       \\
+                                               & proc & & an approach to~\enquote{migratory~UIs}       & part of a broader approach                    \\
+            \multicolumn{2}{l}{\textbf{Avail}}        & & scarce                                       & unknown                                       \\
+            \bottomrule
+            \toprule
+            \multicolumn{2}{r}{}                      & \textbf{UsiXML (2004)}~\cite{limbourgusixml,limbourg2004usixml} & \textbf{SUIT (2002)}~\cite{pfistererSemantic2002} & \\ \midrule
+            \multicolumn{2}{l}{\textbf{Compr}}        & T+C                                                             & CUI                                               & \\
+            \multicolumn{2}{l}{\textbf{Expr}}         & unknown\tnote{3}                                                & medium                                            & \\
+            \multirow{2}{*}{\textbf{Logic}}    & int  & events, actions, navigation                                     & state, data binding, expressions, events, actions & \\
+                                               & ext  & unknown\tnote{3}                                                & support for a remote communication protocol       & \\
+            \multicolumn{2}{l}{\textbf{Gen}}          & HTML, others                                                    & desktop\tnote{3}                                  & \\
+            \multirow{2}{*}{\textbf{Supp}}     & tool & a set of various tools                                          & none                                              & \\
+                                               & proc & none                                                            & none                                              & \\
+            \multicolumn{2}{l}{\textbf{Avail}}        & scarce resources available                                      & unknown                                           & \\
+            \bottomrule
+            % @formatter:on
+        \end{tabularx}
+        \begin{tablenotes}
+            \item[1] The classification isn't stated explicitly;
+                     the description of the language in the paper suggests support for the T+C level, but judging by the mechanisms described, support for AUIs is more likely.
+            \item[2] CUI support facilitated through language extensions;
+                     other aspects also dependent on language extensions.
+            \item[3] The aspect might be briefly mentioned in the paper but not in sufficient detail;
+                     any concrete conclusion ought not to be treated as final.
+        \end{tablenotes}
+    \end{threeparttable}
+\end{table}
+
+\subparagraph{Summary}
+the table~\ref{tab:uidls-review} summarizes the information about the UIDLs reviewed.
+
+most papers presented themselves as a proper UIDL;
+they're almost all published in early 2000s and almost all defined in XML\@.
+the only exception is OpenUIDL from 2020, defined in JSON/TypeScript.
+
+the area is the most studied, although there isn't any particular contribution here that would stick out as particularly relevant today.
+even though there are languages that support modelling and generation from the most abstract description to the final interface, they don't seem to have gained traction and are now obsolete and irrelevant.
+
+
+\paragraph{Approaches based on ontologies}
+
+only two contributions really;
+one is merely a position paper~\cite{paulheim_formal_2011}.
+nevertheless, it provides a useful perspective on relationship between user interface ontologies and description languages:
+these are two different types of models with distinct assumptions and goals.
+UIDLs are going to at efficiency of modelling, while ontologies will focus on precision and thoroughness at the cost of readability.
+
+ontologies won't replace UIDLs but might serve as a valuable enhancement for them (and vice versa), helping validate or formalize them \textemdash\ indeed, authors also developed a UI ontology~\cite{paulheim_ui2ont_2013} and used many of languages reviewed here as an input.
+as a result it looks quite comprehensive (seems to be able to describe UIs even at the T+C level.
+
+the ontology described in the other paper~\cite{wysota_semantic_2015} seems capable of describing UIs in terms of concrete graphical controls and some notifications.
+there was also an example of a UI generated based on an ontological description, though the process hasn't been described in detail.
+
+\subparagraph{Summary}
+
+\begin{table}[]
+    \centering
+        \begin{threeparttable}[b]
+            \caption{Table summarizing the ontologies reviewed.}
+            \label{tab:ontologies-review}
+            \renewcommand{\tabularxcolumn}[1]{>{\normalsize}m{#1}}
+            \newcolumntype{C}{>{\centering\arraybackslash}X}
+            \begin{tabularx}{0.8\textwidth}[b]{lrCC}
+                % @formatter:off
+                \toprule
+                \multicolumn{2}{r}{}                                     & \textbf{UI$^{2}$Ont (2013)}~\cite{paulheim_ui2ont_2013} & \textbf{Wysota (2015)}~\cite{wysota_semantic_2015} \\ \midrule
+                \multicolumn{2}{l}{\textbf{Compr}}                       & T+C                                                     & CUI                                                \\
+                \multicolumn{2}{l}{\textbf{Expr}}                        & medium/high                                             & low                                                \\
+                \multirow{2}{*}{\textbf{Logic}\tnote{1}} & int           & none                                                    & events                                             \\
+                                                         & ext           & none                                                    & none                                               \\
+                \multicolumn{2}{l}{\textbf{Gen}}                         & none                                                    & desktop                                            \\
+                \multirow{2}{*}{\textbf{Supp}}          & tool\tnote{2}  & none                                                    & none                                               \\
+                                                         & proc          & none                                                    & none                                               \\
+                \multicolumn{2}{l}{\textbf{Avail}}                       & none                                                    & none                                               \\
+                \bottomrule
+                % @formatter:on
+            \end{tabularx}
+            \begin{tablenotes}
+                \item [1] Not applicable \textemdash\ modelling the logic doesn't usually belong to goals of ontologies.
+                \item [2] Not applicable \textemdash\ there should exist enough tooling support for working with ontologies.
+            \end{tablenotes}
+        \end{threeparttable}
+\end{table}
+
+the table~\ref{tab:ontologies-review} summarizes the ontologies reviewed.
+the ontologies could be viewed as the most exotic approach to modelling UIs;
+the fact that there's really only a single worthwhile contribution in the area serves as an evidence.
+this could also be because semantic technologies lack adoption even more than model-based development.
+thus, even though the reviewed ontology (UI$^{2}$Ont) is a mature work, its context is too hermetic for it to gain more attention.
