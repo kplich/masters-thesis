@@ -39,7 +39,8 @@ while it might not the most comprehensive, it should suffice to succinctly summa
 when the approach doesn't have any support for a certain area, then the evaluation ends with an \emph{unknown} result.
 to aid readability of tables, each criterion has been abbreviated to a single letter that represents it.
 
-\todo[inline]{unknown vs none \textemdash\ what would be the difference?}
+\todo[inline]{none \textemdash\ no mention}
+\todo[inline]{unknown \textemdash\ no mention, not enough information to give final judgement}
 
 \subparagraph{Comprehensiveness (Compr)}
 this criterion evaluates how broad the approach is \textemdash\ that is, what's the most abstract modelling stage (according to the Cameleon framework) it supports.
@@ -115,24 +116,23 @@ the examples described demonstrate that the approach supports a standard set of 
         \label{tab:uml-meta-models}
         \renewcommand{\tabularxcolumn}[1]{>{\normalsize}m{#1}}
         \newcolumntype{C}{>{\centering\arraybackslash}X}
-        \begin{tabularx}{0.8\textwidth}[b]{lrCC}
+        \begin{tabularx}{\textwidth}[b]{lrCC}
             % @formatter:off
             \toprule
-            \multicolumn{2}{r}{}                               & \textbf{Blankenhorn (2004)}~\cite{Blankenhorn2004-og} & \textbf{Botterweck (2011)}~\cite{Botterweck2011-ra}  \\ \midrule
-            \multicolumn{2}{l}{\textbf{Compr}}                 & CUI                                                   & AUI                                                  \\
-            \multicolumn{2}{l}{\textbf{Expr}}                  & low                                                   & medium/high                                          \\
-            \multirow{2}{*}{\textbf{Logic}}    & int           & navigation                                            & navigation, events                                   \\
-                                               & ext           & none                                                  & integration~with~WSDL                                \\
-            \multicolumn{2}{l}{\textbf{Gen}}                   & none                                                  & desktop, HTML, mobile~(legacy)                       \\
-            \multirow{2}{*}{\textbf{Supp}}    & tool\tnote{1}  & none                                                  & none                                                 \\
-                                               & proc          & none                                                  & a 4-step process for developing a line of UIs        \\
-            \multicolumn{2}{l}{\textbf{Avail}}                 & unknown                                               & unknown                                              \\
+            \multicolumn{2}{r}{}                       & \textbf{Blankenhorn (2004)}~\cite{Blankenhorn2004-og} & \textbf{Botterweck (2011)}~\cite{Botterweck2011-ra}  \\ \midrule
+            \multicolumn{2}{l}{\textbf{Compr}}         & CUI                                                   & AUI                                                  \\
+            \multicolumn{2}{l}{\textbf{Expr}}          & low                                                   & medium/high                                          \\
+            \multirow{2}{*}{\textbf{Logic}}    & int   & navigation                                            & navigation, events                                   \\
+                                               & ext   & none                                                  & integration~with~WSDL                                \\
+            \multicolumn{2}{l}{\textbf{Gen}}           & none                                                  & desktop, HTML, mobile~(legacy)                       \\
+            \multirow{2}{*}{\textbf{Supp}}     & tool  & ---\tnote{1}                                          & ---\tnote{1}                                         \\
+                                               & proc  & none                                                  & a process for developing a~line~of~UIs               \\
+            \multicolumn{2}{l}{\textbf{Avail}}         & none                                                  & none                                                 \\
             \bottomrule
             % @formatter:on
         \end{tabularx}
         \begin{tablenotes}
             \item [1] Not applicable \textemdash\ tooling for UML models is assumed to be widely available.
-            \item [2] Not enough information to decide.
         \end{tablenotes}
     \end{threeparttable}
 \end{table}
@@ -169,25 +169,32 @@ unfortunately, it also doesn't support to broad of a set of concrete UI controls
 
 \begin{table}[]
     \centering
-    \caption{Summary of the declarative approaches reviewed.}
-    \label{tab:declarative-approaches-review}
-    \renewcommand{\tabularxcolumn}[1]{>{\normalsize}m{#1}}
-    \newcolumntype{C}{>{\centering\arraybackslash}X}
-    \begin{tabularx}{\textwidth}{lrCCC}
-        % @formatter:off
-        \toprule
-        \multicolumn{2}{r}{}                      & \textbf{Hanus (2009)}~\cite{Hanus2008-hm}         & \textbf{Karu (2013)}~\cite{Karu2013-po} & \textbf{Quid (2019)}~\cite{molina2019quid}   \\ \midrule
-        \multicolumn{2}{l}{\textbf{Compr}}        & CUI                                               & AUI                                     & CUI                                          \\
-        \multicolumn{2}{l}{\textbf{Expr}}         & low/medium                                        & low (probably)                          & low/medium                                   \\
-        \multirow{2}{*}{\textbf{Logic}}    & int  & state, data binding, expressions, events, scripts & events, navigation                      & state, events, scripts                       \\
-                                           & ext  & programming language capabilities                 & references to business services         & none                                         \\
-        \multicolumn{2}{l}{\textbf{Gen}}          & desktop, HTML                                     & desktop, HTML, others                   & SPA                                          \\
-        \multirow{2}{*}{\textbf{Supp}}    & tool  & none                                              & none                                    & web editor                                   \\
-                                           & proc & none                                              & none                                    & none                                         \\
-        \multicolumn{2}{l}{\textbf{Avail}}        & available, open-source                            & unknown                                 & available, closed-source                     \\
-        \bottomrule
-        % @formatter:on
-    \end{tabularx}
+    \begin{threeparttable}[b]
+        \caption{Summary of the declarative approaches reviewed.}
+        \label{tab:declarative-approaches-review}
+        \renewcommand{\tabularxcolumn}[1]{>{\normalsize}m{#1}}
+        \newcolumntype{C}{>{\centering\arraybackslash}X}
+        \begin{tabularx}{\textwidth}{lrCCC}
+            % @formatter:off
+            \toprule
+            \multicolumn{2}{r}{}                      & \textbf{Hanus (2009)}~\cite{Hanus2008-hm}         & \textbf{Karu (2013)}~\cite{Karu2013-po} & \textbf{Quid (2019)}~\cite{molina2019quid} \\ \midrule
+            \multicolumn{2}{l}{\textbf{Compr}}        & CUI                                               & AUI                                     & CUI                                        \\
+            \multicolumn{2}{l}{\textbf{Expr}}         & low/medium                                        & low\tnote{1}                            & low/medium                                 \\
+            \multirow{2}{*}{\textbf{Logic}}    & int  & state, data binding, expressions, events, scripts & events, navigation                      & state, events                              \\
+                                               & ext  & programming capabilities                          & references to business services         & none                                       \\
+            \multicolumn{2}{l}{\textbf{Gen}}          & desktop, HTML                                     & desktop, HTML, others                   & SPA                                        \\
+            \multirow{2}{*}{\textbf{Supp}}     & tool & ---\tnote{2}                                      & none\tnote{3}                           & web editor                                 \\
+                                               & proc & none                                              & none                                    & none                                       \\
+            \multicolumn{2}{l}{\textbf{Avail}}        & open-source library                               & none                                    & closed-source definition~and~tool          \\
+            \bottomrule
+            % @formatter:on
+        \end{tabularx}
+        \begin{tablenotes}
+            \item [1] Not enough information to decide.
+            \item [2] Not applicable \textemdash\ existing Curry development environments should suffice.
+            \item [3] The language and the underlying meta-model might be supported by existing tools.
+        \end{tablenotes}
+    \end{threeparttable}
 \end{table}
 
 the table~\ref{tab:declarative-approaches-review} summarizes the findings.
@@ -241,50 +248,39 @@ although the paper claims that the language should be able to support multiple m
         \label{tab:uidls-review}
         \renewcommand{\tabularxcolumn}[1]{>{\normalsize}m{#1}}
         \newcolumntype{C}{>{\small\centering\arraybackslash}X}
-        \begin{tabularx}{\textwidth}{lrCCC}
+        \begin{tabularx}{\textwidth}{lrCCCC}
             % @formatter:off
             \toprule
-            \multicolumn{2}{r}{}                      & \textbf{OpenUIDL (2020)}~\cite{moldovan2020open}  & \textbf{XIML (2001)}~\cite{puerta2001ximl} & \textbf{UIML (1999)}~\cite{Abrams1999-ei} \\ \midrule
-            \multicolumn{2}{l}{\textbf{Compr}}        & AUI\tnote{1}                                      & T+C                                        & AUI\tnote{2}                              \\
-            \multicolumn{2}{l}{\textbf{Expr}}         & medium/high                                       & unknown                                    & low\tnote{2}                              \\
-            \multirow{2}{*}{\textbf{Logic}}    & int  & state, events, expressions, navigation            & unknown                                    & events                                    \\
-                                               & ext  & none                                              & unknown                                    & UI-backend mappings                       \\
-            \multicolumn{2}{l}{\textbf{Gen}}          & SPA                                               & unknown                                    & unknown\tnote{2}                          \\
-            \multirow{2}{*}{\textbf{Supp}}     & tool & web editor                                        & unknown                                    & unknown                                   \\
-                                               & proc & SPEM disciplines for a development process        & none                                       & none                                      \\
-            \multicolumn{2}{l}{\textbf{Avail}}        & available, open source                            & none                                       & available, standardized                   \\
+            \multicolumn{2}{r}{}                      & \textbf{UIML (1999)}~\cite{Abrams1999-ei} & \textbf{Mueller (2001)}~\cite{Mueller2001-un} & \textbf{XIML (2001)}~\cite{puerta2001ximl} & \textbf{SUIT (2002)}~\cite{pfistererSemantic2002} \\ \midrule
+            \multicolumn{2}{l}{\textbf{Compr}}        & AUI\tnote{1}                              & AUI                                           & T+C                                        & CUI                                               \\
+            \multicolumn{2}{l}{\textbf{Expr}}         & low\tnote{1}                              & medium/high                                   & medium/high\tnote{3}                       & medium                                            \\
+            \multirow{2}{*}{\textbf{Logic}}    & int  & events                                    & none\tnote{3}                                 & none\tnote{3}                              & data binding, expressions, events                 \\
+                                               & ext  & UI-backend mappings                       & none\tnote{3}                                 & none\tnote{3}                              & support for remote logic                          \\
+            \multicolumn{2}{l}{\textbf{Gen}}          & none\tnote{1}                             & desktop, HTML, mobile~(legacy), others        & none\tnote{3}                              & desktop                                           \\
+            \multirow{2}{*}{\textbf{Supp}}     & tool & none                                      & none                                          & none\tnote{3}                              & none                                              \\
+                                               & proc & none                                      & part of a broader MBUID approach              & none\tnote{3}                              & none                                              \\
+            \multicolumn{2}{l}{\textbf{Avail}}        & standardized by~OASIS                     & none                                          & none                                       & none                                              \\
             \bottomrule
+            \end{tabularx}
+        \begin{tabularx}{\textwidth}{lrCCC}
             \toprule
-            \multicolumn{2}{r}{}                      & & \textbf{MARIA (2009)}~\cite{Paterno2009-nj}  & \textbf{Mueller (2001)}~\cite{Mueller2001-un} \\ \midrule
-            \multicolumn{2}{l}{\textbf{Compr}}        & & AUI                                          & AUI                                           \\
-            \multicolumn{2}{l}{\textbf{Expr}}         & & unknown\tnote{3}                             & medium/high                                   \\
-            \multirow{2}{*}{\textbf{Logic}}    & int  & & events, scripts                              & unknown                                       \\
-                                               & ext  & & integration~with~WSDL                        & unknown                                       \\
-            \multicolumn{2}{l}{\textbf{Gen}}          & & desktop, HTML, mobile~(legacy)               & desktop, HTML, mobile~(legacy), others        \\
-            \multirow{2}{*}{\textbf{Supp}}     & tool & & tool for editing models                      & unknown                                       \\
-                                               & proc & & an approach to~\enquote{migratory~UIs}       & part of a broader approach                    \\
-            \multicolumn{2}{l}{\textbf{Avail}}        & & scarce                                       & unknown                                       \\
-            \bottomrule
-            \toprule
-            \multicolumn{2}{r}{}                      & \textbf{UsiXML (2004)}~\cite{limbourgusixml,limbourg2004usixml} & \textbf{SUIT (2002)}~\cite{pfistererSemantic2002} & \\ \midrule
-            \multicolumn{2}{l}{\textbf{Compr}}        & T+C                                                             & CUI                                               & \\
-            \multicolumn{2}{l}{\textbf{Expr}}         & unknown\tnote{3}                                                & medium                                            & \\
-            \multirow{2}{*}{\textbf{Logic}}    & int  & events, actions, navigation                                     & state, data binding, expressions, events, actions & \\
-                                               & ext  & unknown\tnote{3}                                                & support for a remote communication protocol       & \\
-            \multicolumn{2}{l}{\textbf{Gen}}          & HTML, others                                                    & desktop\tnote{3}                                  & \\
-            \multirow{2}{*}{\textbf{Supp}}     & tool & a set of various tools                                          & none                                              & \\
-                                               & proc & none                                                            & none                                              & \\
-            \multicolumn{2}{l}{\textbf{Avail}}        & scarce resources available                                      & unknown                                           & \\
+            \multicolumn{2}{r}{}                      & \textbf{UsiXML (2004)}~\cite{limbourgusixml,limbourg2004usixml} & \textbf{MARIA (2009)}~\cite{Paterno2009-nj} & \textbf{OpenUIDL (2020)}~\cite{moldovan2020open} \\ \midrule
+            \multicolumn{2}{l}{\textbf{Compr}}        & T+C                                                             & AUI                                         & AUI\tnote{2}                                     \\
+            \multicolumn{2}{l}{\textbf{Expr}}         & unknown\tnote{3}                                                & unknown\tnote{3}                            & medium                                           \\
+            \multirow{2}{*}{\textbf{Logic}}    & int  & events, actions, navigation                                     & events, scripts                             & state, events, expressions, navigation           \\
+                                               & ext  & none\tnote{3}                                                   & integration~with~WSDL                       & none\tnote{3}                                    \\
+            \multicolumn{2}{l}{\textbf{Gen}}          & HTML, others                                                    & desktop, HTML, mobile~(legacy)              & SPA                                              \\
+            \multirow{2}{*}{\textbf{Supp}}     & tool & multiple, various tools                                         & tool for editing models                     & web editor                                       \\
+                                               & proc & none                                                            & an approach to~\enquote{migratory~UIs}      & SPEM disciplines for a development process       \\
+            \multicolumn{2}{l}{\textbf{Avail}}        & scarce                                                          & scarce                                      & open-source tool and definition                  \\
             \bottomrule
             % @formatter:on
         \end{tabularx}
         \begin{tablenotes}
-            \item[1] The classification isn't stated explicitly;
-                     the description of the language in the paper suggests support for the T+C level, but judging by the mechanisms described, support for AUIs is more likely.
-            \item[2] CUI support facilitated through language extensions;
+            \item[1] CUI support facilitated through language extensions;
                      other aspects also dependent on language extensions.
-            \item[3] The aspect might be briefly mentioned in the paper but not in sufficient detail;
-                     any concrete conclusion ought not to be treated as final.
+            \item[2] The description of the language in the paper suggests support for the T+C level, but judging by the mechanisms described, support for AUIs is more likely.
+            \item[3] Not enough information to decide.
         \end{tablenotes}
     \end{threeparttable}
 \end{table}
@@ -326,20 +322,20 @@ there was also an example of a UI generated based on an ontological description,
             \begin{tabularx}{0.8\textwidth}[b]{lrCC}
                 % @formatter:off
                 \toprule
-                \multicolumn{2}{r}{}                                     & \textbf{UI$^{2}$Ont (2013)}~\cite{paulheim_ui2ont_2013} & \textbf{Wysota (2015)}~\cite{wysota_semantic_2015} \\ \midrule
-                \multicolumn{2}{l}{\textbf{Compr}}                       & T+C                                                     & CUI                                                \\
-                \multicolumn{2}{l}{\textbf{Expr}}                        & medium/high                                             & low                                                \\
-                \multirow{2}{*}{\textbf{Logic}\tnote{1}} & int           & none                                                    & events                                             \\
-                                                         & ext           & none                                                    & none                                               \\
-                \multicolumn{2}{l}{\textbf{Gen}}                         & none                                                    & desktop                                            \\
-                \multirow{2}{*}{\textbf{Supp}}          & tool\tnote{2}  & none                                                    & none                                               \\
-                                                         & proc          & none                                                    & none                                               \\
-                \multicolumn{2}{l}{\textbf{Avail}}                       & none                                                    & none                                               \\
+                \multicolumn{2}{r}{}                      & \textbf{UI$^{2}$Ont (2013)}~\cite{paulheim_ui2ont_2013} & \textbf{Wysota (2015)}~\cite{wysota_semantic_2015} \\ \midrule
+                \multicolumn{2}{l}{\textbf{Compr}}        & T+C\tnote{1}                                            & CUI                                                \\
+                \multicolumn{2}{l}{\textbf{Expr}}         & medium/high                                             & low                                                \\
+                \multirow{2}{*}{\textbf{Logic}}    & int  & navigation, events\tnote{1}                             & events\tnote{1}                                    \\
+                                                   & ext  & none                                                    & none                                               \\
+                \multicolumn{2}{l}{\textbf{Gen}}          & none                                                    & desktop                                            \\
+                \multirow{2}{*}{\textbf{Supp}}     & tool & ---\tnote{2}                                            & ---\tnote{2}                                       \\
+                                                   & proc & none                                                    & none                                               \\
+                \multicolumn{2}{l}{\textbf{Avail}}        & none                                                    & none                                               \\
                 \bottomrule
                 % @formatter:on
             \end{tabularx}
             \begin{tablenotes}
-                \item [1] Not applicable \textemdash\ modelling the logic doesn't usually belong to goals of ontologies.
+                \item [1] Not enough information to decide.
                 \item [2] Not applicable \textemdash\ there should exist enough tooling support for working with ontologies.
             \end{tablenotes}
         \end{threeparttable}
