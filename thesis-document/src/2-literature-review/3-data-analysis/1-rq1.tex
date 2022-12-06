@@ -1,15 +1,23 @@
 \subsubsection{RQ 1}\label{subsubsec:rq-1}
 
-the papers have been carefully reviewed and compared.
-sometimes additional papers related to the original ones have also been reviewed for completeness.
+\todo[inline]{read this once more some time again}
+This section presents the results of the literature review.
+The selected papers have been reviewed and compared.
+Any additional relevant sources that they referenced were taken into account.
+The papers have been grouped into four categories, depending on what kind of approach they presented.
+The analysis resulted in a definition of a set of evaluation criteria against which the papers have been judged.
+After the evaluation, a textual summary capturing additional aspects of reviewed papers has been written.
+Finally, each category of papers has been summarized to highlight similarities between works within it and distinctions between works in other categories.
 
-analysis of the selected contribution shows that there are three or four types of approaches to modelling and describing UIs: UML meta-models, domain-specific languages (DSLs), typical UIDLs and ontologies.
-\todo{maybe this section would better belong to the summary of this review?}UML meta-models and languages are closely related \textemdash\ it's often the case (e.g.\ as in~\cite{Karu2013-po} or~\cite{moldovan2020open}) that a language is defined on the basis of a UML meta-model.
-the difference between a domain-specific language and a UIDL also need not be too clear \textemdash\ in the end, both are formal, textual representations of a model;
-what could be used as a distinguishing feature is the friendliness of syntax and goals of the language: DSLs in general tend to have a narrower focus and syntax that's more familiar to domain experts;
-classic UIDLs, on the other hand, aim for completeness and technical proficiency.
+The four groups of approaches that will be presented are: UML meta-models, declarative approaches, user interface description languages (UIDLs) and ontologies.
+However, the distinction between these categories need not always be clear.
+For example, it is often the case that a language is defined on the basis of a UML meta-model (e.g.\ as in~\cite{Karu2013-po} or~\cite{moldovan2020open}).
+Additionally, the difference between a DSL and a UIDL does not have to be obvious \textemdash\ both are formal, textual representations of a model.
+The deciding factor could be their intended usage: DSLs tend to have more readable syntax which allows developers to use the languages directly;
+UIDLs, on the other hand, are intended to be parsed and processed by machines \textemdash\ to work comfortably with them, people should use dedicated tools.
 
 \paragraph{The Cameleon Framework}
+
 before presenting the criteria for evaluation, an important development in the field of model-based UI development in the form of the Cameleon Reference Framework~\cite{calvary_cameleon_framework_2002} ought to be presented.
 
 The framework defines and formalizes the software development aspects of multi-target UIs (for multiple types of users, platforms and environments) and provides (as the name suggests) a reference for evaluation of tools and approaches in the area of MBUID\@.
@@ -104,7 +112,7 @@ support for logic is limited to modelling navigation between the elements.
 apart from possibility of transforming the model into a description in another UIDL, there's little mention of any mechanism for generating code from the model
 
 the other meta-model is used in a broader approach (called MANTRA) for designing multiple interfaces for a single application core~\cite{Botterweck2011-ra}.
-thus, work displays a higher level of maturity: in four steps, an abstract UI models is gradually adapted and transformed into a final UI.
+thus, work displays a higher level of maturity: in four steps, an abstract UI models is gradually adapted and transformed into a final UI\@.
 the examples described demonstrate that the approach supports a standard set of controls in web, desktop and pre-smartphone mobile apps.
 
 \subparagraph{Summary}
@@ -144,7 +152,7 @@ additionally, UML (and model-based development in general) isn't that widely ado
 
 \paragraph{Declarative approaches}
 
-there were three papers found describing what could be named a declarative approach \textemdash\ one that provides a user with a DSL that can then be used to render a UI.
+there were three papers found describing what could be named a declarative approach \textemdash\ one that provides a user with a DSL that can then be used to render a UI\@.
 
 approach presented by Hanus and Kluß~\cite{Hanus2008-hm} is implemented in a programming language Curry.
 it can be used for implementation of UIs when paired with a generation library (e.g.\ for desktop or HTML UIs)
