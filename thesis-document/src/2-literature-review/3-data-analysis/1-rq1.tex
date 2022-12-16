@@ -9,8 +9,9 @@ The analysis resulted in a definition of a set of evaluation criteria against wh
 After the evaluation, a textual summary capturing additional aspects of reviewed papers has been written.
 Finally, each category of papers has been summarized to highlight similarities between works within it and distinctions between works in other categories.
 
-The four groups of approaches that will be presented are: UML meta-models, declarative approaches, user interface description languages (UIDLs) and ontologies.
+The four groups of approaches presented are: UML meta-models, declarative approaches, user interface description languages (UIDLs) and ontologies.
 However, the distinction between these categories need not always be clear.
+\todo{nie wiadomo skad sie tu bierze DSL}
 For example, it is often the case that a language is defined on the basis of a UML meta-model (e.g.\ as in~\cite{Karu2013-po} or~\cite{moldovan2020open}).
 Additionally, the difference between a DSL and a UIDL does not have to be obvious\,\textemdash\,both are formal, textual representations of a model.
 The deciding factor could be their intended usage: DSLs tend to have more readable syntax which allows developers to use the languages directly;
@@ -54,14 +55,15 @@ Unless specified otherwise, an indication means that the approach supports all m
 This criterion expresses an \textbf{informal and subjective} judgement of the range of \textbf{concrete UI controls} supported by the approach.
 The evaluation could result in three indications:
 \begin{itemize}
-    \item \textbf{low}: the approach only supports essential controls, such as buttons, input fields and links.
-    \item \textbf{medium}: the approach supports more controls used in day-to-day UI development (e.g.\ selects, different input types, media elements, etc.)
-    \item \textbf{high}: the approach supports complex controls, such as tab containers, layout containers, decorative separators, progress indicators, etc.
+    \item \textbf{low}: only essential controls, such as buttons, input fields and links.
+    \item \textbf{medium}: more controls used in day-to-day UI development (e.g.\ selects, different input types, media elements, etc.)
+    \item \textbf{high}: complex controls, such as tab containers, layout containers, decorative separators, progress indicators, etc.
 \end{itemize}
 
 \subparagraph{Support for logic (Logic)}
 This criterion communicates to what extent does the approach allow for specification of the behavior of the components/whole interface.
 It is divided into two subcriteria: support for \textbf{internal logic}\,\textemdash\,internal state of the UI and its transitions and support for \textbf{external logic}\,\textemdash\,integration with the functional core of the application.
+
 Internal logic encompasses such mechanisms as component state/data binding, events/triggers, actions, expressions/conditions, or even scripting.
 Support for external logic can be realized through including the description of business services or functional core methods in the specifications of presentation components.
 
@@ -80,9 +82,8 @@ Most supported technologies include:
     \item single-page applications (SPAs) (advanced JS frameworks such as Angular, React or Vue)
     \item legacy mobile applications (apps for PDAs, utilizing WAP, Java ME, etc.)
     \item smartphone applications (for Android phones or iPhones)
-    \item terminal applications
 \end{itemize}
-Additional technologies, such as voice-enabled/conversational applications, are collected under a term \enquote{other}.
+Additional technologies, such as terminal or voice-enabled/conversational applications, are collected under a term \enquote{other}.
 
 \subparagraph{Developer support (Supp)}
 Nowadays, any technology is only a part of what is often called \enquote{developer experience}\,\textemdash\,adoption might be hampered when a technology is difficult to use.
@@ -99,17 +100,18 @@ Sometimes, they happen to be mentioned outside of scientific literature but only
 
 \paragraph{Approaches based on UML}
 
-only two papers have been found.
+Two papers presenting this approach have been found.
 
-one models layout elements using UML classes~\cite{Blankenhorn2004-og}.
-an interesting thing to point out is that it uses UML Diagram Interchange specification (i.e.~how are classes positioned/colored/etc.) to convey spatial relationships between them.
-however, the approach isn't too advanced\,\textemdash\,it only supports a basic set of graphical UIs controls: forms, links images and text.
-support for logic is limited to modelling navigation between the elements.
-apart from possibility of transforming the model into a description in another UIDL, there's little mention of any mechanism for generating code from the model
+One models layout elements using UML classes~\cite{Blankenhorn2004-og}.
+Interestingly, it uses UML Diagram Interchange specification (i.e.~information about how are classes positioned/colored/etc.) to convey spatial relationships between the interface elements.
+Unfortunately, the approach isn't too advanced\,\textemdash\,it only supports a rudimentary set of graphical UI controls: forms, links images and text;
+support for logic is limited only to modelling navigation between the elements.
+There is also little mention of any mechanism for generating code from the model;
+at most, a possibility of transforming the model into a description in another UIDL is mentioned.
 
-the other meta-model is used in a broader approach (called MANTRA) for designing multiple interfaces for a single application core~\cite{Botterweck2011-ra}.
-thus, work displays a higher level of maturity: in four steps, an abstract UI models is gradually adapted and transformed into a final UI\@.
-the examples described demonstrate that the approach supports a standard set of controls in web, desktop and pre-smartphone mobile apps.
+The other meta-model is used in a broader approach (called MANTRA) for designing multiple interfaces for a single application core~\cite{Botterweck2011-ra}.
+The work displays a higher level of maturity: in four steps, an abstract UI models is gradually adapted and transformed into a final UI\@.
+Examples described in the paper demonstrate that the approach supports a standard set of controls in web, desktop and legacy mobile apps.
 
 \subparagraph{Summary}
 
@@ -141,33 +143,31 @@ the examples described demonstrate that the approach supports a standard set of 
     \end{threeparttable}
 \end{table}
 
-the table~\ref{tab:uml-meta-models} summarizes the findings about the two approaches.
-an upside of using UML is that (once available) such meta-models are easy to work with (and\,\textemdash\,g.~extend)\,\textemdash\,there's wide tooling support available for editing and transforming UML meta-models.
-unfortunately, none of the models presented in the works don't seem to be available anywhere
-additionally, UML (and model-based development in general) isn't that widely adopted.
+The table~\ref{tab:uml-meta-models} summarizes the information about the two approaches.
+A possible advantage of using UML meta-models might be that such they are easy to work with (and e.g.~extend)\,\textemdash\,there's wide tooling support available for editing and transforming them.
+Unfortunately, none of the models reviewed seems to be available anywhere.
 
 \paragraph{Declarative approaches}
 
-there were three papers found describing what could be named a declarative approach\,\textemdash\,one that provides a user with a DSL that can then be used to render a UI\@.
+There were three papers found describing what could be named a declarative approach\,\textemdash\,one that provides a user with a DSL that can then be used to render a UI\@.
 
-approach presented by Hanus and Kluß~\cite{Hanus2008-hm} is implemented in a programming language Curry.
-it can be used for implementation of UIs when paired with a generation library (e.g.\ for desktop or HTML UIs)
-the library only supports a modest set of concrete (graphical) UI controls.
-however, what's noteworthy, it's freely available\footnote{\url{https://git.ps.informatik.uni-kiel.de/curry-packages/ui}} (at the time of writing, 2022-11-22) and open-source.
+The approach presented by Hanus and Kluß~\cite{Hanus2008-hm} is implemented in Curry\,\textemdash\,a functional programming language.
+Apart from describing UIs, it can be used to generate them using an additional library (e.g.\ for desktop or HTML UIs, as demonstrated in the paper)
+The library only supports a modest set of concrete (graphical) UI controls.
+What is noteworthy, though, is that it is freely available\footnote{\url{https://git.ps.informatik.uni-kiel.de/curry-packages/ui}} (at the time of writing, 2022-11-22) and open-source.
 
-Karu~\cite{Karu2013-po} proposed a DSL for abstract modelling of UIs supported by a UML meta-model.
-it could be argued it supports modelling even at the most abstract T+C level through abstract specification of use cases and interactions integrated with business services (although there's no explicit modelling for concepts)
-a noteworthy feature is the descriptiveness and readability of the language.
-these features come at a cost of expressiveness\,\textemdash\,the demonstration only shows most basic of UI controls.
-then, the author claims to have generated UIs in multiple modalities from the description;
-unfortunately, neither those, nor the language aren't available.
+Karu~\cite{Karu2013-po} proposed a DSL for UI modelling supported by a UML meta-model.
+It could be argued it supports even the most abstract (T+C) level through specification of use cases and interactions (although there's no explicit modelling for concepts).
+The descriptiveness and readability of the language is worth mentioning, though it seems to have come at a cost of expressiveness\,\textemdash\,the demonstration only shows that generated UIs only use the simplest controls.
+On the other hand, the author claims to have generated UIs in multiple modalities from the description;
+unfortunately, neither examples, nor generators or the language definition itself aren't available.
 
-Quid is a project presented by Molina~\cite{molina2019quid} and backed by a company.
-as such, the entry is publicly available\footnote{\url{https://quid.metadev.pro/}} (at the time of writing), together with an editor, though it's closed-source.
-the contribution is a language for specifying web components.
-one of the most modern developments, supports code generation for multiple SPA frameworks (Angular, React, etc.)
-the syntax of the language is also rather minimal which aids cleanness and readability.
-unfortunately, it also doesn't support to broad of a set of concrete UI controls.
+Quid is a project presented by Molina~\cite{molina2019quid} and associated with a company.
+It is publicly available\footnote{\url{https://quid.metadev.pro/}} (at the time of writing), together with an editor, although it is closed-source.
+The contribution is a language for specifying web components.
+As it is one of the most modern developments (the paper has been published in 2019), it supports code generation for multiple SPA frameworks (Angular, React, etc.)
+The syntax of the language is also rather minimal and clean which aids readability.
+Unfortunately, it seems the range of UI controls supported by the project in its current state (2022-12-15) is also rather narrow.
 
 \subparagraph{Summary}
 
@@ -201,49 +201,53 @@ unfortunately, it also doesn't support to broad of a set of concrete UI controls
     \end{threeparttable}
 \end{table}
 
-the table~\ref{tab:declarative-approaches-review} summarizes the findings.
-while the approaches show a lot of promise\,\textemdash\,show it's possible to support abstract UI, logic and code generation for multiple targets and modalities, at the moment they have too many drawbacks (small set of UI controls, unavailability, esoteric implementation) to gain wider recognition.
+The table~\ref{tab:declarative-approaches-review} summarizes the findings about the approaches described.
+They show a lot of promise\,\textemdash\,e.g.\ support abstract modelling and logic, as well as code generation for multiple targets and modalities.
+Unfortunately, each of the entries seems to have some drawbacks (small set of UI controls, unavailability, esoteric implementation) that might have prevented them from wider adoption and recognition.
 
 \paragraph{UIDLs}
 
-UIML~\cite{Abrams1999-ei}, presented by Abrams et al.\ is one the earliest (1999) approaches proposed.
-it allows developers to specify an abstract representation of the interface in terms of structure, data, and events that the UI should handle.
-additionally, it's possible to complement the description with device-dependent stylesheets and mapping of UI events to application logic.
-on its own, the language doesn't seem to support descriptions of concrete UIs;
-however, it provides some mechanism of extensions \enquote{closely aligned with appliances or application domains}.
-it's one of two languages that's still available\,\textemdash\,it has been standardized by the oasis group\footnote{\url{https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=uiml}}.
+This category contains the most\,\textemdash\,seven entries, spanning two decades of research and development.
 
-XIML~\cite{puerta2001ximl} presented by Puerta et al.\ used to be a language focused on \enquote{representation and manipulation of interaction data}.
-judging by literature reviews of other works, it might have been pretty relevant back in the day.
-nowadays, it was difficult to assess the language;
-the only piece of literature found wasn't rich in details.
-additionally, the technology was proprietary.
-the project website is unavailable.
+UIML~\cite{Abrams1999-ei}, presented by Abrams et al.\ is one the earliest (1999) contributions.
+It allows developers to specify an abstract representation of the interface in terms of structure, data, and events that the UI should handle using XML.
+This description is then complemented with device-dependent stylesheets and mapping of UI events to application logic.
+On its own, the language does not seem to support descriptions of concrete UIs;
+however, it provides a mechanism of extensions \enquote{closely aligned with appliances or application domains}.
+Despite its age, it is still available\,\textemdash\,it has been standardized by the OASIS group\footnote{\url{https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=uiml}}.
 
-other approaches from that time include work by Mueller et al.~\cite{Mueller2001-un} as a part of an approach to MBUID~\cite{elwert1995Modelling} and a thesis by Pfisterer~\cite{pfistererSemantic2002}.
+XIML~\cite{puerta2001ximl} presented by Puerta et al.\ used to be a proprietary language focused on \enquote{representation and manipulation of interaction data}.
+In the past it seemed to be a relevant contribution\,\textemdash\,other works often mention it when reviewing similar work.
+However, nowadays the project is practically obsolete: the project website is not functional and the only available literature sources are rather low on details.
+Therefore, it was difficult to assess the language;
+its inclusion follows mostly from historic reasons.
+
+Other approaches from that time include work by Mueller et al.~\cite{Mueller2001-un} as a part of an approach to MBUID~\cite{elwert1995Modelling} and a thesis by Pfisterer~\cite{pfistererSemantic2002}.
 The first work is based on transformations of an abstract interface model into a functional artifact.
-thanks to the abstraction level, it's possible to generate UIs for modalities other than graphical.
-the other two contributions only focus on the concrete level.
-Pfisterer's solution (dubbed SUIT) mostly focuses on creating an abstract description of native desktop applications.
-Its distinguishing feature is a mechanism for decoupling the interface definition from functional core while providing integration for remote procedure calls.
-Unfortunately, the implementation was only a prototype, therefore it only supported a small set of widgets from a single toolkit.
+Thanks to the abstraction level, it is possible to generate UIs for modalities other than graphical.
 
-another UIDL presented a little later worth mentioning is UsiXML, presented by Limbourg et al.~\cite{limbourg2004usixml,limbourgusixml}.
-the language claims to thoroughly support modelling on all stages as outlined in the Cameleon framework, as well as transforming these models as required.
-it seems to have been a mature and complex project, although now it doesn't seem popular;
-its website is still available but doesn't contain any useful resources (such as the language specification or related tools).
+Pfisterer's solution (dubbed SUIT) mostly focuses on describing native desktop applications on the concrete UI level.
+Its distinguishing feature is a mechanism for decoupling the interface definition from functional core.
+Additionally, the description provides integration for remote procedure calls.
+Unfortunately, the implementation was only a prototype and supported a small set of widgets for a single toolkit.
 
-a similar language is MARIA~\cite{Paterno2009-nj} (a successor to TERESA~\cite{Mori2004-sr}\,\textemdash\,a modelling tool and an accompanying language).
-while the language didn't support modelling on the tasks-and-concepts level, it was similarly comprehensive in other aspects, such as transformations and tool support.
-additional noteworthy feature was direct integration with business services described in WSDL\,\textemdash\,the language was dedicated for service-oriented applications.
-unfortunately, it's also practically unavailable these days\,\textemdash\,there's no information about the language beyond academic publications and a Wikipedia entry.
+Another major UIDL included in the review is UsiXML, presented by Limbourg et al.~\cite{limbourg2004usixml,limbourgusixml}.
+The language claims to thoroughly support modelling on all stages (as outlined in the Cameleon framework).
+An additional distinguishing feature is comprehensive support for transforming the models between stages through graph transformations.
+It seems to have been a mature and complex project, although now it does not seem to have a lot of activity;
+the project website is still available but does not contain any useful resources (such as the language specification or related tools).
 
-the last (and the newest) entry from the review is OpenUIDL~\cite{moldovan2020open}, authored by Moldovan et al.\,\textemdash\,developers of the teleportHQ platform\footnote{\url{https://teleporthq.io/}}.
-it comes after what could be regarded as a period of stagnation in the area\,\textemdash\,little to none noteworthy research has been published in the 2010s with the intention of modernizing some of the previous ideas.
-a welcome change is an embrace of more modern and well-accepted technologies (the language is specified as a JSON schema and a set of TypeScript interfaces) as well as opening the whole ecosystem to the general public by sharing the source code through GitHub.
-because of the definition of syntax, it lies a bit closer to the group of domain-specific languages;
+A similar language is MARIA~\cite{Paterno2009-nj} (a successor to TERESA~\cite{Mori2004-sr}\,\textemdash\,a modelling tool and an accompanying language).
+While it didn't support modelling on the tasks-and-concepts level, it was similarly comprehensive in other aspects, such as transformations and tool support.
+An additional feature worth mentioning was direct integration with business services described in WSDL\,\textemdash\,the language was dedicated for service-oriented applications.
+Unfortunately, it's also unavailable these days\,\textemdash\,no information about the language can be found beyond academic publications and a Wikipedia entry.
+
+The last (and the newest) entry in this category is OpenUIDL~\cite{moldovan2020open}, authored by Moldovan et al.\,\textemdash\,developers of the teleportHQ platform\footnote{\url{https://teleporthq.io/}}.
+It differs from all the other entries by using JSON and TypeScript (instead of XML) to define the description and its schema.
+Because of the definition of syntax, it lies a bit closer to the group of domain-specific languages;
 here, it's still classified as a UIDL due to the similar role of JSON and XML as data transport formats.
-although the paper claims that the language should be able to support multiple modalities, judging by code generators provided (as well as the company's website), the language's main focus seems to be on describing interfaces for the Web.
+Additionally, the approach, as well as the whole ecosystem is available to the general public through GitHub.
+Although the paper claims that the language should be able to support multiple modalities, judging by code generators provided (as well as the company's website), the language's main focus seems to be on describing and generating interfaces for Web applications.
 
 \begin{table}[]
     \centering
@@ -290,29 +294,26 @@ although the paper claims that the language should be able to support multiple m
 \end{table}
 
 \subparagraph{Summary}
-the table~\ref{tab:uidls-review} summarizes the information about the UIDLs reviewed.
+The table~\ref{tab:uidls-review} summarizes the information about the UIDLs reviewed.
 
-most papers presented themselves as a proper UIDL;
-they're almost all published in early 2000s and almost all defined in XML\@.
-the only exception is OpenUIDL from 2020, defined in JSON/TypeScript.
-
-the area is the most studied, although there isn't any particular contribution here that would stick out as particularly relevant today.
-even though there are languages that support modelling and generation from the most abstract description to the final interface, they don't seem to have gained traction and are now obsolete and irrelevant.
-
+This area of MBUID is the most studied and has the most papers from all four categories.
+However, practically none of the contributions seems to have stayed relevant until this day.
+Even though some of the languages offered sophisticated support for modelling from the most abstract description to the final interface, they do not seem to have gained wider recognition and are not longer developed.
 
 \paragraph{Approaches based on ontologies}
 
-only two contributions really;
-one is merely a position paper~\cite{paulheim_formal_2011}.
-nevertheless, it provides a useful perspective on relationship between user interface ontologies and description languages:
-these are two different types of models with distinct assumptions and goals.
-UIDLs are going to at efficiency of modelling, while ontologies will focus on precision and thoroughness at the cost of readability.
+Two ontological approaches have been found during the review.
 
-ontologies won't replace UIDLs but might serve as a valuable enhancement for them (and vice versa), helping validate or formalize them\,\textemdash\,indeed, authors also developed a UI ontology~\cite{paulheim_ui2ont_2013} and used many of languages reviewed here as an input.
-as a result it looks quite comprehensive (seems to be able to describe UIs even at the T+C level.
+The paper from 2013 by Paulheim and Probst~\cite{paulheim_ui2ont_2013} presents an ontology (OI$^{2}$Int) developed from reviewing most relevant contemporary UIDLs.
+This approach made it possible for the ontology to cover a wide range of interaction possibilities.
+The authors divided the description elements into four parts and two axes: top-/detail level and design-time/run-time description.
+Additionally, the ontology has reportedly been used in a case study of integration of multiple user interfaces;
+however, the realization has not been described in detail.
 
-the ontology described in the other paper~\cite{wysota_semantic_2015} seems capable of describing UIs in terms of concrete graphical controls and some notifications.
-there was also an example of a UI generated based on an ontological description, though the process hasn't been described in detail.
+The ontology described in the other paper~\cite{wysota_semantic_2015} approaches the problem more traditionally and focuses on describing UIs in terms of concrete graphical controls.
+The range of controls supported by the ontology seems rather narrow, judging by the examples shown in the paper.
+There is only a brief mention of a mechanism of notification and actions.
+An example of a UI generated based on an ontological description was provided, although without a description how it was obtained.
 
 \subparagraph{Summary}
 
@@ -345,8 +346,13 @@ there was also an example of a UI generated based on an ontological description,
         \end{threeparttable}
 \end{table}
 
-the table~\ref{tab:ontologies-review} summarizes the ontologies reviewed.
-the ontologies could be viewed as the most exotic approach to modelling UIs;
-the fact that there's really only a single worthwhile contribution in the area serves as an evidence.
-this could also be because semantic technologies lack adoption even more than model-based development.
-thus, even though the reviewed ontology (UI$^{2}$Ont) is a mature work, its context is too hermetic for it to gain more attention.
+The table~\ref{tab:ontologies-review} summarizes the ontologies reviewed.
+They could be viewed as the most exotic approach to modelling UIs, as evidenced by the fact that there is only a single contribution in the area that has some practical potential.
+Nevertheless, the UI$^{2}$Ont ontology looks like a mature and comprehensive work, building on experiences from languages coming before it.
+
+The position paper related to the OI$^{2}$Int ontology~\cite{paulheim_formal_2011} describes a perspective on the relationship between UI description languages and UI ontologies, which might explain lack of interest in the latter approach:
+these are simply two types of models with different assumptions and goals.
+UIDLs aim for efficiency of modelling, while ontologies focus on comprehensiveness and precision.
+
+Therefore, ontologies won't replace UIDLs; however, they might be a valuable enhancement for them (and vice versa), as was the case with the UI$^{2}$Ont ontology\,\textemdash\,the ontology itself was developed on the basis of previously existing UIDLs.
+Conversly, such an ontology could help validate new or existing languages.
