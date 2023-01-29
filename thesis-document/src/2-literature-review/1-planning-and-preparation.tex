@@ -1,126 +1,74 @@
 \subsection[Planning and preparation]{Planning and preparation for review}\label{subsec:planning-and-preparation-for-review}
 
-This section describes measures undertaken in preparation for the search of relevant literature and its review \textendash\ including formulation of research questions and search strings.
-
-\subsubsection{Research questions}
-
-\todo[inline]{elaborate the RQs more}
-
-\paragraph{RQ 1: What approaches are used for modelling graphical user interfaces?}
-The premise of the work is to transform graphical data into an abstract representation;
-its choice is therefore an extremely important one, as it might impact the whole solution.
-
-\paragraph{RQ 2: How can a graphical representation of GUI be converted to a machine-readable one?}
-The answer to this question should not only entail the methods that can be used but also discuss their strengths and limitations: e.g. their input and output data formats, breadth of applicability, usability, and technical complexity.
-
-\subsubsection[Justification]{Justification for the review}
-
-This review aims to \textbf{describe the state of the art} in the field, point out its gaps, and \textbf{demonstrate possible solutions} that can be used to address the thesis problem.
-To provide background for the literature review, existing reviews
-relevant to previously formulated research questions are discussed below.
-
-\paragraph{RQ 1}
-As of 4.02.2022, no strictly systematic review of the topic has been found.
-Vanderdonckt et al.\ performed several~\cite{souchon_review_2003,guerrero_garcia_theoretical_2009,guerrero_garcia_theoretical_2011}
-semiformal reviews of \emph{user interface description languages} (UIDLs) over the years.
-The authors describe the criteria of \textbf{evaluation and description of UIDLs} but document them rather scantly.
-Although they claim to attempt to describe a UI for a simple application, no code or UI examples are provided.
-Moreover, the \textbf{last review seems to have been published in 2010} \textendash\ more than 10 years from now;
-this justifies another review that would take into account more recent developments within the domain.
-9 papers referenced in these three reviews are going to be included in the review for this thesis
-\textbf{before the second screening for inclusion} (based on introductions and conclusions);
-they might also serve as a benchmark for its effectiveness (they might show up in the results of the primary search).
-
-\paragraph{RQ 2}
-\todo[inline]{look for an SLR}
-
-\subsubsection{Keywords}
-The keywords have been extracted from the proposed research questions
-and have been supplemented with their synonyms or related terms.
-
-\paragraph{RQ 1}
-
+\subsubsection{Defining research questions and justifying the review}
+To gather data for evaluation, three research questions need to be answered:
 \begin{itemize}
-    \item \textbf{graphical user interface}/user interface/graphical interface/GUI/UI
-    \item \textbf{modelling}/(meta-)model/representation/(modelling) language/specification
-    \item \textbf{multi-platform}/multi-device/platform-independent/device-independent
-    \item \textbf{user interface description language}/UIDL
+    \item RQ1: What abstract representation of user interfaces exist?
+    \item RQ2: To what extent these representations adhere to the Cameleon Reference Framework? \textit{(evaluation of comprehensiveness)}
+    \item RQ3: To what extent these representations allow for a detailed specification of a UI? \textit{(evaluation of fidelity)}
 \end{itemize}
 
-\paragraph{RQ 2}
+There have been several surveys of UIDLs conducted in the past~\cite{souchon_review_2003, guerrero_garcia_theoretical_2009, guerrero_garcia_theoretical_2011, Jovanovic2013}.
+However, they’re not systematic and well-documented.
+The latest one has been published in 2013 and there does not seem to exist a more recent overview.
+Additionally, the documents have been focused on XML-based languages and did not research any other forms of representing user interfaces.
 
+There exists a systematic review of MBUID environments~\cite{Ruiz2018}.
+While it provides a structured evaluation in the context of model-driven development and lists comprehensiveness and design flexibility as evaluation criteria, it does not focus on languages/representations themselves.
+Additionally, it also does not include approaches from later than 2015.
+
+\subsubsection{Defining search criteria}
+First, relevant keywords and synonyms were first identified:
 \begin{itemize}
-    \item \textbf{graphical user interface}/GUI/UI/user interface/graphical interface
-    \item \textbf{sketch}/prototype/mockup
-    \item \textbf{convert(-sion)}/transform(ation)/rewrite(-ing)/recreate(-ing/-ion)/generate(-ing/-ion)
-    \item \textbf{representation}/code
+    \item \textbf{abstract}/universal/generic/platform-independent/etc. \textit{(terms related to non-direct descriptions)}
+    \item \textbf{user interface}/UI \textit{(terms related to user interfaces)}
+    \item \textbf{representation}/(meta-)model/language/specification/etc. \textit{(terms related to descriptions)}
 \end{itemize}
-
-\subsubsection{Choice of search engines}
-
-The following search engines will be used:
-\begin{itemize}
-    \item Scopus\footnote{\url{https://scopus.com}}
-    \item IEEE Xplore\footnote{\url{https://ieeexplore.ieee.org}}
-    \item ACM Digital Library\footnote{\url{https://dl.acm.org/}}
-    \item Springer Link\footnote{\url{https://link.springer.com/}}
-    \item DBLP\footnote{\url{https://dblp.uni-trier.de/}}
-    \item Semantic Scholar\footnote{\url{https://semanticscholar.org}}
-\end{itemize}
-The engines listed are well-accepted in the scientific community and index a wide variety of publications.
-
-\subsubsection{General search strings}
-
-Based on keywords from the previous sections, general search strings are defined.
-They will not be used directly in queries but will provide a basis for engine-specific queries.
-
-\paragraph{RQ 1}
-
-The search string (shown in Listing~\ref{lst:general-search-string-rq-1})
-comprises two complementary parts connected by an \texttt{OR} operator.
-The first one is a conjunction of three more specific parts:
-\begin{itemize}
-    \item a set of terms relating to graphical user interfaces
-    \item a set of terms describing abstracting from a platform/device
-    \item a set of terms about modelling/describing
-\end{itemize}
-The second part mentions UIDLs directly (the term does not fit neatly into the other part of the string.)
-
+Based on these keywords, it was possible to formulate a search string: synonyms and their different spellings are connected using a Boolean \texttt{OR} operator and groups of synonyms are connected using an \texttt{AND} operator.
+The initial search string was used to perform a tentative search;
+it helped validate that the returned results contain relevant papers and helped refine the search string by adding more synonyms of selected keywords.
+Additionally, the term \emph{user interface description language} and its initialism \emph{UIDL} are appended to the search string using \texttt{OR}s as a recognizable term that would not be matched by the previously described conjunction of keywords.
+The final search string is shown in Listing~\ref{lst:general-search-string-rq-1}.
 \begin{listing}
-    \caption{The general search string for RQ 1}
+    \caption{The search string}
     \begin{minted}{text}
 (
-    ("graphical user interface" OR "user interface"
-        OR "graphical interface" OR "UI" OR "GUI")
-    AND
-    ("abstract" OR "platform-independent" OR "device-independent"
-        OR "multi-platform" OR "multi-device")
-    AND
-    ("language" OR "modelling language"
-        OR "specification" OR "model" OR "meta-model"
-        OR "representation" OR "description")
+  (
+    UI OR "user interface"
+  )
+  AND
+  (
+    abstract OR declarative OR intermediate OR
+    universal OR polymorphic OR generic OR
+    independent OR device-independent OR
+    multi-platform OR multi-device
+  )
+  AND
+  (
+    description OR describing OR
+    model OR modelling OR
+    metamodel OR meta-model OR "meta model" OR
+    language OR representation OR
+    specification OR specifying
+  )
 )
 OR
 (
-    "UIDL" OR "user interface description language"
+  "user interface description language" OR UIDL
 )
     \end{minted}
     \label{lst:general-search-string-rq-1}
 \end{listing}
 
-\paragraph{RQ 2}
-\todo[inline]{specify general search strings}
-
-\subsubsection{Additional search criteria}
-
 To improve and narrow down the results of the searches, additional criteria are to be used:
 \begin{itemize}
-    \item papers ought to be related only to computer science/software engineering/etc.
+    \item papers should concern only the field of computer science
     \item papers should be written in English
+    \item papers should be published in 2010 or later
 \end{itemize}
 
-Additionally, the search for articles regarding RQ 1 ought to be limited to papers published not earlier than in the year 2000.
-This restriction is motivated by \todo{is the timing correct here?}the emergence of the widely available Web and mobile devices;
-the need for portable user interfaces should become apparent in the number of relevant papers.
-While a 20-year span might include now-obsolete solutions, it might be necessary (as exemplified by the previously mentioned UIDL report) to gain a complete picture of the domain.
-Should any outdated literature describing obscure the more recent knowledge, it might as well be discarded during the screening process.
+The first two restrictions result from practical consideration and limit the amount of results to a reasonable one.
+The date restriction is meant to narrow the focus only to the newest, most relevant contributions.
+
+To find relevant papers, Scopus\footnote{\url{scopus.com}} and Web of Science\footnote{\url{webofscience.com/wos/}} will be used.
+These engines are well-accepted in the scientific community and index research from most publishers (i.e.\ Springer, ACM, IEEE).

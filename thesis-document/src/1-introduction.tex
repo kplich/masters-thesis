@@ -1,6 +1,6 @@
 \section{Introduction}\label{sec:introduction}
 
-\subsection{User interfaces are important}\label{subsec:user-interfaces-are-important}
+\subsection{Overview of model-based user interface development}\label{subsec:user-interfaces-are-important}
 Computer technologies are now ubiquitous thanks to user interfaces.
 They enable billions of people to comfortably use computers, phones and many other different devices.
 Nowadays, a usable and friendly interface can decide about a success or failure of a product~\cite{Offutt2002}.
@@ -8,20 +8,20 @@ No wonder then, that design, implementation and maintenance of UI are a central 
 Research shows that these processes take up roughly the half of time devoted to developing the whole product~\cite{Myers1992}.
 % All this research takes place as a part of the rich discipline of human-computer interaction ^[*The psychology of human-computer interaction*, 1983, Card, Moran, Newell].
 
-\subsection{Diversity and complexity of UIs causes difficulties}\label{subsec:diversity-and-complexity-of-uis-causes-difficulties}
+% \subsection{Diversity and complexity of UIs causes difficulties}\label{subsec:diversity-and-complexity-of-uis-causes-difficulties}
 Development of UIs has never been easy, mostly because of technical issues~\cite{Six1991}.
 Over time, though, the challenge has taken on a new dimension.
 The number, diversity and connectedness of devices on the market has risen exponentially~\cite{Cisco2020}.
 Such an explosion of complexity has made it ever so harder to deliver a consistent and satisfying user experience to users.
 Together with maturation of the computing technologies, approaches and methods for systematic development of UIs have also been devised in order to simplify and speed up the process while also reducing costs and mistakes.
 
-\subsubsection{UIMSs \& MBUID}
+% \subsubsection{UIMSs \& MBUID}
 The process has started with user interface management systems – tools for \enquote{development and management of the interaction in an application domain across varying devices, interaction techniques and styles}~\cite{Betts1987}.
 However, because of their shortcomings, a new model-based development paradigm has emerged, where a model is \enquote{a central description of all aspects of an interface design}~\cite{Puerta1994}.
 Since then, there have been many achievements in the area of model-based UI development – the approaches progressed from simply generating a UI based on a model to managing the diversity and complexity of UIs, handling different platforms, devices, interaction modalities, user states and usage contexts~\cite{Meixner2011}.
 As the maturity of solutions increases, it is expected that model-based approaches will become model-driven, i.e., fully automated and integrated with other parts of the development process in the spirit of model-driven development~\cite{Ruiz2018}.
 
-\subsubsection{MBUID \& software development lifecycle}
+%\subsubsection{MBUID \& software development lifecycle}
 As the name suggests, models and abstract representations of user interfaces lie at the heart of the model-based development paradigm (and related ones) and can support activities in many software engineering disciplines.
 An abstract UI representation can be seen as a specification.
 Creating it can be used for obtaining, validating requirements to UI elements~\cite{Homrighausen2002}.
@@ -31,7 +31,7 @@ Its formality can enable automatic generation of test cases~\cite{Vieira2006}.
 A wide-scale adoption of MDD requires porting or reimplementing existing applications.
 A manual approach won’t be feasible for most organizations – an (at least partially) automatic approach for reverse engineering of a model is necessary.
 
-\subsubsection{No-code \textendash\ no-wave?}
+% \subsubsection{No-code \textendash\ no-wave?}
 A similar paradigm has emerged in recent years from the business side of systems development in the form of \emph{no-code} or \emph{low-code development}~\cite{Rymer2019}.
 Although considered as an exercise in rebranding of MDD and not particularly groundbreaking in technical terms, the intensive business support may serve as a vehicle for promoting concepts aligned with MDD~\cite{Bock2021}.
 
@@ -47,18 +47,17 @@ The main takeaway, necessary for understanding the evaluation criterion (as well
 %        \item task: A goal, together with some procedure or set of actions that will achieve the goal~\cite{calvary_cameleon_glossary_2002}.
 %        \item concept: anything relevant to the user that helps them accomplish tasks in the domain
 %    \end{itemize}
-    \item \textbf{abstract UI (AUI)}: the UI is structured \textbf{independently from modality}\,\textemdash\,there might be talk of \emph{multiple selection} but it's not yet known whether it'll be realized through e.g.\ voice, a telephone keyboard, or a touchscreen)
+    \item \textbf{abstract UI (AUI)}: the UI is structured \textbf{independently from modality}\,\textendash\,there might be talk of multiple selection but it's not yet known whether it'll be realized through e.g.\ voice, a telephone keyboard, or a touchscreen)
     \item \textbf{concrete UI (CUI)}: the modality of the UI is known and the specification is only \textbf{independent from technology};
-    e.g.\ the definition assumes a graphical UI and specifies a text input\,\textemdash\,however, it's not yet decided, what toolkit (e.g.\ C++ with Qt, Java with Swing/JavaFX or HTML with JS) will be used to realize it
-    \item \textbf{final UI (FUI)}: the executable UI, written in a \textbf{particular technology} with its distinct \emph{look and feel}.
+    e.g.\ the definition assumes a graphical UI and specifies a text input\,\textendash\,however, it's not yet decided, what toolkit (e.g.\ C++ with Qt, Java with Swing/JavaFX or HTML with JS) will be used to realize it
+    \item \textbf{final UI (FUI)}: the executable UI, written in a \textbf{particular technology} with its distinct look and feel.
 \end{itemize}
-
 Models at these stages can be related to one another through transformations: \emph{abstraction}, \emph{reification} and \emph{translation}.
-For example, the AUI stage \emph{abstracts} the CUI stage\,\textemdash\,the modality-specific information is lost (can't be expressed) at this stage.
+For example, the AUI stage \emph{abstracts} the CUI stage\,\textendash\,the modality-specific information is lost (can't be expressed) at this stage.
 On the other hand, the AUI stage \emph{reifies} the T+C stage by adding more information about how the UI should be structured.
-These two are complemented by translation\,\textemdash\,a transformation between models at the same stage (e.g.\ AUI models for different modalities.)
+These two are complemented by translation\,\textendash\,a transformation between models at the same stage (e.g.\ AUI models for different modalities.)
 
-\subsection{Goal and scope}\label{subsec:goal-and-scope}
+\subsection{Goal and scope of the thesis}\label{subsec:goal-and-scope}
 The goal of this thesis is to evaluate the comprehensiveness and fidelity of abstract representations of UIs.
 This wording is not accidental – although the standard in MDD and MBUID are UML metamodels or user interface description languages (UIDLs), tentative research suggests that there might be other types of representation of UIs previously not included in the literature.
 
@@ -71,18 +70,7 @@ Comprehensiveness of modelling is especially relevant during UI design/specifica
 Fidelity of modelling has importance in development, migration or reverse engineering – the ability to capture details of implementation might be crucial to reducing effort in automated tasks.
 Both criteria can also be useful for testing – both breadth and detail of modelling will have influence on the quality and scope of tests.
 
-\todo[inline]{moze to juz wrzucic do przegladu literatury?}
-To gather data for evaluation, two research questions need to be answered:
-\begin{itemize}
-    \item RQ1: To what extent existing UI representations adhere to the Cameleon Reference Framework (are comprehensive)?
-    \item RQ2: To what extent existing UI representation allow for a detailed (high-fidelity) specification of a UI.
-\end{itemize}
-
-\subsubsection{Justification for the thesis}
-There have been several surveys of UIDLs conducted in the past~\cite{souchon_review_2003, guerrero_garcia_theoretical_2009, guerrero_garcia_theoretical_2011, Jovanovic2013}.
-However, they’re not systematic and well-documented, the latest one has been published in 2013 and there doesn’t seem to exist a newer overview.
-Additionally, the documents have been focused on XML-based lanuguages and didn’t research any other forms of representing user interfaces.
-
-There exists a systematic review of MBUID environments~\cite{Ruiz2018}.
-While it provides a structured evaluation in the context of model-driven development and lists comprehensiveness and flexibility as evaluation criteria, it doesn’t focus on languages/representations themselves.
-Additionally, it also doesn’t include approaches from later than 2015.
+To realize the goal, a systematic literature review will be conducted.
+Systematic literature reviews are a widely accepted way of \enquote{identifying, evaluating and interpreting all research available and relevant to a specific research question}~\cite{kitchenham_guidelines_2007}.
+The process of planning and executing the review is described in section~\ref{sec:literature-review}.
+\todo[inline]{kolejne sekcje beda tu dalej opisane}
