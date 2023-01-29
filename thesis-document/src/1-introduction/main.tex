@@ -1,49 +1,78 @@
 \section{Introduction}\label{sec:introduction}
 
-\todo[inline]{write as prose}
+% User interfaces are important
+Computer technologies are now ubiquitous thanks to user interfaces.
+They enable billions of people to comfortably use computers, phones and many other different devices.
+Nowadays, a usable and friendly interface can decide about a success or failure of a product ^[*Quality attributes of Web software applications*, 2002, Offutt].
+No wonder then, that design, implementation and maintenance of UI are a central point of developing software products ^[*Effective UI*, 2010, Wilson et al.].
+Research shows that these processes take up roughly the half of time devoted to developing the whole product ^[*Survey on user interface programming*, 1992, Myers, Rosson].
+% All this research takes place as a part of the rich discipline of human-computer interaction ^[*The psychology of human-computer interaction*, 1983, Card, Moran, Newell].
 
-computing technology is more and more ubiquitous; it's not only for academics
-or office workers - since the turn of the century, everyday people can also use
-computers thanks to pretty and easy to use
-\emph{graphical user interfaces} \todo{How did that happen, elaborate?}
+% Diversity and complexity of UIs causes difficulties
+Development of UIs has never been easy, mostly because of technical issues ^[*User interface development: Problems and experiences*, 1991, Voss, Six].
+Over time, though, the challenge has taken on a new dimension.
+The number, diversity and connectedness of devices on the market has risen exponentially ^[*Cisco Annual Internet Report (2018–2023)*, 2020, Cisco].
+Such an explosion of complexity has made it ever so harder to deliver a consistent and satisfying user experience to users.
+Together with maturation of the computing technologies, approaches and methods for systematic development of UIs have also been devised in order to simplify and speed up the process while also reducing costs and mistakes.
 
-designing an appealing GUI has never been an easy task for various reasons,
-and it still takes a significant amount of time \todo[size=\tiny]{how much, exactly?
-quote paper from \enquote{Evaluating user interface generation approaches
-- model-based versus model-driven development} (first section)}
-and is an important activity while designing software
+% UIMSs & MBUID
+The process has started with user interface management systems – tools for “development and management of the interaction in an application domain across varying devices, interaction techniques and styles” ^[*Goals and objectives for user interface software*, 1987, Betts et al.].
+However, because of their shortcomings, a new model-based development paradigm has emerged, where a model is “a central description of all aspects of an interface design” ^[*Model-based interface development*, 1994, Puerta, Szekely].
+Since then, there have been many achievements in the area of model-based UI development – the approaches progressed from simply generating a UI based on a model to managing the diversity and complexity of UIs, handling different platforms, devices, interaction modalities, user states and usage contexts ^[*Past, Present, and Future of Model-Based User Interface Development*, 2011, Meixner et al.].
+As the maturity of solutions increases, it is expected that model-based approaches will become model-driven, i.e., fully automated and integrated with other parts of the development process ^[*Evaluating user interface generation approaches: model-based versus model-driven development*, 2019, Ruiz et al.] in the spirit of model-driven development.
 
-there are many programs that can be used to design user interfaces;
-nevertheless, despite years of technological advancements
-both in the industry and in the academia\todo{proof?}, paper sketches are still
-one of the most popular \todo{proof?} ways of creating UIs, especially during prototyping
-or in the early stages of development
 
-paper-based sketches are the preferred method for ideating on designs
-because of their free-from nature that doesn't constrain creativity,
-low barrier of entry, and ease of understanding;
-unfortunately, the analogue medium is not a perfect one: sketches on paper
-can only stay on paper and are difficult to manage \todo{prove benefits and disadvantages of paper-based sketches}
+% MBUID & software development lifecycle
+As the name suggests, models and abstract representations of user interfaces lie at the heart of the model-based development paradigm (and related ones) and can support activities in many software engineering disciplines.
+An abstract UI representation can be seen as a specification.
+Creating it can be used for obtaining, validating requirements to UI elements ^[*Round-Trip Prototyping Based on Integrated Functional and User Interface Requirements Specifications*, 2002, Homrighausen et al.].
+It’s also closely relating to the activity of designing the UI ^[*Bridging the Gap between Model and Design of User Interfaces*, 2006, Feuerstack et al.].
+A machine-processable model can be automatically transformed to functional code ^[*Model-Driven Development: Where Does the Code Come From?*, 2011, Fu et al.] ^[*Applying MDA Approach to Create Graphical User Interfaces*, 2011, Monte-Mor et al.].
+Its formality can enable automatic generation of test cases ^[*Automation of GUI testing using a model-driven approach*, 2006, Vieira et al].
+A wide-scale adoption of MDD requires porting or reimplementing existing applications.
+A manual approach won’t be feasible for most organizations – an (at least partially) automatic approach for reverse engineering of a model is necessary.
 
-the sketches are useful for discussing UI ideas, but the results
-always need to be translated into a digital form - either by a designer using a prototyping/design tool or by a developer and his development environment;
-the process is rather tedious and mechanical \todo{proof?} and thus presents itself
-as a candidate for (at least partial) automation;
-time saved on translating a sketch into a prototype
-could be then utilized more efficiently and fulfillingly
+% no-code – no-wave?
+A similar paradigm has emerged in recent years from the business side of systems development in the form of “no-code” or “low-code development” ^[*The Forrester Wave™: Low-Code Development Platforms For AD\&D Professionals, Q1 2019*, 2019].
+Although considered as an exercise in rebranding of MDD and not particularly groundbreaking in technical terms, the intensive business support may serve as a vehicle for promoting concepts aligned with MDD ^[*Low-Code Platform*, 2021, Bock, Frank].
 
-additionally, manual translation makes the resulting artifact not universal
-(especially when developing directly in a programming language)
-- choice of language/framework is usually an irreversible decision;
-should a developer want to create a prototype in a different language
-or design software, there's little possibility of translating the artifact
-between those two and the manual work needs to be done again
-\todo{how much of an issue is this?}
+% Cameleon Reference Framework
+The Cameleon Reference Framework (CRF) ^[*The Cameleon Reference Framework*, 2002, Calvary et al.], ^[*The Cameleon Glossary*, 2003, Calvary et al.] represents an important development in the field of model-based UI development.
+It defines and organizes many aspects of development of multi-target UIs into a framework for evaluation of tools and approaches related to the discipline.
+The main takeaway, relevant to most MBUID approaches, is that the framework recommends modelling the UIs on four levels (ordered from the most to the least abstract):
+- **tasks and concepts (T+C):** the UI is viewed only from a functional and conceptual perspective; practically no thought is given to specifics of the interaction
+- **abstract UI (AUI):** the UI is structured independently from modality — there might be talk of multiple selection but it’s not yet known whether it’ll be realized through e.g. voice, a telephone keyboard, or a touchscreen)
+- **concrete UI (CUI):** the modality of the UI is known and the specification is only independent from technology; e.g. the definition assumes a graphical UI and specifies a text input — however, it’s not yet decided, what toolkit (e.g. C++ with Qt, Java with Swing/JavaFX or HTML with JS) will be used to realize it
+- **final UI (FUI):** the executable UI, written or generated for a particular platform and technology with its distinct look and feel.
 
-the goal of thesis is to address these problems and propose a method
-of translating a paper-based sketch of a user interface
-to an intermediate representation that can be converted into artifacts
-more specific to certain technologies and software
+Models at these stages can be related to one another through transformations: abstraction, reification and translation.
+For example, the AUI stage abstracts the CUI stage — the modality-specific information is lost (can’t be expressed) at this stage.
+On the other hand, the AUI stage reifies the T+C stage by adding more information about how the UI should be structured.
+These two are complemented by translation — a transformation between models at the same stage (e.g. AUI models for different modalities.)
 
-\todo[inline]{complete the introduction with scope of the thesis and research questions}
-as sketches are used to design primary visual user interfaces, any research (including the review) will solely be focused on those UI types;\ user interfaces utilizing other modalities (e.g.\ voice UIs, 3D UIs, or UIs for virtual/augumented reality) are not taken into account in this research
+% goal and scope
+The goal of this thesis is to evaluate the comprehensiveness and fidelity of abstract representations of UIs.
+This wording is not accidental – although the standard in MDD and MBUID are UML metamodels or user interface description languages (UIDLs), tentative research suggests that there might be other types of representation of UIs previously not included in the literature.
+
+These two characteristics are selected as features of UI representations themselves that don’t depend on any outside factors.
+For example, readability or ease of use of a model depend on its tool support and documentation.
+Generation of code from a model, its quality and functionality are dependent on transformation methods, as well as the expressiveness of the model itself.
+
+The results of this thesis are relevant for all phases of UI development lifecycle.
+Comprehensiveness of modelling is especially relevant during UI design/specification, as a way to capture requirements.
+Fidelity of modelling has importance in development, migration or reverse engineering – the ability to capture details of implementation might be crucial to reducing effort in automated tasks.
+Both criteria can also be useful for testing – both breadth and detail of modelling will have influence on the quality and scope of tests.
+
+\todo[inline]{moze to juz wrzucic do przegladu literatury?}
+To gather data for evaluation, two research questions need to be answered:
+- RQ1: To what extent existing UI representations adhere to the Cameleon Reference Framework (are comprehensive)?
+- RQ2: To what extent existing UI representation allow for a detailed (high-fidelity) specification of a UI.
+
+% justification for the thesis*
+There have been several surveys of UIDLs conducted in the past ^[*A Review of XML-compliant User Interface Description Languages*] ^[*A Theoretical Survey of User Interface Description Languages: Preliminary Results*] ^[*A Theoretical Survey of User Interface Description Languages: Complementary Results*] ^[*Languages for model-driven development of user interfaces: Review of the state of the art*].
+However, they’re not systematic and well-documented, the latest one has been published in 2013 and there doesn’t seem to exist a newer overview.
+Additionally, the documents have been focused on XML-based lanuguages and didn’t research any other forms of representing user interfaces.
+
+There exists a systematic review of MBUID environments ^[*Evaluating user interface generation approaches: model-based versus model-driven development*, 2019, Ruiz et al.].
+While it provides a structured evaluation in the context of model-driven development and lists comprehensiveness and flexibility as evaluation criteria, it doesn’t focus on languages/representations themselves.
+Additionally, it also doesn’t include approaches from later than 2015.
