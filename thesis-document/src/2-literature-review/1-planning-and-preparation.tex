@@ -33,29 +33,20 @@ The final search string is shown in Listing~\ref{lst:general-search-string-rq-1}
     \caption{The search string}
     \begin{minted}{text}
 (
+  (UI OR "user interface")
+  AND
   (
-    UI OR "user interface"
+    abstract OR declarative OR intermediate OR universal OR polymorphic OR
+    generic OR independent OR device-independent OR multi-platform OR multi-device
   )
   AND
   (
-    abstract OR declarative OR intermediate OR
-    universal OR polymorphic OR generic OR
-    independent OR device-independent OR
-    multi-platform OR multi-device
-  )
-  AND
-  (
-    description OR describing OR
-    model OR modelling OR
+    description OR describing OR model OR modelling OR
     metamodel OR meta-model OR "meta model" OR
-    language OR representation OR
-    specification OR specifying
+    language OR representation OR specification OR specifying
   )
 )
-OR
-(
-  "user interface description language" OR UIDL
-)
+OR ("user interface description language" OR UIDL)
     \end{minted}
     \label{lst:general-search-string-rq-1}
 \end{listing}
