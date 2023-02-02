@@ -2,7 +2,7 @@
 
 \subsection{Overview of model-based user interface development}\label{subsec:user-interfaces-are-important}
 Computer technologies are now ubiquitous thanks to user interfaces.
-They enable billions of people to comfortably use computers, phones and many other different devices.
+They enable billions of people to comfortably use computers, phones and many other devices.
 Nowadays, a usable and friendly interface can decide about a success or failure of a product~\cite{Offutt2002}.
 No wonder then, that design, implementation and maintenance of UI are a central point of developing software products~\cite{Anderson2010}.
 Research shows that these processes take up roughly the half of time devoted to developing the whole product~\cite{Myers1992}.
@@ -17,58 +17,57 @@ Together with maturation of the computing technologies, approaches and methods f
 
 % \subsubsection{UIMSs \& MBUID}
 The process has started with user interface management systems – tools for \enquote{development and management of the interaction in an application domain across varying devices, interaction techniques and styles}~\cite{Betts1987}.
-However, because of their shortcomings, a new model-based development paradigm has emerged, where a model is \enquote{a central description of all aspects of an interface design}~\cite{Puerta1994}.
+However, because of their shortcomings, a new paradigm under the name of model-based user interface development (MBUID) has emerged, where a model is \enquote{a central description of all aspects of an interface design}~\cite{Puerta1994}.
 Since then, there have been many achievements in the area of model-based UI development – the approaches progressed from simply generating a UI based on a model to managing the diversity and complexity of UIs, handling different platforms, devices, interaction modalities, user states and usage contexts~\cite{Meixner2011}.
 As the maturity of solutions increases, it is expected that model-based approaches will become model-driven, i.e., fully automated and integrated with other parts of the development process in the spirit of model-driven development~\cite{Ruiz2018}.
 
-%\subsubsection{MBUID \& software development lifecycle}
-As the name suggests, models and abstract representations of user interfaces lie at the heart of the model-based development paradigm (and related ones) and can support activities in many software engineering disciplines.
-An abstract UI representation can be seen as a specification.
-Creating it can be used for obtaining, validating requirements to UI elements~\cite{Homrighausen2002}.
-It’s also closely relating to the activity of designing the UI~\cite{Feuerstack2006}.
-A machine-processable model can be automatically transformed to functional code~\cite{Fu2011, MonteMor2011}.
-Its formality can enable automatic generation of test cases~\cite{Vieira2006}.
-A wide-scale adoption of MDD requires porting or reimplementing existing applications.
-A manual approach won’t be feasible for most organizations – an (at least partially) automatic approach for reverse engineering of a model is necessary.
-
 % \subsubsection{No-code \textendash\ no-wave?}
-A similar paradigm has emerged in recent years from the business side of systems development in the form of \emph{no-code} or \emph{low-code development}~\cite{Rymer2019}.
+A paradigm similar to model-driven development has emerged in recent years from the business side of systems development in the form of \emph{no-code} or \emph{low-code development}~\cite{Rymer2019}.
 Although considered as an exercise in rebranding of MDD and not particularly groundbreaking in technical terms, the intensive business support may serve as a vehicle for promoting concepts aligned with MDD~\cite{Bock2021}.
 
 \subsection{The Cameleon Reference Framework}\label{subsec:the-cameleon-reference-framework}
 
 The Cameleon Reference Framework (CRF)~\cite{calvary_cameleon_framework_2002, calvary_cameleon_glossary_2002} represents an important development in the field of model-based UI development.
-It defines and organizes many aspects of development of multi-target UIs\footnote{UIs for multiple types of users, platforms and environments} into a framework for evaluation of tools and approaches related to the discipline.
-The main takeaway, necessary for understanding the evaluation criterion (as well as the field of MBUID in general), is that the framework recommends modelling the UIs in four stages (ordered from the most to the least abstract):
+It defines many aspects of the area and organizes them into a framework for evaluation of tools and approaches related to the discipline.
+The most important contribution of the project is the definition of four levels of abstraction in UI development:
+\begin{samepage}
 \begin{itemize}
-    \item \textbf{tasks and concepts (T+C)}: the UI is viewed only from a \textbf{functional and conceptual perspective};
-    practically no thought is given to specifics of the interaction
-%    \begin{itemize}
-%        \item task: A goal, together with some procedure or set of actions that will achieve the goal~\cite{calvary_cameleon_glossary_2002}.
-%        \item concept: anything relevant to the user that helps them accomplish tasks in the domain
-%    \end{itemize}
-    \item \textbf{abstract UI (AUI)}: the UI is structured \textbf{independently from modality}\,\textendash\,there might be talk of multiple selection but it's not yet known whether it'll be realized through e.g.\ voice, a telephone keyboard, or a touchscreen)
-    \item \textbf{concrete UI (CUI)}: the modality of the UI is known and the specification is only \textbf{independent from technology};
-    e.g.\ the definition assumes a graphical UI and specifies a text input\,\textendash\,however, it's not yet decided, what toolkit (e.g.\ C++ with Qt, Java with Swing/JavaFX or HTML with JS) will be used to realize it
-    \item \textbf{final UI (FUI)}: the executable UI, written in a \textbf{particular technology} with its distinct look and feel.
+    \item \textbf{tasks and concepts (T+C)}: on this level, the UI is viewed only from a \textbf{functional and conceptual perspective};
+    practically no thought is given to the implementation of the interaction
+    \item \textbf{abstract UI (AUI)}: on this level, the UI is structured \textbf{independently from modality of interaction}\,\textendash\,it is not yet known if it will be a graphical, textual, or voice UI (to name a few examples)
+    \item \textbf{concrete UI (CUI)}: on this level, the modality of the UI is known and the specification is only \textbf{independent from platform};
+    e.g.\ the definition assumes a graphical UI and specifies a text input\,\textendash\,however, it's not yet decided, what technology will be used to realize it
+    \item \textbf{final UI (FUI)}: on this level, the executable UI, written in a \textbf{particular technology} is generated
 \end{itemize}
+\end{samepage}
 Models at these stages can be related to one another through transformations: \emph{abstraction}, \emph{reification} and \emph{translation}.
-For example, the AUI stage \emph{abstracts} the CUI stage\,\textendash\,the modality-specific information is lost (can't be expressed) at this stage.
-On the other hand, the AUI stage \emph{reifies} the T+C stage by adding more information about how the UI should be structured.
-These two are complemented by translation\,\textendash\,a transformation between models at the same stage (e.g.\ AUI models for different modalities.)
+For example, the AUI stage can be \emph{abstracted} from the CUI stage\,\textendash\,the modality-specific information is lost (can't be expressed) at this stage;
+conversely, the AUI stage is a result of  \emph{reification} of the T+C stage by adding more information about how the UI should be structured\,\textendash\,the two transformations can be though of as inverses of one another.
+Step-by-step reification of models is a primary way of developing a user interface on the basis of models.
+Abstraction can be used to reverse engineer models from an existing UI.
+These two transformations are complemented by \emph{translation}\,\textendash\,a transformation between models at the same stage of abstraction (e.g.\ translation of a graphical CUI model to a voice CUI model.)
+
+\subsection{Expressiveness as an important model quality in MBUID}\label{subsec:model-quality-in-mbuid}
+Naturally, in order to be useful for the goals of model-based UI development, the models need to satisfy certain properties.
+Hailpern and Tarr discuss this problem in the context of model-driven development in general: they describe UML as an example of a model (or a set of models) that might not satisfy the needs of approaches in the domain~\cite{Hailpern2006}.
+In that case, authors point to complexity and insufficient semantics as language deficits that limit its expressive capacity, potential for automation and thus discourage its wider adoption.
+
+Vanderdonckt also identifies model quality as one of the challenges in the field of MBUID~\cite{Vanderdonckt2008}: semantics, as well as syntactic and stylistic rigor, are mentioned as important features of a model.
+These features help ensure that the model satisfies desirable properties, such as completeness, consistency, correction, expressiveness, and conciseness.
+In the paper, expressiveness is defined as \enquote{[the] ability of a model to express via an abstraction \textbf{any} [real-world] \textbf{aspect of interest}}.
+Flexibility of modelling is indeed important, as it helps better satisfy application requirements;
+if not provided, developers are forced to modify generated code manually~\cite{Pederiva2007}.
+As suggested by Aquino et al.~\cite{Aquino2010}, this could be realized by adding another model to the approach.
+However, such an approach stands in opposition to another challenge of MBUID: the risk of proliferation of models necessary to fully represent the final UI~\cite{Vanderdonckt2008}.
+At best, the UI model should allow flexibility on its own, without any additional constructs.
 
 \subsection{Goal and scope of the thesis}\label{subsec:goal-and-scope}
-The goal of this thesis is to evaluate the comprehensiveness and fidelity of abstract representations of UIs.
-This wording is not accidental – although the standard in MDD and MBUID are UML metamodels or user interface description languages (UIDLs), tentative research suggests that there might be other types of representation of UIs previously not included in the literature.
 
-These two characteristics are selected as features of UI representations themselves that don’t depend on any outside factors.
-For example, readability or ease of use of a model depend on its tool support and documentation.
-Generation of code from a model, its quality and functionality are dependent on transformation methods, as well as the expressiveness of the model itself.
-
-The results of this thesis are relevant for all phases of UI development lifecycle.
-Comprehensiveness of modelling is especially relevant during UI design/specification, as a way to capture requirements.
-Fidelity of modelling has importance in development, migration or reverse engineering – the ability to capture details of implementation might be crucial to reducing effort in automated tasks.
-Both criteria can also be useful for testing – both breadth and detail of modelling will have influence on the quality and scope of tests.
+Various reviews show that UI representations are for the most part not yet flexible enough for most applications~\cite{Ruiz2018, Souchon2003}.
+However, they do not provide a detailed account of how they evaluate expressiveness of UI models;
+there also does not exist any analogue of Cameleon Framework that could help assess representations in this regard.
+The goal of this thesis is therefore to more thoroughly investigate this aspect of UI representations and report the results.
+Expressiveness is understood as a model's capability to capture information relevant to generation of the final user interface.
 
 To realize the goal, a systematic literature review will be conducted.
 Systematic literature reviews are a widely accepted way of \enquote{identifying, evaluating and interpreting all research available and relevant to a specific research question}~\cite{kitchenham_guidelines_2007}.
