@@ -18,3 +18,66 @@ The last step of the search is performing a backward and forward search through 
 It aims to complement the results of database searches with other relevant papers that would not otherwise be found.
 
 \todo[inline]{przebieg przegladu}
+
+inclusion criteria:
+\begin{itemize}
+    \item discussion of expressiveness of generating UI
+    \item review of UIDLs
+    \item MBUID approaches
+    \item description/specification of UI representation
+    \item UIDLs
+\end{itemize}
+
+\begin{itemize}
+    \item two searches in scopus and web of science
+    \item 6-9th of February 2023
+    \item scopus 1414 documents
+    \item web of science - 856
+\end{itemize}
+
+first stage: loose and tentative screening for inclusion, based on titles and abstracts:
+\begin{itemize}
+    \item scopus: 133 documents
+    \item web of science: 77 documents
+    \item after removing duplicates: 154 documents
+\end{itemize}
+
+second stage: exclusion of least relevant papers, still based on titles and abstracts
+\begin{itemize}
+    \item 107 papers retained
+    \item 47 discarded
+    \item \todo{formulate more precisely}discarding criteria:
+    \begin{itemize}
+        \item in general, papers not relevant to the task at hand
+    \end{itemize}
+\end{itemize}
+
+third stage: further elimination of irrelevant papers, loosely based on full text
+\begin{itemize}
+    \item 45 papers retained
+    \item 62 papers discarded
+    \item \todo{formulate more precisely}discarding criteria
+    \begin{itemize}
+        \item development a MBUIDE
+        \item focus outside the task at hand: interaction modelling, UI or general development, not model-based
+        \item relying on other paper, or an existing description
+        \item lack of clear UI description or a description for a specific use case
+        \item solution for a more specific problem in MBUID (mostly adaptation)
+    \end{itemize}
+\end{itemize}
+
+fourth stage: further elimination of irrelevant papers, more thorough reading of full text
+\begin{itemize}
+    \item 11 papers retained
+    \item 34 papers discarded
+    \item \todo{formulate more precisely}discarding criteria:
+    \begin{itemize}
+        \item lack of a clear UI description
+        \item low quality, simple model, informal description
+        \item lack of a concrete UI description (only AUI)
+        \item referring to a different paper or an existing description
+    \end{itemize}
+\end{itemize}
+
+snowballing: reading papers that were referred to in stage 4 and backward and formward references in chosen papers
+resulted in four extra papers
