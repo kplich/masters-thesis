@@ -1,14 +1,43 @@
 \subsection{Search execution and reporting}\label{subsec:search-execution-and-reporting}
 
-After finishing the preparations, the next step is to identify papers that should provide a basis for the review.
-The first step is to \textbf{perform the searches} in search engines.
-Afterwards, the\ \textbf{search results} (search date, search areas, number of results) \textbf{should be documented}.
+After finishing the preparations, the next step is to \textbf{perform the searches} in the engines and \textbf{document the results} (search date, search areas, number of results).
+The searches were performed from February 6$^{th}$ to February 9$^{th}$, 2023.
+Scopus search returned 1414 results;
+Web of Science search returned 856 documents.
 
-Simultaneously with the search, literature is going to be \textbf{tentatively screened for inclusion}, based on titles and abstracts of works.
-This stage does away with formal selection criteria -- the papers are chosen for further consideration based on a brief intuitive judgement of suitability and relevance;
-anything irrelevant to the discussion is meant to be discarded during the second screening for inclusion.
-In this stage, the decision is made after reading the papers' \textbf{introduction and conclusions} sections.
-This time, the criteria for exclusion should be \textbf{made explicit and documented}.
+While performing the search, the literature was \textbf{tentatively screened for inclusion} based on titles and abstracts of works.
+Papers were chosen if they:
+\begin{itemize}
+    \item seemed to present a representation of user interface/a UIDL,
+    \item seemed to present an approach to MBUID that might use a UI representation,
+    \item seemed to present a review of UI representations,
+    \item seemed to discuss the problem of expressiveness of UI representations.
+\end{itemize}
+The screening was rather broad and not too precise, so that as much relevant work as possible is identified;
+papers unrelated to the problem stated would be discarded during later stages of the review.
+This stage produced 133 documents found in Scopus and 77 documents found in Web of Science.
+After merging the two sets and removing duplicate papers, 154 documents were left for further consideration.
+
+In the second stage of the review, the set of papers was reviewed again in order to eliminate documents not connected to the subject of the thesis.
+The judgement was additionally based on the papers' introductions and conclusions.
+The process resulted in discarding of 47 papers, mostly due to focus on problems outside the area of MBUID\@.
+Other reasons for exclusion included:
+\begin{itemize}
+    \item papers concerning functional/declarative development of UIs,
+    \item papers describing methods for generation of full applications, not focused on UIs
+    \item papers based on, evaluating or comparing existing UI representations.
+    \item papers without a clear definition of a UI representation
+\end{itemize}
+
+The third stage of the review eliminated further papers, based on skimming the full text of the papers.
+In this stage, 62 papers were discarded:
+\begin{itemize}
+    \item papers unrelated to MBUID, focused on UI or general development,
+    \item papers related to problems adjacent to the thesis problem: interaction modelling, development of a MBUID environment, techniques for UI adaptation,
+    \item papers relying on other paper or an existing UI description,
+    \item papers without a clear definition of a UI description (or with a definition suited for a specific use case),
+    \item unavailable papers.
+\end{itemize}
 
 After filtering out the least interesting texts, the last screening step aims to identify other articles
 that should not be included in the review \textbf{based on their full content}.
@@ -57,13 +86,7 @@ third stage: further elimination of irrelevant papers, loosely based on full tex
     \item 45 papers retained
     \item 62 papers discarded
     \item \todo{formulate more precisely}discarding criteria
-    \begin{itemize}
-        \item development a MBUIDE
-        \item focus outside the task at hand: interaction modelling, UI or general development, not model-based
-        \item relying on other paper, or an existing description
-        \item lack of clear UI description or a description for a specific use case
-        \item solution for a more specific problem in MBUID (mostly adaptation)
-    \end{itemize}
+
 \end{itemize}
 
 fourth stage: further elimination of irrelevant papers, more thorough reading of full text
