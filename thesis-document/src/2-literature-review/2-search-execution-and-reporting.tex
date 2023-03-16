@@ -8,18 +8,19 @@ Web of Science search returned 856 documents.
 While performing the search, the literature was \textbf{tentatively screened for inclusion} based on titles and abstracts of works.
 Papers were chosen if they:
 \begin{itemize}
-    \item seemed to present a representation of user interface/a UIDL,
-    \item seemed to present an approach to MBUID that might use a UI representation,
-    \item seemed to present a review of UI representations,
-    \item seemed to discuss the problem of expressiveness of UI representations.
+    \item could potentially present a representation of user interface/a UIDL,
+    \item could potentially present an approach to MBUID that might use a UI representation,
+    \item could potentially present a review of UI representations,
+    \item could potentially discuss the problem of expressiveness of UI representations.
 \end{itemize}
-The screening was rather broad and not too precise, so that as much relevant work as possible is identified;
-papers unrelated to the problem stated would be discarded during later stages of the review.
-This stage produced 133 documents found in Scopus and 77 documents found in Web of Science.
+\textbf{The same criteria were used to look for relevant papers in the next steps}.
+The screening was rather broad and not too precise, so that \textbf{as much relevant work as possible is identified};
+papers unrelated to the stated problem would be discarded during later stages of the review.
+This stage resulted in 133 documents found in Scopus and 77 documents found in Web of Science.
 After merging the two sets and removing duplicate papers, 154 documents were left for further consideration.
 
 In the second stage of the review, the set of papers was reviewed again in order to eliminate documents not connected to the subject of the thesis.
-The judgement was additionally based on the papers' introductions and conclusions.
+The judgement was additionally \textbf{based on papers' introductions and conclusions}.
 The process resulted in discarding of 47 papers, mostly due to focus on problems outside the area of MBUID\@.
 Other reasons for exclusion included:
 \begin{itemize}
@@ -29,8 +30,8 @@ Other reasons for exclusion included:
     \item papers without a clear definition of a UI representation
 \end{itemize}
 
-The third stage of the review eliminated further papers, based on skimming the full text of the papers.
-In this stage, 62 papers were discarded:
+The third stage of the review eliminated further papers, based on \textbf{skimming the full text of the papers}.
+In this stage, 62 papers were discarded, due to the following reasons:
 \begin{itemize}
     \item papers unrelated to MBUID, focused on UI or general development,
     \item papers related to problems adjacent to the thesis problem: interaction modelling, development of a MBUID environment, techniques for UI adaptation,
@@ -39,68 +40,26 @@ In this stage, 62 papers were discarded:
     \item unavailable papers.
 \end{itemize}
 
-After filtering out the least interesting texts, the last screening step aims to identify other articles
-that should not be included in the review \textbf{based on their full content}.
-Reasons for rejecting papers in this stage also should be provided.
-
-The last step of the search is performing a backward and forward search through the references and citations of papers chosen for the review.
-It aims to complement the results of database searches with other relevant papers that would not otherwise be found.
-
-\todo[inline]{przebieg przegladu}
-
-inclusion criteria:
+Exclusion \textbf{based on full-text analysis} of papers was the last screening step.
+In this stage, 34 papers were excluded:
 \begin{itemize}
-    \item discussion of expressiveness of generating UI
-    \item review of UIDLs
-    \item MBUID approaches
-    \item description/specification of UI representation
-    \item UIDLs
+    \item papers with an unclear, informal or very simple definition of a UI description,
+    \item papers that extend contributions from other papers,
+    \item papers that use an existing UI representation,
+    \item papers that focus on representing the UI on an abstract level (not the concrete level, according to the CRF),
 \end{itemize}
 
-\begin{itemize}
-    \item two searches in scopus and web of science
-    \item 6-9th of February 2023
-    \item scopus 1414 documents
-    \item web of science - 856
-\end{itemize}
+To complement the database search and find additional relevant papers, a snowballing step has been executed.
+The source for this step were papers or UI representations referenced by papers from the last screening step (both selected and discarded) (backward search), as well as articles that cited the papers selected in the last step (forward search).
+4 additional papers were identified in this step.
 
-first stage: loose and tentative screening for inclusion, based on titles and abstracts:
-\begin{itemize}
-    \item scopus: 133 documents
-    \item web of science: 77 documents
-    \item after removing duplicates: 154 documents
-\end{itemize}
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{./2-literature-review/search-execution}
+    \caption{Visualization of subsequent steps of screening for inclusion.}
+    \label{fig:search-execution-vis}
+\end{figure}
 
-second stage: exclusion of least relevant papers, still based on titles and abstracts
-\begin{itemize}
-    \item 107 papers retained
-    \item 47 discarded
-    \item \todo{formulate more precisely}discarding criteria:
-    \begin{itemize}
-        \item in general, papers not relevant to the task at hand
-    \end{itemize}
-\end{itemize}
+As a result, 15 papers were identified during the search.
+The figure~\ref{fig:search-execution-vis} summarizes the process.
 
-third stage: further elimination of irrelevant papers, loosely based on full text
-\begin{itemize}
-    \item 45 papers retained
-    \item 62 papers discarded
-    \item \todo{formulate more precisely}discarding criteria
-
-\end{itemize}
-
-fourth stage: further elimination of irrelevant papers, more thorough reading of full text
-\begin{itemize}
-    \item 11 papers retained
-    \item 34 papers discarded
-    \item \todo{formulate more precisely}discarding criteria:
-    \begin{itemize}
-        \item lack of a clear UI description
-        \item low quality, simple model, informal description
-        \item lack of a concrete UI description (only AUI)
-        \item referring to a different paper or an existing description
-    \end{itemize}
-\end{itemize}
-
-snowballing: reading papers that were referred to in stage 4 and backward and formward references in chosen papers
-resulted in four extra papers
