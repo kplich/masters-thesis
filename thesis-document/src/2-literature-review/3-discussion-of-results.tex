@@ -1,29 +1,50 @@
 \subsection{Discussion of results}\label{subsec:discussion-of-results}
 
-This section concludes the search and describes the articles found.
-
 \subsubsection{Honorable mentions}
-To give a better overview of the problem domain, the section describes additional works in the domain that were considered during the search but ultimately were discarded.
+To give a better overview of the problem domain, the section describes additional works in the domain that were considered during the search but ultimately were not considered suitable for the review.
 The CUI model from CIAT-GUI~\cite{Molina2012-my}, QuiXML from MoCaDiX~\cite{Vanderdonckt2019-av} and omniscript~\cite{Ulusoy2019-jh} all look like promising solutions to the problem of the thesis.
 Unfortunately, the papers do not define the concrete UI representation in sufficient detail and do not provide any additional sources.
 
-The other category of literature not considered in this study are established UIDLs, e\.g\. IFML~\cite{Brambilla2014-ln}, UIML~\cite{Abrams1999}, or UsiXML~\cite{Limbourg2005}.
-Although they are well regarded in the literature and appeared often in papers reviewed as the language of choice for modelling UIs, ultimately they were not chosen for consideration.
+The other category of literature not considered in this study are established UIDLs, e.g.\ IFML~\cite{Brambilla2014-ln}, UIML~\cite{Abrams1999}, or UsiXML~\cite{Limbourg2005}.
+Although they are well-regarded in the literature and appeared often in papers reviewed as the language of choice for modelling UIs, ultimately they were not chosen for consideration.
 IFML and UIML were left out, as in principle they describe the user interface in abstract terms and leave the more concrete description to be specified in a different model.
 UIML provides a special extension mechanism of vocabularies that can define mapping of abstract components to implementation specific classes or elements.
 On the other hand, UsiXML also encompasses a concrete description.
 Unfortunately, the language is not widely available nowadays;
 the website of the UsiXML project does not contain any useful resources or specifications~\footnote{\url{http://www.usixml.org/en/software.html?IDC=239}}.
 
-\todo{not sure if i should even talk about this, or maybe talk about it later in the discussion?}The last category of excluded papers encompasses solutions designed for generating UI in other modalities.
+The last category of excluded papers encompasses solutions designed for generating UI in other modalities.
+Examples include descriptions of UI in virtual reality~\cite{Olmedo2015} or voice UIs~\cite{steinberger2020domain}.
 
 \subsubsection{Selected papers}
 
+\todo[inline]{initial thoughts/sketch here, to be improved}
+
+The 17 selected papers can be split in a few topical categories:
 \begin{itemize}
-    \item 1 paper with a review of UIDLs (though i'd say those are commercial implementation languages - so doesn't contain any new useful UIDLs, but discusses their expressiveness)
-    \item 2 papers describing an approach for migrating interfaces exploiting an intermediate representation
-    \item 4 papers describing 3 specific UI descriptions
-    \item 6 papers describing 6 MBUID approaches
+    \item 7 papers with 5 \textbf{UIDLs or DSLs}:
+    \begin{itemize}
+              \item MARIA (2009)~\cite{Paterno2009, MariaPDF}
+              \item XANUI (2016)~\cite{hermida2016xanui}
+              \item HCIDL (2018)~\cite{Gaouar2018}
+              \item Quid (2018-2019)~\cite{molina2018quid, Molina2019}
+              \item OpenUIDL (2020)~\cite{Moldovan2020}
+    \end{itemize}
+    \item 6 papers proposing \textbf{MBUID approaches} that also use and present their own UI model:
+    \begin{itemize}
+        \item Soude and Koussonda (2022)~\cite{Soude2022}
+        \item Khan et al. (2021)~\cite{Khan2021}
+        \item Miao et al. (2017)~\cite{Miao2017}
+        \item Achilleos et al. (2011)~\cite{Achilleos2011}
+        \item Kry{\v{s}}tof (2010)~\cite{kryvstof2010lpgm}
+        \item Bouchelligua et al. (2010)~\cite{Bouchelligua2010}
+    \end{itemize}
+    \item 2 papers describing an \textbf{approach to migrating interfaces} that uses an intermediate representation:
+    \begin{itemize}
+        \item Verhaeghe et al. (2021)~\cite{Verhaeghe2021visual, Verhaeghe2021behavior}
+    \end{itemize}
+    \item 1 paper with a \textbf{review of declarative GUI descriptions}:
+    \begin{itemize}
+        \item Chmielewski et al. (2016)~\cite{Chmielewski2016}
+    \end{itemize}
 \end{itemize}
-
-
