@@ -1,33 +1,52 @@
 \section{Introduction}\label{sec:introduction}
 
 \subsection{Overview of model-based user interface development}\label{subsec:user-interfaces-are-important}
-Computer technologies are now ubiquitous thanks to user interfaces.
-They enable billions of people to comfortably use computers, phones and many other devices.
-Nowadays, a usable and friendly interface can decide about a success or failure of a product~\cite{Offutt2002}.
-No wonder then, that design, implementation and maintenance of UI are a central point of developing software products~\cite{Anderson2010}.
-Research shows that these processes take up roughly the half of time devoted to developing the whole product~\cite{Myers1992}.
-% All this research takes place as a part of the rich discipline of human-computer interaction ^[*The psychology of human-computer interaction*, 1983, Card, Moran, Newell].
+Computing technologies are ubiquitous nowadays: even though devices such as computers and phones have increasingly become more capable, sophisticated and interconnected from decade to decade, they have nevertheless become the daily reality of billions of people around the world.
+That is in large part thanks to user interfaces (especially graphical ones) that allow everyone, not only specialists or academics, to interact with them on familiar and approachable terms (e.g.\ metaphors of a desktop or folders, still present to this day) instead of dealing with low-level technical minutiae.
+No wonder then, that design, implementation and maintenance of UI are one of main points of interest during the development of software products~\cite{Anderson2010}\,\textendash\,their usability can be a deciding factor in their commercial success or failure~\cite{Offutt2002}.
 
 % \subsection{Diversity and complexity of UIs causes difficulties}\label{subsec:diversity-and-complexity-of-uis-causes-difficulties}
-Development of UIs has never been easy, mostly because of technical issues~\cite{Six1991}.
-Over time, though, the challenge has taken on a new dimension.
-The number, diversity and connectedness of devices on the market has risen exponentially~\cite{Cisco2020}.
+Development of UIs has never been easy\,\textendash\,research shows that related processes take up roughly the half of time devoted to developing the whole product~\cite{Myers1992}.
+Initially, the reason lay mostly in technical issues~\cite{Six1991};
+over time, though, the challenge has taken on a new dimension:
+the number, diversity and connectedness of devices on the market has risen exponentially~\cite{Cisco2020}.
 Such an explosion of complexity has made it ever so harder to deliver a consistent and satisfying user experience to users.
 Together with maturation of the computing technologies, approaches and methods for systematic development of UIs have also been devised in order to simplify and speed up the process while also reducing costs and mistakes.
 
 % \subsubsection{UIMSs \& MBUID}
-The process has started with user interface management systems – tools for \enquote{development and management of the interaction in an application domain across varying devices, interaction techniques and styles}~\cite{Betts1987}.
-However, because of their shortcomings, a new paradigm under the name of model-based user interface development (MBUID) has emerged, where a model is \enquote{a central description of all aspects of an interface design}~\cite{Puerta1994}.
-Since then, there have been many achievements in the area of model-based UI development – the approaches progressed from simply generating a UI based on a model to managing the diversity and complexity of UIs, handling different platforms, devices, interaction modalities, user states and usage contexts~\cite{Meixner2011}.
-As the maturity of solutions increases, it is expected that model-based approaches will become model-driven, i.e., fully automated and integrated with other parts of the development process in the spirit of model-driven development~\cite{Ruiz2018}.
+The process has started with user interface management systems (UIMSs) – tools for \enquote{development and management of the interaction in an application domain across varying devices, interaction techniques and styles}~\cite{Betts1987}.
+However, the software in the category did not live up to this promise\,\textendash\,was difficult to use, and not portable or expressive enough\,\textendash\,and as such was not widely accepted in the industry~\cite{Myers1987}.
 
-% \subsubsection{No-code \textendash\ no-wave?}
-A paradigm similar to model-driven development has emerged in recent years from the business side of systems development in the form of \emph{no-code} or \emph{low-code development}~\cite{Rymer2019}.
-Although considered as an exercise in rebranding of MDD and not particularly groundbreaking in technical terms, the intensive business support may serve as a vehicle for promoting concepts aligned with MDD~\cite{Bock2021}.
+The need for more general and systematic approach to development was not unique to the area of UI development\,\textendash\,the whole discipline of software engineering in general desired to move away from platform-specific complexities of programming towards a more abstract and rigorous process.
+The area also had its first attempts to alleviate these difficulties in the form of computer-aided software engineering (CASE) approaches.
+They had aims similar to those of UIMSs\,\textendash\,abstraction from the platform, easier analysis and less manual implementation\,\textendash\,and suffered a similar fate\,\textendash\,the software could not handle the intricacies of real-world software.
+
+Although some complexity of programming has since been alleviated with object-oriented languages and frameworks that perform a substantial part of the \enquote{dirty work}, software development is still an involved, often manual process of translating requirements into design decisions and then into code~\cite{Schmidt2006}.
+Recognizing these everlasting difficulties, as well as attempting to learn from the failures of CASE, a new paradigm\,\textendash\,\textbf{model-driven engineering/development (MDE/MDD)}\,\textendash\,has emerged.
+Its basic principle is that \enquote{everything is a model}~\cite{bezivin2004search}\,\textendash\,models are first-class entities in the software development process, not just means to document or design software.
+With the help of metamodels (models defining models), platforms (specification of execution environment for a set of models), and model transformations (processes of converting a model to another model or source code), the approach sets out to raise the abstraction level in programming and allow partial or even full automation of software development process~\cite{mellor2004mda}.
+
+One of the most prominent example of a model-driven engineering approach appeared in the form of \textbf{Model Driven Architecture (MDA)} elaborated by Object Management Group since 2000~\cite{richard_soley_model_2000} and with the latest update published in 2014~\cite{mda_2014}.
+In support of the paradigm, MDA defines (among others) MDD concepts mentioned before, as well as a set of standards for modelling, the most prominent being the Meta Object Facility (MOF)~\footnote{\url{https://www.omg.org/mof/}} and the Unified Modelling Language (UML)~\footnote{\url{http://www.uml.org/}}.
+The main feature of the approach is leveraging transformations from so-called \textbf{platform-independent models (PIMs)} to \textbf{platform-specific models (PSMs)}.
+The former, as the name suggests, do not depend on platform details and are more aligned with the business and analytical environment;
+the latter contain more implementation details and are closer to a specific technology.
+
+Since then, the approach has been translated to the domain of user interface development under the name of \textbf{\enquote{model-based user interface development} (MBUID)}~\cite{Puerta1994}.
+There have been many achievements in the area – the methods progressed from simply generating a UI for a single device to managing the diversity and complexity of interfaces, handling different platforms, devices, interaction modalities, user states and usage contexts~\cite{Meixner2011}.
+In all of them, a model is the most important artifact of the development process;
+in fact, it is so important that the concept got its own name in the domain of MBUID\,\textendash\,a \textbf{user interface description language (UIDL)}~\cite{guerrero_garcia_theoretical_2009}.
+Although the name suggests a textual description, the language in question could be any kind of high-level, formal description of user interfaces (if not textual, it is usually expressed as a UML metamodel).
+UIDLs can also be viewed as a part of a particular case of \textbf{domain-specific languages (DSLs)}\,\textendash\,languages designed to be useful in a particular domain (UI description, in this case);
+through such high-level representation, the MBUID and MDE realize their goal of modelling closer to the problem domain.
+
+As the maturity of solutions increases, it is expected that model-based approaches will become model-driven, i.e., fully automated and integrated with other parts of the development process in the spirit of model-driven development~\cite{Ruiz2018}.
+Additionally, a paradigm similar to model-driven development has emerged in recent years from the business side of systems development in the form of \emph{no-code} or \emph{low-code development}~\cite{Rymer2019}.
+Although considered as an exercise in rebranding of MDE and not particularly groundbreaking in technical terms, the intensive business support may serve as a vehicle for promoting concepts aligned with MDE~\cite{Bock2021}.
 
 \subsection{The Cameleon Reference Framework}\label{subsec:the-cameleon-reference-framework}
 
-The Cameleon Reference Framework (CRF)~\cite{calvary_cameleon_framework_2002, calvary_cameleon_glossary_2002} represents an important development in the field of model-based UI development.
+The Cameleon Reference Framework (CRF)~\cite{calvary_cameleon_framework_2002, calvary_cameleon_glossary_2002} represents an important development in the field of model-based UI development, comparable in scale to the MDA\@.
 It defines many aspects of the area and organizes them into a framework for evaluation of tools and approaches related to the discipline.
 The most important contribution of the project is the definition of four levels of abstraction in UI development:
 \begin{samepage}
@@ -41,10 +60,10 @@ The most important contribution of the project is the definition of four levels 
 \end{itemize}
 \end{samepage}
 Models at these stages can be related to one another through transformations: \emph{abstraction}, \emph{reification} and \emph{translation}.
-For example, the AUI stage can be \emph{abstracted} from the CUI stage\,\textendash\,the modality-specific information is lost (can't be expressed) at this stage;
-conversely, the AUI stage is a result of  \emph{reification} of the T+C stage by adding more information about how the UI should be structured\,\textendash\,the two transformations can be though of as inverses of one another.
+For example, a model at the AUI stage can be \emph{abstracted} from a model at the CUI stage\,\textendash\,in the process, modality-specific information is lost (can't be expressed) at this stage;
+conversely, the AUI stage is a result of \emph{reification} of the T+C stage (adding more information about how the UI should be structured)\,\textendash\,the two transformations can be thought of as inverses of one another.
 Step-by-step reification of models is a primary way of developing a user interface on the basis of models.
-Abstraction can be used to reverse engineer models from an existing UI.
+Abstraction can be used to reverse engineer models from an existing UI\@.
 These two transformations are complemented by \emph{translation}\,\textendash\,a transformation between models at the same stage of abstraction (e.g.\ translation of a graphical CUI model to a voice CUI model.)
 
 \subsection{Expressiveness as an important model quality in MBUID}\label{subsec:model-quality-in-mbuid}
@@ -64,12 +83,12 @@ At best, the UI model should allow flexibility on its own, without any additiona
 \subsection{Goal and scope of the thesis}\label{subsec:goal-and-scope}
 
 Various reviews show that UI representations are for the most part not yet flexible enough for most applications~\cite{Ruiz2018, Souchon2003}.
-However, they do not provide a detailed account of how they evaluate expressiveness of UI models;
-there also does not exist any analogue of Cameleon Framework that could help assess representations in this regard.
+However, they do not provide a detailed account of how they evaluate expressiveness of UI models.
 The goal of this thesis is therefore to more thoroughly investigate this aspect of UI representations and report the results.
 Expressiveness is understood as a model's capability to capture information relevant to generation of the final user interface.
 
 To realize the goal, a systematic literature review will be conducted.
 Systematic literature reviews are a widely accepted way of \enquote{identifying, evaluating and interpreting all research available and relevant to a specific research question}~\cite{kitchenham_guidelines_2007}.
 The process of planning and executing the review is described in section~\ref{sec:literature-review}.
-\todo[inline]{kolejne sekcje beda tu dalej opisane}
+In section~\ref{sec:definition-of-the-evaluation-criteria}, selected papers are analyzed in order to define the criteria for evaluation, and which is performed in section~\ref{sec:evaluation-of-representations}.
+Section~\ref{sec:discussion-of-results} discusses the results of the evaluation, and section~\ref{sec:conclusions} concludes the paper.
