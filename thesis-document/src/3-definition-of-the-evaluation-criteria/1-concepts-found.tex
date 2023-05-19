@@ -10,124 +10,128 @@ They cover three areas:
 \end{itemize}
 
 \subsubsection{Application structure}
-This category encompasses design primitives that describe and organize the modelled application.
+This category encompasses concepts that enable modellers to describe and organize the structure of the developed application.
 
 \paragraph{Hierarchy}
-Most presented descriptions have opted for a hierarchical/tree-like structure, where each element can contain multiple \enquote{children} elements and only one \enquote{parent} element.
+Most presented descriptions have opted for a hierarchical/tree-like structure, where each element can contain multiple \emph{children} elements and only one \emph{parent} element.
 
-\paragraph{Application}
-Given a hierarchical structure, it is necessary for it to have a root node.
-This role is usually fulfilled by a node called an \emph{application node}.
-It is a starting point for modelling.
+\paragraph{Application (Project)}
+Given a hierarchical structure, it is necessary that it has a root node.
+This role is usually fulfilled by a node called an \emph{application node} or a \emph{project node}.
 
 \paragraph{View (Screen)}
 An application consists of \emph{views}/\emph{screens} \textendash\ collections of controls that are used together in order to fulfill a certain use case.
 
-\paragraph{Dialog}
-\todo{not sure about it?} A \emph{dialog (window)} is a special kind of view, displayed outside the main application flow/window that can be used to display important information to a user (or receive confirmations, etc. \textendash\ not sure about this stuff).
+\subparagraph{Dialog}
+A \emph{dialog (window)} is a special kind of view, displayed outside the main application flow/window that can be used to display important information to a user (or receive confirmations, etc.).
 
 \paragraph{Template}
-A view needs to have its content described \textendash\ that's what a \emph{template} is for.
+A \emph{template} is used to describe the content of a portion of an application (a view or a component).
 
 \paragraph{Element (Component)}
-The template is made of \emph{elements}/\emph{components} \textendash\ the smallest unit of structural description;
-an interaction object.
-Elements are a rich category and can be further described on a number of classification spectra.
-(They're not binaries!)
-
-\todo[inline]{are these classifications useful?}
+The template is made of \emph{elements}/\emph{components} \textendash\ they are the unit of a structure of a view.
+The category of elements is a broad one;
+it is possible to look at and classify them from multiple perspectives.
 
 \subparagraph{Containers vs widgets}
 This classification describes if the element only displays children elements and is therefore a \emph{container} or can only be used for interaction, where it can be called a \emph{widget}.
 
-\subparagraph{Static vs dynamic}
+\subparagraph{Static (output) components vs dynamic (input) components}
 This classification describes the level of complexity and interactivity of an element.
 \emph{Static} components are only used to display information and cannot influence the application state in any way.
 On the other hand, \emph{dynamic} components can handle interactions, change application state, navigate \textendash\ in general, perform actions.
 A similar classification would be a split between \emph{input} components (that can accept, validate and handle data from the user) and \emph{output} components (that are used to display data from external systems).
 
-\subparagraph{Provided vs custom vs external}
-A component may be defined directly in the core description (we'll call it a \emph{provided} component).
-Although, from a developer's perspective, it's desirable to have a wide range of components predefined, it's often difficult and impractical for the description creators to enumerate them all.
+\subparagraph{Predefined components vs custom components vs external components}
+A component may be \emph{predefined} by the authors directly in the core description.
+Although, from the developer's perspective, it is desirable to have a wide range of predefined components, it is often difficult and impractical for the creators of the description to enumerate them all.
 Because of this, they often decide to define the most useful and popular widgets and incorporate an extension mechanism into their language.
+\todo[inline]{finish him!}
 A \emph{custom} component is one that's built from existing ones within the description.
 An \emph{external} component is, as the name suggests, defined outside the description, but should be taken into consideration while generating final code.
 
-\paragraph{Asset}
-\todo{define better.}\todo{is this concept really used?}An \emph{asset} is a file that is used in the interface, but is not exactly an interaction element, e.g.\ a photo, video, document, etc.
+\paragraph{Asset (Resource)}
+An \emph{asset} describes a file that comprises the content of the interface and can be referenced by components, such as a photo, video, document, etc.
 
-\paragraph{Importing internal and external data}
-\todo{name and describe this concept better?} The possibility of splitting description files into smaller, possibly reusable parts is a very important capability for creating a uniform and maintainable application.
+\paragraph{Modularization}
+\emph{Modularization} encapsulates the possibility of splitting the description into smaller, possibly reusable parts that may be imported using a dedicated mechanism.
+It is a very important capability for creating a uniform and maintainable application.
 
 \subsubsection{Logic and behavior of application}
 
-\paragraph{Event and actions (handlers)}
-\todo{describe better what it means} Most of the descriptions utilize some sort of \emph{event}-driven description of behavior.
-\todo{citation} It's not surprising, given that the paradigm is quite common for graphical user interfaces.
-In short, user interaction triggers events in certain component which can be handled by \emph{actions} that change the state of the interface, trigger further events (and which cause further actions to be executed) or event call external systems.
+\paragraph{Events and handlers}
+As the \emph{event}-driven paradigm is the most widespread among GUI applications, it's not surprising that practically all the languages analyzed describe the logic of the applications in similar terms.
+In short, user interaction with a certain element triggers events that cause \emph{event handlers} attached to the element to be called.
+Event handlers are comprised of \emph{actions} that change the state of the interface, making it interactive.
 
-\todo{better explain and introduce}Events for predefined widgets also must be predefined.
-Additionally, it should be possible to define custom events, as well as use existing ones for custom components.
+Description languages often predefine certain events, applicable to most if not all elements \textendash\ the most popular are mouse/click events (left-/right-click) and keyboard events (pressing a key or a set of keys), although many other, from more mundane (such as submit event) to more exotic (such as low device battery event) types of events exist.
+Some of them also allow defining custom events, which is especially useful with custom widgets.
 
-\paragraph{Action definition}
-Most approaches concretely define the actions that can be executed as a result of an event, e.g.\ reading or setting an attribute value, calling an external service, navigation, etc.
-\todo{unsure} It might also be possible to define custom actions as compositions of existing elemental actions.
+\paragraph{Actions}
+\emph{Action} can be thought of as a unit of logic for handlers.
 
-\subparagraph{Navigation}
-\todo[inline]{todo}
+% Most approaches concretely define the actions that can be executed as a result of an event, e.g.\ reading or setting an attribute value, calling an external service, navigation, etc.
+% \todo{unsure} It might also be possible to define custom actions as compositions of existing elemental actions.
 
-\subparagraph{External and internal calls}
-\todo[inline]{todo}
+\subparagraph{Arguments}
+Arguments, just like in all programming, are a necessary construct to make functions reusable \textendash\ no wonder then, that they're also found in descriptions of UI logic.
 
-\subparagraph{Modification of internal state}
-\todo[inline]{todo}
+\subparagraph{Expressions and conditions}
+The languages support a simple logic by providing the possibility to reference data from arguments, other widgets and different sources, compute some arithmetic, textual or boolean expressions based on this data and deciding on the flow of actions executed in a handler.
 
-\paragraph{Data validation and access}
-Actions and components need to be able to access some data, be it from external services or internal elements.
-This is realized through literals, variables or references.
-Additionally, the data might be transformed with the help of calculations realized by arithmetic or boolean expressions.
+\subparagraph{Type}
+The languages usually predefine concrete actions that can be executed in the modelled applications.
+Most common actions include \emph{navigation} \textendash\ moving to another screen in the application, \emph{modification of internal state} \textendash\ changing attributes of other widgets or global state, or \emph{external calls} \textendash\ calls to a server that handles business logic.
 
-As forms are very popular form of interaction, it's also important to be able to validate data given by users.
-Some languages also define some validators.
 
-\paragraph{Template logic}
+%\paragraph{Data validation and access}
+%Actions and components need to be able to access some data, be it from external services or internal elements.
+%This is realized through literals, variables or references.
+%Additionally, the data might be transformed with the help of calculations realized by arithmetic or boolean expressions.
+%
+%As forms are very popular form of interaction, it's also important to be able to validate data given by users.
+%Some languages also define some validators.
+
+\paragraph{Logic of content}
 Apart from making actions more expressive, logic is also useful for view/component templates.
 Two of the most important tools are \emph{conditional rendering} \textendash\ displaying components based on a boolean condition and \emph{iteration} displaying components multiple times based on a list.
-This topic also includes access to data in the template through \emph{interpolation} and \emph{formatting} and \emph{expressions}.
+This topic also includes access to data in the template through \emph{interpolation}, \emph{formatting} and \emph{expressions}.
+
+\subparagraph{Widget inputs}
+To make components reusable and useful in different contexts, they may be able to accept some input parameters that ought to change their appearance or functionality.
+A component can accept two types of inputs.
+The first type of input is plain data \textendash\ either textual, numeric or in the form of an object \textendash\ called \emph{propositions}.
+The other type is called a \emph{slot} \textendash\ this type of input accepts not only plain data, but also whole components/lists of elements;
+for example, container components contain a slot for children components that ought to be displayed using a certain layout.
 
 \paragraph{Custom component definition}
 Some approaches also allow defining own, reusable stateful components.
-To realize these components, some features, apart from those described earlier are needed.
+To realize these components, some additional features beyond those described earlier are needed.
 
 \subparagraph{Internal state}
 To be able to encapsulate some logic, it is necessary to define, read and modify a state.
-This is realized through \emph{variables}, \emph{fields} or \emph{properties}
+This is realized through \emph{variables}, \emph{fields} or \emph{properties}.
 
-\subparagraph{Component inputs}
-\todo[inline]{move up?}To make components reusable and useful in different contexts, they may be able to accept inputs.
-There are two types of inputs that a component can accept.
-\todo{define better} First ones are simple data, often called \emph{propositions}.
-The other type of input is a \emph{slot} \textendash\ this type of input accepts not only data, but a whole component/list of elements.
-
-\subparagraph{Events}
-To allow components to interact with other components, they can \emph{emit} custom events with necessary data.
+\subparagraph{Custom events}
+To allow components to interact with other components, they can \emph{emit} custom \emph{events} with necessary data.
 
 \subsubsection{Appearance and presentation}
 This section is the most varied across different descriptions and at the same time feels the most underdeveloped.
 
 \paragraph{Layout}
-\emph{Layout} defines how children are laid out within a container.
-\todo{this is a little too obvious} Examples include a linear layout, where elements are laid out in a line, one after another or a border layout, where each element must be aligned to one of the window borders or the center of the window.
-Additionally, the layout can be further customized with properties such as gaps between elements, element alignment, etc.
+\emph{Layout} defines how children are laid out within a container, e.g.\ a border layout, where each element must be aligned to one of the window borders or the center of the window, or a relative layout, where elements can be aligned to other elements or the parent container.
+Additionally, the layout can be further customized with properties such as separation between elements, element alignment, etc.
 
-\paragraph{Positioning and sizing}
-\emph{Positioning} defines how much space does a component take on the screen and how it happens.
+\paragraph{Sizing}
+\emph{Sizing} allows the component to define how much space of its parent it needs to take.
+There usually seem to be at least two options available: fixed size, defined in some absolute units, such as points or pixels, relative size, mostly defined as percentages.
+An example of a different sizing option would be proportional sizing (where all elements indicate the proportion of the container they need to take up).
+
+\paragraph{Positioning}
+\emph{Positioning} is a complementary facet of drawing
 Part of this topic overlaps with layout \textendash\ it also concerns how items are positioned.
 This can happen however in two ways \textendash\ either a component tells its children how they should be laid out or the child can override or modify this setting.
 Apart from the default setting, a child component can specify its position as relative to the default position or position itself absolutely.
-Additionally, \emph{sizing} allows the component do define how much space of its parent it needs to take.
-There usually seem to be at least two options available: fixed size, defined in some absolute units, such as points or pixels, relative size, mostly defined as percentages.
-An example of a different sizing option would be proportional sizing (where all elements indicate the proportion of the container they need to take up).
 
 \paragraph{Support for different screens and responsive layouts}
 In modern UI development, it's a good practice to make interface layouts accommodate displays of different sizes and fit accordingly.
@@ -137,4 +141,4 @@ Some descriptions allow for defining some information about the display and make
 
 Most approaches allow for most basic styling: padding (internal separation), margins (external separation), shadow, borders, backgrounds.
 Additionally, there might be support for text styling, such as font type, size, weight, decoration, etc.
-\todo{research this claim more}However, only some languages seem to support more complex properties as found in CSS stylesheets.
+Finally, it might be possible to specify the appearance of portions of applications in probably most comprehensive and robust way \textendash\ by using CSS stylesheets directly.
