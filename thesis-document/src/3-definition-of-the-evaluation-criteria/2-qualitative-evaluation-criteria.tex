@@ -8,9 +8,11 @@ An extra section will be dedicated to describing widget support in respective de
 \begin{table}[]
     \caption{Qualitative evaluation criteria for the selected papers.}
     \label{tab:qualitative-evaluation-criteria}
-    \begin{tabular}{@{}llll@{}}
+    \renewcommand{\tabularxcolumn}[1]{>{\normalsize}m{#1}}
+    \newcolumntype{C}{>{\small\centering\arraybackslash}X}
+    \begin{tabularx}{\textwidth}{ccCc}
         \toprule
-        \textbf{Number} & \textbf{Name}                   & \textbf{Description}                                    & \textbf{Method of evaluation} \\ \midrule
+        \textbf{\textnumero} & \textbf{Name}                   & \textbf{Description}                                    & \textbf{Method of evaluation} \\ \midrule
         \multicolumn{4}{l}{\textit{Application structure}} \\ \midrule
         \textbf{A1}     & \textbf{Application}            & a top-level node of the element tree                    & binary classification         \\
         \textbf{A2}     & \textbf{View/Screen}            & grouping of related controls                            & binary classification         \\
@@ -38,5 +40,5 @@ An extra section will be dedicated to describing widget support in respective de
         \textbf{C3}     & \textbf{Input widgets}          & widgets that are used to input data                     & –                             \\
         C3.1            & Text input                      & \ldots                                                  & binary classification         \\
         C3.2            & Radio buttons                   & \ldots                                                  & binary classification         \\ \bottomrule
-    \end{tabular}
+    \end{tabularx}
 \end{table}
