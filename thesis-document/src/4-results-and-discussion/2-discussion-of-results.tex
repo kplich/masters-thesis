@@ -1,0 +1,62 @@
+\subsection{Discussion of results}\label{subsec:evaluation-discussion-of-results}
+
+\subsubsection{Concepts missing}
+
+\todo[inline]{revise this section once you get the actual results; right now it feels too much like too early conclusions}
+
+Although the previous sections provide quite a comprehensive list of features, it is far from being complete.
+It might be possible to describe a wide range of application in these simplest terms, more features are necessary to make full-fledged development of applications using these languages more feasible.
+This section briefly describes the features that have not been found in any of the descriptions and which are to be found in various mobile, desktop and Web GUI technologies.
+
+\paragraph{Specialized widgets}
+As mentioned in the previous section, it is desirable for developers/modellers to work with a wide selection of components that neatly fit many possible use cases instead of developing them themselves.
+Unfortunately, they might find the current state of the descriptions lacking, with only the most basic variants of components available in the descriptions.
+For example, in some languages it is possible to use a grid layout;
+however, none of the languages seems to have a masonry layout\footnote{Masonry layout displays content in columns, but unlike a grid, it does not require the conent to be aligned in the row axis, which makes the arrangement more balanced.} defined.
+
+%\subparagraph{(Paged) documents}
+
+%\paragraph{Support for touch-screens}
+
+\paragraph{Dependency management}
+As the languages are not mature and widespread, there is little incentive to create, disseminate and manage reusable pieces of UI description.
+Therefore, there are not any mature mechanisms for managing any external dependencies or libraries comparable to what is available for conventional programming languages.
+
+\paragraph{Code integration}
+Currently, the languages presented are limited in their expressiveness by their limited set of actions that can be performed in response to events.
+While it might be a welcome simplification for people unfamiliar with programming, it poses a grave limitation for developers.
+It might be reasonable to accommodate for any gaps in the language by allowing to \enquote{patch} them with code instead.
+
+% \subparagraph{Component lifecycle support}
+% The languages could create a generic lifecycle and support it.
+
+\paragraph{Global application state}
+Most modern GUI programming enhances the event-driven paradigm with the principle of unidirectional data flow: events \enquote{flow} up (events from children components are handled by parent elements) and state \enquote{flows} down (parent components set the state of child components).
+While the principle helps make the components reusable, testable and simpler to a certain extent, it fails in the case where data needs to be available throughout the application.
+The response to this problem are \emph{state containers} that centralize the application state, making state management more predictable and flexible.
+Future iterations of UIDLs could integrate these solutions to increase the flexibility and maintainability of developed applications.
+
+\paragraph{Internationalization}
+% \todo{chyba ze to jest w ktoryms z jezykow? idk}
+Many production-grade applications require to be available in more than one language version.
+However, to generate multiple versions of an applications, each using a different language would be impractical;
+instead, any locale-dependent resources (primarily text) are stored outside application code and loaded during runtime, depending on the language set by the user/system.
+Integrating such a mechanism directly into the language would increase the value and flexibility of languages.
+
+% \paragraph{Accessibility} \todo{not really sure that's a single feature that can be easily included}
+
+\paragraph{Animations}
+While it is possible to create full-scale applications without any animations, they can still make a big difference and transform a satisfactory user experience to an outstanding one.
+Animations are useful for indicating navigation, interaction progress and state changes in a friendly and visually appealing way.
+Without this feature in UIDLs, generated applications might miss out on this subtle aspect of user experience.
+
+\paragraph{Design systems}
+Design systems have emerged as a solution easing the development of various applications across multiple teams by establishing clear and common rules and style guides, defining reusable patterns and components.
+By using them, organizations and companies can spend less time designing and implementing their applications, while achieving reliability and a unified appearance across all their products.
+So far, there seems to be no explicit support for defining any parts of a style guide in the UIDLs analyzed which make them less suitable for large-scale development.
+
+\paragraph{Dynamic appearance}
+% todo: 4 sure?
+Additionally, any support for making the appearance of some UI elements dependent on component/application state also seems to be largely absent.
+The most important application for such a feature would be implementation of application themes (especially the famous dark theme).
+This further prevents developers from implementing more engaging interactions and customizable experiences.

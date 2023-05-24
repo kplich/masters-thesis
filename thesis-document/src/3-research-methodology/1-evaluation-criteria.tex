@@ -1,32 +1,23 @@
-\subsection{Concepts found}\label{subsec:concepts-found}
+\subsection{Evaluation criteria}\label{subsec:evaluation-criteria}
 
-As a part of answering the RQ2, concepts related to UI programming and design from the found papers need to be presented.
-Take note that they are often related to each other and thus difficult to separate from one another.
-They cover three areas:
-\begin{itemize}
-    \item structure and organization of an application,
-    \item definition of logic and behavior
-    \item description of presentation
-\end{itemize}
+This section lists concepts related to programming user interfaces that were included in the selected papers.
+The definitions were formulated by the author through relating the concepts described in the papers with concepts found in actual GUI technologies.
+They criteria three areas covered in subsequent subsections: architecture and basic elements, logic and behavior, and appearance and presentation details.
 
-\subsubsection{Application structure}
+\subsubsection{GUI architecture and basic elements}
 This category encompasses concepts that enable modellers to describe and organize the structure of the developed application.
 
-\paragraph{Hierarchy}
-Most presented descriptions have opted for a hierarchical/tree-like structure, where each element can contain multiple \emph{children} elements and only one \emph{parent} element.
+\paragraph{Hierarchical description of UI structure and content}
+Most presented descriptions describe the structure and contents of GUIs using hierarchical/tree-like structures, where each element can contain multiple \emph{children} elements and only one \emph{parent} element.
+The choice reflects the structure of descriptions used by many final UI technologies (\todo{add footnote for HTML}HTML, Android XML\furl{https://developer.android.com/guide/topics/resources/layout-resource}, XAML\furl{https://learn.microsoft.com/en-us/dotnet/desktop/wpf/xaml/}, FXML\furl{https://docs.oracle.com/javase/8/javafx/api/javafx/fxml/doc-files/introduction_to_fxml.html})
+The root node of such a structure is often highlighted in the descriptions and named an \textbf{application node} or a \textbf{project node}.
 
-\paragraph{Application (Project)}
-Given a hierarchical structure, it is necessary that it has a root node.
-This role is usually fulfilled by a node called an \emph{application node} or a \emph{project node}.
-
-\paragraph{View (Screen)}
+\paragraph{View}
 An application consists of \emph{views}/\emph{screens} \textendash\ collections of controls that are used together in order to fulfill a certain use case.
-
-\subparagraph{Dialog}
-A \emph{dialog (window)} is a special kind of view, displayed outside the main application flow/window that can be used to display important information to a user (or receive confirmations, etc.).
-
-\paragraph{Template}
-A \emph{template} is used to describe the content of a portion of an application (a view or a component).
+The closest real-world analogue would be an Android \texttt{Activity}\furl{https://developer.android.com/reference/android/app/Activity}, representing \enquote{a single, focused thing that the user can do.}
+A special kind of view is a \textbf{dialog (window)}.
+It is displayed outside the main flow of the GUI (mostly above) that can be used to display important information to a user (or receive confirmations, etc.).
+The concept is realized e.g.\ in the \texttt{dialog}\furl{https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog} defined in the HTML5 language.
 
 \paragraph{Element (Component)}
 The template is made of \emph{elements}/\emph{components} \textendash\ they are the unit of a structure of a view.
@@ -34,13 +25,18 @@ The category of elements is a broad one;
 it is possible to look at and classify them from multiple perspectives.
 
 \subparagraph{Containers vs widgets}
-This classification describes if the element only displays children elements and is therefore a \emph{container} or can only be used for interaction, where it can be called a \emph{widget}.
+This classification describes if the element can contain and handle children components \textendash\ in that case, it is called a \emph{container}.
+Otherwise, when it is meant to be used on its own, it is called a \emph{widget}.
+Most UI elements can be classified as widgets, e.g.\ buttons, form fields, multimedia, etc.
+However, container components have an important role in the UI, grouping related elements together and providing a usable structure to the interface.
+Examples of container components include lists, cards\furl{https://material.angular.io/components/card/overview}, and layout components (e.g.\ grid\furl{https://mui.com/material-ui/react-grid/} or relative\furl{https://learn.microsoft.com/en-us/windows/apps/design/layout/layout-panels\#relativepanel}).
+The classification does not have to be binary \textendash\ for example, a tabbed layout\furl{https://developer.apple.com/documentation/appkit/nstabview\#2555818} contains other content, but also has its own controls responsible for switching tabs.
 
-\subparagraph{Static (output) components vs dynamic (input) components}
-This classification describes the level of complexity and interactivity of an element.
-\emph{Static} components are only used to display information and cannot influence the application state in any way.
-On the other hand, \emph{dynamic} components can handle interactions, change application state, navigate \textendash\ in general, perform actions.
-A similar classification would be a split between \emph{input} components (that can accept, validate and handle data from the user) and \emph{output} components (that are used to display data from external systems).
+\subparagraph{Output vs input components}
+This classification describes whether components enable interactivity of the GUI (can be used to provide data or change application state).
+\emph{Output} components are only used to display information and do not let the user change application state in any way.
+Examples of output components could be text elements, labels, multimedia components and container components.
+On the other hand, \emph{input} components allow user to interact with the application, e.g.\ by providing data using input fields or triggering any changes in application state.
 
 \subparagraph{Predefined components vs custom components vs external components}
 A component may be \emph{predefined} by the authors directly in the core description.
@@ -51,10 +47,17 @@ Custom components are defined using features of the language and other component
 Another example of extending the description is using \emph{external} components.
 As the name suggests, they are defined outside the description \textendash\ they may come from e.g.\ existing component libraries.
 
+The fitting analogy is the relationship between HTML, Web Components\furl{https://developer.mozilla.org/en-US/docs/Web/API/Web_Components} and client-side JavaScript frameworks\furl{https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Client-side_JavaScript_frameworks/Introduction}.
+HTML defines a set of \emph{predefined} elements useful for describing documents.
+Client-side frameworks provide mechanisms to use these elements to create \emph{custom} components that fulfill application-specific needs.
+However, to speed up development time, both HTML and frameworks may want to reuse \emph{external} components developed by third parties \textendash\ Web Components allow developers to use them directly in HTML\@.
+
 \paragraph{Asset (Resource)}
-An \emph{asset} describes a file that comprises the content of the interface and can be referenced by components, such as a photo, video, document, etc.
+\emph{Assets} or a \emph{resources} are files that are used by the application for various purposes.
+\todo{rephrase}Android applications can contain resources for different purposes: from more usual, such as graphical and font files, to more unexpected, such as configuration and binary files.
 
 \paragraph{Modularization}
+\todo[inline]{think about it, is this necessary? well, this is obvious in programming languages, but can be less so in abstract description languages}
 \emph{Modularization} encapsulates the possibility of splitting the description into smaller, possibly reusable parts that may be imported using a dedicated mechanism.
 It is a very important capability for creating a uniform and maintainable application.
 
@@ -120,6 +123,7 @@ To allow components to interact with other components, they can \emph{emit} cust
 This section is the most varied across different descriptions and at the same time feels the most underdeveloped.
 
 \paragraph{Layout}
+\todo[inline]{this can often be realized as a component, too!}
 \emph{Layout} defines how children are laid out within a container, e.g.\ a border layout, where each element must be aligned to one of the window borders or the center of the window, or a relative layout, where elements can be aligned to other elements or the parent container.
 Additionally, the layout can be further customized with properties such as separation between elements, element alignment, etc.
 
@@ -142,62 +146,3 @@ Apart from the default setting, a child component can specify its position as re
 Most approaches allow for most basic styling: padding (internal separation), margins (external separation), shadow, borders, backgrounds.
 Additionally, there might be support for text styling, such as font type, size, weight, decoration, etc.
 Finally, it might be possible to specify the appearance of portions of applications in probably most comprehensive and robust way \textendash\ by using CSS stylesheets directly.
-
-\subsubsection{Concepts missing}
-
-Although the previous sections provide quite a comprehensive list of features, it is far from being complete.
-It might be possible to describe a wide range of application in these simplest terms, more features are necessary to make full-fledged development of applications using these languages more feasible.
-This section briefly describes the features that have not been found in any of the descriptions and which are to be found in various mobile, desktop and Web GUI technologies.
-
-\paragraph{Specialized widgets}
-As mentioned in the previous section, it is desirable for developers/modellers to work with a wide selection of components that neatly fit many possible use cases instead of developing them themselves.
-Unfortunately, they might find the current state of the descriptions lacking, with only the most basic variants of components available in the descriptions.
-For example, in some languages it is possible to use a grid layout;
-however, none of the languages seems to have a masonry layout\footnote{Masonry layout displays content in columns, but unlike a grid, it does not require the conent to be aligned in the row axis, which makes the arrangement more balanced.} defined.
-
-%\subparagraph{(Paged) documents}
-
-%\paragraph{Support for touch-screens}
-
-\paragraph{Dependency management}
-As the languages are not mature and widespread, there is little incentive to create, disseminate and manage reusable pieces of UI description.
-Therefore, there are not any mature mechanisms for managing any external dependencies or libraries comparable to what is available for conventional programming languages.
-
-\paragraph{Code integration}
-Currently, the languages presented are limited in their expressiveness by their limited set of actions that can be performed in response to events.
-While it might be a welcome simplification for people unfamiliar with programming, it poses a grave limitation for developers.
-It might be reasonable to accommodate for any gaps in the language by allowing to \enquote{patch} them with code instead.
-
-% \subparagraph{Component lifecycle support}
-% The languages could create a generic lifecycle and support it.
-
-\paragraph{Global application state}
-Most modern GUI programming enhances the event-driven paradigm with the principle of unidirectional data flow: events \enquote{flow} up (events from children components are handled by parent elements) and state \enquote{flows} down (parent components set the state of child components).
-While the principle helps make the components reusable, testable and simpler to a certain extent, it fails in the case where data needs to be available throughout the application.
-The response to this problem are \emph{state containers} that centralize the application state, making state management more predictable and flexible.
-Future iterations of UIDLs could integrate these solutions to increase the flexibility and maintainability of developed applications.
-
-\paragraph{Internationalization}
-% \todo{chyba ze to jest w ktoryms z jezykow? idk}
-Many production-grade applications require to be available in more than one language version.
-However, to generate multiple versions of an applications, each using a different language would be impractical;
-instead, any locale-dependent resources (primarily text) are stored outside application code and loaded during runtime, depending on the language set by the user/system.
-Integrating such a mechanism directly into the language would increase the value and flexibility of languages.
-
-% \paragraph{Accessibility} \todo{not really sure that's a single feature that can be easily included}
-
-\paragraph{Animations}
-While it is possible to create full-scale applications without any animations, they can still make a big difference and transform a satisfactory user experience to an outstanding one.
-Animations are useful for indicating navigation, interaction progress and state changes in a friendly and visually appealing way.
-Without this feature in UIDLs, generated applications might miss out on this subtle aspect of user experience.
-
-\paragraph{Design systems}
-Design systems have emerged as a solution easing the development of various applications across multiple teams by establishing clear and common rules and style guides, defining reusable patterns and components.
-By using them, organizations and companies can spend less time designing and implementing their applications, while achieving reliability and a unified appearance across all their products.
-So far, there seems to be no explicit support for defining any parts of a style guide in the UIDLs analyzed which make them less suitable for large-scale development.
-
-\paragraph{Dynamic appearance}
-% todo: 4 sure?
-Additionally, any support for making the appearance of some UI elements dependent on component/application state also seems to be largely absent.
-The most important application for such a feature would be implementation of application themes (especially the famous dark theme).
-This further prevents developers from implementing more engaging interactions and customizable experiences.
