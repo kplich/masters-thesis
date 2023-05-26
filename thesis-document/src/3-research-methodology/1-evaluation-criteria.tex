@@ -9,19 +9,19 @@ This category encompasses concepts that enable modellers to describe and organiz
 
 \paragraph{Hierarchical description of UI structure and content}
 Most presented descriptions describe the structure and contents of GUIs using hierarchical/tree-like structures, where each element can contain multiple \emph{children} elements and only one \emph{parent} element.
-The choice reflects the structure of descriptions used by many final UI technologies (\todo{add footnote for HTML}HTML, Android XML\furl{https://developer.android.com/guide/topics/resources/layout-resource}, XAML\furl{https://learn.microsoft.com/en-us/dotnet/desktop/wpf/xaml/}, FXML\furl{https://docs.oracle.com/javase/8/javafx/api/javafx/fxml/doc-files/introduction_to_fxml.html})
-The root node of such a structure is often highlighted in the descriptions and named an \textbf{application node} or a \textbf{project node}.
+The choice reflects the structure of descriptions used by many final UI technologies (HTML\furl{https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started\#nesting_elements}, Android XML\furl{https://developer.android.com/guide/topics/resources/layout-resource}, XAML\furl{https://learn.microsoft.com/en-us/dotnet/desktop/wpf/xaml/}, FXML\furl{https://docs.oracle.com/javase/8/javafx/api/javafx/fxml/doc-files/introduction_to_fxml.html})
+The root node of such a structure is often highlighted in the descriptions and named an \emph{application node} or a \emph{project node}.
 
 \paragraph{View}
 An application consists of \emph{views}/\emph{screens} \textendash\ collections of controls that are used together in order to fulfill a certain use case.
 The closest real-world analogue would be an Android \texttt{Activity}\furl{https://developer.android.com/reference/android/app/Activity}, representing \enquote{a single, focused thing that the user can do.}
-A special kind of view is a \textbf{dialog (window)}.
+A special kind of view is a \emph{dialog (window)}.
 It is displayed outside the main flow of the GUI (mostly above) that can be used to display important information to a user (or receive confirmations, etc.).
-The concept is realized e.g.\ in the \texttt{dialog}\furl{https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog} defined in the HTML5 language.
+The concept is realized e.g.\ in the \texttt{<dialog>} element\furl{https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog} defined in the HTML language.
 
-\paragraph{Element (Component)}
-The template is made of \emph{elements}/\emph{components} \textendash\ they are the unit of a structure of a view.
-The category of elements is a broad one;
+\paragraph{Component (element)}
+The template is made of \emph{elements}/\emph{components} \textendash\ they are the smallest parts of a description of a view.
+The category of components is broad;
 it is possible to look at and classify them from multiple perspectives.
 
 \subparagraph{Containers vs widgets}
@@ -42,7 +42,7 @@ On the other hand, \emph{input} components allow user to interact with the appli
 A component may be \emph{predefined} by the authors directly in the core description.
 Although, from the developer's perspective, it is desirable to have a wide range of predefined components, it is often difficult and impractical for the creators of the description to enumerate them all.
 Because of this, they often decide to define the most useful and popular widgets and incorporate an extension mechanism into their language.
-On such mechanism is to allow for defining \emph{custom} components within the description.
+One such mechanism is to allow for defining \emph{custom} components within the description.
 Custom components are defined using features of the language and other components (be it predefined, other custom or external components).
 Another example of extending the description is using \emph{external} components.
 As the name suggests, they are defined outside the description \textendash\ they may come from e.g.\ existing component libraries.
@@ -53,26 +53,30 @@ Client-side frameworks provide mechanisms to use these elements to create \emph{
 However, to speed up development time, both HTML and frameworks may want to reuse \emph{external} components developed by third parties \textendash\ Web Components allow developers to use them directly in HTML\@.
 
 \paragraph{Asset (Resource)}
-\emph{Assets} or a \emph{resources} are files that are used by the application for various purposes.
-\todo{rephrase}Android applications can contain resources for different purposes: from more usual, such as graphical and font files, to more unexpected, such as configuration and binary files.
+\emph{Assets} or \emph{resources} are files that are used by the application for various purposes.
+As an example, Android applications can contain resources that can be used in different contexts, e.g.\ fonts, configuration files and binary files\furl{https://developer.android.com/guide/topics/resources/providing-resources}.
 
 \paragraph{Modularization}
-\todo[inline]{think about it, is this necessary? well, this is obvious in programming languages, but can be less so in abstract description languages}
-\emph{Modularization} encapsulates the possibility of splitting the description into smaller, possibly reusable parts that may be imported using a dedicated mechanism.
-It is a very important capability for creating a uniform and maintainable application.
+\emph{Modularization} encapsulates the possibility of splitting the description into smaller, possibly reusable parts (preferably across multiple files) that may be imported.
+Because of its importance for creating uniform and maintainable applications, this capability is a strict necessity in standard programming languages;
+however, not all UIDLs provide such a possibility.
 
 \subsubsection{Logic and behavior of application}
 
+This category comprises concepts that allow modellers to make the UI interactive.
+
 \paragraph{Events and handlers}
-As the \emph{event}-driven paradigm is the most widespread among GUI applications, it's not surprising that practically all the languages analyzed describe the logic of the applications in similar terms.
+As the \emph{event}-driven paradigm is the standard among GUI applications~\cite{wang2016event}, it's not surprising that practically all the languages analyzed describe the logic of user interfaces in similar terms.
 In short, user interaction with a certain element triggers events that cause \emph{event handlers} attached to the element to be called.
 Event handlers are comprised of \emph{actions} that change the state of the interface, making it interactive.
+This mechanism is used the most extensively in client-side Web frameworks\furl{https://vuejs.org/guide/essentials/component-basics.html\#listening-to-events}\furl{https://angular.io/guide/event-binding}.
 
-Description languages often predefine certain events, applicable to most if not all elements \textendash\ the most popular are mouse/click events (left-/right-click) and keyboard events (pressing a key or a set of keys), although many other, from more mundane (such as submit event) to more exotic (such as low device battery event) types of events exist.
-Some of them also allow defining custom events, which is especially useful with custom widgets.
+Description languages (similarly to final technologies) often predefine certain events, applicable to most elements \textendash\ the most popular are mouse events (e.g.\ a \emph{left-}/\emph{right click}) and keyboard events (e.g.\ pressing a key or a set of keys), although many other types of events could exist\furl{https://developer.mozilla.org/en-US/docs/Web/Events}.
+Additionally, some description languages also allow defining custom events, which is especially useful with custom widgets.
 
 \paragraph{Actions}
 \emph{Action} can be thought of as a unit of logic for handlers.
+They represent everything what in final UI technologies is usually achieved with code.
 
 % Most approaches concretely define the actions that can be executed as a result of an event, e.g.\ reading or setting an attribute value, calling an external service, navigation, etc.
 % \todo{unsure} It might also be possible to define custom actions as compositions of existing elemental actions.
@@ -81,7 +85,7 @@ Some of them also allow defining custom events, which is especially useful with 
 Arguments, just like in all programming, are a necessary construct to make functions reusable \textendash\ no wonder then, that they're also found in descriptions of UI logic.
 
 \subparagraph{Expressions and conditions}
-The languages support a simple logic by providing the possibility to reference data from arguments, other widgets and different sources, compute some arithmetic, textual or boolean expressions based on this data and deciding on the flow of actions executed in a handler.
+The languages usually support simple logic by providing the possibility to reference data from arguments, other widgets and different sources, compute some arithmetic, textual or boolean expressions based on this data and deciding on the flow of actions executed in a handler.
 
 \subparagraph{Type}
 The languages usually predefine concrete actions that can be executed in the modelled applications.
@@ -97,16 +101,18 @@ Most common actions include \emph{navigation} \textendash\ moving to another scr
 %Some languages also define some validators.
 
 \paragraph{Logic of content}
-Apart from making actions more expressive, logic is also useful for view/component templates.
+Apart from making actions more expressive, logic is also useful for defining the content of views/components.
 Two of the most important tools are \emph{conditional rendering} \textendash\ displaying components based on a boolean condition and \emph{iteration} displaying components multiple times based on a list.
-This topic also includes access to data in the template through \emph{interpolation}, \emph{formatting} and \emph{expressions}.
+Some representations also include a mechanism, which allows for including variables and expressions within the description of the content of an element.
+In technologies where component content is not described using code, this is achieved through \emph{interpolation}\furl{https://angular.io/guide/interpolation} \textendash\ replacing the variables or expressions in a string/template with their values.
 
-\subparagraph{Widget inputs}
-To make components reusable and useful in different contexts, they may be able to accept some input parameters that ought to change their appearance or functionality.
-A component can accept two types of inputs.
-The first type of input is plain data \textendash\ either textual, numeric or in the form of an object \textendash\ called \emph{propositions}.
-The other type is called a \emph{slot} \textendash\ this type of input accepts not only plain data, but also whole components/lists of elements;
-for example, container components contain a slot for children components that ought to be displayed using a certain layout.
+\subparagraph{Widget input parameters}
+To make components reusable and useful in different contexts, they may be able to accept some input parameters.
+One type of input parameters allows for configuring the components and changing their appearance or functionality \textendash\ these parameters can be called \emph{attributes}.
+In many XML-based languages, properties are passed as attributes\furl{https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started\#attributes}\furl{https://learn.microsoft.com/en-us/dotnet/desktop/wpf/xaml/?view=netdesktop-7.0\#attribute-syntax-properties}.
+Client-side Web frameworks additionally use an additional mechanism (alongside HTML attributes) for passing data to components, called \emph{props}\furl{https://vuejs.org/guide/essentials/component-basics.html\#passing-props} (short for \enquote{properties}).
+The other type of input allows for defining the content of components.
+In XML-based languages, for example, this typically happens by simply nesting elements\furl{https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started\#nesting_elements}.
 
 \paragraph{Custom component definition}
 Some approaches also allow defining own, reusable stateful components.
@@ -119,13 +125,15 @@ This is realized through \emph{variables}, \emph{fields} or \emph{properties}.
 \subparagraph{Custom events}
 To allow components to interact with other components, they can \emph{emit} custom \emph{events} with necessary data.
 
-\subsubsection{Appearance and presentation}
-This section is the most varied across different descriptions and at the same time feels the most underdeveloped.
+\subsubsection{Appearance}
+This category describes concepts that give developers influence over the appearance of the GUI\@.
 
 \paragraph{Layout}
-\todo[inline]{this can often be realized as a component, too!}
 \emph{Layout} defines how children are laid out within a container, e.g.\ a border layout, where each element must be aligned to one of the window borders or the center of the window, or a relative layout, where elements can be aligned to other elements or the parent container.
 Additionally, the layout can be further customized with properties such as separation between elements, element alignment, etc.
+
+Usually, layout is implemented through a dedicated container component that is responsible for placing its children\furl{https://learn.microsoft.com/en-us/windows/apps/design/layout/layout-panels}.
+However, in the Web stack, layout is defined in the presentation layer using CSS properties\furl{https://developer.mozilla.org/en-US/docs/Web/CSS/display}.
 
 \subparagraph{Support for different screens and responsive layouts}
 In modern UI development, it's a good practice to make interface layouts accommodate displays of different sizes and fit accordingly.
@@ -137,7 +145,7 @@ There usually seem to be at least two options available: fixed size, defined in 
 An example of a different sizing option would be proportional sizing (where all elements indicate the proportion of the container they need to take up).
 
 \paragraph{Positioning}
-\emph{Positioning} is a complementary facet of drawing
+\emph{Positioning} is a complementary facet of sizing.
 Part of this topic overlaps with layout \textendash\ it also concerns how items are positioned.
 This can happen however in two ways \textendash\ either a component tells its children how they should be laid out or the child can override or modify this setting.
 Apart from the default setting, a child component can specify its position as relative to the default position or position itself absolutely.
@@ -145,4 +153,4 @@ Apart from the default setting, a child component can specify its position as re
 \paragraph{Other presentation properties}
 Most approaches allow for most basic styling: padding (internal separation), margins (external separation), shadow, borders, backgrounds.
 Additionally, there might be support for text styling, such as font type, size, weight, decoration, etc.
-Finally, it might be possible to specify the appearance of portions of applications in probably most comprehensive and robust way \textendash\ by using CSS stylesheets directly.
+Finally, some descriptions make it possible to specify the appearance of portions of applications in probably most comprehensive and robust way \textendash\ by using CSS directly.
