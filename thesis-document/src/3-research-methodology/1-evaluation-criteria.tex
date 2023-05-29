@@ -23,6 +23,7 @@ The concept is realized e.g.\ in the \texttt{<dialog>} element\furl{https://deve
 The template is made of \emph{elements}/\emph{components} \textendash\ they are the smallest parts of a description of a view.
 The category of components is broad;
 it is possible to look at and classify them from multiple perspectives.
+\todo[inline]{no subparagraphs, just items in a list? not sure here, though}
 
 \subparagraph{Containers vs widgets}
 This classification describes if the element can contain and handle children components \textendash\ in that case, it is called a \emph{container}.
@@ -77,6 +78,7 @@ Additionally, some description languages also allow defining custom events, whic
 \paragraph{Actions}
 \emph{Action} can be thought of as a unit of logic for handlers.
 They represent everything what in final UI technologies is usually achieved with code.
+\todo[inline]{subconcepts in a list, not subparagraphs}
 
 % Most approaches concretely define the actions that can be executed as a result of an event, e.g.\ reading or setting an attribute value, calling an external service, navigation, etc.
 % \todo{unsure} It might also be possible to define custom actions as compositions of existing elemental actions.
@@ -107,6 +109,7 @@ Some representations also include a mechanism, which allows for including variab
 In technologies where component content is not described using code, this is achieved through \emph{interpolation}\furl{https://angular.io/guide/interpolation} \textendash\ replacing the variables or expressions in a string/template with their values.
 
 \subparagraph{Widget input parameters}
+\todo[inline]{incorporate into paragraph or make its own}
 To make components reusable and useful in different contexts, they may be able to accept some input parameters.
 One type of input parameters allows for configuring the components and changing their appearance or functionality \textendash\ these parameters can be called \emph{attributes}.
 In many XML-based languages, properties are passed as attributes\furl{https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started\#attributes}\furl{https://learn.microsoft.com/en-us/dotnet/desktop/wpf/xaml/?view=netdesktop-7.0\#attribute-syntax-properties}.
@@ -117,6 +120,8 @@ In XML-based languages, for example, this typically happens by simply nesting el
 \paragraph{Custom component definition}
 Some approaches also allow defining own, reusable stateful components.
 To realize these components, some additional features beyond those described earlier are needed.
+\todo[inline]{which ones exactly described earlier are necessary?}
+\todo[inline]{features in a list, not subparagraphs}
 
 \subparagraph{Internal state}
 To be able to encapsulate some logic, it is necessary to define, read and modify a state.
@@ -136,6 +141,7 @@ Usually, layout is implemented through a dedicated container component that is r
 However, in the Web stack, layout is defined in the presentation layer using CSS properties\furl{https://developer.mozilla.org/en-US/docs/Web/CSS/display}.
 
 \subparagraph{Support for different screens and responsive layouts}
+\todo[inline]{make this a list or incorporate in the previous paragraph}
 In modern UI development, it's a good practice to make interface layouts accommodate displays of different sizes and fit accordingly.
 Some descriptions allow for defining some information about the display and make it available in the view to allow for more flexible components.
 
