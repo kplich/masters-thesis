@@ -23,7 +23,6 @@ The concept is realized e.g.\ in the \texttt{<dialog>} element\furl{https://deve
 The template is made of \emph{elements}/\emph{components} \textendash\ they are the smallest parts of a description of a view.
 The category of components is broad;
 it is possible to look at and classify them from multiple perspectives.
-\todo[inline]{no subparagraphs, just items in a list? not sure here, though}
 
 \subparagraph{Containers vs widgets}
 This classification describes if the element can contain and handle children components \textendash\ in that case, it is called a \emph{container}.
@@ -69,8 +68,7 @@ This category comprises concepts that allow modellers to make the UI interactive
 \paragraph{Events and handlers}
 As the \emph{event}-driven paradigm is the standard among GUI applications~\cite{wang2016event}, it's not surprising that practically all the languages analyzed describe the logic of user interfaces in similar terms.
 In short, user interaction with a certain element triggers events that cause \emph{event handlers} attached to the element to be called.
-Event handlers are comprised of \emph{actions} that change the state of the interface, making it interactive.
-This mechanism is used the most extensively in client-side Web frameworks\furl{https://vuejs.org/guide/essentials/component-basics.html\#listening-to-events}\furl{https://angular.io/guide/event-binding}.
+In most GUI technologies, the handlers are implemented using callbacks or plain methods, registered to be called each time an event is emitted.
 
 Description languages (similarly to final technologies) often predefine certain events, applicable to most elements \textendash\ the most popular are mouse events (e.g.\ a \emph{left-}/\emph{right click}) and keyboard events (e.g.\ pressing a key or a set of keys), although many other types of events could exist\furl{https://developer.mozilla.org/en-US/docs/Web/Events}.
 Additionally, some description languages also allow defining custom events, which is especially useful with custom widgets.
@@ -78,21 +76,31 @@ Additionally, some description languages also allow defining custom events, whic
 \paragraph{Actions}
 \emph{Action} can be thought of as a unit of logic for handlers.
 They represent everything what in final UI technologies is usually achieved with code.
-\todo[inline]{subconcepts in a list, not subparagraphs}
+\todo[inline]{list, not paragraphs}
+Aspects of actions include
 
-% Most approaches concretely define the actions that can be executed as a result of an event, e.g.\ reading or setting an attribute value, calling an external service, navigation, etc.
-% \todo{unsure} It might also be possible to define custom actions as compositions of existing elemental actions.
-
-\subparagraph{Arguments}
-Arguments, just like in all programming, are a necessary construct to make functions reusable \textendash\ no wonder then, that they're also found in descriptions of UI logic.
-
-\subparagraph{Expressions and conditions}
-The languages usually support simple logic by providing the possibility to reference data from arguments, other widgets and different sources, compute some arithmetic, textual or boolean expressions based on this data and deciding on the flow of actions executed in a handler.
+\begin{itemize}
+    \item \textbf{Type} \textendash\ since it is not possible to predict
+\end{itemize}
 
 \subparagraph{Type}
 The languages usually predefine concrete actions that can be executed in the modelled applications.
 Most common actions include \emph{navigation} \textendash\ moving to another screen in the application, \emph{modification of internal state} \textendash\ changing attributes of other widgets or global state, or \emph{external calls} \textendash\ calls to a server that handles business logic.
 
+\subparagraph{Arguments}
+Arguments, just like in all programming, are a necessary construct to make functions reusable \textendash\ no wonder then, that they're also found in descriptions of UI logic.
+
+\subparagraph{Control structures}
+Control structures such as \texttt{if-else} blocks and \texttt{while} and \texttt{for} loops are an indispensable part of every programming language.
+These mechanisms might also be included in the UIDL to increase the expressive power of event handlers.
+
+\paragraph{Expressions}
+To enable any reasonable logic and processing of data, expressions that operate on various data types are necessary.
+Just as regular programming languages, UIDLs can provide the possibility to reference data from different sources and use them in some arithmetic, textual or boolean expressions.
+
+\paragraph{State}
+It is necessary to define, read and modify a state to be able to encapsulate some logic in a component.
+In final UI technologies (as well as most software in general), this is realized simply by means of declaring \emph{variables}, \emph{fields} or \emph{properties}.
 
 %\paragraph{Data validation and access}
 %Actions and components need to be able to access some data, be it from external services or internal elements.
@@ -108,8 +116,7 @@ Two of the most important tools are \emph{conditional rendering} \textendash\ di
 Some representations also include a mechanism, which allows for including variables and expressions within the description of the content of an element.
 In technologies where component content is not described using code, this is achieved through \emph{interpolation}\furl{https://angular.io/guide/interpolation} \textendash\ replacing the variables or expressions in a string/template with their values.
 
-\subparagraph{Widget input parameters}
-\todo[inline]{incorporate into paragraph or make its own}
+\paragraph{Component input parameters}
 To make components reusable and useful in different contexts, they may be able to accept some input parameters.
 One type of input parameters allows for configuring the components and changing their appearance or functionality \textendash\ these parameters can be called \emph{attributes}.
 In many XML-based languages, properties are passed as attributes\furl{https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started\#attributes}\furl{https://learn.microsoft.com/en-us/dotnet/desktop/wpf/xaml/?view=netdesktop-7.0\#attribute-syntax-properties}.
@@ -118,17 +125,8 @@ The other type of input allows for defining the content of components.
 In XML-based languages, for example, this typically happens by simply nesting elements\furl{https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started\#nesting_elements}.
 
 \paragraph{Custom component definition}
-Some approaches also allow defining own, reusable stateful components.
-To realize these components, some additional features beyond those described earlier are needed.
-\todo[inline]{which ones exactly described earlier are necessary?}
-\todo[inline]{features in a list, not subparagraphs}
-
-\subparagraph{Internal state}
-To be able to encapsulate some logic, it is necessary to define, read and modify a state.
-This is realized through \emph{variables}, \emph{fields} or \emph{properties}.
-
-\subparagraph{Custom events}
-To allow components to interact with other components, they can \emph{emit} custom \emph{events} with necessary data.
+Some approaches also allow defining own, reusable stateful components, just as many GUI languages do\furl{https://docs.oracle.com/javafx/2/fxml_get_started/custom_control.htm}\furl{https://vuejs.org/guide/essentials/component-basics.html} \textendash\ this makes the code or models more maintainable, which helps reduce development time and costs.
+This is made possible thanks to techniques described in other parts of this section: content, input parameters/children, handlers, custom events, internal state, appearance.
 
 \subsubsection{Appearance}
 This category describes concepts that give developers influence over the appearance of the GUI\@.
@@ -140,10 +138,9 @@ Additionally, the layout can be further customized with properties such as separ
 Usually, layout is implemented through a dedicated container component that is responsible for placing its children\furl{https://learn.microsoft.com/en-us/windows/apps/design/layout/layout-panels}.
 However, in the Web stack, layout is defined in the presentation layer using CSS properties\furl{https://developer.mozilla.org/en-US/docs/Web/CSS/display}.
 
-\subparagraph{Support for different screens and responsive layouts}
-\todo[inline]{make this a list or incorporate in the previous paragraph}
-In modern UI development, it's a good practice to make interface layouts accommodate displays of different sizes and fit accordingly.
-Some descriptions allow for defining some information about the display and make it available in the view to allow for more flexible components.
+Additionally, it's a good practice nowadays to make interface layouts accommodate displays of different sizes and fit accordingly \textendash\ it is called \emph{resposive design}.
+Some descriptions make information about the display available to the view or component which allows them to better adapt to different devices.
+The main example is usage of media queries in CSS\footnote{\url{https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries}} to change the appearance of content based on device characteristics (e.g.\ resolution or screen width).
 
 \paragraph{Sizing}
 \emph{Sizing} allows the component to define how much space of its parent it needs to take.
