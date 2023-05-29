@@ -16,16 +16,16 @@ An extra section will be dedicated to describing widget support in respective de
     \label{tab:evaluation-metrics-structure}
     \renewcommand{\tabularxcolumn}[1]{>{\normalsize}m{#1}}
     \newcolumntype{C}{>{\small\centering\arraybackslash}X}
-    \begin{tabularx}{\textwidth}{ccCcc}
+    \begin{tabularx}{\textwidth}{ccCc}
         \toprule
-        \textbf{No.} & \textbf{Name}           & \textbf{Description}                                                & \textbf{Type of evaluation} & \textbf{Remarks} \\
+        \textbf{No.} & \textbf{Name}           & \textbf{Description}                                                & \textbf{Type of evaluation} \\
         \midrule
-        \textbf{A1}  & \textbf{Application}    & a top-level node of the element tree                                & yes/no                      &                  \\
-        \textbf{A2}  & \textbf{View/Screen}    & grouping of related controls                                        & yes/no                      &                  \\
-        \textbf{A3}  & \textbf{View content}   & method of describing contents of a view                             & description                 &                  \\
-        \textbf{A4}  & \textbf{Dialogs}        & support for dialog views                                            & yes/no                      &                  \\
-        \textbf{A5}  & \textbf{Assets}         & using resources in separate files                                   & yes/no                      &                  \\
-        \textbf{A6}  & \textbf{Modularization} & moving parts of a description to a separate file and importing them & yes/no                      &                  \\
+        \textbf{A1}  & \textbf{Application}    & a top-level node of the element tree                                & yes/no                      \\
+        \textbf{A2}  & \textbf{View/Screen}    & grouping of related controls                                        & yes/no                      \\
+        \textbf{A3}  & \textbf{View content}   & method of describing contents of a view                             & description                 \\
+        \textbf{A4}  & \textbf{Dialogs}        & support for dialog views                                            & yes/no                      \\
+        \textbf{A5}  & \textbf{Assets}         & using resources in separate files                                   & yes/no                      \\
+        \textbf{A6}  & \textbf{Modularization} & moving parts of a description to a separate file and importing them & yes/no                      \\
         \bottomrule
     \end{tabularx}
 \end{table}
@@ -34,89 +34,107 @@ An extra section will be dedicated to describing widget support in respective de
     caption = {Metrics for evaluating the descriptions' capabilities of modelling the behavior of GUIs},
     label = {tab:evaluation-metrics-behavior},
 ]{
-    colspec = {cX[2,c]X[2,c]cX[2,c]}
+    column{3} = {font=\small},
+    colspec = {cX[2,c]X[2,c]c},
+    rowhead = 1,
+    rows = {m},
 }
+    \hline[1pt]
+    \textbf{No.}      & \textbf{Name}                               & \textbf{Description}                                                                & \textbf{Type of evaluation} \\
     \hline
-    \textbf{No.} & \textbf{Name}                               & \textbf{Description}                                                                & \textbf{Type of evaluation} & \textbf{Remarks}                                           \\
+    \pagebreak
+    \textbf{B1}       & \textbf{Logic of content}                   & –                                                                                   & –                           \\*
+    \textbf{B1.1}     & conditional displaying                      & displaying content depending on a condition                                         & yes/no                      \\*
+    \textbf{B1.2}     & iteration                                   & repeating content based on a collection                                             & yes/no                      \\*
+    \textbf{B1.3}     & interpolation                               & replacing variables or expressions in the description of content with their values  & yes/no                      \\*
     \hline
-    \textbf{}    & \textbf{Logic of content}                   & –                                                                                   & –                           &                                                            \\
-    \textbf{}    & conditional displaying                      & displaying content depending on a condition                                         & yes/no                      &                                                            \\
-    \textbf{}    & iteration                                   & repeating content based on a collection                                             & yes/no                      &                                                            \\
-    \textbf{}    & interpolation                               & replacing variables or expressions in the description of content with their values  & yes/no                      &                                                            \\
-    \textbf{}    & \textbf{Data types}                         & types of data available throughout the description                                  & –                           &                                                            \\
-    \textbf{}    & Integer                                     & an integer number                                                                   & yes/no                      &                                                            \\
-    \textbf{}    & Float                                       & floating-point number                                                               & yes/no                      &                                                            \\
-    \textbf{}    & Decimal                                     & precise representation of a decimal number                                          & yes/no                      &                                                            \\
-    \textbf{}    & String                                      & sequence of characters                                                              & yes/no                      &                                                            \\
-    \textbf{}    & Char                                        & character                                                                           & yes/no                      &                                                            \\
-    \textbf{}    & Array                                       & an ordered sequence of items                                                        & yes/no                      &                                                            \\
-    \textbf{}    & Set                                         & an unordered sequence of items                                                      & yes/no                      &                                                            \\
-    \textbf{}    & Object                                      & an associative array of string keys and values of any type                          & yes/no                      &                                                            \\
-    \textbf{}    & \textbf{Action arguments}                   & specifying arguments to actions                                                     & yes/no                      &                                                            \\
-    \textbf{}    & \textbf{Action types}                       & types of action available                                                           & –                           &                                                            \\
-    \textbf{}    & Navigation                                  & changing the currently displayed view                                               & yes/no                      &                                                            \\
-    \textbf{}    & Opening a dialog                            & –                                                                                   & yes/no                      &                                                            \\
-    \textbf{}    & Showing a toast                             & –                                                                                   & yes/no                      &                                                            \\
-    \textbf{}    & Reading a value                             & accessing an element and reading its attributes or state                            & yes/no                      &                                                            \\
-    \textbf{}    & Writing a value                             & accessing an element and changing its attributes or state                           & yes/no                      &                                                            \\
-    \textbf{}    & Component method call                       & accessing an element and executing its method                                       & yes/no                      &                                                            \\
-    \textbf{}    & Throwing an error                           & –                                                                                   & yes/no                      &                                                            \\
-    \textbf{}    & \textbf{Integration with external services} & ability to call code beyond the GUI layer                                           & yes/no                      & difficult to evaluate, outside of scope                    \\
-    \textbf{}    & \textbf{Embedding scripts}                  & ability to use a programming language directly in the UIDL                          & yes/no                      &                                                            \\
-    \textbf{}    & \textbf{Conditional execution}              &                                                                                     & enumeration                 &                                                            \\
-    \textbf{}    & \textbf{Arithmetic expressions}             &                                                                                     & enumeration                 & which operations are supported?                            \\
-    \textbf{}    & \textbf{Boolean operators}                  &                                                                                     & enumeration                 & which operations are supported?                            \\
-    \textbf{}    & \textbf{Other operators}                    &                                                                                     & enumeration                 & anything else included?e.g. indexing/dereference operator? \\
-    \textbf{}    & \textbf{Predefined events}                  &                                                                                     &                             &                                                            \\
-    \textbf{}    & Pointer events                              & events related to a pointing device used - mouse, touch screen, etc.\               & –                           &                                                            \\
-    \textbf{}    & \textit{mouse down}                         & when a pointer is pressed                                                           & yes/no                      &                                                            \\
-    \textbf{}    & \textit{mouse up}                           & when a pointer is released                                                          & yes/no                      &                                                            \\
-    \textbf{}    & \textit{click}                              & when a pointer is pressed and released in the same element                          & yes/no                      &                                                            \\
-    \textbf{}    & \textit{double click}                       & when a pointer is clicked twice rapidly                                             & yes/no                      &                                                            \\
-    \textbf{}    & \textit{long click}                         & when a pointer is pressed for a longed time                                         & yes/no                      &                                                            \\
-    \textbf{}    & \textit{mouse enter}                        & when a pointer enters the area of an element                                        & yes/no                      &                                                            \\
-    \textbf{}    & \textit{mouse leave}                        & when a pointer leaves the area of an element                                        & yes/no                      &                                                            \\
-    \textbf{}    & \textit{mouse move}                         & when a pointer moves within the area of an element                                  & yes/no                      &                                                            \\
-    \textbf{}    & \textit{drag}                               & when an element starts being dragged                                                & yes/no                      &                                                            \\
-    \textbf{}    & \textit{drop}                               & when an element is being dropped                                                    & yes/no                      &                                                            \\
-    \textbf{}    & Keyboard events                             & events caused by clicks from a keyboard                                             & –                           &                                                            \\
-    \textbf{}    & \textit{key up}                             & when a key is released                                                              & yes/no                      &                                                            \\
-    \textbf{}    & \textit{key down}                           & when a key is pressed                                                               & yes/no                      &                                                            \\
-    \textbf{}    & Element state events                        & events related to the state of an element                                           & –                           &                                                            \\
-    \textbf{}    & \textit{focus}                              & when an element receives focus                                                      & yes/no                      &                                                            \\
-    \textbf{}    & \textit{blur}                               & when an element loses focus                                                         & yes/no                      &                                                            \\
-    \textbf{}    & Form and input events                       & events related to form and input elements                                           & –                           &                                                            \\
-    \textbf{}    & \textit{submit}                             & when a form is being submitted                                                      & yes/no                      &                                                            \\
-    \textbf{}    & \textit{change}                             & when an input element changes its value                                             & yes/no                      &                                                            \\
-    \textbf{}    & System/device events                        & events related to changes in the state of the system or device                      & –                           &                                                            \\
-    \textbf{}    & \textit{network connection on}              & when a network connection is detected                                               & yes/no                      &                                                            \\
-    \textbf{}    & \textit{network connection off}             & when a network connection is lost                                                   & yes/no                      &                                                            \\
-    \textbf{}    & \textit{device locked}                      & when the device gets locked                                                         & yes/no                      &                                                            \\
-    \textbf{}    & \textit{device unlocked}                    & when the device gets unlocked                                                       & yes/no                      &                                                            \\
-    \textbf{}    & \textit{gps on}                             & when the GPS service becomes available                                              & yes/no                      &                                                            \\
-    \textbf{}    & \textit{gps off}                            & when the GPS service becomes unavailable                                            & yes/no                      &                                                            \\
-    \textbf{}    & \textit{battery state changed}              & when the state of the device battery changes                                        & yes/no                      &                                                            \\
-    \textbf{}    & \textit{outgoing sms}                       & when an SMS message is sent                                                         & yes/no                      &                                                            \\
-    \textbf{}    & \textit{incoming sms}                       & when an SMS message is received                                                     & yes/no                      &                                                            \\
-    \textbf{}    & \textit{incoming call}                      & when a call is being received                                                       & yes/no                      &                                                            \\
-    \textbf{}    & \textit{outgoing call}                      & when a call is being made                                                           & yes/no                      &                                                            \\
-    \textbf{}    & Other events                                & –                                                                                   &                             &                                                            \\
-    \textbf{}    & \textit{error}                              & when an element encounters an error                                                 & yes/no                      &                                                            \\
-    \textbf{}    & \textit{load (page)}                        & when a view is fully loaded                                                         & yes/no                      &                                                            \\
-    \textbf{}    & \textbf{Data validation}                    & checking if data provided by the user fits the provided constraints                 & –                           & dedicated mechanism vs possible to implement?              \\
-    \textbf{}    & during input                                & after every change of the input value                                               & yes/no                      &                                                            \\
-    \textbf{}    & while submitting                            & before a form is submitted                                                          & yes/no                      &                                                            \\
-    \textbf{}    & for single input                            & validating constraints for separate form fields                                     & yes/no                      &                                                            \\
-    \textbf{}    & for groups of inputs                        & validating constraints that encompass multiple form fields                          & yes/no                      &                                                            \\
-    \textbf{}    & customizing error messages                  & specifying error messages that can be displayed in violation of certain constraints & yes/no                      &                                                            \\
-    \textbf{}    & \textbf{Defining custom components}         & features related to defining and describing custom components                       & –                           &                                                            \\
-    \textbf{}    & content                                     & describing the content of a component                                               & yes/no                      &                                                            \\
-    \textbf{}    & properties                                  & specifying attributes/properties of a component                                     & yes/no                      &                                                            \\
-    \textbf{}    & content inputs                              & specifying content as input of component                                            & yes/no                      &                                                            \\
-    \textbf{}    & custom events                               & emitting custom events from a component                                             & yes/no                      &                                                            \\
-    \textbf{}    & methods                                     & specifying methods in the component                                                 & yes/no                      &                                                            \\
-    \textbf{}    & internal state                              & describing the state of the component                                               & yes/no                      &                                                            \\
-    \textbf{}    & \textbf{External components}                & components from third-party sources, defined outside of the UIDL                    & yes/no                      &
+    \textbf{B2}       & \textbf{Data types}                         & types of data available throughout the description                                  & –                           \\*
+    \textbf{B2.1}     & Integer                                     & an integer number                                                                   & yes/no                      \\*
+    \textbf{B2.2}     & Float                                       & floating-point number                                                               & yes/no                      \\*
+    \textbf{B2.3}     & Decimal                                     & precise representation of a decimal number                                          & yes/no                      \\*
+    \textbf{B2.4}     & String                                      & sequence of characters                                                              & yes/no                      \\*
+    \textbf{B2.5}     & Char                                        & character                                                                           & yes/no                      \\*
+    \textbf{B2.6}     & Array                                       & an ordered sequence of items                                                        & yes/no                      \\*
+    \textbf{B2.7}     & Set                                         & an unordered sequence of items                                                      & yes/no                      \\*
+    \textbf{B2.8}     & Object                                      & an associative array of string keys and values of any type                          & yes/no                      \\*
+    \hline
+    \textbf{B3}       & \textbf{Action arguments}                   & specifying arguments to actions                                                     & yes/no                      \\
+    \hline
+    \textbf{B4}       & \textbf{Action types}                       & types of action available                                                           & –                           \\*
+    \textbf{B4.1}     & Navigation                                  & changing the currently displayed view                                               & yes/no                      \\*
+    \textbf{B4.2}     & Opening a dialog                            & –                                                                                   & yes/no                      \\*
+    \textbf{B4.3}     & Showing a toast                             & –                                                                                   & yes/no                      \\*
+    \textbf{B4.4}     & Reading a value                             & accessing an element and reading its attributes or state                            & yes/no                      \\*
+    \textbf{B4.5}     & Writing a value                             & accessing an element and changing its attributes or state                           & yes/no                      \\*
+    \textbf{B4.6}     & Component method call                       & accessing an element and executing its method                                       & yes/no                      \\*
+    \textbf{B4.7}     & Throwing an error                           & –                                                                                   & yes/no                      \\*
+    \hline
+    \textbf{B5}       & \textbf{Integration with external services} & ability to call code beyond the GUI layer                                           & yes/no                      \\
+    \hline
+    \textbf{B6}       & \textbf{Embedding scripts}                  & ability to use a programming language directly in the UIDL                          & yes/no                      \\
+    \hline
+    \textbf{B7}       & \textbf{Conditional execution}              &                                                                                     & enumeration                 \\
+    \hline
+    \textbf{B8}       & \textbf{Arithmetic expressions}             &                                                                                     & enumeration                 \\
+    \hline
+    \textbf{B9}       & \textbf{Boolean operators}                  &                                                                                     & enumeration                 \\
+    \hline
+    \textbf{B10}      & \textbf{Other operators}                    &                                                                                     & enumeration                 \\
+    \hline
+    \textbf{B11}      & \textbf{Predefined events}                  &                                                                                     & –                           \\*
+    \textbf{B11.1}    & Pointer events                              & events related to a pointing device used - mouse, touch screen, etc.\               & –                           \\*
+    \textbf{B11.1.1}  & \textit{mouse down}                         & when a pointer is pressed                                                           & yes/no                      \\*
+    \textbf{B11.1.2}  & \textit{mouse up}                           & when a pointer is released                                                          & yes/no                      \\*
+    \textbf{B11.1.3}  & \textit{click}                              & when a pointer is pressed and released in the same element                          & yes/no                      \\*
+    \textbf{B11.1.4}  & \textit{double click}                       & when a pointer is clicked twice rapidly                                             & yes/no                      \\*
+    \textbf{B11.1.5}  & \textit{long click}                         & when a pointer is pressed for a longed time                                         & yes/no                      \\*
+    \textbf{B11.1.6}  & \textit{mouse enter}                        & when a pointer enters the area of an element                                        & yes/no                      \\*
+    \textbf{B11.1.7}  & \textit{mouse leave}                        & when a pointer leaves the area of an element                                        & yes/no                      \\*
+    \textbf{B11.1.8}  & \textit{mouse move}                         & when a pointer moves within the area of an element                                  & yes/no                      \\*
+    \textbf{B11.1.9}  & \textit{drag}                               & when an element starts being dragged                                                & yes/no                      \\*
+    \textbf{B11.1.10} & \textit{drop}                               & when an element is being dropped                                                    & yes/no                      \\
+    \textbf{B11.2}    & Keyboard events                             & events caused by clicks from a keyboard                                             & –                           \\*
+    \textbf{B11.2.1}  & \textit{key up}                             & when a key is released                                                              & yes/no                      \\*
+    \textbf{B11.2.2}  & \textit{key down}                           & when a key is pressed                                                               & yes/no                      \\
+    \textbf{B11.3}    & Element state events                        & events related to the state of an element                                           & –                           \\*
+    \textbf{B11.3.1}  & \textit{focus}                              & when an element receives focus                                                      & yes/no                      \\*
+    \textbf{B11.3.2}  & \textit{blur}                               & when an element loses focus                                                         & yes/no                      \\
+    \textbf{B11.4}    & Form and input events                       & events related to form and input elements                                           & –                           \\*
+    \textbf{B11.4.1}  & \textit{submit}                             & when a form is being submitted                                                      & yes/no                      \\*
+    \textbf{B11.4.2}  & \textit{change}                             & when an input element changes its value                                             & yes/no                      \\
+    \textbf{B11.5}    & System/device events                        & events related to changes in the state of the system or device                      & –                           \\*
+    \textbf{B11.5.1}  & \textit{network connection on}              & when a network connection is detected                                               & yes/no                      \\*
+    \textbf{B11.5.2}  & \textit{network connection off}             & when a network connection is lost                                                   & yes/no                      \\*
+    \textbf{B11.5.3}  & \textit{device locked}                      & when the device gets locked                                                         & yes/no                      \\*
+    \textbf{B11.5.4}  & \textit{device unlocked}                    & when the device gets unlocked                                                       & yes/no                      \\*
+    \textbf{B11.5.5}  & \textit{gps on}                             & when the GPS service becomes available                                              & yes/no                      \\*
+    \textbf{B11.5.6}  & \textit{gps off}                            & when the GPS service becomes unavailable                                            & yes/no                      \\*
+    \textbf{B11.5.7}  & \textit{battery state changed}              & when the state of the device battery changes                                        & yes/no                      \\*
+    \textbf{B11.5.8}  & \textit{outgoing sms}                       & when an SMS message is sent                                                         & yes/no                      \\*
+    \textbf{B11.5.9}  & \textit{incoming sms}                       & when an SMS message is received                                                     & yes/no                      \\*
+    \textbf{B11.5.10} & \textit{incoming call}                      & when a call is being received                                                       & yes/no                      \\*
+    \textbf{B11.5.11} & \textit{outgoing call}                      & when a call is being made                                                           & yes/no                      \\*
+    \textbf{B11.6}    & Other events                                & –                                                                                   &                             \\*
+    \textbf{B11.6.1}  & \textit{error}                              & when an element encounters an error                                                 & yes/no                      \\*
+    \textbf{B11.6.2}  & \textit{load (page)}                        & when a view is fully loaded                                                         & yes/no                      \\
+    \hline
+    \textbf{B12}      & \textbf{Data validation}                    & checking if data provided by the user fits the provided constraints                 & –                           \\*
+    \textbf{B12.1}    & during input                                & after every change of the input value                                               & yes/no                      \\*
+    \textbf{B12.2}    & while submitting                            & before a form is submitted                                                          & yes/no                      \\*
+    \textbf{B12.3}    & for single input                            & validating constraints for separate form fields                                     & yes/no                      \\*
+    \textbf{B12.4}    & for groups of inputs                        & validating constraints that encompass multiple form fields                          & yes/no                      \\*
+    \textbf{B12.5}    & customizing error messages                  & specifying error messages that can be displayed in violation of certain constraints & yes/no                      \\
+    \hline
+    \textbf{B13}      & \textbf{Defining custom components}         & features related to defining and describing custom components                       & –                           \\*
+    \textbf{B13.1}    & content                                     & describing the content of a component                                               & yes/no                      \\*
+    \textbf{B13.2}    & properties                                  & specifying attributes/properties of a component                                     & yes/no                      \\*
+    \textbf{B13.3}    & content inputs                              & specifying content as input of component                                            & yes/no                      \\*
+    \textbf{B13.4}    & custom events                               & emitting custom events from a component                                             & yes/no                      \\*
+    \textbf{B13.5}    & methods                                     & specifying methods in the component                                                 & yes/no                      \\*
+    \textbf{B13.6}    & internal state                              & describing the state of the component                                               & yes/no                      \\
+    \hline
+    \textbf{B14}      & \textbf{External components}                & components from third-party sources, defined outside of the UIDL                    & yes/no                      \\
+    \hline[1pt]
 \end{longtblr}
 
 \paragraph{Practical test cases}
