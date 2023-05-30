@@ -4,7 +4,7 @@ This section lists concepts related to programming user interfaces that were inc
 The definitions were formulated by the author through relating the concepts described in the papers with concepts found in actual GUI technologies.
 They criteria three areas covered in subsequent subsections: architecture and basic elements, logic and behavior, and appearance and presentation details.
 
-\subsubsection{GUI architecture and basic elements}
+\subsubsection{Architecture and basic elements of UI}
 This category encompasses concepts that enable modellers to describe and organize the structure of the developed application.
 
 \paragraph{Hierarchical description of UI structure and content}
@@ -38,7 +38,7 @@ This classification describes whether components enable interactivity of the GUI
 Examples of output components could be text elements, labels, multimedia components and container components.
 On the other hand, \emph{input} components allow user to interact with the application, e.g.\ by providing data using input fields or triggering any changes in application state.
 
-\subparagraph{Predefined components vs custom components vs external components}
+\subparagraph{Predefined vs custom vs external components}
 A component may be \emph{predefined} by the authors directly in the core description.
 Although, from the developer's perspective, it is desirable to have a wide range of predefined components, it is often difficult and impractical for the creators of the description to enumerate them all.
 Because of this, they often decide to define the most useful and popular widgets and incorporate an extension mechanism into their language.
@@ -61,72 +61,55 @@ As an example, Android applications can contain resources that can be used in di
 Because of its importance for creating uniform and maintainable applications, this capability is a strict necessity in standard programming languages;
 however, not all UIDLs provide such a possibility.
 
-\subsubsection{Logic and behavior of application}
+\subsubsection{Logic and behavior of UI}
 
 This category comprises concepts that allow modellers to make the UI interactive.
 
-\paragraph{Events and handlers}
-As the \emph{event}-driven paradigm is the standard among GUI applications~\cite{wang2016event}, it's not surprising that practically all the languages analyzed describe the logic of user interfaces in similar terms.
+\paragraph{Events, handlers, and actions}
+As the \emph{event}-driven paradigm is the standard among GUI applications~\cite{wang2016event}, it is not surprising that practically all the description languages analyzed describe the logic of user interfaces in similar terms.
 In short, user interaction with a certain element triggers events that cause \emph{event handlers} attached to the element to be called.
+
 In most GUI technologies, the handlers are implemented using callbacks or plain methods, registered to be called each time an event is emitted.
+In final technologies, handlers can execute just about any code; this is, however, too broad of a task for description languages.
+For this reason, they usually only specify a set of predefined \emph{actions} that can be executed and combined, e.g.\ navigation to a different screen or modification of internal state of a component;
+Some also provide a mechanism to call some types of external services, such as REST backends.
+However, given the limitations of this paradigm, some description languages also provide the possibility to complement the abstract description with a more expressive programming language.
+
+% arguments? this is kinda underdeveloped - I'd need to mention return types also? IDK
 
 Description languages (similarly to final technologies) often predefine certain events, applicable to most elements \textendash\ the most popular are mouse events (e.g.\ a \emph{left-}/\emph{right click}) and keyboard events (e.g.\ pressing a key or a set of keys), although many other types of events could exist\furl{https://developer.mozilla.org/en-US/docs/Web/Events}.
 Additionally, some description languages also allow defining custom events, which is especially useful with custom widgets.
 
-\paragraph{Actions}
-\emph{Action} can be thought of as a unit of logic for handlers.
-They represent everything what in final UI technologies is usually achieved with code.
-\todo[inline]{list, not paragraphs}
-Aspects of actions include
-
-\begin{itemize}
-    \item \textbf{Type} \textendash\ since it is not possible to predict
-\end{itemize}
-
-\subparagraph{Type}
-The languages usually predefine concrete actions that can be executed in the modelled applications.
-Most common actions include \emph{navigation} \textendash\ moving to another screen in the application, \emph{modification of internal state} \textendash\ changing attributes of other widgets or global state, or \emph{external calls} \textendash\ calls to a server that handles business logic.
-
-\subparagraph{Arguments}
-Arguments, just like in all programming, are a necessary construct to make functions reusable \textendash\ no wonder then, that they're also found in descriptions of UI logic.
-
-\subparagraph{Control structures}
+\paragraph{Control structures}
 Control structures such as \texttt{if-else} blocks and \texttt{while} and \texttt{for} loops are an indispensable part of every programming language.
 These mechanisms might also be included in the UIDL to increase the expressive power of event handlers.
+Moreover, logic is also useful while defining the content of views/components.
+\emph{Conditional rendering} \textendash\ displaying components based on a boolean condition while \emph{iteration} displaying components multiple times based on a list.
+
+A special kind of control and conditional execution, prominently featured in many UIs, is (client-side) \emph{form validation}\furl{https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation\#what_is_form_validation}.
+As forms are a very popular idiom of interaction in UIs, technologies often provide dedicated APIs that relieve developers from implementing the functionality from scratch;
+therefore a similar solution would also be expected in a expressive UIDL\@.
 
 \paragraph{Expressions}
 To enable any reasonable logic and processing of data, expressions that operate on various data types are necessary.
 Just as regular programming languages, UIDLs can provide the possibility to reference data from different sources and use them in some arithmetic, textual or boolean expressions.
+These expressions can be used both within handlers, as well as within the content of the UI;
+the mechanism of replacing the variables or expressions in a string/template with their values is known in some UI technologies as \emph{interpolation}\furl{https://angular.io/guide/interpolation}.
 
 \paragraph{State}
-It is necessary to define, read and modify a state to be able to encapsulate some logic in a component.
+It is necessary to define, read and modify a state to be able to encapsulate some logic in some parts of UI\@.
 In final UI technologies (as well as most software in general), this is realized simply by means of declaring \emph{variables}, \emph{fields} or \emph{properties}.
 
-%\paragraph{Data validation and access}
-%Actions and components need to be able to access some data, be it from external services or internal elements.
-%This is realized through literals, variables or references.
-%Additionally, the data might be transformed with the help of calculations realized by arithmetic or boolean expressions.
-%
-%As forms are very popular form of interaction, it's also important to be able to validate data given by users.
-%Some languages also define some validators.
+\paragraph{Custom component definition}
+Some approaches also allow defining own, reusable stateful components, just as many GUI languages do\furl{https://docs.oracle.com/javafx/2/fxml_get_started/custom_control.htm}\furl{https://vuejs.org/guide/essentials/component-basics.html} \textendash\ this makes the code or models more maintainable, which helps reduce development time and costs.
+This is made possible thanks to techniques described in other parts of this section: content, handlers, custom events, internal state, appearance.
 
-\paragraph{Logic of content}
-Apart from making actions more expressive, logic is also useful for defining the content of views/components.
-Two of the most important tools are \emph{conditional rendering} \textendash\ displaying components based on a boolean condition and \emph{iteration} displaying components multiple times based on a list.
-Some representations also include a mechanism, which allows for including variables and expressions within the description of the content of an element.
-In technologies where component content is not described using code, this is achieved through \emph{interpolation}\furl{https://angular.io/guide/interpolation} \textendash\ replacing the variables or expressions in a string/template with their values.
-
-\paragraph{Component input parameters}
-To make components reusable and useful in different contexts, they may be able to accept some input parameters.
+An additional aspect that needs to be considered defining custom components is the mechanism of input parameters \textendash\ they are necessary to make components manageable, reusable and useful in different contexts.
 One type of input parameters allows for configuring the components and changing their appearance or functionality \textendash\ these parameters can be called \emph{attributes}.
 In many XML-based languages, properties are passed as attributes\furl{https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started\#attributes}\furl{https://learn.microsoft.com/en-us/dotnet/desktop/wpf/xaml/?view=netdesktop-7.0\#attribute-syntax-properties}.
 Client-side Web frameworks additionally use an additional mechanism (alongside HTML attributes) for passing data to components, called \emph{props}\furl{https://vuejs.org/guide/essentials/component-basics.html\#passing-props} (short for \enquote{properties}).
 The other type of input allows for defining the content of components.
 In XML-based languages, for example, this typically happens by simply nesting elements\furl{https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started\#nesting_elements}.
-
-\paragraph{Custom component definition}
-Some approaches also allow defining own, reusable stateful components, just as many GUI languages do\furl{https://docs.oracle.com/javafx/2/fxml_get_started/custom_control.htm}\furl{https://vuejs.org/guide/essentials/component-basics.html} \textendash\ this makes the code or models more maintainable, which helps reduce development time and costs.
-This is made possible thanks to techniques described in other parts of this section: content, input parameters/children, handlers, custom events, internal state, appearance.
 
 \subsubsection{Appearance}
 This category describes concepts that give developers influence over the appearance of the GUI\@.

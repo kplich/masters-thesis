@@ -46,111 +46,134 @@ Criteria with subcriteria won't be evaluated directly.
 \begin{longtblr}[
     caption = {Metrics for evaluating the descriptions' ability to model the behavior of GUIs},
     label = {tab:evaluation-metrics-behavior},
-    note{a} = {This criterion will be evaluated by enumerating the supported values.}
 ]{
     colspec = {cX[2,c]X[3,c]},
     rowhead = 1,
     rows = {m},
 }
     \hline[1pt]
-    \textbf{No.}      & \textbf{Name}                               & \textbf{Description}                                                                \\
+    \textbf{No.}     & \textbf{Name}                               & \textbf{Description}                                                                \\*
+    \textbf{B1}      & \textbf{Handling events}                    & the ability to attach an event handler to a certain UI element                      \\*
     \hline
-    \textbf{B1}       & \textbf{Logic of content}                   & –                                                                                   \\*
-    B1.1              & conditional displaying                      & displaying content depending on a condition                                         \\*
-    B1.2              & iteration                                   & repeating content based on a collection                                             \\*
-    B1.3              & interpolation                               & replacing variables or expressions in the description of content with their values  \\*
+    \textbf{B2}      & \textbf{Predefined events}                  & –                                                                                   \\*
+    B2.1             & Pointer events                              & events related to a pointing device used - mouse, touch screen, etc.                \\*
+    \textit{B2.1.1}  & \textit{mouse down}                         & when a pointer is pressed                                                           \\*
+    \textit{B2.1.2}  & \textit{mouse up}                           & when a pointer is released                                                          \\*
+    \textit{B2.1.3}  & \textit{click}                              & when a pointer is pressed and released in the same element                          \\*
+    \textit{B2.1.4}  & \textit{double click}                       & when a pointer is clicked twice rapidly                                             \\*
+    \textit{B2.1.5}  & \textit{long click}                         & when a pointer is pressed for a longed time                                         \\*
+    \textit{B2.1.6}  & \textit{mouse enter}                        & when a pointer enters the area of an element                                        \\*
+    \textit{B2.1.7}  & \textit{mouse leave}                        & when a pointer leaves the area of an element                                        \\*
+    \textit{B2.1.8}  & \textit{mouse move}                         & when a pointer moves within the area of an element                                  \\*
+    \textit{B2.1.9}  & \textit{drag}                               & when an element starts being dragged                                                \\*
+    \textit{B2.1.10} & \textit{drop}                               & when an element is being dropped                                                    \\*
+    B2.2             & Keyboard events                             & events caused by clicks from a keyboard                                             \\*
+    \textit{B2.2.1}  & \textit{key up}                             & when a key is released                                                              \\*
+    \textit{B2.2.2}  & \textit{key down}                           & when a key is pressed                                                               \\*
+    B2.3             & Element state events                        & events related to the state of an element                                           \\*
+    \textit{B2.3.1}  & \textit{focus}                              & when an element receives focus                                                      \\*
+    \textit{B2.3.2}  & \textit{blur}                               & when an element loses focus                                                         \\*
+    B2.4             & Form and input events                       & events related to form and input elements                                           \\*
+    \textit{B2.4.1}  & \textit{submit}                             & when a form is being submitted                                                      \\*
+    \textit{B2.4.2}  & \textit{change}                             & when an input element changes its value                                             \\
+    B2.5             & System/device events                        & events related to changes in the state of the system or device                      \\*
+    \textit{B2.5.1}  & \textit{network connection on}              & when a network connection is detected                                               \\*
+    \textit{B2.5.2}  & \textit{network connection off}             & when a network connection is lost                                                   \\*
+    \textit{B2.5.3}  & \textit{device locked}                      & when the device gets locked                                                         \\*
+    \textit{B2.5.4}  & \textit{device unlocked}                    & when the device gets unlocked                                                       \\*
+    \textit{B2.5.5}  & \textit{gps on}                             & when the GPS service becomes available                                              \\*
+    \textit{B2.5.6}  & \textit{gps off}                            & when the GPS service becomes unavailable                                            \\*
+    \textit{B2.5.7}  & \textit{battery state changed}              & when the state of the device battery changes                                        \\*
+    \textit{B2.5.8}  & \textit{outgoing sms}                       & when an SMS message is sent                                                         \\*
+    \textit{B2.5.9}  & \textit{incoming sms}                       & when an SMS message is received                                                     \\*
+    \textit{B2.5.10} & \textit{incoming call}                      & when a call is being received                                                       \\*
+    \textit{B2.5.11} & \textit{outgoing call}                      & when a call is being made                                                           \\*
+    \hline[0.5pt]
+    B2.6             & Other events                                & –                                                                                   \\*
+    \textit{B2.6.1}  & \textit{error}                              & when an element encounters an error                                                 \\*
+    \textit{B2.6.2}  & \textit{load (page)}                        & when a view is fully loaded                                                         \\*
     \hline
-    \textbf{B2}       & \textbf{Data types}                         & types of data available throughout the description                                  \\*
-    B2.1              & Integer                                     & an integer number                                                                   \\*
-    B2.2              & Float                                       & floating-point number                                                               \\*
-    B2.3              & Decimal                                     & precise representation of a decimal number                                          \\*
-    B2.4              & String                                      & sequence of characters                                                              \\*
-    B2.5              & Char                                        & character                                                                           \\*
-    B2.6              & Array                                       & an ordered sequence of items                                                        \\*
-    B2.7              & Set                                         & an unordered sequence of items                                                      \\*
-    B2.8              & Object                                      & an associative array of string keys and values of any type                          \\*
+    \textbf{B3}      & \textbf{Defining handlers}                  & –                                                                                   \\*
     \hline
-    \textbf{B3}       & \textbf{Action arguments}                   & specifying arguments to actions                                                     \\
+    \textbf{B4}      & \textbf{Action types}                       & types of action available                                                           \\*
+    B4.1             & Navigation                                  & changing the currently displayed view                                               \\*
+    B4.2             & Opening a dialog                            & –                                                                                   \\*
+    B4.3             & Showing a toast                             & –                                                                                   \\*
+    B4.4             & Reading a value                             & accessing an element and reading its attributes or state                            \\*
+    B4.5             & Writing a value                             & accessing an element and changing its attributes or state                           \\*
+    B4.6             & Component method call                       & accessing an element and executing its method                                       \\*
+    B4.7             & Throwing an error                           & –                                                                                   \\*
+    B4.8             & Composing multiple actions                  & –                                                                                   \\
     \hline
-    \textbf{B4}       & \textbf{Action types}                       & types of action available                                                           \\*
-    B4.1              & Navigation                                  & changing the currently displayed view                                               \\*
-    B4.2              & Opening a dialog                            & –                                                                                   \\*
-    B4.3              & Showing a toast                             & –                                                                                   \\*
-    B4.4              & Reading a value                             & accessing an element and reading its attributes or state                            \\*
-    B4.5              & Writing a value                             & accessing an element and changing its attributes or state                           \\*
-    B4.6              & Component method call                       & accessing an element and executing its method                                       \\*
-    B4.7              & Throwing an error                           & –                                                                                   \\*
+    \textbf{B5}      & \textbf{Data validation}                    & checking if data provided by the user fits the provided constraints                 \\*
+    B5.1             & custom mechanism                            &                                                                                     \\*
+    B5.2             & during input                                & after every change of the input value                                               \\*
+    B5.3             & while submitting                            & before a form is submitted                                                          \\*
+    B5.4             & for single input                            & validating constraints for separate form fields                                     \\*
+    B5.5             & for groups of inputs                        & validating constraints that encompass multiple form fields                          \\*
+    B5.6             & customizing error messages                  & specifying error messages that can be displayed in violation of certain constraints \\*
     \hline
-    \textbf{B5}       & \textbf{Integration with external services} & ability to call code beyond the GUI layer                                           \\
+    \textbf{B6}      & \textbf{Integration with external services} & ability to call code beyond the GUI layer                                           \\*
     \hline
-    \textbf{B6}       & \textbf{Embedding scripts}                  & ability to use a programming language directly in the UIDL                          \\
+    \textbf{B7}      & \textbf{Embedding scripts}                  & ability to use a programming language directly in the UIDL                          \\*
     \hline
-    \textbf{B7}       & \textbf{Conditional execution\TblrNote{a}}  &                                                                                     \\
+    \textbf{B8}      & \textbf{Control structures}                 & –                                                                                   \\*
+    B8.1             & within handlers                             & –                                                                                   \\*
+    \textit{B8.1.1}  & \textit{conditional execution}              & executing one of two actions depending on the value of a boolean expression         \\*
+    \textit{B8.1.2}  & \textit{iteration}                          & executing actions multiple times based on a collection or a loop                    \\*
+    B8.2             & In content                                  & –                                                                                   \\*
+    \textit{B8.2.1}  & \textit{conditional display}                & displaying content depending on the value of a boolean expression                   \\*
+    \textit{B8.2.2}  & \textit{iteration}                          & displaying content multiple times based on a collection or a loop                   \\
     \hline
-    \textbf{B8}       & \textbf{Arithmetic expressions\TblrNote{a}} &                                                                                     \\
+    \textbf{B9}      & \textbf{Expressions/operators}              & –                                                                                   \\*
+    B9.1             & Arithmetic operators                        & –                                                                                   \\*
+    \textit{B9.1.1}  & \textit{addition}                           & –                                                                                   \\*
+    \textit{B9.1.2}  & \textit{subtraction}                        & –                                                                                   \\*
+    \textit{B9.1.3}  & \textit{multiplication}                     & –                                                                                   \\*
+    \textit{B9.1.4}  & \textit{fractional division}                & –                                                                                   \\*
+    \textit{B9.1.5}  & \textit{modulo}                             & –                                                                                   \\*
+    \textit{B9.1.6}  & \textit{exponentiation}                     & –                                                                                   \\*
+    \textit{B9.1.7}  & \textit{equality}                           & –                                                                                   \\*
+    \textit{B9.1.8}  & \textit{non-equality}                       & –                                                                                   \\*
+    \textit{B9.1.9}  & \textit{greater than}                       & –                                                                                   \\*
+    \textit{B9.1.10} & \textit{greater than or equal}              & –                                                                                   \\*
+    \textit{B9.1.11} & \textit{less than}                          & –                                                                                   \\*
+    \textit{B9.1.12} & \textit{less than or equal}                 & –                                                                                   \\*
+    B9.2             & Boolean operators                           & –                                                                                   \\*
+    \textit{B9.2.1}  & \textit{disjunction}                        & –                                                                                   \\*
+    \textit{B9.2.2}  & \textit{conjunction}                        & –                                                                                   \\*
+    \textit{B9.2.3}  & \textit{negation}                           & –                                                                                   \\*
+    B9.3             & Access operators                            & –                                                                                   \\*
+    \textit{B9.3.1}  & \textit{indexing}                           & –                                                                                   \\*
+    \textit{B9.3.2}  & \textit{object access}                      & –                                                                                   \\*
+    B9.4             & Ternary operator                            & –                                                                                   \\
     \hline
-    \textbf{B9}       & \textbf{Boolean operators\TblrNote{a}}      &                                                                                     \\
+    \textbf{B10}     & \textbf{Interpolation}                      & usage of expressions within the content                                             \\*
     \hline
-    \textbf{B10}      & \textbf{Other operators\TblrNote{a}}        &                                                                                     \\
+    \textbf{B11}     & \textbf{Data types}                         & types of data available throughout the description                                  \\*
+    B11.1            & Integer                                     & an integer number                                                                   \\*
+    B11.2            & Float                                       & floating-point number                                                               \\*
+    B11.3            & Decimal                                     & precise representation of a decimal number                                          \\*
+    B11.4            & String                                      & sequence of characters                                                              \\*
+    B11.5            & Char                                        & character                                                                           \\*
+    B11.6            & Array                                       & an ordered sequence of items                                                        \\*
+    B11.7            & Set                                         & an unordered sequence of items                                                      \\*
+    B11.8            & Object                                      & an associative array of string keys and values of any type                          \\*
     \hline
-    \textbf{B11}      & \textbf{Predefined events}                  &                                                                                     \\*
-    B11.1             & Pointer events                              & events related to a pointing device used - mouse, touch screen, etc.\               \\*
-    \textit{B11.1.1}  & \textit{mouse down}                         & when a pointer is pressed                                                           \\*
-    \textit{B11.1.2}  & \textit{mouse up}                           & when a pointer is released                                                          \\*
-    \textit{B11.1.3}  & \textit{click}                              & when a pointer is pressed and released in the same element                          \\*
-    \textit{B11.1.4}  & \textit{double click}                       & when a pointer is clicked twice rapidly                                             \\*
-    \textit{B11.1.5}  & \textit{long click}                         & when a pointer is pressed for a longed time                                         \\*
-    \textit{B11.1.6}  & \textit{mouse enter}                        & when a pointer enters the area of an element                                        \\*
-    \textit{B11.1.7}  & \textit{mouse leave}                        & when a pointer leaves the area of an element                                        \\*
-    \textit{B11.1.8}  & \textit{mouse move}                         & when a pointer moves within the area of an element                                  \\*
-    \textit{B11.1.9}  & \textit{drag}                               & when an element starts being dragged                                                \\*
-    \textit{B11.1.10} & \textit{drop}                               & when an element is being dropped                                                    \\
-    B11.2             & Keyboard events                             & events caused by clicks from a keyboard                                             \\*
-    \textit{B11.2.1}  & \textit{key up}                             & when a key is released                                                              \\*
-    \textit{B11.2.2}  & \textit{key down}                           & when a key is pressed                                                               \\
-    B11.3             & Element state events                        & events related to the state of an element                                           \\*
-    \textit{B11.3.1}  & \textit{focus}                              & when an element receives focus                                                      \\*
-    \textit{B11.3.2}  & \textit{blur}                               & when an element loses focus                                                         \\
-    B11.4             & Form and input events                       & events related to form and input elements                                           \\*
-    \textit{B11.4.1}  & \textit{submit}                             & when a form is being submitted                                                      \\*
-    \textit{B11.4.2}  & \textit{change}                             & when an input element changes its value                                             \\
-    B11.5             & System/device events                        & events related to changes in the state of the system or device                      \\*
-    \textit{B11.5.1}  & \textit{network connection on}              & when a network connection is detected                                               \\*
-    \textit{B11.5.2}  & \textit{network connection off}             & when a network connection is lost                                                   \\*
-    \textit{B11.5.3}  & \textit{device locked}                      & when the device gets locked                                                         \\*
-    \textit{B11.5.4}  & \textit{device unlocked}                    & when the device gets unlocked                                                       \\*
-    \textit{B11.5.5}  & \textit{gps on}                             & when the GPS service becomes available                                              \\*
-    \textit{B11.5.6}  & \textit{gps off}                            & when the GPS service becomes unavailable                                            \\*
-    \textit{B11.5.7}  & \textit{battery state changed}              & when the state of the device battery changes                                        \\*
-    \textit{B11.5.8}  & \textit{outgoing sms}                       & when an SMS message is sent                                                         \\*
-    \textit{B11.5.9}  & \textit{incoming sms}                       & when an SMS message is received                                                     \\*
-    \textit{B11.5.10} & \textit{incoming call}                      & when a call is being received                                                       \\*
-    \textit{B11.5.11} & \textit{outgoing call}                      & when a call is being made                                                           \\*
-    B11.6             & Other events                                & –                                                                                   \\*
-    \textit{B11.6.1}  & \textit{error}                              & when an element encounters an error                                                 \\*
-    \textit{B11.6.2}  & \textit{load (page)}                        & when a view is fully loaded                                                         \\
+    \textbf{B12}     & \textbf{Defining custom components}         & features related to defining and describing custom components                       \\*
+    B12.1            & content                                     & describing the content of a component                                               \\*
+    B12.2            & properties                                  & specifying attributes/properties of a component                                     \\*
+    B12.3            & content inputs                              & specifying content as input of component                                            \\*
+    B12.4            & custom events                               & emitting custom events from a component                                             \\*
+    B12.5            & methods                                     & specifying methods in the component                                                 \\*
+    B12.6            & internal state                              & describing the state of the component                                               \\*
     \hline
-    \textbf{B12}      & \textbf{Data validation}                    & checking if data provided by the user fits the provided constraints                 \\*
-    B12.1             & during input                                & after every change of the input value                                               \\*
-    B12.2             & while submitting                            & before a form is submitted                                                          \\*
-    B12.3             & for single input                            & validating constraints for separate form fields                                     \\*
-    B12.4             & for groups of inputs                        & validating constraints that encompass multiple form fields                          \\*
-    B12.5             & customizing error messages                  & specifying error messages that can be displayed in violation of certain constraints \\
-    \hline
-    \textbf{B13}      & \textbf{Defining custom components}         & features related to defining and describing custom components                       \\*
-    B13.1             & content                                     & describing the content of a component                                               \\*
-    B13.2             & input parameters                            & specifying attributes/properties of a component                                     \\*
-    B13.3             & content inputs                              & specifying content as input of component                                            \\*
-    B13.4             & custom events                               & emitting custom events from a component                                             \\*
-    B13.5             & methods                                     & specifying methods in the component                                                 \\*
-    B13.6             & internal state                              & describing the state of the component                                               \\
-    \hline
-    \textbf{B14}      & \textbf{External components}                & components from third-party sources, defined outside of the UIDL                    \\
+    \textbf{B13}     & \textbf{External components}                & components from third-party sources, defined outside of the UIDL                    \\*
     \hline[1pt]
 \end{longtblr}
 
 \begin{longtblr}[
-    caption = {Methods for evaluating the predefined components of the descriptions},
+    caption = {Metrics for evaluating the predefined components of the descriptions},
     label = {tab:evaluation-metrics-components}
 ]{
     colspec = {cX[2,c]X[3,c]},
@@ -258,10 +281,10 @@ Criteria with subcriteria won't be evaluated directly.
     D4.2         & density-independent pixels          & a physical unit that allows for consistent scaling regardless of the screen size                        \\*
     D4.3         & points                              & smallest unit in typography, 1/72th of an inch                                                          \\*
     D4.4         & percentages                         & percentage of a given dimension of a parent component                                                   \\*
-    D4.5         & em                                  & font size of the parent element                                                                         \\*
-    D4.6         & rem                                 & font size of the root element                                                                           \\*
-    D4.7         & vw                                  & 1\% of the viewport's width                                                                             \\*
-    D4.8         & vh                                  & 1\% of the viewport's height                                                                            \\
+    D4.5         & \texttt{em}                         & font size of the parent element                                                                         \\*
+    D4.6         & \texttt{rem}                        & font size of the root element                                                                           \\*
+    D4.7         & \texttt{vw}                         & 1\% of the viewport's width                                                                             \\*
+    D4.8         & \texttt{vh}                         & 1\% of the viewport's height                                                                            \\
     \hline
     \textbf{D5}  & \textbf{Positioning}                & supported modes of positioning                                                                          \\*
     D5.1         & static                              & default positioning according to the parent component's layout                                          \\*
