@@ -1,180 +1,231 @@
-\subsection{Evaluation metrics and tools}\label{subsec:evaluation-metrics-and-tools}
+\subsection{Evaluation criteria}\label{subsec:evaluation-criteria}
 
-\paragraph{Feature list}
-The following tables elaborate the classification from the previous section and define the criteria for evaluation of UI descriptions.
-Table~\ref{tab:evaluation-metrics-structure} describes evaluation criteria in the area of foundational concepts in GUI development.
-Table~\ref{tab:evaluation-metrics-behavior} specifies important areas of modelling behavior in the GUI, complemented by the list of components that might be supported out-of-the-box in table~~\ref{tab:evaluation-metrics-components}
-Finally, possible features of describing the appearance of GUI are listed in table~\ref{tab:evaluation-metrics-appearance}.
-The list has been compiled based on the concepts found in the papers and completed with references to documentation of various GUI technologies.
+This section elaborates the classification from the previous section and defines the criteria for evaluation of UI descriptions.
+The list has been compiled based on the concepts found in the papers and completed by referencing various final UI technologies.
+The tables below concretely name and describe what aspects of UI programming each representation should support;
+each criterion is additionally numbered for ease of referencing.
+Table~\ref{tab:evaluation-criteria-structure} describes evaluation criteria in the area of foundational concepts in GUI development.
+Table~\ref{tab:evaluation-criteria-behavior} specifies important areas of modelling behavior in the GUI, complemented by the list of components that might be supported out-of-the-box in table~~\ref{tab:evaluation-criteria-components}
+Finally, possible features of describing the appearance of GUI are listed in table~\ref{tab:evaluation-criteria-appearance}.
+If the feature does not require a further description, it is marked with a dash (\textemdash).
 
-% todo: tried to do it as thoroughly as possible, that's why sometimes the criteria is quite nested
+To give a more thorough picture of the capabilities of the notations, some criteria are split into nested criteria;
+this is indicated by the numbering level of the criteria.
+Top-level criteria are marked with a boldface letter and a number (\textbf{B1}) and separated using a solid line.
+Subcriteria are indicated by adding an extra number after the top-level criterion symbol and are written using a regular font (B1.3);
+they are separated visually in the table using a dashed line.
+The symbol for third-level criteria has another number added and is written using an italicized font (\textit{B1.3.5}).
 
-% todo: i guess the criteria is so detailed that it's enough
-Unless specified otherwise, the evaluation is intended to be binary and indicate whether a given feature is supported (even partially) or not.
-Criteria with subcriteria won't be evaluated directly.
+Unless specified otherwise, the evaluation is intended to be binary and indicate whether a given feature, as described in the table, is supported (even partially) or not.
+This allows for a detailed and unambiguous evaluation of features.
+To account for any missing features, some criteria contain a subcriterion for \emph{other} aspects not covered by explicit criteria.
+These criterions use an enumeration to list the missing aspects.
+Only the lowest-level criteria are subject to evaluation \textendash\ if a criterion has subcriteria, then the higher-level criterion is only a means of grouping, not another criterion.
 
-% todo: separation can sometimes be arbitrary - i've said - the concepts often intersect
+\paragraph{Architecture and structure}
 
-% The \texttt{<input>} element is one of the most powerful and complex in all of HTML due to the sheer number of combinations of input types and attributes.
+Table~\ref{tab:evaluation-criteria-structure} describes the criteria for evaluating the structure of the UI;
+they mostly can be mapped directly to the concepts from the previous section.
+The only concept not translated to criteria is that of a component \textendash\ its presence as the unit of description in all representations is implicitly assumed.
+Only support for using external components (\textbf{A7}) is evaluated in this section.
+The classification of components is used to group criteria describing support for predefined components.
+Support for custom components is described in criteria describing support for representing the UI behavior (\textbf{B12}).
+
+Describing the contents of UI (\textbf{A3}) is not evaluated on a binary basis, as this capability is also assumed to be present;
+instead, the concrete syntax of the notation is described \textendash\ e.g.\ whether it uses text (JSON, XML), diagrams (UML) or maybe another form to represent the UI\@.
 
 \begin{longtblr}[
-    caption = {Metrics for evaluating the descriptions' ability to describe the structure of the GUI.},
-    label = {tab:evaluation-metrics-structure},
-    note{a} = {This criterion will be evaluated using a short description.}
+    caption = {Criteria for evaluating the descriptions' ability to describe the structure of the GUI.},
+    label = {tab:evaluation-criteria-structure},
+    note{a} = {This criterion was evaluated by shortly describing the method of describing content of a view.}
 ]{
     colspec = {cX[2,c]X[3,c]},
     rowhead = 1,
     rows = {m},
 }
     \hline[1pt]
-    \textbf{No.} & \textbf{Name}                     & \textbf{Description}                                                \\*
+    \textbf{No.} & \textbf{Name}                     & \textbf{Description}                               \\*
+    \hline[1pt]
+    \textbf{A1}  & \textbf{Application}              & a top-level node of the element tree               \\*
     \hline
-    \textbf{A1}  & \textbf{Application}              & a top-level node of the element tree                                \\*
+    \textbf{A2}  & \textbf{View/Screen}              & grouping of related controls                       \\*
     \hline
-    \textbf{A2}  & \textbf{View/Screen}              & grouping of related controls                                        \\*
+    \textbf{A3}  & \textbf{View content\TblrNote{a}} & method of describing contents of a view            \\*
     \hline
-    \textbf{A3}  & \textbf{View content\TblrNote{a}} & method of describing contents of a view                             \\*
+    \textbf{A4}  & \textbf{Dialogs}                  & support for dialog views                           \\*
     \hline
-    \textbf{A4}  & \textbf{Dialogs}                  & support for dialog views                                            \\*
+    \textbf{A5}  & \textbf{Assets}                   & using resources in separate files                  \\*
     \hline
-    \textbf{A5}  & \textbf{Assets}                   & using resources in separate files                                   \\*
+    \textbf{A6}  & \textbf{Modularization}           & splitting the UI description across multiple files \\*
     \hline
-    \textbf{A6}  & \textbf{Modularization}           & moving parts of a description to a separate file and importing them \\*
+    \textbf{A7}  & \textbf{External components}      & using components from third-party sources          \\*
     \hline[1pt]
 \end{longtblr}
 
+\paragraph{Behavior and logic}
+
+Criteria related to behavior of UI are listed below in table~\ref{tab:evaluation-criteria-behavior}.
+
+First two criteria (\textbf{B1} and \textbf{B2}) describe event handling and predefined events that are emitted by predefined elements.
+The table specifies the events in detail and groups them in several categories.
+Pointer events are emitted whenever a pointing device (most commonly a mouse, but could be e.g.\ a finger touching a screen) interacts with an element; usually they're emitted by most elements.
+So is the case, too, with events related to the state of an element \textendash\ most of them can receive or lose focus, but not only using a mouse, but also e.g.\ using a keyboard or other assistive technologies.
+On the other hand, keyboard, form, and input events are only emitted by certain components for which such events are relevant (usually input components).
+Criterion B2.6 collects all other events specified by the representations.
+
+% \todo{rewrite finally}A certain representation also included mobile device events, but they were discarded \textendash\ they are outside of UI and closer to client applications;
+% other representations do not contain them, so they would skew the results.
+
+Criteria \textbf{B3}\textendash\textbf{B5} describe support for handlers in relatively broad terms.
+Further, criteria \textbf{B6} and \textbf{B7} indicate whether the representations support any extensions to handling logic by calling any other services or executing arbitrary code.
+These two criteria are rather general, because they rather fall in the scope of general client-side programming, not in the scope of UI programming.
+Criteria \textbf{B8}\textendash\textbf{B11} describe techniques for specifying handlers and describing content in more detail.
+Criterion \textbf{B12} lists criteria related to defining custom components.
+
 \begin{longtblr}[
-    caption = {Metrics for evaluating the descriptions' ability to model the behavior of GUIs},
-    label = {tab:evaluation-metrics-behavior},
+    caption = {Criteria for evaluating the representations' ability to model the behavior of GUIs},
+    label = {tab:evaluation-criteria-behavior},
+    note{a} = {This criterion was evaluated by enumerating possible values.},
 ]{
     colspec = {cX[2,c]X[3,c]},
     rowhead = 1,
     rows = {m},
 }
     \hline[1pt]
-    \textbf{No.}     & \textbf{Name}                               & \textbf{Description}                                                                \\*
-    \textbf{B1}      & \textbf{Handling events}                    & the ability to attach an event handler to a certain UI element                      \\*
+    \textbf{No.}      & \textbf{Name}                               & \textbf{Description}                                                                \\*
+    \hline[1pt]
+    \textbf{B1}       & \textbf{Handling events}                    & the ability to attach an event handler to a certain UI element                      \\*
     \hline
-    \textbf{B2}      & \textbf{Predefined events}                  & –                                                                                   \\*
-    B2.1             & Pointer events                              & events related to a pointing device used - mouse, touch screen, etc.                \\*
-    \textit{B2.1.1}  & \textit{mouse down}                         & when a pointer is pressed                                                           \\*
-    \textit{B2.1.2}  & \textit{mouse up}                           & when a pointer is released                                                          \\*
-    \textit{B2.1.3}  & \textit{click}                              & when a pointer is pressed and released in the same element                          \\*
-    \textit{B2.1.4}  & \textit{double click}                       & when a pointer is clicked twice rapidly                                             \\*
-    \textit{B2.1.5}  & \textit{long click}                         & when a pointer is pressed for a longed time                                         \\*
-    \textit{B2.1.6}  & \textit{mouse enter}                        & when a pointer enters the area of an element                                        \\*
-    \textit{B2.1.7}  & \textit{mouse leave}                        & when a pointer leaves the area of an element                                        \\*
-    \textit{B2.1.8}  & \textit{mouse move}                         & when a pointer moves within the area of an element                                  \\*
-    \textit{B2.1.9}  & \textit{drag}                               & when an element starts being dragged                                                \\*
-    \textit{B2.1.10} & \textit{drop}                               & when an element is being dropped                                                    \\*
-    B2.2             & Keyboard events                             & events caused by clicks from a keyboard                                             \\*
-    \textit{B2.2.1}  & \textit{key up}                             & when a key is released                                                              \\*
-    \textit{B2.2.2}  & \textit{key down}                           & when a key is pressed                                                               \\*
-    B2.3             & Element state events                        & events related to the state of an element                                           \\*
-    \textit{B2.3.1}  & \textit{focus}                              & when an element receives focus                                                      \\*
-    \textit{B2.3.2}  & \textit{blur}                               & when an element loses focus                                                         \\*
-    B2.4             & Form and input events                       & events related to form and input elements                                           \\*
-    \textit{B2.4.1}  & \textit{submit}                             & when a form is being submitted                                                      \\*
-    \textit{B2.4.2}  & \textit{change}                             & when an input element changes its value                                             \\
-    B2.5             & System/device events                        & events related to changes in the state of the system or device                      \\*
-    \textit{B2.5.1}  & \textit{network connection on}              & when a network connection is detected                                               \\*
-    \textit{B2.5.2}  & \textit{network connection off}             & when a network connection is lost                                                   \\*
-    \textit{B2.5.3}  & \textit{device locked}                      & when the device gets locked                                                         \\*
-    \textit{B2.5.4}  & \textit{device unlocked}                    & when the device gets unlocked                                                       \\*
-    \textit{B2.5.5}  & \textit{gps on}                             & when the GPS service becomes available                                              \\*
-    \textit{B2.5.6}  & \textit{gps off}                            & when the GPS service becomes unavailable                                            \\*
-    \textit{B2.5.7}  & \textit{battery state changed}              & when the state of the device battery changes                                        \\*
-    \textit{B2.5.8}  & \textit{outgoing sms}                       & when an SMS message is sent                                                         \\*
-    \textit{B2.5.9}  & \textit{incoming sms}                       & when an SMS message is received                                                     \\*
-    \textit{B2.5.10} & \textit{incoming call}                      & when a call is being received                                                       \\*
-    \textit{B2.5.11} & \textit{outgoing call}                      & when a call is being made                                                           \\*
-    \hline[0.5pt]
-    B2.6             & Other events                                & –                                                                                   \\*
-    \textit{B2.6.1}  & \textit{error}                              & when an element encounters an error                                                 \\*
-    \textit{B2.6.2}  & \textit{load (page)}                        & when a view is fully loaded                                                         \\*
+    \textbf{B2}       & \textbf{Predefined events}                  & \textemdash                                                                         \\*
+    \hline[dashed]
+    B2.1              & Pointer events                              & events related to a pointing device used - mouse, touch screen, etc.                \\*
+    \textit{B2.1.1}   & \textit{mouse down}                         & when a pointer is pressed                                                           \\*
+    \textit{B2.1.2}   & \textit{mouse up}                           & when a pointer is released                                                          \\*
+    \textit{B2.1.3}   & \textit{click}                              & when a pointer is pressed and released in the same element                          \\*
+    \textit{B2.1.4}   & \textit{double click}                       & when a pointer is clicked twice rapidly                                             \\*
+    \textit{B2.1.5}   & \textit{long click}                         & when a pointer is pressed for a longed time                                         \\*
+    \textit{B2.1.6}   & \textit{mouse enter}                        & when a pointer enters the area of an element                                        \\*
+    \textit{B2.1.7}   & \textit{mouse leave}                        & when a pointer leaves the area of an element                                        \\*
+    \textit{B2.1.8}   & \textit{mouse move}                         & when a pointer moves within the area of an element                                  \\*
+    \textit{B2.1.9}   & \textit{drag}                               & when an element starts being dragged                                                \\*
+    \textit{B2.1.10}  & \textit{drop}                               & when an element is being dropped                                                    \\*
+    \hline[dashed]
+    B2.2              & Keyboard events                             & events caused by clicks from a keyboard                                             \\*
+    \textit{B2.2.1}   & \textit{key up}                             & when a key is released                                                              \\*
+    \textit{B2.2.2}   & \textit{key down}                           & when a key is pressed                                                               \\*
+    \hline[dashed]
+    B2.3              & Element state events                        & events related to the state of an element                                           \\*
+    \textit{B2.3.1}   & \textit{focus}                              & when an element receives focus                                                      \\*
+    \textit{B2.3.2}   & \textit{blur}                               & when an element loses focus                                                         \\
+    \hline[dashed]
+    B2.4              & Form and input events                       & events related to form and input elements                                           \\*
+    \textit{B2.4.1}   & \textit{submit}                             & when a form is being submitted                                                      \\*
+    \textit{B2.4.2}   & \textit{change}                             & when an input element changes its value                                             \\*
+    \hline[dashed]
+    B2.5              & Other events\TblrNote{a}                    & support for other events                                                            \\*
     \hline
-    \textbf{B3}      & \textbf{Defining handlers}                  & –                                                                                   \\*
+    \textbf{B3}       & \textbf{Defining handlers}                  & \textemdash                                                                         \\*
     \hline
-    \textbf{B4}      & \textbf{Action types}                       & types of action available                                                           \\*
-    B4.1             & Navigation                                  & changing the currently displayed view                                               \\*
-    B4.2             & Opening a dialog                            & –                                                                                   \\*
-    B4.3             & Showing a toast                             & –                                                                                   \\*
-    B4.4             & Reading a value                             & accessing an element and reading its attributes or state                            \\*
-    B4.5             & Writing a value                             & accessing an element and changing its attributes or state                           \\*
-    B4.6             & Component method call                       & accessing an element and executing its method                                       \\*
-    B4.7             & Throwing an error                           & –                                                                                   \\*
-    B4.8             & Composing multiple actions                  & –                                                                                   \\
+    \textbf{B4}       & \textbf{Action types}                       & types of action available                                                           \\*
+    B4.1              & Navigation                                  & changing the currently displayed view                                               \\*
+    B4.2              & Opening a dialog                            & \textemdash                                                                         \\*
+    B4.2              & Closing a dialog                            & \textemdash                                                                         \\*
+    B4.3              & Showing a toast                             & \textemdash                                                                         \\*
+    B4.4              & Reading a value                             & accessing an element and reading its attributes or state                            \\*
+    B4.5              & Writing a value                             & accessing an element and changing its attributes or state                           \\*
+    B4.6              & Component method call                       & accessing an element and executing its method                                       \\*
+    B4.7              & Throwing an error                           & \textemdash                                                                         \\*
+    B4.8              & Composing multiple actions                  & \textemdash                                                                         \\*
     \hline
-    \textbf{B5}      & \textbf{Data validation}                    & checking if data provided by the user fits the provided constraints                 \\*
-    B5.1             & custom mechanism                            &                                                                                     \\*
-    B5.2             & during input                                & after every change of the input value                                               \\*
-    B5.3             & while submitting                            & before a form is submitted                                                          \\*
-    B5.4             & for single input                            & validating constraints for separate form fields                                     \\*
-    B5.5             & for groups of inputs                        & validating constraints that encompass multiple form fields                          \\*
-    B5.6             & customizing error messages                  & specifying error messages that can be displayed in violation of certain constraints \\*
+    \textbf{B5}       & \textbf{Data validation}                    & \textemdash                                                                         \\*
+    B5.1              & custom mechanism                            & validation using a dedicated mechanism instead of reusing existing mechanisms       \\*
+    B5.2              & during input                                & after every change of the input value                                               \\*
+    B5.3              & while submitting                            & before a form is submitted                                                          \\*
+    B5.4              & for single input                            & validating constraints for separate form fields                                     \\*
+    B5.5              & for groups of inputs                        & validating constraints that encompass multiple form fields                          \\*
+    B5.6              & customizing error messages                  & specifying error messages that can be displayed in violation of certain constraints \\*
     \hline
-    \textbf{B6}      & \textbf{Integration with external services} & ability to call code beyond the GUI layer                                           \\*
+    \textbf{B6}       & \textbf{Integration with external services} & ability to call code beyond the GUI layer                                           \\*
     \hline
-    \textbf{B7}      & \textbf{Embedding scripts}                  & ability to use a programming language directly in the UIDL                          \\*
+    \textbf{B7}       & \textbf{Embedding scripts}                  & ability to use a programming language directly in the UIDL                          \\
     \hline
-    \textbf{B8}      & \textbf{Control structures}                 & –                                                                                   \\*
-    B8.1             & within handlers                             & –                                                                                   \\*
-    \textit{B8.1.1}  & \textit{conditional execution}              & executing one of two actions depending on the value of a boolean expression         \\*
-    \textit{B8.1.2}  & \textit{iteration}                          & executing actions multiple times based on a collection or a loop                    \\*
-    B8.2             & In content                                  & –                                                                                   \\*
-    \textit{B8.2.1}  & \textit{conditional display}                & displaying content depending on the value of a boolean expression                   \\*
-    \textit{B8.2.2}  & \textit{iteration}                          & displaying content multiple times based on a collection or a loop                   \\
+    \textbf{B8}       & \textbf{Control structures}                 & \textemdash                                                                         \\*
+    \hline[dashed]
+    B8.1              & within handlers                             & \textemdash                                                                         \\*
+    \textit{B8.1.1}   & \textit{conditional execution}              & executing one of two actions depending on the value of a boolean expression         \\*
+    \textit{B8.1.2}   & \textit{iteration}                          & executing actions multiple times based on a collection or a loop                    \\*
+    \hline[dashed]
+    B8.2              & within content                              & \textemdash                                                                         \\*
+    \textit{B8.2.1}   & \textit{conditional display}                & displaying content depending on the value of a boolean expression                   \\*
+    \textit{B8.2.2}   & \textit{iteration}                          & displaying content multiple times based on a collection or a loop                   \\*
     \hline
-    \textbf{B9}      & \textbf{Expressions/operators}              & –                                                                                   \\*
-    B9.1             & Arithmetic operators                        & –                                                                                   \\*
-    \textit{B9.1.1}  & \textit{addition}                           & –                                                                                   \\*
-    \textit{B9.1.2}  & \textit{subtraction}                        & –                                                                                   \\*
-    \textit{B9.1.3}  & \textit{multiplication}                     & –                                                                                   \\*
-    \textit{B9.1.4}  & \textit{fractional division}                & –                                                                                   \\*
-    \textit{B9.1.5}  & \textit{modulo}                             & –                                                                                   \\*
-    \textit{B9.1.6}  & \textit{exponentiation}                     & –                                                                                   \\*
-    \textit{B9.1.7}  & \textit{equality}                           & –                                                                                   \\*
-    \textit{B9.1.8}  & \textit{non-equality}                       & –                                                                                   \\*
-    \textit{B9.1.9}  & \textit{greater than}                       & –                                                                                   \\*
-    \textit{B9.1.10} & \textit{greater than or equal}              & –                                                                                   \\*
-    \textit{B9.1.11} & \textit{less than}                          & –                                                                                   \\*
-    \textit{B9.1.12} & \textit{less than or equal}                 & –                                                                                   \\*
-    B9.2             & Boolean operators                           & –                                                                                   \\*
-    \textit{B9.2.1}  & \textit{disjunction}                        & –                                                                                   \\*
-    \textit{B9.2.2}  & \textit{conjunction}                        & –                                                                                   \\*
-    \textit{B9.2.3}  & \textit{negation}                           & –                                                                                   \\*
-    B9.3             & Access operators                            & –                                                                                   \\*
-    \textit{B9.3.1}  & \textit{indexing}                           & –                                                                                   \\*
-    \textit{B9.3.2}  & \textit{object access}                      & –                                                                                   \\*
-    B9.4             & Ternary operator                            & –                                                                                   \\
+    \textbf{B9}       & \textbf{Interpolation}                      & usage of expressions within the content                                             \\*
     \hline
-    \textbf{B10}     & \textbf{Interpolation}                      & usage of expressions within the content                                             \\*
+    \textbf{B10}      & \textbf{Data types}                         & types of data available throughout the description                                  \\*
+    B10.1             & Integer                                     & an integer number                                                                   \\*
+    B10.2             & Float                                       & floating-point number                                                               \\*
+    B10.3             & Decimal                                     & precise representation of a decimal number                                          \\*
+    B10.4             & String                                      & sequence of characters                                                              \\*
+    B10.5             & Char                                        & character                                                                           \\*
+    B10.6             & Array                                       & an ordered sequence of items                                                        \\*
+    B10.7             & Set                                         & an unordered sequence of items                                                      \\*
+    B10.8             & Object                                      & an associative array of string keys and values of any type                          \\*
+    B10.9             & Others\TblrNote{a}                          & \textemdash                                                                         \\
     \hline
-    \textbf{B11}     & \textbf{Data types}                         & types of data available throughout the description                                  \\*
-    B11.1            & Integer                                     & an integer number                                                                   \\*
-    B11.2            & Float                                       & floating-point number                                                               \\*
-    B11.3            & Decimal                                     & precise representation of a decimal number                                          \\*
-    B11.4            & String                                      & sequence of characters                                                              \\*
-    B11.5            & Char                                        & character                                                                           \\*
-    B11.6            & Array                                       & an ordered sequence of items                                                        \\*
-    B11.7            & Set                                         & an unordered sequence of items                                                      \\*
-    B11.8            & Object                                      & an associative array of string keys and values of any type                          \\*
+    \textbf{B11}      & \textbf{Expressions/operators}              & \textemdash                                                                         \\*
+    \hline[dashed]
+    B11.1             & Arithmetic operators                        & \textemdash                                                                         \\*
+    \textit{B11.1.1}  & \textit{addition}                           & \textemdash                                                                         \\*
+    \textit{B11.1.2}  & \textit{subtraction}                        & \textemdash                                                                         \\*
+    \textit{B11.1.3}  & \textit{multiplication}                     & \textemdash                                                                         \\*
+    \textit{B11.1.4}  & \textit{fractional division}                & \textemdash                                                                         \\*
+    \textit{B11.1.5}  & \textit{modulo}                             & \textemdash                                                                         \\*
+    \textit{B11.1.6}  & \textit{exponentiation}                     & \textemdash                                                                         \\*
+    \textit{B11.1.7}  & \textit{equality}                           & \textemdash                                                                         \\*
+    \textit{B11.1.8}  & \textit{non-equality}                       & \textemdash                                                                         \\*
+    \textit{B11.1.9}  & \textit{greater than}                       & \textemdash                                                                         \\*
+    \textit{B11.1.10} & \textit{greater than or equal}              & \textemdash                                                                         \\*
+    \textit{B11.1.11} & \textit{less than}                          & \textemdash                                                                         \\*
+    \textit{B11.1.12} & \textit{less than or equal}                 & \textemdash                                                                         \\*
+    \textit{B11.1.13} & \textit{other}\TblrNote{a}                  & \textemdash                                                                         \\*
+    \hline[dashed]
+    B11.2             & Boolean operators                           & \textemdash                                                                         \\*
+    \textit{B11.2.1}  & \textit{disjunction}                        & \textemdash                                                                         \\*
+    \textit{B11.2.2}  & \textit{conjunction}                        & \textemdash                                                                         \\*
+    \textit{B11.2.3}  & \textit{negation}                           & \textemdash                                                                         \\*
+    \textit{B11.2.4}  & \textit{other}\TblrNote{a}                  & \textemdash                                                                         \\*
+    \hline[dashed]
+    B11.3             & Access operators                            & \textemdash                                                                         \\*
+    \textit{B11.3.1}  & \textit{indexing}                           & \textemdash                                                                         \\*
+    \textit{B11.3.2}  & \textit{object access}                      & \textemdash                                                                         \\*
+    \textit{B11.3.3}  & \textit{other}\TblrNote{a}                  & \textemdash                                                                         \\*
+    \hline[dashed]
+    B11.4             & Ternary operator                            & \textemdash                                                                         \\
     \hline
-    \textbf{B12}     & \textbf{Defining custom components}         & features related to defining and describing custom components                       \\*
-    B12.1            & content                                     & describing the content of a component                                               \\*
-    B12.2            & properties                                  & specifying attributes/properties of a component                                     \\*
-    B12.3            & content inputs                              & specifying content as input of component                                            \\*
-    B12.4            & custom events                               & emitting custom events from a component                                             \\*
-    B12.5            & methods                                     & specifying methods in the component                                                 \\*
-    B12.6            & internal state                              & describing the state of the component                                               \\*
-    \hline
-    \textbf{B13}     & \textbf{External components}                & components from third-party sources, defined outside of the UIDL                    \\*
+    \textbf{B12}      & \textbf{Defining custom components}         & features related to defining and describing custom components                       \\*
+    B12.1             & content                                     & describing the content of a component                                               \\*
+    B12.2             & properties                                  & specifying attributes/properties of a component                                     \\*
+    B12.3             & content inputs                              & specifying content as input of component                                            \\*
+    B12.4             & custom events                               & emitting custom events from a component                                             \\*
+    B12.5             & methods                                     & specifying methods in the component                                                 \\*
+    B12.6             & internal state                              & describing the state of the component                                               \\*
     \hline[1pt]
 \end{longtblr}
 
+\paragraph{Predefined components}
+
+Table~\ref{tab:evaluation-criteria-components} lists components that might be predefined by the representations' authors.
+Criteria \textbf{C1}\textendash\textbf{C3} describe specialized containers and output components;
+plain containers have been included in the subsequent table (\textbf{D1}).
+This decision is fairly arbitrary and is caused by the encapsulation of layout in a particular component.
+Such an approach blends the two concepts together, making them more difficult to separate from one another.
+Specialized components, however, are not merely used to lay out content;
+they also provide some structure and functionality independently from their content that is useful in a particular context.
+Criteria \textbf{C4} and \textbf{C5} describe input components, in particular \emph{the} input field component and its customizations and criterion \textbf{C6} describes interaction components.
+
 \begin{longtblr}[
-    caption = {Metrics for evaluating the predefined components of the descriptions},
-    label = {tab:evaluation-metrics-components}
+    caption = {Criteria for evaluating components predefined by the representations},
+    label = {tab:evaluation-criteria-components}
 ]{
     colspec = {cX[2,c]X[3,c]},
     rowhead = 1,
@@ -182,7 +233,7 @@ Criteria with subcriteria won't be evaluated directly.
 }
     \hline[1pt]
     \textbf{No.}     & \textbf{Name}                          & \textbf{Description}                                                                    \\*
-    \hline
+    \hline[1pt]
     \textbf{C1}      & \textbf{Specialized containers}        & containers that provide both layout and functionality                                   \\*
     C1.1             & Tab container                          & allows to switch between multiple views using a tab interface                           \\*
     C1.2             & Web container                          & displays a website                                                                      \\*
@@ -208,40 +259,44 @@ Criteria with subcriteria won't be evaluated directly.
     \textbf{C4}      & \textbf{Input components}              & components that are used to provide data                                                \\*
     C4.1             & Form                                   & a component for gathering information from users; a container for input fields          \\*
     C4.2             & Input group                            & a grouping of related input fields                                                      \\*
-    C4.3             & Input types                            & an input field for providing various data                                               \\*
-    \textit{C4.3.1}  & \textit{number}                        & –                                                                                       \\*
-    \textit{C4.3.2}  & \textit{color}                         & –                                                                                       \\*
-    \textit{C4.3.3}  & \textit{date}                          & –                                                                                       \\*
-    \textit{C4.3.4}  & \textit{datetime}                      & –                                                                                       \\*
-    \textit{C4.3.5}  & \textit{time}                          & –                                                                                       \\*
-    \textit{C4.3.6}  & \textit{email}                         & –                                                                                       \\*
-    \textit{C4.3.7}  & \textit{file}                          & –                                                                                       \\*
-    \textit{C4.3.8}  & \textit{password}                      & –                                                                                       \\*
-    \textit{C4.3.8}  & \textit{range}                         & –                                                                                       \\*
+    \hline[dashed]
+    C4.3             & Input field types                      & an input field for providing various data                                               \\*
+    \textit{C4.3.1}  & \textit{number}                        & \textemdash                                                                             \\*
+    \textit{C4.3.2}  & \textit{color}                         & \textemdash                                                                             \\*
+    \textit{C4.3.3}  & \textit{date}                          & \textemdash                                                                             \\*
+    \textit{C4.3.4}  & \textit{datetime}                      & \textemdash                                                                             \\*
+    \textit{C4.3.5}  & \textit{time}                          & \textemdash                                                                             \\*
+    \textit{C4.3.6}  & \textit{email}                         & \textemdash                                                                             \\*
+    \textit{C4.3.7}  & \textit{file}                          & \textemdash                                                                             \\*
+    \textit{C4.3.8}  & \textit{password}                      & \textemdash                                                                             \\*
+    \textit{C4.3.8}  & \textit{range}                         & \textemdash                                                                             \\*
     \textit{C4.3.9}  & \textit{search}                        & an input type for providing a search term                                               \\*
-    \textit{C4.3.10} & \textit{telephone}                     & –                                                                                       \\*
+    \textit{C4.3.10} & \textit{telephone}                     & \textemdash                                                                             \\*
     \textit{C4.3.11} & \textit{short text}                    & an input type for providing one-line text                                               \\*
     \textit{C4.3.12} & \textit{long text}                     & an input type for providing multi-line text                                             \\*
-    C4.4             & Radio input                            & single option input                                                                     \\*
+    \hline[dashed]
+    C4.4             & Radio input field                      & single option input                                                                     \\*
     C4.5             & Checkbox                               & element for making a binary selection or choose multiple options from a list            \\*
     C4.6             & Toggle                                 & element for switching between two mutually exclusive states                             \\*
     C4.7             & Single-selection dropdown              & element for choosing a single option from a drop-down list                              \\*
     C4.8             & Multiple-selection dropdown            & element for choosing multiple options from a drop-down list                             \\*
     C4.9             & Slider                                 & element for inexact choosing a numerical value or a range                               \\
     \hline
-    \textbf{C5}      & \textbf{Input component customization} & –                                                                                       \\*
-    C5.1             & Constraint types                       & –                                                                                       \\*
+    \textbf{C5}      & \textbf{Input component customization} & \textemdash                                                                             \\*
+    \hline[dashed]
+    C5.1             & Constraint types                       & \textemdash                                                                             \\*
     \textit{C5.1.1}  & \textit{pattern}                       & limiting the text input through the means of regular expressions                        \\*
     \textit{C5.1.2}  & \textit{required}                      & requiring that the input is not empty                                                   \\*
     \textit{C5.1.3}  & \textit{max length}                    & limiting the maximum length of provided text                                            \\*
     \textit{C5.1.4}  & \textit{min length}                    & requiring a minimal length of provided text                                             \\*
     \textit{C5.1.5}  & \textit{max}                           & limiting the maximum numeric value of an input                                          \\*
     \textit{C5.1.6}  & \textit{min}                           & requiring a minimum numeric value of an input                                           \\*
-    C5.2             & Component inputs                       & –                                                                                       \\*
+    \hline[dashed]
+    C5.2             & Component inputs                       & \textemdash                                                                             \\*
     \textit{C5.2.1}  & \textit{disabled}                      & preventing a user from interacting from an input                                        \\*
-    \textit{C5.2.2}  & \textit{placeholder for inputs}        & an example text within the input, providing hints to the user                           \\
+    \textit{C5.2.2}  & \textit{placeholder}                   & an example text within the input field, providing hints to the user                     \\
     \hline
-    \textbf{C6}      & \textbf{Interaction components}        & –                                                                                       \\*
+    \textbf{C6}      & \textbf{Interaction components}        & \textemdash                                                                             \\*
     C6.1             & Button                                 & an element performing a certain function when clicked                                   \\*
     C6.2             & Link                                   & a textual interaction element, usually used for navigation                              \\*
     C6.3             & Floating action button                 & a prominent button used for triggering the most important action within a given context \\*
@@ -250,9 +305,18 @@ Criteria with subcriteria won't be evaluated directly.
     \hline[1pt]
 \end{longtblr}
 
+\paragraph{Appearance}
+Table~\ref{tab:evaluation-criteria-appearance} lists aspects of appearance that the representations should be able to include in their model.
+Criteria \textbf{D1} and \textbf{D2} evaluate the capabilities of describing layouts, including responsive layouts by using media queries.
+Criteria \textbf{D3}\textendash\textbf{D4} list expected methods of sizing and positioning of the elements.
+Criterion \textbf{D5} lists length units that might be supported by the representations.
+Criteria \textbf{D6} and \textbf{D7} describe the most commonly found properties used for styling elements.
+Finally, criteria \textbf{D8} and \textbf{D9} check whether the representations support customizing other aspects of appearance or allow for using CSS directly.
+
 \begin{longtblr}[
-    caption = {Metrics for evaluating the descriptions' ability to describe the appearance of GUIs},
-    label = {tab:evaluation-metrics-appearance}
+    caption = {Criteria for evaluating the representations' ability to describe the appearance of GUIs},
+    label = {tab:evaluation-criteria-appearance},
+    note{a} = {This criterion was evaluated by enumerating possible values.},
 ]{
     colspec = {cX[2,c]X[3,c]},
     rowhead = 1,
@@ -260,72 +324,61 @@ Criteria with subcriteria won't be evaluated directly.
 }
 
     \hline[1pt]
-    \textbf{No.} & \textbf{Name}                       & \textbf{Description}                                                                                    \\*
+    \textbf{No.} & \textbf{Name}                         & \textbf{Description}                                                                                    \\*
     \hline[1pt]
-    \textbf{D1}  & \textbf{Layout containers}          & components that place their content using a certain layout                                              \\*
-    D1.1         & Linear layout container             & a layout container that arranges content horizontally or vertically                                     \\*
-    D1.2         & Flexible layout (flex) container    & a linear layout container with additional options for children sizing and alignment                     \\*
-    D1.3         & Border layout container             & a layout container that positions children in five regions (north, south, east, west, center)           \\*
-    D1.4         & Relative layout container           & a layout container, in which children are positioned relative to other children or the container itself \\*
-    D1.5         & Grid container                      & a layout container, where children are flexibly positioned in rows and columns                          \\*
+    \textbf{D1}  & \textbf{Layout containers}            & components that place their content using a certain layout                                              \\*
+    D1.1         & Linear layout container               & a layout container that arranges content horizontally or vertically                                     \\*
+    D1.2         & Flexible layout (flex) container      & a linear layout container with additional options for children sizing and alignment                     \\*
+    D1.3         & Border layout container               & a layout container that positions children in five regions (north, south, east, west, center)           \\*
+    D1.4         & Relative layout container             & a layout container, in which children are positioned relative to other children or the container itself \\*
+    D1.5         & Grid container                        & a layout container, where children are flexibly positioned in rows and columns                          \\*
     \hline
-    \textbf{D2}  & \textbf{Media queries}              & changing the appearance of content based on device characteristics                                      \\*
+    \textbf{D2}  & \textbf{Media queries}                & changing the appearance of content based on device characteristics                                      \\*
     \hline
-    \textbf{D3}  & \textbf{Sizing methods}             & supported methods of sizing elements                                                                    \\*
-    D3.1         & fixed                               & sizing using absolute units, without relation to the size of the parent component                       \\*
-    D3.2         & relative                            & sizing in relation to the parent component or the viewport                                              \\*
-    D3.3         & proportional                        & sizing proportional to other children of the component                                                  \\*
+    \textbf{D3}  & \textbf{Sizing methods}               & supported methods of sizing elements                                                                    \\*
+    D3.1         & fixed                                 & sizing using absolute units, without relation to the size of the parent component                       \\*
+    D3.2         & relative                              & sizing in relation to the parent component or the viewport                                              \\*
+    D3.3         & proportional                          & sizing proportional to other children of the component                                                  \\*
     \hline
-    \textbf{D4}  & \textbf{Sizing units}               & supported units of sizing                                                                               \\*
-    D4.1         & pixels                              & smallest unit of display on a screen                                                                    \\*
-    D4.2         & density-independent pixels          & a physical unit that allows for consistent scaling regardless of the screen size                        \\*
-    D4.3         & points                              & smallest unit in typography, 1/72th of an inch                                                          \\*
-    D4.4         & percentages                         & percentage of a given dimension of a parent component                                                   \\*
-    D4.5         & \texttt{em}                         & font size of the parent element                                                                         \\*
-    D4.6         & \texttt{rem}                        & font size of the root element                                                                           \\*
-    D4.7         & \texttt{vw}                         & 1\% of the viewport's width                                                                             \\*
-    D4.8         & \texttt{vh}                         & 1\% of the viewport's height                                                                            \\
+    \textbf{D4}  & \textbf{Positioning}                  & supported modes of positioning                                                                          \\*
+    D4.1         & static                                & default positioning according to the parent component's layout                                          \\*
+    D4.2         & absolute                              & positioning at an exact position in the viewport, without regarding the parent layout                   \\*
+    D4.3         & relative                              & positioning at an offset position, based on an original position in a container                         \\*
+    D4.4         & sticky                                & positioning that fixes an element after content has been scrolled                                       \\
     \hline
-    \textbf{D5}  & \textbf{Positioning}                & supported modes of positioning                                                                          \\*
-    D5.1         & static                              & default positioning according to the parent component's layout                                          \\*
-    D5.2         & absolute                            & positioning at an exact position in the viewport, without regarding the parent layout                   \\*
-    D5.3         & relative                            & positioning at an offset position, based on an original position in a container                         \\*
-    D5.4         & sticky                              & positioning that fixes an element after content has been scrolled                                       \\*
+    \textbf{D5}  & \textbf{Length units}                 & supported units of length                                                                               \\*
+    D5.1         & pixels                                & smallest unit of display on a screen                                                                    \\*
+    D5.2         & density-independent pixels            & a physical unit that allows for consistent scaling regardless of the screen size                        \\*
+    D5.3         & points                                & smallest unit in typography, 1/72th of an inch                                                          \\*
+    D5.4         & percentages                           & percentage of a given dimension of a parent component                                                   \\*
+    D5.5         & \texttt{em}                           & font size of the parent element                                                                         \\*
+    D5.6         & \texttt{rem}                          & font size of the root element                                                                           \\*
+    D5.7         & \texttt{vw}                           & 1\% of the viewport's width                                                                             \\*
+    D5.8         & \texttt{vh}                           & 1\% of the viewport's height                                                                            \\*
     \hline
-    \textbf{D6}  & \textbf{Basic box model properties} & properties describing the most common aspects of element appearance                                     \\*
-    D6.1         & padding                             & space between the element's border and content                                                          \\*
-    D6.2         & margin                              & space around the element                                                                                \\*
-    D6.3         & border width                        & –                                                                                                       \\*
-    D6.4         & border color                        & –                                                                                                       \\*
-    D6.5         & border type                         & –                                                                                                       \\*
-    D6.7         & border radius                       & –                                                                                                       \\*
-    D6.8         & background color                    & –                                                                                                       \\*
-    D6.9         & background image                    & –                                                                                                       \\*
-    D6.10        & background gradient                 & –                                                                                                       \\*
-    D6.11        & shadow offset                       & –                                                                                                       \\*
-    D6.12        & shadow color                        & –                                                                                                       \\*
-    D6.13        & shadow blur                         & –                                                                                                       \\
+    \textbf{D6}  & \textbf{Basic box model properties}   & properties describing the most common aspects of element appearance                                     \\*
+    D6.1         & padding                               & space between the element's border and content                                                          \\*
+    D6.2         & margin                                & space around the element                                                                                \\*
+    D6.3         & border width                          & \textemdash                                                                                             \\*
+    D6.4         & border color                          & \textemdash                                                                                             \\*
+    D6.5         & border type                           & \textemdash                                                                                             \\*
+    D6.7         & border radius                         & \textemdash                                                                                             \\*
+    D6.8         & background color                      & \textemdash                                                                                             \\*
+    D6.9         & background image                      & \textemdash                                                                                             \\*
+    D6.10        & background gradient                   & \textemdash                                                                                             \\*
+    D6.11        & shadow offset                         & \textemdash                                                                                             \\*
+    D6.12        & shadow color                          & \textemdash                                                                                             \\*
+    D6.13        & shadow blur                           & \textemdash                                                                                             \\
     \hline
-    \textbf{D7}  & \textbf{Text styling}               & properties describing the appearance of text                                                            \\*
-    D7.1         & font family                         & –                                                                                                       \\*
-    D7.2         & font weight                         & –                                                                                                       \\*
-    D7.3         & underlining                         & –                                                                                                       \\*
-    D7.4         & italics                             & –                                                                                                       \\*
-    D7.5         & font size                           & –                                                                                                       \\*
-    D7.6         & text color                          & –                                                                                                       \\*
+    \textbf{D7}  & \textbf{Text styling}                 & properties describing the appearance of text                                                            \\*
+    D7.1         & font family                           & \textemdash                                                                                             \\*
+    D7.2         & font weight                           & \textemdash                                                                                             \\*
+    D7.3         & underlining                           & \textemdash                                                                                             \\*
+    D7.4         & italics                               & \textemdash                                                                                             \\*
+    D7.5         & font size                             & \textemdash                                                                                             \\*
+    D7.6         & text color                            & \textemdash                                                                                             \\*
     \hline
-    \textbf{D8}  & \textbf{Embedding stylesheets}      & possibility of using CSS directly or indirectly through files                                           \\*
+    \textbf{D8}  & \textbf{Other properties}\TblrNote{a} & any other properties related to the appearance                                                          \\*
+    \textbf{D9}  & \textbf{Embedding stylesheets}        & possibility of using CSS directly or indirectly through files                                           \\*
     \hline[1pt]
 \end{longtblr}
-
-\paragraph{Practical test cases}
-This section defines criteria for a practical evaluation of the expressiveness of languages.
-The evaluation will be carried out by attempting to recreate a certain existing UI in the languages.
-Because of the lack of availability, the assessment will be carried out only for certain languages.
-
-\subparagraph{The test case}
-This section describes the test case against which the languages will be evaluated.
-
-\subparagraph{The criteria}
-
-Here is the list of things that the languages must be able to support in the application.

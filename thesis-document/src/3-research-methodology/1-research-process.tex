@@ -1,16 +1,27 @@
 \subsection{Research process}\label{subsec:research-process}
 
 This section describes how the research in this thesis was conducted.
-First of all, papers selected in the literature review were compared and analyzed with regard to techniques enabling the implementation of functionalities related to UIs.
-The results of this analysis \textendash\ a list of concepts relevant to UI programming used by selected notations \textendash\ are introduced in subsection~\ref{subsec:basis-for-evaluation}.
+The process is presented in figure~\ref{fig:research-process}.
+First of all, papers selected in the literature review were compared and analyzed with regard to techniques enabling the implementation of functionalities related to UIs (task 1).
+The results of this analysis \textendash\ a list of concepts relevant to UI programming used by selected notations \textendash\ are introduced in subsection~\ref{subsec:basis-for-evaluation} (task 2.1).
 
-As a result of the analysis, a few descriptions (MARIA~\cite{Paterno2009, MariaPDF}, Bouchelligua et al.~\cite{Bouchelligua2010}, Kryštof~\cite{kryvstof2010lpgm}, Achilleos et al.~\cite{Achilleos2011}, and Miao et al.~\cite{Miao2017}) were excluded from the research \textendash\ they were not described in enough detail to warrant an accurate evaluation of presented notations.
+As a result of the analysis, a few descriptions (MARIA~\cite{Paterno2009, MariaPDF}, Bouchelligua et al.~\cite{Bouchelligua2010}, Kryštof~\cite{kryvstof2010lpgm}, Achilleos et al.~\cite{Achilleos2011}, and Miao et al.~\cite{Miao2017}) were excluded from the research (task 2.2) \textendash\ they were not described in enough detail to warrant an accurate evaluation of presented notations.
 The exclusion did not negatively influence the research \textendash\ there was not an instance of a concept that only existed in one of the excluded papers.
-The rest of the notations (\todo{insert citations}) were included.
+The rest of the notations (Gaouar et al.~\cite{Gaouar2018}, Khan et al.~\cite{Khan2021}, OpenUIDL~\cite{Moldovan2020}, Quid~\cite{molina2018quid, Molina2019}, Soude and Koussonda~\cite{Soude2022}, Xanui~\cite{hermida2016xanui}, Verhaeghe et al.~\cite{Verhaeghe2021visual, Verhaeghe2021behavior}) were included.
 
-Based on the results of the analysis, more rigorous evaluation criteria were defined;
-they are presented in two parts in section~\ref{subsec:evaluation-metrics-and-tools}.
-All the remaining representations were evaluated with the more theoretical framework presented in the first part;
-however, only three notations that are publicly available (\todo{citations}) were evaluated by means of case studies described in the second part of the section.
+Based on the results of the analysis, more rigorous evaluation criteria were defined.
+The first part, presented in section~\ref{subsec:evaluation-criteria}, describes the theoretical criteria for evaluating all remaining notations (task 3.1.1).
+The second part (section~\ref{subsec:case-studies}) describes practical use cases that were replicated using selected representations (task 3.2.1).
 
-Results of the evaluation and the discussion are included in the next chapter in sections~\ref{subsec:results-of-evaluation} and~\ref{subsec:evaluation-discussion-of-results}, respectively.
+Then, the representations were evaluated against the defined criteria (task 3.1.2).
+Additionally, the defined case studies were implemented using selected notations (task 3.2.2) that are also publicly available (OpenUIDL~\cite{Moldovan2020}\furl{https://teleporthq.io/}, Quid~\cite{molina2018quid, Molina2019}\furl{https://quid.metadev.pro/}; Verhaeghe et al.~\cite{Verhaeghe2021visual, Verhaeghe2021behavior}\furl{https://github.com/badetitou/Casino} was not used because the model is not available in an easy-to-use form);
+then their completeness was evaluated (task 3.2.3).
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{./3-research-methodology/research-process}
+    \caption{BPMN diagram illustrating the research process.}
+    \label{fig:research-process}
+\end{figure}
+
+Results of the evaluation and the discussion are included in the next chapter in sections~\ref{subsec:results-of-evaluation} and~\ref{subsec:evaluation-discussion-of-results}, respectively (task 4).
