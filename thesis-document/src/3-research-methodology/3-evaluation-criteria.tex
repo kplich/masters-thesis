@@ -2,10 +2,10 @@
 
 This section elaborates the classification from the previous section and defines the criteria for evaluation of UI descriptions.
 The list has been compiled based on the concepts found in the papers and completed by referencing various final UI technologies.
-The tables below concretely name and describe what aspects of UI programming each representation should support;
+The tables below concretely name and describe which aspects of UI programming each representation should support;
 each criterion is additionally numbered for ease of referencing.
 Table~\ref{tab:evaluation-criteria-structure} describes evaluation criteria in the area of foundational concepts in GUI development.
-Table~\ref{tab:evaluation-criteria-behavior} specifies important areas of modelling behavior in the GUI, complemented by the list of components that might be supported out-of-the-box in table~~\ref{tab:evaluation-criteria-components}
+Table~\ref{tab:evaluation-criteria-behavior} specifies important areas of modelling behavior in the GUI, complemented by the list of components that might be supported out-of-the-box in table~~\ref{tab:evaluation-criteria-components}.
 Finally, possible features of describing the appearance of GUI are listed in table~\ref{tab:evaluation-criteria-appearance}.
 If the feature does not require a further description, it is marked with a dash (\textemdash).
 
@@ -25,7 +25,7 @@ Only the lowest-level criteria are subject to evaluation \textendash\ if a crite
 \paragraph{Architecture and structure}
 
 Table~\ref{tab:evaluation-criteria-structure} describes the criteria for evaluating the structure of the UI;
-they mostly can be mapped directly to the concepts from the previous section.
+they mostly can be mapped directly to the concepts from the previous section: application (\textbf{A1}), view (\textbf{A2}), content (\textbf{A3}), dialogs (\textbf{A4}), assets (\textbf{A5}), and modularization (\textbf{A6}).
 The only concept not translated to criteria is that of a component \textendash\ its presence as the unit of description in all representations is implicitly assumed.
 Only support for using external components (\textbf{A7}) is evaluated in this section.
 The classification of components is used to group criteria describing support for predefined components.
@@ -152,7 +152,7 @@ Criterion \textbf{B12} lists criteria related to defining custom components.
     \textbf{B8}       & \textbf{Control structures}                 & \textemdash                                                                         \\*
     \hline[dashed]
     B8.1              & within handlers                             & \textemdash                                                                         \\*
-    \textit{B8.1.1}   & \textit{conditional execution}              & executing one of two actions depending on the value of a boolean expression         \\*
+    \textit{B8.1.1}   & \textit{conditional execution}              & executing one of multiple actions depending on different boolean conditions         \\*
     \textit{B8.1.2}   & \textit{iteration}                          & executing actions multiple times based on a collection or a loop                    \\*
     \hline[dashed]
     B8.2              & within content                              & \textemdash                                                                         \\*
@@ -200,7 +200,7 @@ Criterion \textbf{B12} lists criteria related to defining custom components.
     \textit{B11.3.2}  & \textit{object access}                      & \textemdash                                                                         \\*
     \textit{B11.3.3}  & \textit{other}\TblrNote{a}                  & \textemdash                                                                         \\*
     \hline[dashed]
-    B11.4             & Ternary operator                            & \textemdash                                                                         \\
+    B11.4             & Ternary operator                            & operator that returns one of two values depending on a boolean condition            \\
     \hline
     \textbf{B12}      & \textbf{Defining custom components}         & features related to defining and describing custom components                       \\*
     B12.1             & content                                     & describing the content of a component                                               \\*
@@ -214,7 +214,7 @@ Criterion \textbf{B12} lists criteria related to defining custom components.
 
 \paragraph{Predefined components}
 
-Table~\ref{tab:evaluation-criteria-components} lists components that might be predefined by the representations' authors.
+Table~\ref{tab:evaluation-criteria-components} lists components that might be predefined in the representation.
 Criteria \textbf{C1}\textendash\textbf{C3} describe specialized containers and output components;
 plain containers have been included in the subsequent table (\textbf{D1}).
 This decision is fairly arbitrary and is caused by the encapsulation of layout in a particular component.
