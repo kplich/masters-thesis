@@ -1,6 +1,8 @@
 \subsection{Evaluation criteria}\label{subsec:evaluation-criteria}
 
 This section elaborates the classification from the previous section and defines the criteria for evaluation of UI descriptions.
+
+\paragraph{Formulation of criteria}
 The list has been compiled based on the concepts found in the papers and completed by referencing various final UI technologies.
 The tables below concretely name and describe which aspects of UI programming each representation should support;
 each criterion is additionally numbered for ease of referencing.
@@ -16,17 +18,35 @@ Subcriteria are indicated by adding an extra number after the top-level criterio
 they are separated visually in the table using a dashed line.
 The symbol for third-level criteria has another number added and is written using an italicized font (\textit{B1.3.5}).
 
-Unless specified otherwise, the evaluation is intended to be binary and indicate whether a given feature, as described in the table, is supported (even partially) or not.
-This allows for a detailed and unambiguous evaluation of features.
-To account for any missing features, some criteria contain a subcriterion for \emph{other} aspects not covered by explicit criteria.
-These criterions use an enumeration to list the missing aspects.
-Only the lowest-level criteria are subject to evaluation \textendash\ if a criterion has subcriteria, then the higher-level criterion is only a means of grouping, not another criterion.
+\paragraph{Scoring of representations}
+To produce the results, each lowest-level criterion (that does not contain subcriteria) in each area was assigned a score of 1 (if the representation fulfilled the criterion) or 0 (otherwise).
+The score for higher-level criteria was calculated as an average score for all subcriteria (a sum of scores for each subcriterion divided by the number of subcriteria).
+The same mechanism was used to calculate a score for the whole section and for the whole representation.
+This mechanism of scoring allowed for a detailed and unambiguous evaluation while providing a balance in the scoring by treating the criteria equally, regardless of their number of subcriteria.
+At the same time, each score can be interpreted as a unified measure of support for complex criteria.
+
+Table ~\ref{tab:my-table} presents example results of evaluation of two hypothetical representations (R1 and R2) against a set of criteria.
+The criterion \textbf{A1} is does not contain any subcriteria, therefore it is evaluated directly.
+Criterion \textbf{A2} contains two subcriteria, so the score for this criterion is a percentage of subcriteria that fulfill the given criteria \textendash\ in R1, only one of two criteria is satisfied, so the score is 50\%; in R2 both criteria are satisfied, so the score is 100\%.
+The same mechanism applies to criteria A3.1, A3.2 and, in fact, the criterion \textbf{A3} \textendash\ its value is calculated as an average of scores for criteria A3.1 and A3.2.
+Finally, the same principle of averaging the criteria scores is used to calculate the score for the whole section.
+
+\begin{table}[]
+    \caption{Example results of evaluation (transposed for readability)}
+    \label{tab:my-table}
+    \begin{tabular}{||l|l|l|lll|llllllll||}
+        No. & Total  & \textbf{A1} & \textbf{A2} & A2.1       & A2.2       & \textbf{A3} & A3.1   & \textit{A3.1.1} & \textit{A3.1.2} & \textit{A3.1.3} & A3.2    & \textit{A3.2.1} & \textit{A3.2.2} \\
+        R1  & 77.8\% & \checkmark  & 50.0\%      & \checkmark &            & 83.4\%      & 66.7\% &                 & \checkmark      & \checkmark      & 100.0\% & \checkmark      & \checkmark      \\
+        R2  & 47.2\% &             & 100.0\%     & \checkmark & \checkmark & 41.7\%      & 33.3\% & \checkmark      &                 &                 & 50.0\%  & \checkmark      &
+    \end{tabular}
+\end{table}
 
 \paragraph{Architecture and structure}
 
 Table~\ref{tab:evaluation-criteria-structure} describes the criteria for evaluating the structure of the UI;
-they mostly can be mapped directly to the concepts from the previous section: application (\textbf{A1}), view (\textbf{A2}), content (\textbf{A3}), dialogs (\textbf{A4}), assets (\textbf{A5}), and modularization (\textbf{A6}).
-The only concept not translated to criteria is that of a component \textendash\ its presence as the unit of description in all representations is implicitly assumed.
+they mostly can be mapped directly to the concepts from the previous section: application (\textbf{A1}), view (\textbf{A2}), dialogs (\textbf{A3}), assets (\textbf{A4}), and modularization (\textbf{A5}).
+There ability to describe the content of the views and components is assumed to be present in all representations, therefore it is not evaluated.
+The other concept not translated to criteria is that of a component \textendash\ its presence as the unit of description in all representations is implicitly assumed.
 Only support for using external components (\textbf{A7}) is evaluated in this section.
 The classification of components is used to group criteria describing support for predefined components.
 Support for custom components is described in criteria describing support for representing the UI behavior (\textbf{B12}).
@@ -37,7 +57,6 @@ instead, the concrete syntax of the notation is described \textendash\ e.g.\ whe
 \begin{longtblr}[
     caption = {Criteria for evaluating the descriptions' ability to describe the structure of the GUI.},
     label = {tab:evaluation-criteria-structure},
-    note{a} = {This criterion was evaluated by shortly describing the method of describing content of a view.}
 ]{
     colspec = {cX[2,c]X[3,c]},
     rowhead = 1,
@@ -50,15 +69,13 @@ instead, the concrete syntax of the notation is described \textendash\ e.g.\ whe
     \hline
     \textbf{A2}  & \textbf{View/Screen}              & grouping of related controls                       \\*
     \hline
-    \textbf{A3}  & \textbf{View content\TblrNote{a}} & method of describing contents of a view            \\*
+    \textbf{A3}  & \textbf{Dialogs}                  & support for dialog views                           \\*
     \hline
-    \textbf{A4}  & \textbf{Dialogs}                  & support for dialog views                           \\*
+    \textbf{A4}  & \textbf{Assets}                   & using resources in separate files                  \\*
     \hline
-    \textbf{A5}  & \textbf{Assets}                   & using resources in separate files                  \\*
+    \textbf{A5}  & \textbf{Modularization}           & splitting the UI description across multiple files \\*
     \hline
-    \textbf{A6}  & \textbf{Modularization}           & splitting the UI description across multiple files \\*
-    \hline
-    \textbf{A7}  & \textbf{External components}      & using components from third-party sources          \\*
+    \textbf{A6}  & \textbf{External components}      & using components from third-party sources          \\*
     \hline[1pt]
 \end{longtblr}
 
@@ -71,10 +88,9 @@ The table specifies the events in detail and groups them in several categories.
 Pointer events are emitted whenever a pointing device (most commonly a mouse, but could be e.g.\ a finger touching a screen) interacts with an element; usually they're emitted by most elements.
 So is the case, too, with events related to the state of an element \textendash\ most of them can receive or lose focus, but not only using a mouse, but also e.g.\ using a keyboard or other assistive technologies.
 On the other hand, keyboard, form, and input events are only emitted by certain components for which such events are relevant (usually input components).
-Criterion B2.6 collects all other events specified by the representations.
 
-% \todo{rewrite finally}A certain representation also included mobile device events, but they were discarded \textendash\ they are outside of UI and closer to client applications;
-% other representations do not contain them, so they would skew the results.
+One of the representations~\cite{Gaouar2018} also included some \enquote{system events} related to the functioning of a mobile device, e.g.\ indicating a incoming or outgoing call or a change in the state of a network connection.
+They were omitted from the evaluation, as they fall outside of the scope of UI programming.
 
 Criteria \textbf{B3}\textendash\textbf{B5} describe support for handlers in relatively broad terms.
 Further, criteria \textbf{B6} and \textbf{B7} indicate whether the representations support any extensions to handling logic by calling any other services or executing arbitrary code.
@@ -85,7 +101,6 @@ Criterion \textbf{B12} lists criteria related to defining custom components.
 \begin{longtblr}[
     caption = {Criteria for evaluating the representations' ability to model the behavior of GUIs},
     label = {tab:evaluation-criteria-behavior},
-    note{a} = {This criterion was evaluated by enumerating possible values.},
 ]{
     colspec = {cX[2,c]X[3,c]},
     rowhead = 1,
@@ -116,26 +131,25 @@ Criterion \textbf{B12} lists criteria related to defining custom components.
     \hline[dashed]
     B2.3              & Element state events                        & events related to the state of an element                                           \\*
     \textit{B2.3.1}   & \textit{focus}                              & when an element receives focus                                                      \\*
-    \textit{B2.3.2}   & \textit{blur}                               & when an element loses focus                                                         \\
+    \textit{B2.3.2}   & \textit{blur}                               & when an element loses focus                                                         \\*
     \hline[dashed]
     B2.4              & Form and input events                       & events related to form and input elements                                           \\*
     \textit{B2.4.1}   & \textit{submit}                             & when a form is being submitted                                                      \\*
     \textit{B2.4.2}   & \textit{change}                             & when an input element changes its value                                             \\*
-    \hline[dashed]
-    B2.5              & Other events\TblrNote{a}                    & support for other events                                                            \\*
     \hline
-    \textbf{B3}       & \textbf{Defining handlers}                  & \textemdash                                                                         \\*
+    \textbf{B3}       & \textbf{Defining handlers}                  & \textemdash                                                                         \\
     \hline
     \textbf{B4}       & \textbf{Action types}                       & types of action available                                                           \\*
     B4.1              & Navigation                                  & changing the currently displayed view                                               \\*
-    B4.2              & Opening a dialog                            & \textemdash                                                                         \\*
-    B4.2              & Closing a dialog                            & \textemdash                                                                         \\*
-    B4.3              & Showing a toast                             & \textemdash                                                                         \\*
-    B4.4              & Reading a value                             & accessing an element and reading its attributes or state                            \\*
-    B4.5              & Writing a value                             & accessing an element and changing its attributes or state                           \\*
-    B4.6              & Component method call                       & accessing an element and executing its method                                       \\*
-    B4.7              & Throwing an error                           & \textemdash                                                                         \\*
-    B4.8              & Composing multiple actions                  & \textemdash                                                                         \\*
+    B4.2              & Emitting an event                           & \textemdash                                                                         \\*
+    B4.3              & Opening a dialog                            & \textemdash                                                                         \\*
+    B4.4              & Closing a dialog                            & \textemdash                                                                         \\*
+    B4.5              & Showing a toast                             & \textemdash                                                                         \\*
+    B4.6              & Reading a value                             & accessing an element and reading its attributes or state                            \\*
+    B4.7              & Writing a value                             & accessing an element and changing its attributes or state                           \\*
+    B4.8              & Component method call                       & accessing an element and executing its method                                       \\*
+    B4.9              & Throwing an error                           & \textemdash                                                                         \\*
+    B4.10             & Composing multiple actions                  & \textemdash                                                                         \\*
     \hline
     \textbf{B5}       & \textbf{Data validation}                    & \textemdash                                                                         \\*
     B5.1              & custom mechanism                            & validation using a dedicated mechanism instead of reusing existing mechanisms       \\*
@@ -169,8 +183,7 @@ Criterion \textbf{B12} lists criteria related to defining custom components.
     B10.5             & Char                                        & character                                                                           \\*
     B10.6             & Array                                       & an ordered sequence of items                                                        \\*
     B10.7             & Set                                         & an unordered sequence of items                                                      \\*
-    B10.8             & Object                                      & an associative array of string keys and values of any type                          \\*
-    B10.9             & Others\TblrNote{a}                          & \textemdash                                                                         \\
+    B10.8             & Object                                      & an associative array of string keys and values of any type                          \\
     \hline
     \textbf{B11}      & \textbf{Expressions/operators}              & \textemdash                                                                         \\*
     \hline[dashed]
@@ -187,18 +200,15 @@ Criterion \textbf{B12} lists criteria related to defining custom components.
     \textit{B11.1.10} & \textit{greater than or equal}              & \textemdash                                                                         \\*
     \textit{B11.1.11} & \textit{less than}                          & \textemdash                                                                         \\*
     \textit{B11.1.12} & \textit{less than or equal}                 & \textemdash                                                                         \\*
-    \textit{B11.1.13} & \textit{other}\TblrNote{a}                  & \textemdash                                                                         \\*
     \hline[dashed]
     B11.2             & Boolean operators                           & \textemdash                                                                         \\*
     \textit{B11.2.1}  & \textit{disjunction}                        & \textemdash                                                                         \\*
     \textit{B11.2.2}  & \textit{conjunction}                        & \textemdash                                                                         \\*
     \textit{B11.2.3}  & \textit{negation}                           & \textemdash                                                                         \\*
-    \textit{B11.2.4}  & \textit{other}\TblrNote{a}                  & \textemdash                                                                         \\*
     \hline[dashed]
     B11.3             & Access operators                            & \textemdash                                                                         \\*
     \textit{B11.3.1}  & \textit{indexing}                           & \textemdash                                                                         \\*
     \textit{B11.3.2}  & \textit{object access}                      & \textemdash                                                                         \\*
-    \textit{B11.3.3}  & \textit{other}\TblrNote{a}                  & \textemdash                                                                         \\*
     \hline[dashed]
     B11.4             & Ternary operator                            & operator that returns one of two values depending on a boolean condition            \\
     \hline
@@ -311,12 +321,11 @@ Criteria \textbf{D1} and \textbf{D2} evaluate the capabilities of describing lay
 Criteria \textbf{D3}\textendash\textbf{D4} list expected methods of sizing and positioning of the elements.
 Criterion \textbf{D5} lists length units that might be supported by the representations.
 Criteria \textbf{D6} and \textbf{D7} describe the most commonly found properties used for styling elements.
-Finally, criteria \textbf{D8} and \textbf{D9} check whether the representations support customizing other aspects of appearance or allow for using CSS directly.
+Finally, criterion \textbf{D8} checks whether the representations support using CSS directly.
 
 \begin{longtblr}[
     caption = {Criteria for evaluating the representations' ability to describe the appearance of GUIs},
     label = {tab:evaluation-criteria-appearance},
-    note{a} = {This criterion was evaluated by enumerating possible values.},
 ]{
     colspec = {cX[2,c]X[3,c]},
     rowhead = 1,
@@ -378,7 +387,6 @@ Finally, criteria \textbf{D8} and \textbf{D9} check whether the representations 
     D7.5         & font size                             & \textemdash                                                                                             \\*
     D7.6         & text color                            & \textemdash                                                                                             \\*
     \hline
-    \textbf{D8}  & \textbf{Other properties}\TblrNote{a} & any other properties related to the appearance                                                          \\*
-    \textbf{D9}  & \textbf{Embedding stylesheets}        & possibility of using CSS directly or indirectly through files                                           \\*
+    \textbf{D8}  & \textbf{Embedding stylesheets}        & possibility of using CSS directly or indirectly through files                                           \\*
     \hline[1pt]
 \end{longtblr}
