@@ -20,8 +20,31 @@ The symbol for third-level criteria has another number added and is written usin
 
 \paragraph{Scoring of representations}
 To produce the results, each lowest-level criterion (that does not contain subcriteria) in each area was assigned a score of 1 (if the representation fulfilled the criterion) or 0 (otherwise).
-The score for higher-level criteria was calculated as an average score for all subcriteria (a sum of scores for each subcriterion divided by the number of subcriteria).
-The same mechanism was used to calculate a score for the whole section and for the whole representation.
+The score for higher-level criteria was calculated as an average score for all subcriteria (a sum of scores for each subcriterion divided by the number of subcriteria);
+the formula for the score $C$ of a given criterion X is presented as an equation~\ref{eq:3-3-criterion-scoring}.
+
+\begin{equation}
+    C_X =
+\begin{dcases}
+    \frac{\sum_{i=1}^{n} C_{X.i}}{n} & \text{if X consists of $n$ lower-level criteria X.1, X.2, ..., X.$n$}\\
+    1                            & \text{if the criterion is fulfilled}\\
+    0,                           & \text{if the criterion is not fulfilled}
+\end{dcases}
+    \label{eq:3-3-criterion-scoring}
+\end{equation}
+
+The same mechanism was used to calculate a score $S$ for a whole section Y (presented in equation~\ref{eq:3-3-section-scoring}) and a total score ($T$) for the whole representation (equation~\ref{eq:3-3-total-scoring}).
+
+\begin{equation}
+    S_Y = \frac{\sum_{i=1}^{n} C_{Yi}}{n}
+    \label{eq:3-3-section-scoring}
+\end{equation}
+
+\begin{equation}
+    T = \frac{S_A + S_B + S_C + S_D}{4}
+    \label{eq:3-3-total-scoring}
+\end{equation}
+
 This mechanism of scoring allowed for a detailed and unambiguous evaluation while providing a balance in the scoring by treating the criteria equally, regardless of their number of subcriteria.
 At the same time, each score can be interpreted as a unified measure of support for complex criteria.
 
@@ -32,12 +55,13 @@ The same mechanism applies to criteria A3.1, A3.2 and, in fact, the criterion \t
 Finally, the same principle of averaging the criteria scores is used to calculate the score for the whole section.
 
 \begin{table}[]
+    \small
     \caption{Example results of evaluation (transposed for readability)}
     \label{tab:my-table}
     \begin{tabular}{||l|l|l|lll|llllllll||}
-        No. & Total  & \textbf{A1} & \textbf{A2} & A2.1       & A2.2       & \textbf{A3} & A3.1   & \textit{A3.1.1} & \textit{A3.1.2} & \textit{A3.1.3} & A3.2    & \textit{A3.2.1} & \textit{A3.2.2} \\
-        R1  & 77.8\% & \checkmark  & 50.0\%      & \checkmark &            & 83.4\%      & 66.7\% &                 & \checkmark      & \checkmark      & 100.0\% & \checkmark      & \checkmark      \\
-        R2  & 47.2\% &             & 100.0\%     & \checkmark & \checkmark & 41.7\%      & 33.3\% & \checkmark      &                 &                 & 50.0\%  & \checkmark      &
+        No. & Total  & \textbf{A1} & \textbf{A2} & A2.1       & A2.2   & \textbf{A3} & A3.1   & \textit{A3.1.1} & \textit{A3.1.2} & \textit{A3.1.3} & A3.2    & \textit{A3.2.1} & \textit{A3.2.2} \\
+        R1  & 77.8\% & \cmark\ (100\%)  & 50.0\%      & \cmark & \xmark & 83.4\%      & 66.7\% & \xmark          & \cmark          & \cmark          & 100.0\% & \cmark          & \cmark          \\
+        R2  & 47.2\% & \xmark\ (0\%)    & 100.0\%     & \cmark & \cmark & 41.7\%      & 33.3\% & \cmark          & \xmark          & \xmark          & 50.0\%  & \cmark          & \xmark
     \end{tabular}
 \end{table}
 

@@ -19,10 +19,17 @@
 \usepackage{lscape} % for landscape tables
 \usepackage{textcomp} % for comprehensive symbols
 \usepackage{tabularray} % for better tables (and long tables)
-\usepackage{amssymb} % for checkmarks
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\usepackage{mathtools}
+\usepackage{amsmath} % for conditional equations
 
 \renewcommand{\arraystretch}{1.15}
 \setlength{\tabcolsep}{3pt}
+
+% checkmark and cross-mark
+% https://tex.stackexchange.com/a/42620
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
 
 % Document
 \begin{document}
