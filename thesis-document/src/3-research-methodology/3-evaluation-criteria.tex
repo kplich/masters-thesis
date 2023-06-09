@@ -27,13 +27,13 @@ the formula for the score $C$ of a given criterion X is presented as an equation
     C_X =
 \begin{dcases}
     \frac{\sum_{i=1}^{n} C_{X.i}}{n} & \text{if X consists of $n$ lower-level criteria X.1, X.2, ..., X.$n$}\\
-    1                            & \text{if the criterion is fulfilled}\\
-    0,                           & \text{if the criterion is not fulfilled}
+    1                                & \text{if the criterion is fulfilled}\\
+    0,                               & \text{if the criterion is not fulfilled}
 \end{dcases}
     \label{eq:3-3-criterion-scoring}
 \end{equation}
 
-The same mechanism was used to calculate a score $S$ for a whole section Y (presented in equation~\ref{eq:3-3-section-scoring}) and a total score ($T$) for the whole representation (equation~\ref{eq:3-3-total-scoring}).
+The same mechanism was used to calculate a score $S$ for a whole section Y (presented in equation~\ref{eq:3-3-section-scoring}) and a total score ($T_{\text{criteria}}$) for the whole representation (equation~\ref{eq:3-3-total-scoring}).
 
 \begin{equation}
     S_Y = \frac{\sum_{i=1}^{n} C_{Yi}}{n}
@@ -49,6 +49,7 @@ This mechanism of scoring allowed for a detailed and unambiguous evaluation whil
 At the same time, each score can be interpreted as a unified measure of support for complex criteria.
 
 Table ~\ref{tab:my-table} presents example results of evaluation of two hypothetical representations (R1 and R2) against a set of criteria.
+Fulfilled criteria are marked with a checkmark (\cmark), the rest are marked with a crossmark (\cmark).
 The criterion \textbf{A1} is does not contain any subcriteria, therefore it is evaluated directly.
 Criterion \textbf{A2} contains two subcriteria, so the score for this criterion is a percentage of subcriteria that fulfill the given criteria \textendash\ in R1, only one of two criteria is satisfied, so the score is 50\%; in R2 both criteria are satisfied, so the score is 100\%.
 The same mechanism applies to criteria A3.1, A3.2 and, in fact, the criterion \textbf{A3} \textendash\ its value is calculated as an average of scores for criteria A3.1 and A3.2.
@@ -355,7 +356,6 @@ Finally, criterion \textbf{D8} checks whether the representations support using 
     rowhead = 1,
     rows = {m},
 }
-
     \hline[1pt]
     \textbf{No.} & \textbf{Name}                         & \textbf{Description}                                                                                    \\*
     \hline[1pt]
