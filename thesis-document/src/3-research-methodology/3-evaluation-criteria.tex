@@ -4,10 +4,10 @@ This section elaborates the classification from the previous section and defines
 
 \subsubsection{Formulation of criteria}
 The list has been compiled based on the concepts found in the papers and completed by referencing various final UI technologies.
-The tables below concretely name and describe which aspects of UI programming each representation should support;
+The tables below describe aspects of UI programming that should be supported by the representations;
 each criterion is additionally numbered for ease of referencing.
 Table~\ref{tab:evaluation-criteria-structure} describes evaluation criteria for foundational concepts in GUI development.
-Table~\ref{tab:evaluation-criteria-behavior} presents important areas of modelling GUI behavior, complemented by the list of components that representations might support out-of-the-box in table~~\ref{tab:evaluation-criteria-components}.
+Table~\ref{tab:evaluation-criteria-behavior} presents important areas of modelling GUI behavior, complemented by the list of components that representations might support out-of-the-box, presented in table~\ref{tab:evaluation-criteria-components}.
 Finally, features used for describing the appearance of GUI are listed in table~\ref{tab:evaluation-criteria-appearance}.
 If the feature does not require a further description, it is marked with a dash (\textemdash).
 
@@ -27,16 +27,16 @@ the formula for the score $C_\text{X}$ of a given criterion X is presented as  e
     C_\text{X} =
 \begin{dcases}
     \frac{\sum_{i=1}^{n} C_{\text{X.$i$}}}{n} & \text{if X consists of $n$ lower-level criteria X.1, X.2, ..., X.$n$}\\
-    1                                       & \text{if the criterion is fulfilled}\\
-    0,                                      & \text{if the criterion is not fulfilled}
+    1                                         & \text{if the criterion is fulfilled}\\
+    0                                         & \text{if the criterion is not fulfilled}
 \end{dcases}
     \label{eq:3-3-criterion-scoring}
 \end{equation}
 
-The same mechanism was used to calculate a score $S$ for a whole section Y (presented in equation~\ref{eq:3-3-section-scoring}) and a total score ($T_{\text{criteria}}$) for the whole representation (equation~\ref{eq:3-3-total-scoring}).
+The same mechanism was used to calculate a score $S_{\text{Y}}$ for a whole section Y (presented in equation~\ref{eq:3-3-section-scoring}) and a total score ($T_{\text{criteria}}$) for the whole representation (equation~\ref{eq:3-3-total-scoring}).
 
 \begin{equation}
-    S_{\text{Y}} = \frac{\sum_{i=1}^{n} C_{\text{Y$i$}}}{n}\text{,}\ \text{where $C_{\text{Y$i$}}$ is the score for criterion Y$i$}
+    S_{\text{Y}} = \frac{\sum_{i=1}^{n} C_{\text{Y$i$}}}{n}\text{,}\ \text{where $C_{\text{Y$i$}}$ is the score for criterion Y$i$ and}\ \text{Y} \in \left\{\text{A}, \text{B}, \text{C}, \text{D} \right\}
     \label{eq:3-3-section-scoring}
 \end{equation}
 
@@ -160,7 +160,7 @@ Criterion \textbf{B12} lists criteria related to defining custom components.
     \textit{B2.4.1}   & \textit{submit}                             & when a form is being submitted                                                      \\*
     \textit{B2.4.2}   & \textit{change}                             & when an input element changes its value                                             \\*
     \hline
-    \textbf{B3}       & \textbf{Defining handlers}                  & \textemdash                                                                         \\
+    \textbf{B3}       & \textbf{Defining handlers}                  & the ability to define an event handler                                              \\
     \hline
     \textbf{B4}       & \textbf{Action types}                       & types of action available                                                           \\*
     B4.1              & Navigation                                  & changing the currently displayed view                                               \\*
