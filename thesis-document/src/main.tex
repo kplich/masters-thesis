@@ -33,6 +33,9 @@
 \newcommand{\cmark}{\ding{51}}%
 \newcommand{\xmark}{\ding{55}}%
 
+% rotate the table headers
+\newcommand*\rot{\rotatebox{60}}
+
 % Document
 \begin{document}
     
@@ -52,6 +55,12 @@
     \include{3-research-methodology/main}
     \include{4-results-and-discussion/main}
     \include{5-conclusions}
+
+    \thispagestyle{empty}
+    \listoffigures
+    \listoftables
+    \newpage
+    \pagenumbering{arabic}
 
     \bibliography{main}
     \bibliographystyle{plain}

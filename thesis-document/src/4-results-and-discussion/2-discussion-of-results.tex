@@ -1,187 +1,73 @@
 \subsection{Discussion of results}\label{subsec:evaluation-discussion-of-results}
 
-\todo[inline]{some stuff to probably remove}
+\subsubsection{Limitations of the study}
 \begin{itemize}
-    \item B2.1.9-10 \textendash\ drag/drop events?
-    \item B4.4 \textendash\ closing a dialog?
-    \item B4.9 \textendash\ throwing an error?
-    \item B10 \textendash\ decimal, char, set?
-    \item B11 \textendash\ exponentiation?
-    \item C2.3 \textendash\ audio component
-    \item C2.5 \textendash\ divider
-    \item C4.9 \textendash\ slider \textbf{USUNIETE JUZ!!!}
-    \item C6.4 \textendash\ pickers \textbf{USUNIETE JUZ!!!}
-    \item D4.3 \textendash\ points
+    \item limited set of papers/languages (only selected the new ones)
+    \item not exhaustive criteria
+    \item lack of documentation and access to papers
+    \item not exhaustive case study
 \end{itemize}
 
-\todo[inline]{loose thoughts here}
+\todo[inline]{not sure whet else to include here}
 
-
-\todo[inline]{section a thoughts}
-\begin{itemize}
-    \item varied support, depends on the goals
-    \item some languages have more, some less
-    \item quid has little bc its a lightweight prototyping language
-    \item surprisingly, some languages don't require the application concept \textendash\ ultimately, it's just organizational
-    \item low support for dialogs
-    \item low support for external third party components
-\end{itemize}
-
-\todo[inline]{section b thoughts}
-\begin{itemize}
-    \item general takeaway: varied, but in general low support, though it also depends on the area
-    \item most languages allow for handling events, but not too many allow for defining handlers
-    \item support for predefined events is also varied
-    \item similarly varied support for details of handlers - v.\ little control structures (no iteration in handlers!)
-    \item only xanui has a mechanism for data validation
-    \item a few languages can call external code; some even directly bc theyre annotation languages - theyre embedded in an original language?
-    \item varied support for custom components, not always available; especially custom component methods were rare - only Quid did that
-    \item ---
-    \item khan explicitly states it doesnt support logic
-    \item verhaeghe isnt meant to directly describe applications, instead its used for migrating; the metamodel is based on a AST so the new model doesnt introduce any meaningful concepts; its difficult to estimate bc of that
-    \item gaouar has a metamodel, but its rather rigid and its unclear how logic and handlers would be modeled
-    \item quid allows for handling events and actually explicitly defining rudimentary handlers, but the language is limited in its capabilities
-    \item openuidl has good support for predefined events and custom components, but no support for handlers
-    \item soude and koussonda supports handlers (at least for an input) and calling REST services; also has good support for expressions
-    \item xanui can do more bc its an annotation language that binds into whatever capabilities the language already has, but it still has some capabilities on its own
-\end{itemize}
-
-\todo[inline]{section c thoughts}
-\begin{itemize}
-    \item general takeaway: low to medium support
-    \item the lowest support for complex output components - few representation have thought about providing anything more complex
-    \item specialized containers are also rather poorly supported
-    \item best support for interaction components and simple outputs, though still not remarkable (around 50\%)
-    \item inputs quite well supported, though not always can be well customized
-    \item ---
-    \item quid again doesnt have too much stuff, the language is simple and minimal
-    \item gaouar and xanui dont support too much stuff either; the first just doesnt have much stuff in the model; the latter might not need that much bc of annotations
-    \item anything else is just a matter of a richer or poorer model
-\end{itemize}
-
-\todo[inline]{section d thoughts}
-\begin{itemize}
-    \item extremely varied support - some languages don't allow any styling and some are very flexible
-    \item most languages support a linear layout, some specify an additional one; though other layouts are not that necessary, the linear layout is enough most of the time
-    \item support for media queries is relatively high, thats still 3 our of 7 languages, quite nice
-    \item varied support for sizing and positioning - some languages provide most or all methods, some none
-    \item little support for sizing units, only open uidl implements a lot
-    \item other styling is either included or not in general
-    \item two representations allow for using CSS
-    \item ---
-    \item quid and soude practically dismiss the issue of appearance
-    \item xanui doesn't include this, though it might be resolved natively, so the language doesnt need to care for that
-    \item verhaeghe, gaouar and khan just have more or less detailed model
-    \item openuidl is very expressive - actually scores 100\% almost everywhere, with the exception of layouts (its mostly targeted towards web dev, so layouts other than linear and flex arenot of interest)
-\end{itemize}
-
-\todo[inline]{summary thoughts}
-\begin{itemize}
-    \item the main conclusion: some languages have pretty decent support in some areas, but none really includes everything
-    \item none of the languages seem really flexible and productive
-    \item analysis by area (how is an area supported) and then by language (what is this language good for and what not?)
-    \item disclaimer: just because sth is described as nonexistent, doesn't mean it actually doesn't exist - it might just not be documented - i've only relied on papers
-    \item quid is pretty lame actually, though it might be better - simple language, simple support for logic, but no appearance and components
-    \item soude and koussonda and khan have some strong areas and neglected areas
-    \item xanui has strong support for logic, but little components and appearance \textendash\ however, this might be bc its all supposed to be outside of the language??
-    \item verhaeghe and gaouar are just all-around weak?\ they have a little bit of everything, but hardly ever enough
-    \item open uidl is easily the most expressive, with good architectural support, decent component support and strong customizability of appearance; the only weak area is logic - theres no way to define handlers and state and change it
-\end{itemize}
-
-\todo[inline]{case study}
-\begin{itemize}
-    \item main takeaway: the results are very similar to the theoretical criteria, told yall!
-    \item quid is just basically a big big flop \textendash\ its barely possible to do anything \todo[inline]{elaborate here}
-    \item open uidl actually kind of holds water and it was possible to prototype and customize quite a lot?
-    \item the only thing missing was state and logic management (even though some was already present in a very primitive form!)
-\end{itemize}
-
-\todo[inline]{impressions}
-\begin{itemize}
-    \item quid?\ honestly, the idea slays - the minimal language is a great idea, the live preview is a great thing
-    \item but the execution is very lacking; currently, the solution could be only viewed as a proof of concept, but nothing productive
-    \item the documentation is too short and not detailed
-    \item its visible in the version (not version 1.0 yet), the project doesnt seem maintained
-    \item open uidl?\ neat, looks like a relatively mature solution (seems commercialized), is well integrated
-    \item there seems a lot of potential, but the capabilities for logic seem underdeveloped and wont suffice beyond plain pages
-    \item the language is practically hidden behind an editor UI which is a good idea, bc it could be difficult to write big projects
-    \item though the UI is kinda buggy
-\end{itemize}
-
-\todo[inline]{todosy do wynikow}
-\begin{itemize}
-    \item wrzucic fotki z renderami komponentow
-    \item kolumna z ogolnymi wynikami?\ (moze byc ciezko zmiescic)
-    \item poprawic wynik OpenUIDL w sekcji C (zmiana wyniku B7 i total)
-    \item poprawic wyniki w sekcji C - usunalem pickery
-    \item jakby mi sie bardzo chcialo, to mozna dac jeszcze jakies przypisy do ocen, zeby co niektore rzeczy wyjasnic
-    \item threats to validity
-\end{itemize}
-
-\todo[inline]{todosy ogolne}
-\begin{itemize}
-    \item dodac appendixy
-    \item dodac spis tresci, listy tabelek i figur
-\end{itemize}
-
-\subsubsection{Concepts missing}
-
-\todo[inline]{revise this section once you get the actual results; right now it feels too much like too early conclusions}
-
-Although the previous sections provide quite a comprehensive list of features, it is far from being complete.
-It might be possible to describe a wide range of application in these simplest terms, more features are necessary to make full-fledged development of applications using these languages more feasible.
-This section briefly describes the features that have not been found in any of the descriptions and which are to be found in various mobile, desktop and Web GUI technologies.
-
-\paragraph{Specialized widgets}
-As mentioned in the previous section, it is desirable for developers/modellers to work with a wide selection of components that neatly fit many possible use cases instead of developing them themselves.
-Unfortunately, they might find the current state of the descriptions lacking, with only the most basic variants of components available in the descriptions.
-For example, in some languages it is possible to use a grid layout;
-however, none of the languages seems to have a masonry layout\footnote{Masonry layout displays content in columns, but unlike a grid, it does not require the conent to be aligned in the row axis, which makes the arrangement more balanced.} defined.
-
-%\subparagraph{(Paged) documents}
-
-%\paragraph{Support for touch-screens}
-
-\paragraph{Dependency management}
-As the languages are not mature and widespread, there is little incentive to create, disseminate and manage reusable pieces of UI description.
-Therefore, there are not any mature mechanisms for managing any external dependencies or libraries comparable to what is available for conventional programming languages.
-
-\paragraph{Code integration}
-Currently, the languages presented are limited in their expressiveness by their limited set of actions that can be performed in response to events.
-While it might be a welcome simplification for people unfamiliar with programming, it poses a grave limitation for developers.
-It might be reasonable to accommodate for any gaps in the language by allowing to \enquote{patch} them with code instead.
-
-% \subparagraph{Component lifecycle support}
-% The languages could create a generic lifecycle and support it.
-
-\paragraph{Global application state}
-Most modern GUI programming enhances the event-driven paradigm with the principle of unidirectional data flow: events \enquote{flow} up (events from children components are handled by parent elements) and state \enquote{flows} down (parent components set the state of child components).
-While the principle helps make the components reusable, testable and simpler to a certain extent, it fails in the case where data needs to be available throughout the application.
-The response to this problem are \emph{state containers} that centralize the application state, making state management more predictable and flexible.
-Future iterations of UIDLs could integrate these solutions to increase the flexibility and maintainability of developed applications.
-
-\paragraph{Internationalization}
-% \todo{chyba ze to jest w ktoryms z jezykow? idk}
-Many production-grade applications require to be available in more than one language version.
-However, to generate multiple versions of an application`, each using a different language would be impractical;
-instead, any locale-dependent resources (primarily text) are stored outside application code and loaded during runtime, depending on the language set by the user/system.
-Integrating such a mechanism directly into the language would increase the value and flexibility of languages.
-% \todo[inline]{different text directions}
-
-% \paragraph{Accessibility} \todo{not really sure that's a single feature that can be easily included}
-
-\paragraph{Animations}
-While it is possible to create full-scale applications without any animations, they can still make a big difference and transform a satisfactory user experience to an outstanding one.
-Animations are useful for indicating navigation, interaction progress and state changes in a friendly and visually appealing way.
-Without this feature in UIDLs, generated applications might miss out on this subtle aspect of user experience.
-
-\paragraph{Design systems}
-Design systems have emerged as a solution easing the development of various applications across multiple teams by establishing clear and common rules and style guides, defining reusable patterns and components.
-By using them, organizations and companies can spend less time designing and implementing their applications, while achieving reliability and a unified appearance across all their products.
-So far, there seems to be no explicit support for defining any parts of a style guide in the UIDLs analyzed which make them less suitable for large-scale development.
-
-\paragraph{Dynamic appearance}
-% todo: 4 sure?
-Additionally, any support for making the appearance of some UI elements dependent on component/application state also seems to be largely absent.
-The most important application for such a feature would be implementation of application themes (especially the famous dark theme).
-This further prevents developers from implementing more engaging interactions and customizable experiences.
+%\subsubsection{Concepts missing}
+%
+%\todo[inline]{revise this section once you get the actual results; right now it feels too much like too early conclusions}
+%
+%Although the previous sections provide quite a comprehensive list of features, it is far from being complete.
+%It might be possible to describe a wide range of application in these simplest terms, more features are necessary to make full-fledged development of applications using these languages more feasible.
+%This section briefly describes the features that have not been found in any of the descriptions and which are to be found in various mobile, desktop and Web GUI technologies.
+%
+%\paragraph{Specialized widgets}
+%As mentioned in the previous section, it is desirable for developers/modellers to work with a wide selection of components that neatly fit many possible use cases instead of developing them themselves.
+%Unfortunately, they might find the current state of the descriptions lacking, with only the most basic variants of components available in the descriptions.
+%For example, in some languages it is possible to use a grid layout;
+%however, none of the languages seems to have a masonry layout\footnote{Masonry layout displays content in columns, but unlike a grid, it does not require the conent to be aligned in the row axis, which makes the arrangement more balanced.} defined.
+%
+%%\subparagraph{(Paged) documents}
+%
+%%\paragraph{Support for touch-screens}
+%
+%\paragraph{Dependency management}
+%As the languages are not mature and widespread, there is little incentive to create, disseminate and manage reusable pieces of UI description.
+%Therefore, there are not any mature mechanisms for managing any external dependencies or libraries comparable to what is available for conventional programming languages.
+%
+%\paragraph{Code integration}
+%Currently, the languages presented are limited in their expressiveness by their limited set of actions that can be performed in response to events.
+%While it might be a welcome simplification for people unfamiliar with programming, it poses a grave limitation for developers.
+%It might be reasonable to accommodate for any gaps in the language by allowing to \enquote{patch} them with code instead.
+%
+%% \subparagraph{Component lifecycle support}
+%% The languages could create a generic lifecycle and support it.
+%
+%\paragraph{Global application state}
+%Most modern GUI programming enhances the event-driven paradigm with the principle of unidirectional data flow: events \enquote{flow} up (events from children components are handled by parent elements) and state \enquote{flows} down (parent components set the state of child components).
+%While the principle helps make the components reusable, testable and simpler to a certain extent, it fails in the case where data needs to be available throughout the application.
+%The response to this problem are \emph{state containers} that centralize the application state, making state management more predictable and flexible.
+%Future iterations of UIDLs could integrate these solutions to increase the flexibility and maintainability of developed applications.
+%
+%\paragraph{Internationalization}
+%% \todo{chyba ze to jest w ktoryms z jezykow? idk}
+%Many production-grade applications require to be available in more than one language version.
+%However, to generate multiple versions of an application`, each using a different language would be impractical;
+%instead, any locale-dependent resources (primarily text) are stored outside application code and loaded during runtime, depending on the language set by the user/system.
+%Integrating such a mechanism directly into the language would increase the value and flexibility of languages.
+%% \todo[inline]{different text directions}
+%
+%% \paragraph{Accessibility} \todo{not really sure that's a single feature that can be easily included}
+%
+%\paragraph{Animations}
+%While it is possible to create full-scale applications without any animations, they can still make a big difference and transform a satisfactory user experience to an outstanding one.
+%Animations are useful for indicating navigation, interaction progress and state changes in a friendly and visually appealing way.
+%Without this feature in UIDLs, generated applications might miss out on this subtle aspect of user experience.
+%
+%\paragraph{Design systems}
+%Design systems have emerged as a solution easing the development of various applications across multiple teams by establishing clear and common rules and style guides, defining reusable patterns and components.
+%By using them, organizations and companies can spend less time designing and implementing their applications, while achieving reliability and a unified appearance across all their products.
+%So far, there seems to be no explicit support for defining any parts of a style guide in the UIDLs analyzed which make them less suitable for large-scale development.
+%
+%\paragraph{Dynamic appearance}
+%% todo: 4 sure?
+%Additionally, any support for making the appearance of some UI elements dependent on component/application state also seems to be largely absent.
+%The most important application for such a feature would be implementation of application themes (especially the famous dark theme).
+%This further prevents developers from implementing more engaging interactions and customizable experiences.
