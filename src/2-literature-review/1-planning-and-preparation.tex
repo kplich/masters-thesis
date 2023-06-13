@@ -1,6 +1,6 @@
-\subsection[Planning and preparation]{Planning and preparation for review}\label{subsec:planning-and-preparation-for-review}
+\section[Planning and preparation]{Planning and preparation for review}\label{sec:planning-and-preparation-for-review}
 
-\subsubsection{Defining research questions and justifying the review}
+\subsection{Defining research questions and justifying the review}\label{subsec:defining-research-questions-and-justifying-the-review}
 To gather data for evaluation, following research questions need to be answered:
 \begin{itemize}
     \item RQ1: What abstract representation of user interfaces exist?
@@ -18,7 +18,7 @@ Two of them (code generation and design flexibility) are relevant to the purpose
 However, the paper only provides a general, nonspecific methodology for evaluation.
 Additionally, it does not focus on representations themselves and does not include approaches from later than 2015.
 
-\subsubsection{Defining search criteria}
+\subsection{Defining search criteria}\label{subsec:defining-search-criteria}
 First, keywords and synonyms relevant to identifying existing UI representations were first identified:
 \begin{itemize}
     \item \textbf{abstract}/universal/generic/declarative/intermediate/polymorphic/(platform-)independent/(device-)independent/multi-platform/multi-device\,\textendash\,\textit{(terms related to non-direct descriptions)}
@@ -30,9 +30,7 @@ The initial search string was used to perform a tentative search;
 it helped validate that the returned results contain relevant papers and helped refine the search string by adding more synonyms of selected keywords.
 Additionally, the term \emph{user interface description language} and its initialism \emph{UIDL} are appended to the search string using \texttt{OR}s as a recognizable term that would not be matched by the previously described conjunction of keywords.
 The final search string is shown in Listing~\ref{lst:general-search-string-rq-1}.
-\begin{listing}
-    \caption{The search string}
-    \begin{minted}{text}
+\begin{lstlisting}[label=lst:general-search-string-rq-1,caption=The search string, basicstyle=\ttfamily]
 (
   (UI OR "user interface")
   AND
@@ -48,9 +46,8 @@ The final search string is shown in Listing~\ref{lst:general-search-string-rq-1}
   )
 )
 OR ("user interface description language" OR UIDL)
-    \end{minted}
-    \label{lst:general-search-string-rq-1}
-\end{listing}
+    \label
+\end{lstlisting}
 
 To improve and narrow down the results of the searches, additional criteria are to be used:
 \begin{samepage}

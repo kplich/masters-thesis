@@ -1,8 +1,8 @@
-\subsection{Discussion of results}\label{subsec:review-discussion-of-results}
+\section{Discussion of results}\label{sec:review-discussion-of-results}
 
 This section provides the answer to the RQ1: \enquote{What abstract representation of user interfaces exist?}
 
-\subsubsection{Honorable mentions}
+\subsection{Honorable mentions}\label{subsec:honorable-mentions}
 To give a better overview of the problem domain, the section describes additional works in the domain that were considered during the search but ultimately were not considered suitable for the review.
 The CUI model from CIAT-GUI~\cite{Molina2012-my}, QuiXML from MoCaDiX~\cite{Vanderdonckt2019-av} and omniscript~\cite{Ulusoy2019-jh} all look like promising solutions to the problem of the thesis.
 Unfortunately, the papers do not define the concrete UI representation in sufficient detail and do not provide any additional sources.
@@ -18,35 +18,35 @@ the website of the UsiXML project does not contain any useful resources or speci
 The last category of excluded papers encompasses solutions designed for generating UI in other modalities.
 Examples include descriptions of UI in virtual reality~\cite{Olmedo2015} or voice UIs~\cite{steinberger2020domain}.
 
-\subsubsection{Selected papers}
+\subsection{Selected papers}\label{subsec:selected-papers}
 
 The 17 selected papers can be split in a few topical categories: UIDLs or DSLs, MBUID approaches, UI migration approaches, and reviews of GUI descriptions.
 
-\paragraph{UIDLs and DSLs}
+\subsubsection{UIDLs and DSLs}
 5 languages described in 7 documents were found:
 
-\subparagraph{MARIA (2009)}
+\paragraph{MARIA (2009)}
 MARIA~\cite{Paterno2009, MariaPDF} (abbreviated as \enquote{Model-based lAnguage foR Interactive Applications}) is a language, developed in the National Research Council of Italy on the basis of another UIDL, TERESA XML~\cite{mori2004}.
 Its distinguishing feature is support for application based on Web services as described using WSDL\@.
 The language has also been submitted for standardization at the W3C~\footnote{\url{https://www.w3.org/2005/Incubator/model-based-ui/XGR-mbui-20100504/}, last accessed 2023-03-24}, however the activity does not seem to have concluded in any meaningful way.
 
-\subparagraph{XANUI  (2016)}
+\paragraph{XANUI (2016)}
 XANUI~\cite{hermida2016xanui} is positioned as a DSL that can be used for development of rich Internet applications (RIAs) and mobile applications in combination with the OOH4RIA methodology~\cite{Meli2008}.
 What differentiates it from other contributions in the domain is that it is annotation-driven and can thus be integrated in existing development artifacts (especially XML files).
 
-\subparagraph{HCIDL (2018)}
+\paragraph{HCIDL (2018)}
 HCIDL~\cite{Gaouar2018} (Human-Computer Interface Description Language) aims to enable modelling of \enquote{multi-target, multimodal, and plastic} user interfaces.
 Its main focus, however, seems to be on modelling capabilities of mobile devices and their sensors.
 
-\subparagraph{Quid (2018-2019)}
+\paragraph{Quid (2018-2019)}
 Quid~\cite{molina2018quid, Molina2019} is an online tool\furl{https://quid.metadev.pro/} for prototyping Web Components in the browser, developed by a Spanish company specializing in building DSLs on the Web\furl{https://metadev.pro/}.
 The tool uses its own minimal DSL and allows generation of components for multiple Web frameworks, as well as visualization in real time.
 
-\subparagraph{OpenUIDL (2020)}
+\paragraph{OpenUIDL (2020)}
 OpenUIDL~\cite{Moldovan2020} is another UIDL released by a company\furl{https://teleporthq.io/} and shipped together with an online tool~\footnote{\url{https://play.teleporthq.io/signin} (as of March 21$^{st}$, 2023 the tool requires sign-up)}.
 Although the publication claims to be able to support \enquote{omni-channel UIs} on multiple platforms, the focus of the tool (and the company) seems to lie mostly on generation of RIAs.
 
-\paragraph{MBUID approaches}
+\subsubsection{MBUID approaches}
 
 The review found 6 papers proposing MBUID approaches that also present their own UI model.
 
@@ -69,7 +69,7 @@ Their approach also takes into consideration presentation details such as elemen
 Soude and Koussonda (2022)~\cite{Soude2022} propose a modelling language as a part of a model-driven approach for unifying the development of user interfaces.
 Their approach mostly deals with generation of web application on the basis of multiple web frameworks.
 
-\paragraph{Other publications}
+\subsubsection{Other publications}
 
 This section summarizes the rest of the documents included in the review.
 
@@ -81,7 +81,7 @@ Chmielewski et al.\ (2016)~\cite{Chmielewski2016} conducted an analysis of eight
 The criteria for judgement were expressiveness, clarity, support for event handlers, and support for internationalization of UIs.
 According to the review, no language was able to fully model/implement all experimental UIs which indicates potential for further development in the area.
 
-\paragraph{Final remarks}
+\subsubsection{Final remarks}
 
 The selected papers come from throughout the past decade and beyond, with contributions dating back to 2009 (MARIA) and as recent as from 2022 (Soude and Koussonda).
 They also approach the problem from multiple angles: the works include self-contained UIDLs, as well as models designed for a particular method.

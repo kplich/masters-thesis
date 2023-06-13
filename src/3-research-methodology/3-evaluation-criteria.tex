@@ -1,8 +1,8 @@
-\subsection{Evaluation criteria}\label{subsec:evaluation-criteria}
+\section{Evaluation criteria}\label{sec:evaluation-criteria}
 
 This section elaborates the classification from the previous section and defines the criteria for evaluation of UI descriptions.
 
-\subsubsection{Formulation of criteria}
+\subsection{Formulation of criteria}\label{subsec:formulation-of-criteria}
 The list has been compiled based on the concepts found in the papers and completed by referencing various final UI technologies.
 The tables below describe aspects of UI programming that should be supported by the representations;
 each criterion is additionally numbered for ease of referencing.
@@ -18,7 +18,7 @@ Subcriteria are indicated by adding an extra number after the top-level criterio
 they are separated visually in the table using a dashed line.
 The symbol for third-level criteria has another number added and is written using an italicized font (\textit{B1.3.5}).
 
-\subsubsection{Scoring of representations}
+\subsection{Scoring of representations}\label{subsec:scoring-of-representations}
 To produce the results, each lowest-level criterion (that does not contain subcriteria) in each area was assigned a score of 1 (if the representation fulfilled the criterion) or 0 (otherwise).
 The score for higher-level criteria was calculated as an average score for all subcriteria (a sum of scores for each subcriterion divided by the number of subcriteria);
 the formula for the score $C_\text{X}$ of a given criterion X is presented as  equation~\ref{eq:3-3-criterion-scoring}.
@@ -48,7 +48,7 @@ The same mechanism was used to calculate a score $S_{\text{Y}}$ for a whole sect
 This mechanism of scoring allowed for a detailed and unambiguous evaluation while providing a balance in the scoring by treating the criteria equally, regardless of their number of subcriteria.
 At the same time, scores for higher-level criteria can be interpreted as a uniform measure of support.
 
-\paragraph{Example of scoring}
+\subsubsection{Example of scoring}
 Table ~\ref{tab:my-table} presents example results of evaluation of two hypothetical representations (R1 and R2) against a set of criteria.
 Fulfilled criteria are marked with a checkmark (\cmark), the rest are marked with a crossmark (\xmark);
 scores for higher-level criteria are written as percentages.
@@ -68,7 +68,7 @@ Finally, the same principle of averaging the criteria scores is used to calculat
     \end{tabular}
 \end{table}
 
-\subsubsection{Architecture and structure}
+\subsection{Architecture and structure}\label{subsec:architecture-and-structure}
 
 Table~\ref{tab:evaluation-criteria-structure} describes the criteria for evaluating the structure of the UI;
 they mostly can be mapped directly to the concepts from the previous section: application (\textbf{A1}), view (\textbf{A2}), dialogs (\textbf{A3}), assets (\textbf{A4}), and modularization (\textbf{A5}).
@@ -103,7 +103,7 @@ Support for custom components is described in criteria describing support for re
     \hline[1pt]
 \end{longtblr}
 
-\subsubsection{Behavior and logic}
+\subsection{Behavior and logic}\label{subsec:behavior-and-logic}
 
 Criteria related to behavior of UI are listed below in table~\ref{tab:evaluation-criteria-behavior}.
 First two criteria (\textbf{B1} and \textbf{B2}) describe event handling and predefined events emitted by elements.
@@ -246,7 +246,7 @@ Criterion \textbf{B12} lists criteria related to defining custom components.
     \hline[1pt]
 \end{longtblr}
 
-\subsubsection{Predefined components}
+\subsection{Predefined components}\label{subsec:predefined-components}
 
 Table~\ref{tab:evaluation-criteria-components} lists components that might be predefined in the representation.
 Criteria \textbf{C1}\textendash\textbf{C3} describe specialized containers and output components;
@@ -336,7 +336,7 @@ Criteria \textbf{C4} and \textbf{C5} describe input components, in particular \e
     \hline[1pt]
 \end{longtblr}
 
-\subsubsection{Appearance}
+\subsection{Appearance}\label{subsec:appearance2}
 Table~\ref{tab:evaluation-criteria-appearance} lists aspects of appearance that the representations should be able to include in their model.
 Criteria \textbf{D1} and \textbf{D2} evaluate the capabilities of describing layouts, including responsive layouts by using media queries.
 Criteria \textbf{D3}\textendash\textbf{D4} list expected methods of sizing and positioning of the elements.
