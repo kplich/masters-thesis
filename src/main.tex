@@ -32,7 +32,7 @@
 % \usepackage[cp1250]{inputenc} % Proszę zostawić, jeśli kodowanie edytowanych plików to cp1250
 \usepackage[utf8]{inputenc} % Proszę użyć zamiast powyższego, jeśli kodowanie edytowanych plików to UTF8
 \usepackage[T1]{fontenc}
-\usepackage[english,polish]{babel} % Tutaj ważna jest kolejność atrybutów (dla pracy po polsku polish powinno być na końcu)
+\usepackage[polish, english]{babel} % Tutaj ważna jest kolejność atrybutów (dla pracy po polsku polish powinno być na końcu)
 %\DisemulatePackage{setspace}
 \usepackage{setspace}
 \usepackage{color,calc}
@@ -603,7 +603,7 @@ Listing \thelstlisting: #1\hfill%\hfill%
 % IFNO: Pomocnicze makro do dołączania podpisów do rysunków ze wskazaniem źródła (bez wypisywania tego źródła w spisie rysunków)
 \newcommand*{\captionsource}[2]{%
   \caption[{#1}]{%
-    #1 \emph{Źródło:} #2%
+    #1 \emph{Source:} #2%
   }%
 }
 
@@ -613,48 +613,48 @@ Listing \thelstlisting: #1\hfill%\hfill%
 
 % INFO: definicje etykiet i tytułów spisów
 
-%\AtBeginDocument{% 
-        \addto\captionspolish{% 
-        \renewcommand{\tablename}{Tab.}%% INFO: Przedefiniowanie etykiet w podpisach tabel 
-}%} 
-
-%\AtBeginDocument{% 
-%        \addto\captionspolish{% 
-%        \renewcommand{\chaptername}{Rozdział}% INFO: Przedefiniowanie nazwy rozdziału, niepotrzebne, bo przy polskich ustawieniach językowych jest 'Rozdział'
-%}} 
-
-% Przedefiniowanie etykiet oraz nazw wykazu literatury, spisów, indeksu
-%\AtBeginDocument{% 
-        \addto\captionspolish{% 
-        \renewcommand{\figurename}{Rys.}%% INFO: Przedefiniowanie etykiet w podpisach rysunków 
-}%}
-
-%\AtBeginDocument{% 
-        \addto\captionspolish{% 
-        \renewcommand{\lstlistlistingname}{Spis listingów}%% INFO: Przedefiniowanie nazwy spisu listingów
-}%} 
-\newlistof{lstlistoflistings}{lol}{\lstlistlistingname}
-
-
-%\AtBeginDocument{% 
-        \addto\captionspolish{% 
-        \renewcommand{\bibname}{Literatura}%% INFO: Przedefiniowanie nazwy wykazu literatury 
-}%}
-
-%\AtBeginDocument{% 
-        \addto\captionspolish{% 
-        \renewcommand{\listfigurename}{Spis rysunków}%% INFO: Przedefiniowanie nazwy spisu rysunków 
-}%}
-
-%\AtBeginDocument{% 
-        \addto\captionspolish{% 
-        \renewcommand{\listtablename}{Spis tabel}%% INFO: Przedefiniowanie nazwy spisu tabel 
-}%}
-
-%\AtBeginDocument{% 
-        \addto\captionspolish{% 
-\renewcommand\indexname{Indeks rzeczowy}%% INFO: Przedefiniowanie nazwy indeksu 
-}%}
+%%\AtBeginDocument{%
+%        \addto\captionspolish{%
+%        \renewcommand{\tablename}{Tab.}%% INFO: Przedefiniowanie etykiet w podpisach tabel
+%}%}
+%
+%%\AtBeginDocument{%
+%%        \addto\captionspolish{%
+%%        \renewcommand{\chaptername}{Rozdział}% INFO: Przedefiniowanie nazwy rozdziału, niepotrzebne, bo przy polskich ustawieniach językowych jest 'Rozdział'
+%%}}
+%
+%% Przedefiniowanie etykiet oraz nazw wykazu literatury, spisów, indeksu
+%%\AtBeginDocument{%
+%        \addto\captionspolish{%
+%        \renewcommand{\figurename}{Rys.}%% INFO: Przedefiniowanie etykiet w podpisach rysunków
+%}%}
+%
+%%\AtBeginDocument{%
+%        \addto\captionspolish{%
+%        \renewcommand{\lstlistlistingname}{Spis listingów}%% INFO: Przedefiniowanie nazwy spisu listingów
+%}%}
+%\newlistof{lstlistoflistings}{lol}{\lstlistlistingname}
+%
+%
+%%\AtBeginDocument{%
+%        \addto\captionspolish{%
+%        \renewcommand{\bibname}{Literatura}%% INFO: Przedefiniowanie nazwy wykazu literatury
+%}%}
+%
+%%\AtBeginDocument{%
+%        \addto\captionspolish{%
+%        \renewcommand{\listfigurename}{Spis rysunków}%% INFO: Przedefiniowanie nazwy spisu rysunków
+%}%}
+%
+%%\AtBeginDocument{%
+%        \addto\captionspolish{%
+%        \renewcommand{\listtablename}{Spis tabel}%% INFO: Przedefiniowanie nazwy spisu tabel
+%}%}
+%
+%%\AtBeginDocument{%
+%        \addto\captionspolish{%
+%\renewcommand\indexname{Indeks rzeczowy}%% INFO: Przedefiniowanie nazwy indeksu
+%}%}
 
 %\AtBeginDocument{% 
 %    \addto\captionspolish{
@@ -902,7 +902,7 @@ Specialty: & {\bfseries \@specjalnosc}\\
 %\typeoutstandardlayout    % wypisuje na stdout informacje o ustawieniach
 
 %\frontmatter
-\pdfbookmark[0]{Tytuł}{Tytul.1}
+\pdfbookmark[0]{Title}{Tytul.1}
 \maketitle
 \clearpage
 
@@ -913,28 +913,27 @@ Specialty: & {\bfseries \@specjalnosc}\\
 \pagestyle{outer}
 \clearpage
 % SPIS TREŚCI (zostanie wygenerowany automatycznie)
-\pdfbookmark[0]{Spis treści}{spisTresci.1}%
+\pdfbookmark[0]{Contents}{spisTresci.1}%
 %%\phantomsection
 %%\addcontentsline{toc}{chapter}{Spis treści}
 \tableofcontents* 
 \clearpage
 % SPIS RYSUNKÓW (zostanie wygenerowany automatycznie)
-\pdfbookmark[0]{Spis rysunków}{spisRysunkow.1} % jeśli chcemy mieć w spisie treści, to zamarkować tę linię, a odmarkować linie poniższe
+\pdfbookmark[0]{List of Figures}{spisRysunkow.1} % jeśli chcemy mieć w spisie treści, to zamarkować tę linię, a odmarkować linie poniższe
 %%\phantomsection
 %%\addcontentsline{toc}{chapter}{Spis rysunków}
 \listoffigures*
 \clearpage
 % SPIS TABEL (zostanie wygenerowany automatycznie)
-\pdfbookmark[0]{Spis tabel}{spisTabel.1} %
+\pdfbookmark[0]{List of Tables}{spisTabel.1} %
 %%\phantomsection
 %%\addcontentsline{toc}{chapter}{Spis tabel}
 \listoftables*
 \clearpage
 % SPIS LISTINGÓW (zostanie wygenerowany automatycznie)
-\pdfbookmark[0]{Spis listingów}{spisListingow.1} %
 %%\phantomsection
 %%\addcontentsline{toc}{chapter}{Spis listingów}
-\lstlistoflistings*
+\lstlistoflistings
 \clearpage
 % SKRÓTY (to opcjonalna część pracy)
 % \include{skroty}
@@ -952,7 +951,7 @@ Specialty: & {\bfseries \@specjalnosc}\\
 %       Formatowania wykazu literatury i cytowań odbywać się ma zgodnie z zadeklarowanym stylem.
 %       Zalecane są style produkujące numeryczne cytowania (w postaci [1], [2,3]).
 %       Takim stylem jest np. plabbrv
-\bibliographystyle{plabbrv}
+\bibliographystyle{abbrv}
 %       Aby zapanować nad odstępami w wykazie literatury można posłużyć się poniższą komendą
 \setlength{\bibitemsep}{2pt} % - zacieśnia wykaz
 %       Pozycja Literatura pojawia się w spisie treści nieco inaczej niż spisy rysunków, tabel itp.
