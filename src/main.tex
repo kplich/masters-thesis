@@ -912,29 +912,14 @@ Specialty: & {\bfseries \@specjalnosc}\\
 \include{0-abstract}
 \pagestyle{outer}
 \clearpage
+
 % SPIS TREŚCI (zostanie wygenerowany automatycznie)
 \pdfbookmark[0]{Contents}{spisTresci.1}%
 %%\phantomsection
 %%\addcontentsline{toc}{chapter}{Spis treści}
 \tableofcontents* 
 \clearpage
-% SPIS RYSUNKÓW (zostanie wygenerowany automatycznie)
-\pdfbookmark[0]{List of Figures}{spisRysunkow.1} % jeśli chcemy mieć w spisie treści, to zamarkować tę linię, a odmarkować linie poniższe
-%%\phantomsection
-%%\addcontentsline{toc}{chapter}{Spis rysunków}
-\listoffigures*
-\clearpage
-% SPIS TABEL (zostanie wygenerowany automatycznie)
-\pdfbookmark[0]{List of Tables}{spisTabel.1} %
-%%\phantomsection
-%%\addcontentsline{toc}{chapter}{Spis tabel}
-\listoftables*
-\clearpage
-% SPIS LISTINGÓW (zostanie wygenerowany automatycznie)
-%%\phantomsection
-%%\addcontentsline{toc}{chapter}{Spis listingów}
-\lstlistoflistings
-\clearpage
+
 % SKRÓTY (to opcjonalna część pracy)
 % \include{skroty}
 % ROZDZIAŁY (kolejne rozdziały dołączane są z kolejnych plików)
@@ -961,7 +946,26 @@ Specialty: & {\bfseries \@specjalnosc}\\
 %       (linia poniżej załaduje rekordy z pliku "dokumentacja.bib")
 \bibliography{main}
 \appendix
-\include{6-appendix-a}
+
+% SPIS RYSUNKÓW (zostanie wygenerowany automatycznie)
+\pdfbookmark[0]{List of Figures}{spisRysunkow.1} % jeśli chcemy mieć w spisie treści, to zamarkować tę linię, a odmarkować linie poniższe
+%%\phantomsection
+%%\addcontentsline{toc}{chapter}{Spis rysunków}
+\listoffigures*
+\clearpage
+% SPIS TABEL (zostanie wygenerowany automatycznie)
+\pdfbookmark[0]{List of Tables}{spisTabel.1} %
+%%\phantomsection
+%%\addcontentsline{toc}{chapter}{Spis tabel}
+\listoftables*
+\clearpage
+% SPIS LISTINGÓW (zostanie wygenerowany automatycznie)
+%%\phantomsection
+%%\addcontentsline{toc}{chapter}{Spis listingów}
+\lstlistoflistings
+\clearpage
+
+% \include{6-appendix-a}
 
 % Jeśli w pracy pojawiać się ma indeks, należy odkomentować poniższe linie
 %%\chapterstyle{noNumbered}
