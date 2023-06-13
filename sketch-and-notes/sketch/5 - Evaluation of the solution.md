@@ -1,1 +1,0 @@
-# Evaluation of the solution

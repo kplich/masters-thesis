@@ -2,3 +2,7 @@ sketch-and-notes/.obsidian/
 
 .idea
 *.iml
+
+auxil
+out
+*.synctex(busy)
