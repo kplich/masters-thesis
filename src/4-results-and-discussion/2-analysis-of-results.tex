@@ -1,8 +1,6 @@
 \section{Analysis of results}\label{sec:analysis-of-results}
 This section presents an interpretation of data from the evaluations.
 
-% todo: probably i'll have to describe the languages better if i want to draw some conclusions here
-
 \subsection{Architecture and structure}\label{subsec:4-2-architecture-and-structure}
 Support for architectural concepts in the representations was varied: some of them supported more concepts (Gaouar, XANUI, OpenUIDL) and some \textendash\ less (Quid, Khan, Soude).
 This might have been caused by different goals that these representations have.
@@ -13,9 +11,9 @@ Additionally, judging by the results, the concept of a view is more important th
 Dialogs (\textbf{A3}) and third-party components (\textbf{A6}) were not widely supported \textendash\ the former was only supported by a single representation (Verhaeghe), and the latter \textendash\ by two (OpenUIDL, XANUI).
 
 \subsection{Logic and behavior}\label{subsec:4-2-logic-and-behavior}
-Support for specifying the behavior of UI in the representations was also varied, but in general rather low \textendash\ only two representations scored over 50\% (Soude, XANUI) with the maximum score of around 66\%.
-Most representations allowed for handling events and attaching methods to UI elements (\textbf{B1});
-however, only a few actually allowed for defining handlers (\textbf{B3}) that could perform any actions, either in broad terms (\textbf{B4}), or in detail (\textbf{B8}, \textbf{B10}, \textbf{B10}, \textbf{B11}).
+Support for specifying the behavior of UI in the representations ranged from low to moderate \textendash\ three representations scored around 20--30\%, two \textendash\ around 50\% and XANUI achieved the maximum score of 66\%.
+Most representations allowed for handling events and declaring methods attached to UI elements (\textbf{B1}, \textbf{B3}).
+However, there was less support specifying the details of implementation of these handlers (\textbf{B4}, B8.1, \textbf{B10}, \textbf{B11}).
 Sets of predefined events (\textbf{B2}) also varied in their scope from minimal (XANUI, Soude, Quid, Gaouar) to comprehensive (Verhaeghe, OpenUIDL).
 
 Only one representation (XANUI) explicitly supported data validation (\textbf{B5}).
@@ -30,11 +28,13 @@ thus, the metamodel does not introduce any new concepts specific to the behavior
 
 Quid allows for handling events, as well as an explicit definition of handlers; its capabilities are nevertheless limited in other areas.
 Gaouar et al.\ also allow for defining handlers; on one hand, it is even possible for them to call external services, on the other \textendash\ they are rather limited in terms of control structures and operators.
-OpenUIDL also has very limited capabilities of specifying behavior, for which it makes up with more comprehensive support for custom components and a wider set of predefined events.
 
 Soude and Koussonda also allow for specifying handlers (at least for input components) and using external (REST) services.
 Additionally, they support a wide range of expression operators and data types.
-XANUI offers the most capabilities for specifying behavior, as it is an annotation language \textendash\ it is embedded into an implementation language which allows it to take advantage of its expressiveness.
+OpenUIDL has moderate capabilities of describing behavior;
+its strongest points are comprehensive support for custom components and a wider set of predefined events.
+The representation attempts to model component state and its changes, however, at the moment of evaluation, the functionality is in its early stage.
+XANUI is the most expressive in this area, as it is an annotation language \textendash\ it is embedded into an implementation language which allows it to take advantage of its expressiveness.
 However, the representation also provides a few constructions on its own (e.g.\ handlers and data validation).
 
 \subsection{Component support}\label{subsec:4-2-component-support}
@@ -74,7 +74,7 @@ The reason for this might be because the language is intended to model Web appli
 
 Figure~\ref{fig:4-2-results-per-section} visualizes the results for each section of evaluation.
 As mentioned in previous subsections: representations have varied support for different areas.
-Architectural support is the most supported, although this support is not as common as one could expect.
+Architectural concepts are the most supported, although this support is not as common as one could expect.
 Most languages have little support for specifying logic and behavior and relatively narrow sets of predefined components.
 Support for appearance lies on two extremes \textendash\ it is either implemented thoroughly or not present at all.
 
@@ -88,8 +88,9 @@ XANUI has strong support for architecture and logic, but very little support for
 As pointed out earlier \textendash\ this notation might actually not need to support these concepts explicitly and use capabilities of the platform of the final UI.
 
 Verhaeghe and Gaouar provide representations that are a little more balanced, but still do not excel in any particular area.
-OpenUIDL is the most expressive of all representations, providing strong architectural support, satisfactory set of predefined components and a good capabilities for customizing the appearance.
-The only area the representation misses out on is the capability to meaningfully manage component state.
+OpenUIDL is the most expressive of all representations, providing strong architectural support and good capabilities for customizing the appearance.
+Its set of predefined is satisfactory and can be sufficient for a lot, but not a majority of use cases.
+When it comes to behavior, its capabilities could be considered subpar \textendash\ it does not yet allow to fully customize it, although it already has the necessary framework to do so.
 
 \begin{figure}
     \centering
@@ -124,8 +125,6 @@ With OpenUIDL it was possible to create quite a faithful replication of an origi
 It was also possible to implement a dropdown menu and prototype navigation between views.
 As described previously \textendash\ although the representation allows for defining some simple state, event handlers, or component properties, it was not possible to implement any meaningful logic with these means.
 
-% todo: maybe describe this more if necessary? like, refer to the requirements and so on?
-
 \begin{figure}
     \centering
     \begin{subfigure}[m]{0.5\textwidth}
@@ -151,13 +150,14 @@ This can be considered useful, as the application is readily available on any co
 One drawback of Web editors could be offline unavailability;
 however, it could be mitigated with relatively little effort by turning the editors into progressive web apps~\furl{https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps}.
 
-The two editors approach working with the underlying representations in different ways.
-In Quid, the user works directly with the description language and can immediately see the preview of the currently edited view or component (as presented in figure~\ref{fig:4-2-quid-editor}).
-On the other hand, OpenUIDL uses the what-you-see-is-what-you-get technique.
-Authors of the representations provide a UI for designing the prototypes (displayed in figure~\ref{fig:4-2-openuidl-editor}).
+The two editors take two slightly different approaches to working with the underlying representations in different ways.
+In Quid, the user edits the description directly and can immediately see the preview of the current view or component (as presented in figure~\ref{fig:4-2-quid-editor}).
+On the other hand, OpenUIDL does not require that users write code and instead uses the what-you-see-is-what-you-get technique; authors of the representations provide a UI for designing the prototypes (figure~\ref{fig:4-2-openuidl-editor}).
+UI is created by selecting elements from a list and dropping them onto an area which visualizes how a view or a component is going to look like.
 OpenUIDL allows for previewing the code of the application in a final technology (e.g.\ React, Angular), but does not let users view or manipulate the underlying representation directly.
+There is a possibility to also obtain a live preview of components and projects in a separate website~\furl{repl.teleporthq.io}, but it is not integrated with the other editor.
 Hiding the representation is understandable, given the complexity of said representations \textendash\ Quid is a much simpler language than OpenUIDL, which makes it much more suitable for manual editing.
-Nevertheless, such a restrictive encapsulation can make development and error correction activities more difficult.
+Nevertheless, such a restriction can hinder development and troubleshooting activities for more advanced users.
 
 \begin{figure}
     \centering
@@ -180,8 +180,8 @@ Unfortunately, the error messages were not too descriptive on their own and the 
 The editor for OpenUIDL, even though it is a much more complex application, was easier to use.
 It also did not suffer from any performance issues and practically no errors disrupted the development flow.
 The only instance of unexpected behavior occurred when using slots (inputs for content), when placeholders were displayed as empty even when they were filled with content.
-The interface of the application was for the most part intuitive, although sometimes editing the design was not as comfortable as expected. % todo: explain why?
+The interface of the application was for the most part intuitive, although sometimes editing the design was not as comfortable as expected.
 The company behind the editor and the language also provides quite comprehensive support for the tool: apart from comprehensive documentation, there are also YouTube tutorials available, as well as a dedicated Discord server where it is possible to interact with the community and support team directly.
 
-To sum up, although Quid and its editor present some noteworthy capabilities, the whole still looks like a proof of concept, and not a complete application (this is also reflected in the version of the published application \textendash\ 0.15.0 at the time of writing).
-OpenUIDL and its platform are much more mature in comparison \textendash\ it is actually a commercialized solution. % todo: expand this?
+To sum up, although Quid and its editor present some noteworthy capabilities, the whole still looks like a proof of concept, and not a complete application (this is also reflected in its version).
+OpenUIDL and its platform (the language, the collaborative editor, integrations, hosting and support) are much more mature in comparison; the whole solution is actually commercialized.

@@ -13,120 +13,64 @@ The language does not yet look like a viable alternative for conventional develo
 In its current form, it looks more suited for creating high-fidelity prototypes, especially thanks to its extensive styling capabilities.
 Even with very simple capabilities of specifying behavior, it might be a replacement for prototyping tools that do not accommodate for interactivity.
 
-In the area of architecture and overall structure, the necessary support was usually present.
+XANUI showed a lot of expressive potential, achieving the highest score in the area of UI behavior.
+Although it did not score well in areas of component support and appearance, it might be because this representation can do without these concepts.
+If the representation integrated with external technologies as well as presumed, it might be much more useful, even in typical development tasks.
+This is, however, only speculative, as there was no way to verify the representation's capabilities in practice.
+
+In the area of architecture and structure, the necessary support was usually present.
 Although concepts such as application or modularization are not strictly necessary for creating a functional description, they might be unavoidable for representations that intend to accommodate larger projects.
-% todo: \todo{shouldn't this go to future research?}Adding support for dialogs and other non-standard views could also be a relatively low-hanging fruit when it comes to increasing the expressiveness of the notations
-Lack of support for logic is probably one of the biggest factors limiting the expressiveness the evaluated representations, not without a reason \textendash\ the solution would need to successfully incorporate concrete code in an otherwise abstract description.
-The evaluated notations employed some techniques, such as creating or extending a model of code or integrating with existing code (in fragments or on a larger scale) and, according to the theoretical evaluation, they show substantial results.
-% todo: get ready to rewrite this
-On the other hand, the limitation to supporting a broad range of components and appearance properties seems to be more conceptual than technical \textendash\ to overcome it, it is simply necessary to formulate a more detailed model.
+Adding support for dialogs and other non-standard views could also be a relatively low-hanging fruit when it comes to increasing the expressiveness of the notations.
+This also seems to be the case for predefined components and appearance properties \textendash\ in order to support them, it is simply necessary to formulate a more detailed model and define mappers that convert model elements to appropriate code.
 
-%\paragraph{Internationalization}
-%% \todo{chyba ze to jest w ktoryms z jezykow? idk}
-%Many production-grade applications require to be available in more than one language version.
-%However, to generate multiple versions of an application`, each using a different language would be impractical;
-%instead, any locale-dependent resources (primarily text) are stored outside application code and loaded during runtime, depending on the language set by the user/system.
-%Integrating such a mechanism directly into the language would increase the value and flexibility of languages.
+On the other hand, lack of support for logic is probably the biggest factor limiting the expressiveness the evaluated representations.
+This is not without a reason \textendash\ a successful solution would need to successfully incorporate concrete code in an otherwise abstract description.
+Although some notations attempted to simply create some model of UI behavior, they did not succeed in creating an expressive one.
+It seems that integrating with existing code (in fragments or on a larger scale) shows more substantial results (at least according to the theoretical evaluation).
+The drawback of such an approach might be that such a representation becomes too difficult to use (because it would require actual programming) and too dependent on a single programming language/platform.
 
-
-
-%\paragraph{Dependency management}
-%As the languages are not mature and widespread, there is little incentive to create, disseminate and manage reusable pieces of UI description.
-%Therefore, there are not any mature mechanisms for managing any external dependencies or libraries comparable to what is available for conventional programming languages.
-%
-%\paragraph{Code integration}
-%Currently, the languages presented are limited in their expressiveness by their limited set of actions that can be performed in response to events.
-%While it might be a welcome simplification for people unfamiliar with programming, it poses a grave limitation for developers.
-%It might be reasonable to accommodate for any gaps in the language by allowing to \enquote{patch} them with code instead.
-%
-%% \subparagraph{Component lifecycle support}
-%% The languages could create a generic lifecycle and support it.
-%
-%\paragraph{Global application state}
-%Most modern GUI programming enhances the event-driven paradigm with the principle of unidirectional data flow: events \enquote{flow} up (events from children components are handled by parent elements) and state \enquote{flows} down (parent components set the state of child components).
-%While the principle helps make the components reusable, testable and simpler to a certain extent, it fails in the case where data needs to be available throughout the application.
-%The response to this problem are \emph{state containers} that centralize the application state, making state management more predictable and flexible.
-%Future iterations of UIDLs could integrate these solutions to increase the flexibility and maintainability of developed applications.
-
-
-%Conclusions about sections:
-%\begin{itemize}
-%    \item components \textendash\ the more, the better, and theres no going around that!
-%    \item \todo[inline]{include the description of missing components here!}
-%    \item appearance \textendash\ similarly!
-%\end{itemize}
-
-
-
-%components:
-%\begin{itemize}
-%    \item
-%\end{itemize}
-
-%\paragraph{Specialized widgets}
-%As mentioned in the previous section, it is desirable for developers/modellers to work with a wide selection of components that neatly fit many possible use cases instead of developing them themselves.
-%Unfortunately, they might find the current state of the descriptions lacking, with only the most basic variants of components available in the descriptions.
-%For example, in some languages it is possible to use a grid layout;
-%however, none of the languages seems to have a masonry layout\footnote{Masonry layout displays content in columns, but unlike a grid, it does not require the conent to be aligned in the row axis, which makes the arrangement more balanced.} defined.
-%
-%%\subparagraph{(Paged) documents}
-
-% -----
-
-%% \paragraph{Accessibility} \todo{not really sure that's a single feature that can be easily included}
-%
-%\paragraph{Animations}
-%While it is possible to create full-scale applications without any animations, they can still make a big difference and transform a satisfactory user experience to an outstanding one.
-%Animations are useful for indicating navigation, interaction progress and state changes in a friendly and visually appealing way.
-%Without this feature in UIDLs, generated applications might miss out on this subtle aspect of user experience.
-%
-%\paragraph{Design systems}
-%Design systems have emerged as a solution easing the development of various applications across multiple teams by establishing clear and common rules and style guides, defining reusable patterns and components.
-%By using them, organizations and companies can spend less time designing and implementing their applications, while achieving reliability and a unified appearance across all their products.
-%So far, there seems to be no explicit support for defining any parts of a style guide in the UIDLs analyzed which make them less suitable for large-scale development.
-%
-%\paragraph{Dynamic appearance}
-%% \todo[inline]{different text directions}
-%% todo: 4 sure?
-%Additionally, any support for making the appearance of some UI elements dependent on component/application state also seems to be largely absent.
-%The most important application for such a feature would be implementation of application themes (especially the famous dark theme).
-%This further prevents developers from implementing more engaging interactions and customizable experiences.
-
-% \todo[inline]{maybe write sth nice about the representations? maybe sth surprised you positively? or negatively too!}
-
+The representations evaluated in the thesis did not support all features that could be useful in modern development of UIs.
+The list of features and concepts presented in the thesis could easily be expanded with other ones present in existing technologies, such as:
+\begin{itemize}
+    \item internationalization\furl{https://angular.io/guide/i18n-overview}: a mechanism for managing resources in multiple languages
+    \item accessibility\furl{https://developer.mozilla.org/en-US/docs/Web/Accessibility}: an approach to development that takes into account needs of people with limited abilities
+    \item dependency management\furl{https://www.npmjs.com/}: a system for versioning, distributing and including reusable parts of a representation
+    \item component lifecycle support\furl{https://developer.android.com/guide/components/activities/activity-lifecycle}: a unified mechanism for managing the behavior and state of components and views as they change their state in the application
+    \item global application state\furl{https://pinia.vuejs.org/introduction.html}: a mechanism for sharing state across views/components
+    \item more specialized widgets: e.g.\ canvas\furl{https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas} \textendash\ a low-level graphics container, a document viewer\furl{https://joanzapata.com/android-pdfview/}, a masonry layout\furl{https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Masonry_Layout} \textendash\ a variant of a grid layout, etc.
+    \item animations\furl{https://learn.microsoft.com/en-us/windows/apps/design/motion/xaml-animation}: dynamic visual effects that enhance user experience
+\end{itemize}
 
 \subsection{Limitations of the study}\label{subsec:limitations-of-the-study}
 
-% todo: be ready to read this again
-The first limitation lies in the process of literature review.
+The first limitation lies in the execution of literature review.
 Although the process was designed to include as much literature as possible, there might still be relevant UI representations that were not included in the research.
-Another limiting factor might be the omission of works published before 2010.
+Omission of works published before 2010 also might have negatively influenced the completeness of the review.
 
-The concepts defined based on the selected literature might not be a sufficiently thorough description of the domain of UIs.
-Therefore, the criteria and evaluation method might not produce representative results.
-Because the criteria might not have been well-defined, the results might not be objective.
-There might be objection to the scoring method \textendash\ maybe not all areas or criteria are equally important and a weighted average would have been more important.
+The list of concepts might not have included all relevant aspects of UI development which in turn might decrease the completeness of evaluation criteria.
+The evaluation may be compromised by a lack of objectivity caused by imprecise or broad definitions of criteria.
+The method of scoring was also chosen arbitrarily \textendash\ maybe not all areas or criteria should be regarded as equally important and a weighted average would have produced more useful results.
 
-The case study was a minimal example that did not cover all aspects of UI development.
-The criteria were simplified to reduce redundancy \textendash\ if we allowed for some redundant requirements, the scores would have been different.
-The criteria were also less specific, which could lead to subjectivity.
+The case study was based on an elementary example of an application \textendash\ the use cases chosen might be too simple to be representative of real-world applications.
+Each of the requirements in the case study was counted only once, even if it applied to multiple areas of the application \textendash\ the scores could have been different if such requirements were scored in a different way.
+The requirements were also less specific, which could lead to subjectivity in scoring.
 
-The evaluation was all the more difficult, as the representations were, for the most part, unavailable beyond their original paper.
+The evaluation was all the more difficult because most representations were unavailable beyond their original paper.
 There were hardly any specifications, examples or documentation; no way to work with them hands-on.
-This made it much more difficult to analyze the notations and draw conclusions.
-%\todo[inline]{the representations need to be available, bc otherwise they're useless}
+This might have caused some false negatives in the assessment, negatively impacting its accuracy.
 
 \subsection{Areas for future research}\label{subsec:areas-for-future-research}
 
 Based on the presented conclusions and limitations of the research, multiple directions for future studies can be outlined.
 
-First of all, the criteria and the scoring method proposed in this thesis could be revised and expanded to produce a broader and more accurate judgement of representations.
-This development could be based on other existing UIDLs and final UI technologies, possibly including modalities outside the graphical one.
-Similarly, the proposed case study and its requirements could be defined in a different way.
+Results of the evaluation also point to potential areas of growth in the studies representations.
+The criteria formulated in this thesis can serve as a reference for researchers and developers of existing or future UIDLs.
 
-Based on the proposed or revised criteria, the evaluation could be repeated with representations chosen in this thesis, with those not included, or even with the ones that do not exist at the time of writing.
-This would allow for comparing the established notations with new ones or for comparing the evolution of a given representation across versions.
+They could also be revised and broadened to produce a more comprehensive and accurate judgement of representations.
+This development could be based on other existing UIDLs and final UI technologies, possibly including modalities other than the graphical one.
+Similarly, the proposed case study and its requirements could be expanded and refined; even a new one could be established to include a different perspective on the representations.
 
-A more comprehensive and rigorous set of criteria could serve as a reference for researchers and developers of existing or future UIDLs, who could use them to identify gaps in their work.
+Based on the proposed or revised criteria, the evaluation could be repeated with representations chosen in this thesis, with those not included, or even with ones that do not exist at the time of writing.
+This could be useful for comparing the established notations with new ones or for tracing the evolution of representations across versions.
 
-Finally, the representations could be studied more closely from other angles, such as usability, quality of generated code, etc.
+Finally, other features of notations, such as usability, conciseness, quality of generated code, etc., could be studied to give a richer picture of the domain.
