@@ -1,16 +1,17 @@
 \chapter{Summary}\label{ch:summary}
 
-\begin{itemize}
-    \item the goal of the thesis was to evaluate the expressiveness of abstract UI representations
-    \item expressiveness was understood as ability to influence the final UI, as understood in Cameleon Ref Framework
-    \item a literature review was conducted to find existing representations (after 2010 or sth)
-    \item based on the review, representations were analyzed for implemented UI features
-    \item they were grouped in four categories: architecture, behavior, components, appearance
-    \item based on features, concrete criteria were formulated, as well as a practical case study
-    \item representations were evaluated, a case study was implemented and the results were analyzed
-    \item turns out, the representations are so-so expressive \textendash\ you can do some stuff, but not really everything
-    \item in general the representations score ~30-40\% in criteria
-    \item openuidl is the best (66\%) and is suitable for high-fidelity prototyping but not for full-scale programming yet \textendash\ the app looks promising
-    \item the thesis is not a conclusive study, more can and should be conducted \textendash\ better criteria and more UIDLs
-    \item future or existing UIDLs can use this and future work as reference for implementing new features
-\end{itemize}
+The goal of the thesis was to evaluate the expressiveness of abstract UI representations, understood as the ability to influence the implementation details of the generated interface (final UI in Cameleon Reference Framework).
+In order to gather \todo{help me here}knowledge and data for the research, a systematic literature review was conducted.
+Found \todo{other word?}papers were analyzed with the goal of finding out what features they implement.
+The survey identified and detailed three major areas of UI development: architecture, behavior and appearance; it was then used to define criteria for evaluation of representations were defined.
+To complement the theoretical assessment, a case study and a list of requirements were also developed.
+
+The analysis of the results of the study shows that in general, the representations' expressiveness ranges from low to moderate \textendash\ they scored around 30--40\% in the theoretical evaluation.
+Some representations achieved considerable scores in individual areas of evaluation, but none of them were adequately functional across all areas, which limits their applicability in general development.
+This is true even of the most expressive representation found \textendash\ OpenUIDL; although its capabilities could suffice for prototyping, they will probably not meet the needs of developers.
+
+\todo[inline]{NOTE THAT OPENUIDL IS NOT REALLY ABSTRACT AT THIS POINT (its very influenced by Web dev)}
+
+The results of the study signal the need for further advancement of UI representations; \todo{stroke} even if the gap is narrow and possible to fill, it is still there.
+New or existing representations can use the study as a point of reference for development.
+Other directions of future research include revisions of the list of presented criteria and replicating the study with a broader set of representations.

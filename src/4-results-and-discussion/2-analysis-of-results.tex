@@ -15,7 +15,7 @@ Dialogs (\textbf{A3}) and third-party components (\textbf{A6}) were not widely s
 \subsection{Logic and behavior}\label{subsec:4-2-logic-and-behavior}
 Support for specifying the behavior of UI in the representations was also varied, but in general rather low \textendash\ only two representations scored over 50\% (Soude, XANUI) with the maximum score of around 66\%.
 Most representations allowed for handling events and attaching methods to UI elements (\textbf{B1});
-however, only a few actually allowed for defining handlers (\textbf{B3}) that could perform any actions, either in broad terms (\textbf{B4}), or in detail (B8.1, \textbf{B8}, \textbf{B10}, \textbf{B10}, \textbf{B11}).
+however, only a few actually allowed for defining handlers (\textbf{B3}) that could perform any actions, either in broad terms (\textbf{B4}), or in detail (\textbf{B8}, \textbf{B10}, \textbf{B10}, \textbf{B11}).
 Sets of predefined events (\textbf{B2}) also varied in their scope from minimal (XANUI, Soude, Quid, Gaouar) to comprehensive (Verhaeghe, OpenUIDL).
 
 Only one representation (XANUI) explicitly supported data validation (\textbf{B5}).
@@ -43,7 +43,7 @@ The least supported category were complex output components (\textbf{C3}) and sp
 Interaction components (\textbf{C6}) and simple output components (\textbf{C2}) were moderately supported;
 so were input components (\textbf{C4}), although usually their implementation lacked customization abilities (\textbf{C5}).
 
-There does not seem to be any technical limitation that would explain the more or less limited set of components offered by the representations \textendash\ the results seem to be motivated by a subjective judgement of authors.
+There does not seem to be any technical constraint that would explain the more or less limited set of components offered by the representations \textendash\ the results seem to be motivated by a subjective judgement of authors.
 To be able to support them, maintainers would simply need to define them in the model and define a transformation rule that would include them in the final code;
 that is exactly the approach Verhaeghe et al.\ recommend to users of their representation if the predefined set does not satisfy their needs.
 The only exception here could be XANUI \textendash\ the relative lack of support for predefined components might also be explained by its relationship to the final UI code.
@@ -113,7 +113,7 @@ The only area the representation misses out on is the capability to meaningfully
 \end{figure}
 
 \subsection{Case study}\label{subsec:case-study}
-The results of the case study confirmed the findings from the theoretical evaluation, as selected representations scored similarly in both (Quid: 13\% in the case study, 16\% in the evaluation; OpenUIDL: 69\% in the case study, 66\% in the evaluation).
+The results of the case study confirmed the findings from the theoretical evaluation, as selected representations scored similarly in both (Quid: 13\% in the case study, 20\% in the evaluation; OpenUIDL: 69\% in the case study, 70\% in the evaluation).
 Figure~\ref{fig:4-2-board-view} presents the result of implementing the board view in both representations.
 
 Quid, as evidenced both by the evaluation and the screenshot in figure~\ref{fig:4-2-quid-board-view}, could not be used to accurately reproduce the designed interface.
@@ -146,7 +146,7 @@ As described previously \textendash\ although the representation allows for defi
 \end{figure}
 
 \subsection{Results of the qualitative evaluation}\label{subsec:results-of-the-qualitative-evaluation}
-Both representations are available through online editors provided by their authors.
+Both Quid and OpenUIDL are available through online editors provided by their authors.
 This can be considered useful, as the application is readily available on any computer with a modern Web browser.
 One drawback of Web editors could be offline unavailability;
 however, it could be mitigated with relatively little effort by turning the editors into progressive web apps~\furl{https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps}.

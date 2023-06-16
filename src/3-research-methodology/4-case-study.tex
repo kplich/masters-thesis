@@ -2,7 +2,7 @@
 This section describes the practical experiment used to evaluate representations.
 
 \subsection{Scenario and context}\label{subsec:scenario-and-context}
-The goal of the case stduy was to validate the previous evaluation in a more realistic scenario.
+The goal of the case study was to validate the previous evaluation in a more realistic scenario.
 Additionally, this was an opportunity to assess the experience of development using the representations.
 This was achieved by recreating a few screens of a fictional application modeled after Trello\furl{trello.com} \textendash\ a well-known Web application for creating Kanban-style lists.
 The choice was motivated by its popularity and relative complexity.
@@ -41,11 +41,11 @@ This time, the requirements were not prescriptive and did not specify how exactl
 This was meant to produce a more realistic evaluation.
 To reflect this freedom of implementation, the evaluation of requirements included a score for partial fulfillment, not only a binary score.
 
-Each requirement RX.Y is assigned a score $R_{\text{X.Y}}$ based on formula~\ref{eq:3-4-requirement-scoring}
+Each requirement RX.Y is assigned a score $R_{\text{X.Y}}$ based on formula~\ref{eq:3-4-requirement-scoring}:
 \begin{equation}
     R_{\text{X.Y}} =
     \begin{dcases}
-        0,  & \text{if the requirement is not satisfied}\\
+        0   & \text{if the requirement is not satisfied}\\
         0.5 & \text{if the requirement is partially satisfied}\\
         1   & \text{if the requirement is satisfied}
     \end{dcases}
@@ -58,7 +58,7 @@ The score $R_{\text{X}}$ for each area RX is the average score of all the requir
     \label{eq:3-4-area-scoring}
 \end{equation}
 
-Similarly, the total score $T_{\text{requirements}}$ for the whole representation is\textellipsis.
+The total score $T_{\text{requirements}}$ for the whole representation is calculated similarly (formula~\ref{eq:3-4-representation-scoring}):
 \begin{equation}
     T_{\text{requirements}} = \frac{\sum_{i=1}^{5} R_i}{5}
     \label{eq:3-4-representation-scoring}

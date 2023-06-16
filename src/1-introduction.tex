@@ -32,7 +32,7 @@ The main feature of the approach is leveraging transformations from so-called \t
 The former, as the name suggests, do not depend on platform details and are more aligned with the business and analytical environment;
 the latter contain more implementation details and are closer to a specific technology.
 
-Since then, the approach has been translated to the domain of user interface development under the name of \textbf{\enquote{model-based user interface development} (MBUID)}~\cite{Puerta1994}.
+Since then, the approach has been translated to the domain of user interface development under the name of \textbf{model-based user interface development (MBUID)}~\cite{Puerta1994}.
 There have been many achievements in the area – the methods progressed from simply generating a UI for a single device to managing the diversity and complexity of interfaces, handling different platforms, devices, interaction modalities, user states and usage contexts~\cite{Meixner2011}.
 In all of them, a model is the most important artifact of the development process;
 in fact, it is so important that the concept got its own name in the domain of MBUID\,\textendash\,a \textbf{user interface description language (UIDL)}~\cite{guerrero_garcia_theoretical_2009}.
@@ -87,8 +87,17 @@ However, they do not provide a detailed account of how they evaluate expressiven
 The goal of this thesis is therefore to more thoroughly investigate this aspect of UI representations and report the results.
 Expressiveness is understood as a model's capability to capture information relevant to generation of the final user interface.
 
-To realize the goal, a systematic literature review will be conducted.
-Systematic literature reviews are a widely accepted way of \enquote{identifying, evaluating and interpreting all research available and relevant to a specific research question}~\cite{kitchenham_guidelines_2007}.
-The process of planning and executing the review is described in section~\ref{ch:literature-review}.
-Section~\ref{ch:research-methodology} describes the research methodology applied and section~\ref{ch:results-and-discussion} presents and analyzes obtained results.
-Section~\ref{ch:summary} concludes the thesis.
+% TODO: context is development
+% TODO: abstract not in the sense of Cameleon Reference Framework, but abstract in the sense of "level higher than implementation"
+
+The goal of the thesis can be formulated in terms of the following research questions:
+\begin{itemize}
+    \item \textbf{RQ1}: What abstract UI representations exist?
+    \item \textbf{RQ2}: How do these representations allow for influencing final UI? What aspects of UI programming are necessary to create a representation suitable for development?
+    \item \textbf{RQ3}: To what extent the studied representations can be considered expressive? What is their applicability for development tasks?
+\end{itemize}
+
+As a means to answer RQ1, a systematic literature review was conducted \textendash\ its results are presented in chapter~\ref{ch:literature-review}.
+Chapter~\ref{ch:research-methodology} provides the answer to RQ2 by describing the research methodology applied;
+chapter~\ref{ch:results-and-discussion} presents an analysis of the obtained results, thus answering the RQ3.
+Chapter~\ref{ch:summary} summarizes the thesis.

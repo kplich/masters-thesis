@@ -494,10 +494,10 @@ captionpos=t
 \AtBeginDocument{  
   \hypersetup{
 	pdfinfo={
-    Title = {\@title},
-    Author = {\@author},
-    Subject={Praca dyplomowa \ifMaster magisterska\else inżynierska\fi},  
-    Keywords={\@kvpl}, 
+    Title = {\@titleEN},
+    Author = {Kamil Plich},
+    Subject={Master's thesis},
+    Keywords={},
 		Producer={}, 
 	  CreationDate= {}, % należy wstawiać zgodnie ze składnią: {D:yyyymmddhhmmss}, np. D:20210208175600
     ModDate={\pdfcreationdate},   % data modyfikacji będzie datą kompilacji
@@ -514,9 +514,7 @@ captionpos=t
 \sloppy
 
 % INFO: dodane by lepiej łamać urle 
-\def\UrlBreaks{\do\/\do-\do_} 
-% INFO: choć można zadeklarować foldery, w jakich pojawiać się mają pliki z grafiką, zaleca się jednak, by tego nie robić
-%\graphicspath{{rys01/}{rys02/}}  
+\def\UrlBreaks{\do\/\do-\do_}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -773,8 +771,7 @@ Listing \thelstlisting: #1\hfill%\hfill%
 %\put(26,-124){\fbox{% ustawienie do "wyciętego okienka"
 \put(20,-124){\fbox{% ustawienie na środku
 \parbox[c][71mm][c]{104mm}{\centering%\lineskip=34pt 
-{\fontsize{18pt}{20pt}\bfseries\selectfont \@title}\\[5mm]
-{\fontsize{18pt}{20pt}\bfseries\selectfont \@titleEN}\\[10mm] % INFO: wstawiono tytuł w języku angielskim, choć w obecnych oficjalnych zaleceniach tego nie ma
+{\fontsize{18pt}{20pt}\bfseries\selectfont \@titleEN}\\[5mm] % INFO: wstawiono tytuł w języku angielskim, choć w obecnych oficjalnych zaleceniach tego nie ma
 %\fontsize{16pt}{18pt}\selectfont AUTOR:\\[2mm]
 {\fontsize{16pt}{18pt}\selectfont \@author}}
 }
@@ -945,7 +942,7 @@ Specialty: & {\bfseries \@specjalnosc}\\
 %       Nazwę pliku przygotowanej biblioteki wpisuje się bez rozszerzenia .bib
 %       (linia poniżej załaduje rekordy z pliku "dokumentacja.bib")
 \bibliography{main}
-\appendix
+\clearpage
 
 % SPIS RYSUNKÓW (zostanie wygenerowany automatycznie)
 \pdfbookmark[0]{List of Figures}{spisRysunkow.1} % jeśli chcemy mieć w spisie treści, to zamarkować tę linię, a odmarkować linie poniższe
