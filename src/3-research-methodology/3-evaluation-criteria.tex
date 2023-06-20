@@ -71,8 +71,9 @@ Finally, the same principle of averaging the criteria scores is used to calculat
 
 Table~\ref{tab:evaluation-criteria-structure} describes the criteria for evaluating the structure of the UI;
 they mostly can be mapped directly to the concepts from the previous section: application (\textbf{A1}), view (\textbf{A2}), dialogs (\textbf{A3}), assets (\textbf{A4}), and modularization (\textbf{A5}).
-The ability to describe the content of the views and components is assumed to be present in all representations, therefore it is not evaluated;
-the same applies to the concept of a component.
+The ability to describe the content of the views and components is assumed to be present in all representations;
+therefore, it is not evaluated.
+The same applies to the concept of a component.
 Only support for using external components (\textbf{A7}) is evaluated in this section.
 The classification of components is used to group criteria describing support for predefined components in section \textbf{C}.
 Support for custom components is described in criteria describing support for representing the UI behavior (\textbf{B12}).
@@ -108,12 +109,12 @@ Criteria related to the behavior of UI are listed below in Table~\ref{tab:evalua
 The first two criteria (\textbf{B1} and \textbf{B2}) describe event handling and predefined events emitted by elements.
 The table specifies the events in detail and groups them into several categories.
 Pointer events are emitted whenever a pointing device (most commonly a mouse, but could be, e.g., a finger touching a screen) interacts with an element;
-usually, they are emitted by most elements.
+usually, most elements support them.
 So is the case, too, with events related to the state of an element -- most of them can receive or lose focus, not only using a mouse but also, e.g., using a keyboard or other assistive technologies.
 On the other hand, keyboard, form, and input events are only emitted by components for which such events are relevant (usually input components).
 
 One of the representations~\cite{Gaouar2018} also included some \enquote{system events} related to the functioning of a mobile device, e.g., indicating an incoming or outgoing call or a change in the state of a network connection.
-They were omitted from the evaluation, as they fall outside of the scope of UI programming.
+They were omitted from the evaluation, as they fall outside the scope of UI programming.
 
 Criteria \textbf{B3}--\textbf{B5} describe support for handlers in relatively broad terms.
 Criteria \textbf{B6} and \textbf{B7} indicate whether the representations support any extensions to handling logic by calling any other services or executing arbitrary code.
@@ -341,7 +342,7 @@ Criterion \textbf{C6} describes interaction components.
 \subsection{Appearance}\label{subsec:appearance2}
 Table~\ref{tab:evaluation-criteria-appearance} lists aspects of appearance that the representations should be able to include in their model.
 Criteria \textbf{D1} and \textbf{D2} evaluate the capabilities of describing layouts, including responsive ones.
-Criteria \textbf{D3}--\textbf{D4} list the expected methods element of sizing and positioning.
+Criteria \textbf{D3}--\textbf{D4} list the expected methods of element sizing and positioning.
 Criterion \textbf{D5} lists length units that might be supported by the representations.
 Criteria \textbf{D6} and \textbf{D7} describe the most commonly found properties used for styling elements.
 Finally, criterion \textbf{D8} verifies if the representations allow for using CSS directly.
