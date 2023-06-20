@@ -1,16 +1,16 @@
 \section{Discussion of results}\label{sec:review-discussion-of-results}
 
-This section provides the answer to the RQ1: \enquote{What abstract representation of user interfaces exist?}
+This section provides the answer to RQ1: \enquote{What abstract UI representations exist?}
 
 \subsection{Honorable mentions}\label{subsec:honorable-mentions}
 To give a better overview of the problem domain, the section describes additional works in the domain that were considered during the search but ultimately were not considered suitable for the review.
-The CUI model from CIAT-GUI~\cite{Molina2012-my}, QuiXML from MoCaDiX~\cite{Vanderdonckt2019-av} and omniscript~\cite{Ulusoy2019-jh} all look like promising solutions to the problem of the thesis.
+The CUI model from CIAT-GUI~\cite{Molina2012-my}, QuiXML from MoCaDiX~\cite{Vanderdonckt2019-av}, and omniscript~\cite{Ulusoy2019-jh} all look like promising solutions to the problem of the thesis.
 Unfortunately, the papers do not define the concrete UI representation in sufficient detail and do not provide any additional sources.
 
-The other category of literature not considered in this study are established UIDLs, e.g.\ IFML~\cite{Brambilla2014-ln}, UIML~\cite{Abrams1999}, or UsiXML~\cite{Limbourg2005}.
-Although they are well-regarded in the literature and appeared often in papers reviewed as the language of choice for modelling UIs, ultimately they were not chosen for consideration.
+The other category of literature not considered in this study is the collection of established UIDLs, e.g.\ IFML~\cite{Brambilla2014-ln}, UIML~\cite{Abrams1999}, or UsiXML~\cite{Limbourg2005}.
+Although they are well-regarded in the literature and appeared often in papers reviewed as the language of choice for modeling UIs, ultimately they were not chosen for consideration.
 IFML and UIML were left out, as in principle they describe the user interface in abstract terms and leave the more concrete description to be specified in a different model.
-UIML provides a special extension mechanism of vocabularies that can define mapping of abstract components to implementation specific classes or elements.
+UIML provides a special extension mechanism of vocabularies that can define the mapping of abstract components to implementation-specific classes or elements.
 On the other hand, UsiXML also encompasses a concrete description.
 Unfortunately, the language is not widely available nowadays;
 the website of the UsiXML project does not contain any useful resources or specifications~\furl{http://www.usixml.org/en/software.html?IDC=239}.
@@ -20,70 +20,71 @@ Examples include descriptions of UI in virtual reality~\cite{Olmedo2015} or voic
 
 \subsection{Selected papers}\label{subsec:selected-papers}
 
-The 17 selected papers can be split in a few topical categories: UIDLs or DSLs, MBUID approaches, UI migration approaches, and reviews of GUI descriptions.
+The 17 selected papers can be split into a few topical categories: UIDLs or DSLs, MBUID approaches, UI migration approaches, and reviews of GUI descriptions.
 
 \subsubsection{UIDLs and DSLs}
 5 languages described in 7 documents were found:
 
 \paragraph{MARIA (2009)}
-MARIA~\cite{Paterno2009, MariaPDF} (abbreviated as \enquote{Model-based lAnguage foR Interactive Applications}) is a language, developed in the National Research Council of Italy on the basis of another UIDL, TERESA XML~\cite{mori2004}.
-Its distinguishing feature is support for application based on Web services as described using WSDL\@.
-The language has also been submitted for standardization at the W3C~\footnote{\url{https://www.w3.org/2005/Incubator/model-based-ui/XGR-mbui-20100504/}, last accessed 2023-03-24}, however the activity does not seem to have concluded in any meaningful way.
+MARIA~\cite{Paterno2009, MariaPDF} (abbreviated as \enquote{Model-based lAnguage foR Interactive Applications}) is a language, developed by the National Research Council of Italy on the basis of another UIDL, TERESA XML~\cite{mori2004}.
+Its distinguishing feature is support for applications based on Web services as described using WSDL\@.
+The language has also been submitted for standardization at the W3C~\footnote{\url{https://www.w3.org/2005/Incubator/model-based-ui/XGR-mbui-20100504/}, last accessed 2023-03-24};
+however, the activity does not seem to have concluded in any meaningful way.
 
 \paragraph{XANUI (2016)}
-XANUI~\cite{hermida2016xanui} is positioned as a DSL that can be used for development of rich Internet applications (RIAs) and mobile applications in combination with the OOH4RIA methodology~\cite{Meli2008}.
-What differentiates it from other contributions in the domain is that it is annotation-driven and can thus be integrated in existing development artifacts (especially XML files).
+XANUI~\cite{hermida2016xanui} is positioned as a DSL that can be used for the development of rich Internet applications (RIAs) and mobile applications in combination with the OOH4RIA methodology~\cite{Meli2008}.
+What differentiates it from other contributions in the domain is that it is annotation-driven and can thus be integrated with existing development artifacts (especially XML files).
 
 \paragraph{HCIDL (2018)}
-HCIDL~\cite{Gaouar2018} (Human-Computer Interface Description Language) aims to enable modelling of \enquote{multi-target, multimodal, and plastic} user interfaces.
-Its main focus, however, seems to be on modelling capabilities of mobile devices and their sensors.
+HCIDL~\cite{Gaouar2018} (Human-Computer Interface Description Language) aims to enable the modeling of \enquote{multi-target, multimodal, and plastic} user interfaces.
+Its main focus, however, seems to be on the modeling capabilities of mobile devices and their sensors.
 
 \paragraph{Quid (2018-2019)}
 Quid~\cite{molina2018quid, Molina2019} is an online tool\furl{https://quid.metadev.pro/} for prototyping Web Components in the browser, developed by a Spanish company specializing in building DSLs on the Web\furl{https://metadev.pro/}.
-The tool uses its own minimal DSL and allows generation of components for multiple Web frameworks, as well as visualization in real time.
+The tool uses its own minimal DSL and allows the generation of components for multiple Web frameworks, as well as visualization in real time.
 
 \paragraph{OpenUIDL (2020)}
 OpenUIDL~\cite{Moldovan2020} is another UIDL released by a company\furl{https://teleporthq.io/} and shipped together with an online tool~\footnote{\url{https://play.teleporthq.io/signin} (as of March 21$^{st}$, 2023 the tool requires sign-up)}.
-Although the publication claims to be able to support \enquote{omni-channel UIs} on multiple platforms, the focus of the tool (and the company) seems to lie mostly on generation of RIAs.
+Although the publication claims to be able to support \enquote{omni-channel UIs} on multiple platforms, the focus of the tool (and the company) seems to lie mostly generating RIAs.
 
 \subsubsection{MBUID approaches}
 
 The review found 6 papers proposing MBUID approaches that also present their own UI model.
 
-Bouchelligua et al.\ (2010)~\cite{Bouchelligua2010} propose an approach for development of plastic UIs (that adapt to the context of use) for information systems.
-In particular, the paper describes usage of BPMN for modelling of tasks in a model-driven process.
+Bouchelligua et al.\ (2010)~\cite{Bouchelligua2010} propose an approach for the development of plastic UIs (that adapt to the context of use) for information systems.
+In particular, the paper describes the usage of BPMN for task modeling tasks in a model-driven process.
 The approach is fully compliant with the CRF\@.
 
-Kryštof (2010)~\cite{kryvstof2010lpgm} developed a UML profile for platform-independent development of UIs for both desktop and web applications.
+Kryštof (2010)~\cite{kryvstof2010lpgm} developed a UML profile for the platform-independent development of UIs for both desktop and web applications.
 
 Achilleos et al.\ (2011)~\cite{Achilleos2011} focused on developing \enquote{device-aware} Web services.
 The paper specifies a Presentation Modelling Language used to describe the graphical interface of the client.
-The code responsible for communication with the service backends is to be generated by other methods on the basis of their WSDL descriptions.
+The code responsible for communication with the service backends is to be generated by other methods based on their WSDL descriptions.
 
 Miao et al.\ (2017)~\cite{Miao2017} describe a model-based method of transforming the platform-independent model of the UI into a platform-specific one.
 To support the method, the authors present the PSM -- a UML class diagram.
 
-Khan et al.\ (2021)~\cite{Khan2021} propose a UML profile for mobile UIs, as well a transformation tool that transforms model instances into React Native code.
+Khan et al.\ (2021)~\cite{Khan2021} propose a UML profile for mobile UIs, as well as a transformation tool that transforms model instances into React Native code.
 Their approach also takes into consideration presentation details such as element styling and layout.
 
-Soude and Koussonda (2022)~\cite{Soude2022} propose a modelling language as a part of a model-driven approach for unifying the development of user interfaces.
-Their approach mostly deals with generation of web application on the basis of multiple web frameworks.
+Soude and Koussonda (2022)~\cite{Soude2022} propose a modeling language as a part of a model-driven approach for unifying the development of user interfaces.
+Their approach mostly deals with the generation of web applications in multiple web frameworks.
 
 \subsubsection{Other publications}
 
 This section summarizes the rest of the documents included in the review.
 
 Verhaeghe et al.\ (2021)~\cite{Verhaeghe2021visual, Verhaeghe2021behavior} have been working on a method for platform-independent migration of GUIs.
-The initial motivation was a large-scale migration of multiple GWT apps to Angular frontends, however authors point out that their approach could also support future migrations to other technologies.
-To realize the migration, the approach specifies a pivot GUI metamodel, representing the original application and serving as a basis for generation of a new one.
+The initial motivation was a large-scale migration of multiple GWT apps to Angular frontends, however, the authors point out that their approach could also support future migrations to other technologies.
+To realize the migration, the approach specifies a pivot GUI metamodel, representing the original application and serving as a basis for generating a new one.
 
-Chmielewski et al.\ (2016)~\cite{Chmielewski2016} conducted an analysis of eight popular UIDLs and declarative UI descriptions in the context of development of mobile UIs.
-The criteria for judgement were expressiveness, clarity, support for event handlers, and support for internationalization of UIs.
+Chmielewski et al.\ (2016)~\cite{Chmielewski2016} conducted an analysis of eight popular UIDLs and declarative UI descriptions in the context of the development of mobile UIs.
+The criteria for judgment were expressiveness, clarity, support for event handlers, and support for the internationalization of UIs.
 According to the review, no language was able to fully model/implement all experimental UIs which indicates potential for further development in the area.
 
 \subsubsection{Final remarks}
 
-The selected papers come from throughout the past decade and beyond, with contributions dating back to 2009 (MARIA) and as recent as from 2022 (Soude and Koussonda).
+The selected papers come from throughout the past decade and beyond, with contributions dating back to 2009 (MARIA) and as recent as 2022 (Soude and Koussonda).
 They also approach the problem from multiple angles: the works include self-contained UIDLs, as well as models designed for a particular method.
 The number of new representations found further justifies the need for the review -- many of them were not previously analyzed in the literature and are evaluated for the first time.
-Similarly, existence of only one paper describing an evaluation of expressiveness of UI representations validates the goal of the thesis.
+Similarly, the existence of only one paper describing an evaluation of the expressiveness of UI representations validates the goal of the thesis.
