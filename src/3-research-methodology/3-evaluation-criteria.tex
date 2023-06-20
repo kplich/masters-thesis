@@ -1,27 +1,27 @@
 \section{Evaluation criteria}\label{sec:evaluation-criteria}
 
-This section elaborates the classification from the previous section and defines the criteria for evaluation of UI descriptions.
+This section elaborates on the classification from the previous section and defines the criteria for the evaluation of UI descriptions.
 
 \subsection{Formulation of criteria}\label{subsec:formulation-of-criteria}
 The list has been compiled based on the concepts found in the papers and completed by referencing various final UI technologies.
 The tables below describe aspects of UI programming that should be supported by the representations;
 each criterion is additionally numbered for ease of referencing.
-Table~\ref{tab:evaluation-criteria-structure} describes evaluation criteria for foundational concepts in GUI development.
-Table~\ref{tab:evaluation-criteria-behavior} presents important areas of modelling GUI behavior, complemented by the list of components that representations might support out-of-the-box, presented in table~\ref{tab:evaluation-criteria-components}.
-Finally, features used for describing the appearance of GUI are listed in table~\ref{tab:evaluation-criteria-appearance}.
+Table~\ref{tab:evaluation-criteria-structure} describes the evaluation criteria for foundational concepts in GUI development.
+Table~\ref{tab:evaluation-criteria-behavior} presents important areas of modeling GUI behavior, complemented by the list of components that representations might support out-of-the-box, presented in Table~\ref{tab:evaluation-criteria-components}.
+Finally, features used for describing the appearance of GUI are listed in Table~\ref{tab:evaluation-criteria-appearance}.
 If the feature does not require a further description, it is marked with a dash (\textemdash).
 
 To give a more thorough picture of the capabilities of the notations, some criteria are split into nested criteria;
 this is indicated by the numbering level of the criteria.
 Top-level criteria are marked with a boldface letter and a number (\textbf{B1}) and separated using a solid line.
-Subcriteria are indicated by adding an extra number after the top-level criterion symbol and are written using a regular font (B1.3);
+Second-level criteria are indicated by adding an extra number after the top-level criterion symbol and are written using a regular font (B1.3);
 they are separated visually in the table using a dashed line.
 The symbol for third-level criteria has another number added and is written using an italicized font (\textit{B1.3.5}).
 
 \subsection{Scoring of representations}\label{subsec:scoring-of-representations}
 To produce the results, each lowest-level criterion (that does not contain subcriteria) in each area was assigned a score of 1 (if the representation fulfilled the criterion) or 0 (otherwise).
 The score for higher-level criteria was calculated as an average score for all subcriteria (a sum of scores for each subcriterion divided by the number of subcriteria);
-the formula for the score $C_\text{X}$ of a given criterion X is presented as  equation~\ref{eq:3-3-criterion-scoring}.
+the formula for the score $C_\text{X}$ of a given criterion X is presented in Equation~\ref{eq:3-3-criterion-scoring}.
 
 \begin{equation}
     C_\text{X} =
@@ -33,7 +33,7 @@ the formula for the score $C_\text{X}$ of a given criterion X is presented as  e
     \label{eq:3-3-criterion-scoring}
 \end{equation}
 
-The same mechanism was used to calculate a score $S_{\text{Y}}$ for a whole section Y (presented in equation~\ref{eq:3-3-section-scoring}) and a total score ($T_{\text{criteria}}$) for the whole representation (equation~\ref{eq:3-3-total-scoring}).
+The same mechanism was used to calculate a score $S_{\text{Y}}$ for a whole section Y (presented in Equation~\ref{eq:3-3-section-scoring}) and a total score ($T_{\text{criteria}}$) for the whole representation (Equation~\ref{eq:3-3-total-scoring}).
 
 \begin{equation}
     S_{\text{Y}} = \frac{\sum_{i=1}^{n} C_{\text{Y$i$}}}{n}\text{,}\ \text{where $C_{\text{Y$i$}}$ is the score for criterion Y$i$ and}\ \text{Y} \in \left\{\text{A}, \text{B}, \text{C}, \text{D} \right\}
@@ -49,12 +49,12 @@ This mechanism of scoring allowed for a detailed and unambiguous evaluation whil
 At the same time, scores for higher-level criteria can be interpreted as a uniform measure of support.
 
 \subsubsection{Example of scoring}
-Table ~\ref{tab:my-table} presents example results of evaluation of two hypothetical representations (R1 and R2) against a set of criteria.
+Table ~\ref{tab:my-table} presents example results of an evaluation of two hypothetical representations (R1 and R2) against a set of criteria.
 Fulfilled criteria are marked with a checkmark (\cmark), the rest are marked with a crossmark (\xmark);
 scores for higher-level criteria are written as percentages.
-The criterion \textbf{A1} is does not contain any subcriteria, therefore it is evaluated directly.
+Criterion \textbf{A1} does not contain any subcriteria, therefore it is evaluated directly.
 Criterion \textbf{A2} contains two subcriteria, so the score for this criterion is a percentage of subcriteria that fulfill the given criteria -- in R1, only one of two criteria is satisfied, so the score is 50\%; in R2 both criteria are satisfied, so the score is 100\%.
-The same mechanism applies to criteria A3.1, A3.2 and, in fact, the criterion \textbf{A3} -- its value is calculated as an average of scores for criteria A3.1 and A3.2.
+The same mechanism applies to criteria A3.1, A3.2, and criterion \textbf{A3} -- its value is calculated as an average of scores for criteria A3.1 and A3.2.
 Finally, the same principle of averaging the criteria scores is used to calculate the score for the whole section.
 
 \begin{table}[]
@@ -105,20 +105,21 @@ Support for custom components is described in criteria describing support for re
 
 \subsection{Behavior and logic}\label{subsec:behavior-and-logic}
 
-Criteria related to behavior of UI are listed below in table~\ref{tab:evaluation-criteria-behavior}.
-First two criteria (\textbf{B1} and \textbf{B2}) describe event handling and predefined events emitted by elements.
-The table specifies the events in detail and groups them in several categories.
-Pointer events are emitted whenever a pointing device (most commonly a mouse, but could be e.g.\ a finger touching a screen) interacts with an element; usually they're emitted by most elements.
-So is the case, too, with events related to the state of an element -- most of them can receive or lose focus, but not only using a mouse, but also e.g.\ using a keyboard or other assistive technologies.
+Criteria related to the behavior of UI are listed below in Table~\ref{tab:evaluation-criteria-behavior}.
+The first two criteria (\textbf{B1} and \textbf{B2}) describe event handling and predefined events emitted by elements.
+The table specifies the events in detail and groups them into several categories.
+Pointer events are emitted whenever a pointing device (most commonly a mouse, but could be e.g.\ a finger touching a screen) interacts with an element;
+usually, they're emitted by most elements.
+So is the case, too, with events related to the state of an element -- most of them can receive or lose focus, not only using a mouse but also e.g.\ using a keyboard or other assistive technologies.
 On the other hand, keyboard, form, and input events are only emitted by certain components for which such events are relevant (usually input components).
 
-One of the representations~\cite{Gaouar2018} also included some \enquote{system events} related to the functioning of a mobile device, e.g.\ indicating a incoming or outgoing call or a change in the state of a network connection.
+One of the representations~\cite{Gaouar2018} also included some \enquote{system events} related to the functioning of a mobile device, e.g.\ indicating an incoming or outgoing call or a change in the state of a network connection.
 They were omitted from the evaluation, as they fall outside of the scope of UI programming.
 
-Criteria \textbf{B3}\textendash\textbf{B5} describe support for handlers in relatively broad terms.
+Criteria \textbf{B3}--\textbf{B5} describe support for handlers in relatively broad terms.
 Further, criteria \textbf{B6} and \textbf{B7} indicate whether the representations support any extensions to handling logic by calling any other services or executing arbitrary code.
 These two criteria are rather general, as they fall in the scope of general client-side programming, not in the scope of UI programming.
-Criteria \textbf{B8}\textendash\textbf{B11} describe techniques for specifying handlers and describing content in more detail.
+Criteria \textbf{B8}--\textbf{B11} describe techniques for specifying handlers and describing content in more detail.
 Criterion \textbf{B12} lists criteria related to defining custom components.
 
 \begin{longtblr}[
@@ -249,13 +250,15 @@ Criterion \textbf{B12} lists criteria related to defining custom components.
 \subsection{Predefined components}\label{subsec:predefined-components}
 
 Table~\ref{tab:evaluation-criteria-components} lists components that might be predefined in the representation.
-Criteria \textbf{C1}\textendash\textbf{C3} describe specialized containers and output components;
+Criteria \textbf{C1}--\textbf{C3} describe specialized containers and output components;
 plain containers have been included in the subsequent table (\textbf{D1}).
-This decision is fairly arbitrary and is caused by the encapsulation of layout in a particular component.
-Such an approach blends the two concepts together, making them more difficult to separate from one another.
+This decision is fairly arbitrary and is caused by the encapsulation of the layout in a particular component.
+Such an approach blends the two concepts, making them more difficult to separate from one another.
 Specialized components, however, are not merely used to lay out content;
 they also provide some structure and functionality independently from their content that is useful in a particular context.
-Criteria \textbf{C4} and \textbf{C5} describe input components, in particular \emph{the} input field component and its customizations and criterion \textbf{C6} describes interaction components.
+Criteria \textbf{C4} and \textbf{C5} describe input components;
+in particular \emph{the} input field component and its customizations.
+Criterion \textbf{C6} describes interaction components.
 
 \begin{longtblr}[
     caption = {Criteria for evaluating components predefined by the representations},
@@ -339,10 +342,10 @@ Criteria \textbf{C4} and \textbf{C5} describe input components, in particular \e
 \subsection{Appearance}\label{subsec:appearance2}
 Table~\ref{tab:evaluation-criteria-appearance} lists aspects of appearance that the representations should be able to include in their model.
 Criteria \textbf{D1} and \textbf{D2} evaluate the capabilities of describing layouts, including responsive layouts by using media queries.
-Criteria \textbf{D3}\textendash\textbf{D4} list expected methods of sizing and positioning of the elements.
+Criteria \textbf{D3}--\textbf{D4} list the expected methods of sizing and positioning of the elements.
 Criterion \textbf{D5} lists length units that might be supported by the representations.
 Criteria \textbf{D6} and \textbf{D7} describe the most commonly found properties used for styling elements.
-Finally, criterion \textbf{D8} checks whether the representations support using CSS directly.
+Finally, criterion \textbf{D8} verifies if the representations allow for using CSS directly.
 
 \begin{longtblr}[
     caption = {Criteria for evaluating the representations' ability to describe the appearance of GUIs},
