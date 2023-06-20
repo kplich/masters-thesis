@@ -3,29 +3,28 @@
 \subsection{Defining research questions and justifying the review}\label{subsec:defining-research-questions-and-justifying-the-review}
 
 There have been several surveys of UIDLs conducted in the past~\cite{Souchon2003, guerrero_garcia_theoretical_2009, guerrero_garcia_theoretical_2011, Jovanovic2013}.
-They mention the expressiveness requirement directly or indirectly (\enquote{amount of tags, coverage of concepts}) in their comparisons;
+They mention the expressiveness requirement directly or indirectly (number of tags, coverage of concepts) in their comparisons;
 however, they are not systematic and well-documented.
-The latest review has been published in 2013 and there does not seem to exist a more recent overview.
-Additionally, the documents have been focused on XML-based languages and did not research any other forms of representing user interfaces.
+The latest review appeared in 2013, and no recent overviews seem to exist.
+Additionally, the publications focused on XML-based languages and did not research any other forms of representing user interfaces.
 
-A systematic review by Ruiz et al~\cite{Ruiz2018} defines 10 criteria for evaluating MBUID environments.
+A systematic review by Ruiz et al~\cite{Ruiz2018} defines ten criteria for evaluating MBUID environments.
 Two of them (code generation and design flexibility) are relevant to the purposes of this thesis.
 However, the paper only provides a general, nonspecific methodology for evaluation.
 Additionally, it does not focus on representations themselves and does not include approaches from later than 2015.
 
 \subsection{Defining search criteria}\label{subsec:defining-search-criteria}
 First, keywords and synonyms relevant to identifying existing UI representations were identified:
-\todo[inline]{poprawic formatowanie!}
 \begin{itemize}
-    \item \textbf{abstract}/universal/generic/declarative/intermediate/polymorphic/(platform-)independent/(device-)independent/multi-platform/multi-device -- \textit{(terms related to non-direct descriptions)}
-    \item \textbf{user interface}/UI -- \textit{(terms related to user interfaces)}
-    \item \textbf{representation}/(meta-)model/language/specification/description -- \textit{(synonyms of \enquote{representation})}
+    \item \textbf{terms related no non-direct descriptions}: abstract/universal/generic/declarative/\\intermediate/polymorphic/(platform-)independent/(device-)independent/\\multi-platform/multi-device
+    \item \textbf{terms related to user interfaces}: user interface/UI
+    \item \textbf{synonyms of \enquote{representation}}: representation/(meta-)model/language/\\specification/description
 \end{itemize}
-Based on these keywords, it was possible to formulate a search string: synonyms and their different spellings are connected using a Boolean \texttt{OR} operator and groups of synonyms are connected using an \texttt{AND} operator.
+Based on these keywords, it was possible to formulate a search string: synonyms and their different spellings were connected using a Boolean \texttt{OR} operator, and groups of synonyms -- using an \texttt{AND} operator.
 The initial search string was used to perform a tentative search;
-it helped validate that the returned results contain relevant papers and helped refine the search string by adding more synonyms of selected keywords.
-Additionally, the term \emph{user interface description language} and its initialism \emph{UIDL} are appended to the search string using \texttt{OR}s as a recognizable term that would not be matched by the previously described conjunction of keywords.
-The final search string is shown in Listing~\ref{lst:general-search-string-rq-1}.
+it helped validate that the returned results contained relevant papers and helped refine the search string by adding more synonyms of selected keywords.
+Additionally, the term \emph{user interface description language} and its initialism \emph{UIDL} were appended to the search string using \texttt{OR}s as a recognizable term that would not be matched by the previously described conjunction of keywords.
+Listing~\ref{lst:general-search-string-rq-1} shows the final search string.
 \begin{lstlisting}[label=lst:general-search-string-rq-1,caption=The search string, basicstyle=\ttfamily]
 (
   (UI OR "user interface")
@@ -55,7 +54,7 @@ To improve and narrow down the results of the searches, additional criteria were
 \end{samepage}
 
 The first two restrictions resulted from practical consideration and limited the number of results to a reasonable one.
-The date restriction was meant to narrow the focus only to the newest, most relevant contributions.
+The date restriction was intended to narrow the focus to the newest, most relevant contributions.
 
 To find relevant papers, Scopus\furl{scopus.com} and Web of Science\furl{webofscience.com/wos/} were used.
-These engines are well-accepted in the scientific community and index research from most publishers (i.e.\ Springer, ACM, IEEE).
+These engines are well-accepted in the scientific community and index research from most publishers (e.g., Springer, ACM, IEEE).
