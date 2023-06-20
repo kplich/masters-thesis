@@ -5,11 +5,11 @@ This section puts the results of the evaluation in a broader context.
 \subsection{Conclusions}\label{subsec:conclusions}
 
 Based on data presented in section~\ref{sec:results-of-evaluation} and interpreted in section~\ref{sec:analysis-of-results}, it is possible to answer the \textbf{RQ3: \enquote{to what extent existing abstract representations of user interfaces can be considered expressive?}}.
-In general, the evaluated UI representations are not particularly expressive \textendash\ certainly not to the point where they could be used to create full-fledged, production-quality applications.
+In general, the evaluated UI representations are not particularly expressive -- certainly not to the point where they could be used to create full-fledged, production-quality applications.
 While many representations achieved satisfying results in some areas of UI development outlined earlier, none of them performed well in all areas which limits their potential for use in development.
 
 OpenUIDL was the only representation that achieved substantial scores in two areas (architecture and appearance) and moderate scores in two other areas (behavior and component support).
-The language does not yet look like a viable alternative for conventional development, though the technical gap that would need to be closed in order to make it possible is quite narrow \textendash\ the only thing necessary would be a robust mechanism for defining, accessing and mutating state in components and views.
+The language does not yet look like a viable alternative for conventional development, though the technical gap that would need to be closed in order to make it possible is quite narrow -- the only thing necessary would be a robust mechanism for defining, accessing and mutating state in components and views.
 In its current form, it looks more suited for creating high-fidelity prototypes, especially thanks to its extensive styling capabilities.
 Even with very simple capabilities of specifying behavior, it might be a replacement for prototyping tools that do not accommodate for interactivity.
 
@@ -21,10 +21,10 @@ This is, however, only speculative, as there was no way to verify the representa
 In the area of architecture and structure, the necessary support was usually present.
 Although concepts such as application or modularization are not strictly necessary for creating a functional description, they might be unavoidable for representations that intend to accommodate larger projects.
 Adding support for dialogs and other non-standard views could also be a relatively low-hanging fruit when it comes to increasing the expressiveness of the notations.
-This also seems to be the case for predefined components and appearance properties \textendash\ in order to support them, it is simply necessary to formulate a more detailed model and define mappers that convert model elements to appropriate code.
+This also seems to be the case for predefined components and appearance properties -- in order to support them, it is simply necessary to formulate a more detailed model and define mappers that convert model elements to appropriate code.
 
 On the other hand, lack of support for logic is probably the biggest factor limiting the expressiveness the evaluated representations.
-This is not without a reason \textendash\ a successful solution would need to successfully incorporate concrete code in an otherwise abstract description.
+This is not without a reason -- a successful solution would need to successfully incorporate concrete code in an otherwise abstract description.
 Although some notations attempted to simply create some model of UI behavior, they did not succeed in creating an expressive one.
 It seems that integrating with existing code (in fragments or on a larger scale) shows more substantial results (at least according to the theoretical evaluation).
 The drawback of such an approach might be that such a representation becomes too difficult to use (because it would require actual programming) and too dependent on a single programming language/platform.
@@ -37,7 +37,7 @@ The list of features and concepts presented in the thesis could easily be expand
     \item dependency management\furl{https://www.npmjs.com/}: a system for versioning, distributing and including reusable parts of a representation
     \item component lifecycle support\furl{https://developer.android.com/guide/components/activities/activity-lifecycle}: a unified mechanism for managing the behavior and state of components and views as they change their state in the application
     \item global application state\furl{https://pinia.vuejs.org/introduction.html}: a mechanism for sharing state across views/components
-    \item more specialized widgets: e.g.\ canvas\furl{https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas} \textendash\ a low-level graphics container, a document viewer\furl{https://joanzapata.com/android-pdfview/}, a masonry layout\furl{https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Masonry_Layout} \textendash\ a variant of a grid layout, etc.
+    \item more specialized widgets: e.g.\ canvas\furl{https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas} -- a low-level graphics container, a document viewer\furl{https://joanzapata.com/android-pdfview/}, a masonry layout\furl{https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Masonry_Layout} -- a variant of a grid layout, etc.
     \item animations\furl{https://learn.microsoft.com/en-us/windows/apps/design/motion/xaml-animation}: dynamic visual effects that enhance user experience
 \end{itemize}
 
@@ -49,10 +49,10 @@ Omission of works published before 2010 also might have negatively influenced th
 
 The list of concepts might not have included all relevant aspects of UI development which in turn might decrease the completeness of evaluation criteria.
 The evaluation may be compromised by a lack of objectivity caused by imprecise or broad definitions of criteria.
-The method of scoring was also chosen arbitrarily \textendash\ maybe not all areas or criteria should be regarded as equally important and a weighted average would have produced more useful results.
+The method of scoring was also chosen arbitrarily -- maybe not all areas or criteria should be regarded as equally important and a weighted average would have produced more useful results.
 
-The case study was based on an elementary example of an application \textendash\ the use cases chosen might be too simple to be representative of real-world applications.
-Each of the requirements in the case study was counted only once, even if it applied to multiple areas of the application \textendash\ the scores could have been different if such requirements were scored in a different way.
+The case study was based on an elementary example of an application -- the use cases chosen might be too simple to be representative of real-world applications.
+Each of the requirements in the case study was counted only once, even if it applied to multiple areas of the application -- the scores could have been different if such requirements were scored in a different way.
 The requirements were also less specific, which could lead to subjectivity in scoring.
 
 The evaluation was all the more difficult because most representations were unavailable beyond their original paper.

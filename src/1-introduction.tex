@@ -3,10 +3,10 @@
 \section{Overview of model-based user interface development}\label{sec:user-interfaces-are-important}
 Computing technologies are ubiquitous nowadays: even though devices such as computers and phones have increasingly become more capable, sophisticated and interconnected from decade to decade, they have nevertheless become the daily reality of billions of people around the world.
 That is in large part thanks to user interfaces (especially graphical ones) that allow everyone, not only specialists or academics, to interact with them on familiar and approachable terms (e.g.\ metaphors of a desktop or folders, still present to this day) instead of dealing with low-level technical minutiae.
-No wonder then, that design, implementation and maintenance of UI are one of main points of interest during the development of software products~\cite{Anderson2010}\,\textendash\,their usability can be a deciding factor in their commercial success or failure~\cite{Offutt2002}.
+No wonder then, that design, implementation and maintenance of UI are one of main points of interest during the development of software products~\cite{Anderson2010} -- their usability can be a deciding factor in their commercial success or failure~\cite{Offutt2002}.
 
 % \subsection{Diversity and complexity of UIs causes difficulties}\label{subsec:diversity-and-complexity-of-uis-causes-difficulties}
-Development of UIs has never been easy\,\textendash\,research shows that related processes take up roughly the half of time devoted to developing the whole product~\cite{Myers1992}.
+Development of UIs has never been easy -- research shows that related processes take up roughly the half of time devoted to developing the whole product~\cite{Myers1992}.
 Initially, the reason lay mostly in technical issues~\cite{Six1991};
 over time, though, the challenge has taken on a new dimension:
 the number, diversity and connectedness of devices on the market has risen exponentially~\cite{Cisco2020}.
@@ -14,16 +14,16 @@ Such an explosion of complexity has made it ever so harder to deliver a consiste
 Together with maturation of the computing technologies, approaches and methods for systematic development of UIs have also been devised in order to simplify and speed up the process while also reducing costs and mistakes.
 
 % \subsubsection{UIMSs \& MBUID}
-The process has started with user interface management systems (UIMSs) – tools for \enquote{development and management of the interaction in an application domain across varying devices, interaction techniques and styles}~\cite{Betts1987}.
-However, the software in the category did not live up to this promise\,\textendash\,was difficult to use, and not portable or expressive enough\,\textendash\,and as such was not widely accepted in the industry~\cite{Myers1987}.
+The process has started with user interface management systems (UIMSs) -– tools for \enquote{development and management of the interaction in an application domain across varying devices, interaction techniques and styles}~\cite{Betts1987}.
+However, the software in the category did not live up to this promise -- was difficult to use, and not portable or expressive enough -- and as such was not widely accepted in the industry~\cite{Myers1987}.
 
-The need for more general and systematic approach to development was not unique to the area of UI development\,\textendash\,the whole discipline of software engineering in general desired to move away from platform-specific complexities of programming towards a more abstract and rigorous process.
+The need for more general and systematic approach to development was not unique to the area of UI development -- the whole discipline of software engineering in general desired to move away from platform-specific complexities of programming towards a more abstract and rigorous process.
 The area also had its first attempts to alleviate these difficulties in the form of computer-aided software engineering (CASE) approaches.
-They had aims similar to those of UIMSs\,\textendash\,abstraction from the platform, easier analysis and less manual implementation\,\textendash\,and suffered a similar fate\,\textendash\,the software could not handle the intricacies of real-world software.
+They had aims similar to those of UIMSs -- abstraction from the platform, easier analysis and less manual implementation -- and suffered a similar fate -- the software could not handle the intricacies of real-world software.
 
 Although some complexity of programming has since been alleviated with object-oriented languages and frameworks that perform a substantial part of the \enquote{dirty work}, software development is still an involved, often manual process of translating requirements into design decisions and then into code~\cite{Schmidt2006}.
-Recognizing these everlasting difficulties, as well as attempting to learn from the failures of CASE, a new paradigm\,\textendash\,\textbf{model-driven engineering/development (MDE/MDD)}\,\textendash\,has emerged.
-Its basic principle is that \enquote{everything is a model}~\cite{bezivin2004search}\,\textendash\,models are first-class entities in the software development process, not just means to document or design software.
+Recognizing these everlasting difficulties, as well as attempting to learn from the failures of CASE, a new paradigm -- \textbf{model-driven engineering/development (MDE/MDD)} -- has emerged.
+Its basic principle is that \enquote{everything is a model}~\cite{bezivin2004search} -- models are first-class entities in the software development process, not just means to document or design software.
 With the help of metamodels (models defining models), platforms (specification of execution environment for a set of models), and model transformations (processes of converting a model to another model or source code), the approach sets out to raise the abstraction level in programming and allow partial or even full automation of software development process~\cite{mellor2004mda}.
 
 One of the most prominent example of a model-driven engineering approach appeared in the form of \textbf{Model Driven Architecture (MDA)} elaborated by Object Management Group since 2000~\cite{richard_soley_model_2000} and with the latest update published in 2014~\cite{mda_2014}.
@@ -35,9 +35,9 @@ the latter contain more implementation details and are closer to a specific tech
 Since then, the approach has been translated to the domain of user interface development under the name of \textbf{model-based user interface development (MBUID)}~\cite{Puerta1994}.
 There have been many achievements in the area – the methods progressed from simply generating a UI for a single device to managing the diversity and complexity of interfaces, handling different platforms, devices, interaction modalities, user states and usage contexts~\cite{Meixner2011}.
 In all of them, a model is the most important artifact of the development process;
-in fact, it is so important that the concept got its own name in the domain of MBUID\,\textendash\,a \textbf{user interface description language (UIDL)}~\cite{guerrero_garcia_theoretical_2009}.
+in fact, it is so important that the concept got its own name in the domain of MBUID -- a \textbf{user interface description language (UIDL)}~\cite{guerrero_garcia_theoretical_2009}.
 Although the name suggests a textual description, the language in question could be any kind of high-level, formal description of user interfaces (if not textual, it is usually expressed as a UML metamodel).
-UIDLs can also be viewed as a part of a particular case of \textbf{domain-specific languages (DSLs)}\,\textendash\,languages designed to be useful in a particular domain (UI description, in this case);
+UIDLs can also be viewed as a part of a particular case of \textbf{domain-specific languages (DSLs)} -- languages designed to be useful in a particular domain (UI description, in this case);
 through such high-level representation, the MBUID and MDE realize their goal of modelling closer to the problem domain.
 
 As the maturity of solutions increases, it is expected that model-based approaches will become model-driven, i.e., fully automated and integrated with other parts of the development process in the spirit of model-driven development~\cite{Ruiz2018}.
@@ -53,18 +53,18 @@ The most important contribution of the project is the definition of four levels 
 \begin{itemize}
     \item \textbf{tasks and concepts (T+C)}: on this level, the UI is viewed only from a \textbf{functional and conceptual perspective};
     practically no thought is given to the implementation of the interaction
-    \item \textbf{abstract UI (AUI)}: on this level, the UI is structured \textbf{independently from modality of interaction}\,\textendash\,it is not yet known if it will be a graphical, textual, or voice UI (to name a few examples)
+    \item \textbf{abstract UI (AUI)}: on this level, the UI is structured \textbf{independently from modality of interaction} -- it is not yet known if it will be a graphical, textual, or voice UI (to name a few examples)
     \item \textbf{concrete UI (CUI)}: on this level, the modality of the UI is known and the specification is only \textbf{independent from platform};
-    e.g.\ the definition assumes a graphical UI and specifies a text input\,\textendash\,however, it's not yet decided, what technology will be used to realize it
+    e.g.\ the definition assumes a graphical UI and specifies a text input -- however, it's not yet decided, what technology will be used to realize it
     \item \textbf{final UI (FUI)}: on this level, the executable UI, written in a \textbf{particular technology} is generated
 \end{itemize}
 \end{samepage}
 Models at these stages can be related to one another through transformations: \emph{abstraction}, \emph{reification} and \emph{translation}.
-For example, a model at the AUI stage can be \emph{abstracted} from a model at the CUI stage\,\textendash\,in the process, modality-specific information is lost (can't be expressed) at this stage;
-conversely, the AUI stage is a result of \emph{reification} of the T+C stage (adding more information about how the UI should be structured)\,\textendash\,the two transformations can be thought of as inverses of one another.
+For example, a model at the AUI stage can be \emph{abstracted} from a model at the CUI stage -- in the process, modality-specific information is lost (can't be expressed) at this stage;
+conversely, the AUI stage is a result of \emph{reification} of the T+C stage (adding more information about how the UI should be structured) -- the two transformations can be thought of as inverses of one another.
 Step-by-step reification of models is a primary way of developing a user interface on the basis of models.
 Abstraction can be used to reverse engineer models from an existing UI\@.
-These two transformations are complemented by \emph{translation}\,\textendash\,a transformation between models at the same stage of abstraction (e.g.\ translation of a graphical CUI model to a voice CUI model.)
+These two transformations are complemented by \emph{translation} -- a transformation between models at the same stage of abstraction (e.g.\ translation of a graphical CUI model to a voice CUI model.)
 
 \section{Expressiveness as an important model quality in MBUID}\label{sec:model-quality-in-mbuid}
 Naturally, in order to be useful for the goals of model-based UI development, the models need to satisfy certain properties.
@@ -97,7 +97,7 @@ The goal of the thesis can be formulated in terms of the following research ques
     \item \textbf{RQ3}: To what extent the studied representations can be considered expressive? What is their applicability for development tasks?
 \end{itemize}
 
-As a means to answer RQ1, a systematic literature review was conducted \textendash\ its results are presented in chapter~\ref{ch:literature-review}.
+As a means to answer RQ1, a systematic literature review was conducted -- its results are presented in chapter~\ref{ch:literature-review}.
 Chapter~\ref{ch:research-methodology} provides the answer to RQ2 by describing the research methodology applied;
 chapter~\ref{ch:results-and-discussion} presents an analysis of the obtained results, thus answering the RQ3.
 Chapter~\ref{ch:summary} summarizes the thesis.

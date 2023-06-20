@@ -4,27 +4,27 @@ This section describes the practical experiment used to evaluate representations
 \subsection{Scenario and context}\label{subsec:scenario-and-context}
 The goal of the case study was to validate the previous evaluation in a more realistic scenario.
 Additionally, this was an opportunity to assess the experience of development using the representations.
-This was achieved by recreating a few screens of a fictional application modeled after Trello\furl{trello.com} \textendash\ a well-known Web application for creating Kanban-style lists.
+This was achieved by recreating a few screens of a fictional application modeled after Trello\furl{trello.com} -- a well-known Web application for creating Kanban-style lists.
 The choice was motivated by its popularity and relative complexity.
 
 Capabilities of the original application are very broad and include detailed management of workspaces, users, boards, as well as editing and managing content-rich cards.
-It would not be reasonable to implement all these functionalities \textendash\ to keep the case study manageable, it was necessary to limit its scope.
+It would not be reasonable to implement all these functionalities -- to keep the case study manageable, it was necessary to limit its scope.
 The selected area to implement concerns simple management of cards across two views and a single dialog window:
 \begin{itemize}
     \item the first view allows for viewing all boards the user has access to and navigating to a board (fig.~\ref{fig:3-4-boards-view})
-    \item the second view allows for viewing a particular board and its data \textendash\ name, columns and cards (fig.~\ref{fig:3-4-board-view})
+    \item the second view allows for viewing a particular board and its data -- name, columns and cards (fig.~\ref{fig:3-4-board-view})
     \item the dialog window allows for adding or editing a single card (fig.~\ref{fig:3-4-card-dialog})
 \end{itemize}
 Additionally, the representations should be able to represent two major components:
 \begin{itemize}
-    \item a column \textendash\ a board consists of multiple columns, each possibly containing multiple cards (fig.~\ref{fig:3-4-column-component})
-    \item a card \textendash\ contains information about a task (fig.~\ref{fig:3-4-card-component})
+    \item a column -- a board consists of multiple columns, each possibly containing multiple cards (fig.~\ref{fig:3-4-column-component})
+    \item a card -- contains information about a task (fig.~\ref{fig:3-4-card-component})
 \end{itemize}
 
 The navigation map in figure~\ref{fig:3-4-navigation-map} sums up all application screens and their relationships.
 This setup covers all four CRUD operations, making the case study representative of real-life applications.
 Management of boards and columns within a board was omitted to keep the example as small as possible;
-for the same reason, the interface was only implemented in a mobile version \textendash\ it is considered a good practice to design applications and website using the \enquote{mobile first} principle\furl{https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Responsive/Mobile_first}.
+for the same reason, the interface was only implemented in a mobile version -- it is considered a good practice to design applications and website using the \enquote{mobile first} principle\furl{https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Responsive/Mobile_first}.
 
 \begin{figure}
     \centering
@@ -36,7 +36,7 @@ for the same reason, the interface was only implemented in a mobile version \tex
 \subsection{Scoring of representations}\label{subsec:scoring-of-representations2}
 
 The subsequent sections provide a descriptions of functionalities that the representations were expected to implement;
-table~\ref{tab:case-study-requirements} summarizes them across five sections \textendash\ each corresponding to an implementation area described beforehand.
+table~\ref{tab:case-study-requirements} summarizes them across five sections -- each corresponding to an implementation area described beforehand.
 This time, the requirements were not prescriptive and did not specify how exactly they should be implemented.
 This was meant to produce a more realistic evaluation.
 To reflect this freedom of implementation, the evaluation of requirements included a score for partial fulfillment, not only a binary score.
@@ -140,7 +140,7 @@ The total score $T_{\text{requirements}}$ for the whole representation is calcul
 \end{figure}
 
 The boards view (presented in figure~\ref{fig:3-4-boards-view}) is meant to be the entrypoint of the application.
-In this case study, it is rather simple \textendash\ it only consists of the header and the list of boards of the user has access to.
+In this case study, it is rather simple -- it only consists of the header and the list of boards of the user has access to.
 The user can navigate to each of the boards by clicking a card with the board's name.
 
 \subsubsection{The board view}
@@ -170,11 +170,11 @@ the rest of the columns need to be scrolled to the view to be visible.
 \subsubsection{The column component}
 The column component, presented in figure~\ref{fig:3-4-column-component} consists of three parts: a title at the top, a set of cards and a button for adding new cards in the bottom.
 The button opens a dialog window with a form for providing data about the card.
-The top and bottom parts are \enquote{stuck} to the edges of the container: the title is always on the top of the container and the button \textendash\ at the bottom;
+The top and bottom parts are \enquote{stuck} to the edges of the container: the title is always on the top of the container and the button -- at the bottom;
 cards take the rest of the space of the container, scrolling if they cannot fit.
 
 \subsubsection{The card component}
-Figurs~\ref{fig:3-4-card-component} depicts a card component, consisting of a title and various indicators (short texts with an icon) \textendash\ that unobtrusively signal information about a list item.
+Figurs~\ref{fig:3-4-card-component} depicts a card component, consisting of a title and various indicators (short texts with an icon) -- that unobtrusively signal information about a list item.
 In the top-right corner of the card there is a button that opens a context menu with two items: one that allows for editing a card (by opening a dialog), and the other that deletes a card.
 
 \begin{figure}
@@ -198,8 +198,8 @@ In the top-right corner of the card there is a button that opens a context menu 
 
 \subsubsection{The card editing dialog}
 The dialog is presented in figures~\ref{fig:3-4-card-dialog} (on its own) and~\ref{fig:3-4-board-view-with-dialog} (in the context of a board view).
-It is essentially a simple form \textendash\ a user can use it to provide information about a card: a title, a description, a person responsible for the card, a date and the column.
-Two buttons are placed at the bottom of the view \textendash\ one for discarding the edits and the other one for saving them.
+It is essentially a simple form -- a user can use it to provide information about a card: a title, a description, a person responsible for the card, a date and the column.
+Two buttons are placed at the bottom of the view -- one for discarding the edits and the other one for saving them.
 Only the title field is explicitly validated as a mandatory field.
 The column field is also required, but it does not need validation, as its value is selected from a set of given values (columns).
 The rest of the fields are optional.
