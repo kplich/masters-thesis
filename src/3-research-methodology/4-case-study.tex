@@ -4,10 +4,10 @@ This section describes the practical experiment used to evaluate representations
 \subsection{Scenario and context}\label{subsec:scenario-and-context}
 The goal of the case study was to validate the previous evaluation in a more realistic scenario.
 Additionally, this was an opportunity to assess the experience of development using the representations.
-This was achieved by recreating a few screens of a fictional application modeled after Trello\furl{trello.com} -- a well-known Web application for creating Kanban-style lists.
+These objectives were achieved by recreating a few screens of a fictional application modeled after Trello\furl{trello.com} -- a well-known Web application for creating Kanban-style lists.
 The choice was motivated by its popularity and relative complexity.
 
-The capabilities of the original application are very broad and include detailed management of workspaces, users, and boards, as well as editing and managing content-rich cards.
+The capabilities of the original application are broad and include detailed management of workspaces, users, and boards, as well as editing and managing content-rich cards.
 It would not be reasonable to implement all these functionalities -- to keep the case study manageable, it was necessary to limit its scope.
 The selected area to implement concerns the simple management of cards across two views and a single dialog window:
 \begin{itemize}
@@ -15,14 +15,14 @@ The selected area to implement concerns the simple management of cards across tw
     \item the second view allows for viewing a particular board and its data -- name, columns, and cards (Figure~\ref{fig:3-4-board-view})
     \item the dialog window allows for adding or editing a single card (Figure~\ref{fig:3-4-card-dialog})
 \end{itemize}
-Additionally, the representations should be able to represent two major components:
+Additionally, the representations should be able to represent two prominent components:
 \begin{itemize}
     \item a column -- a board consists of multiple columns, each possibly containing multiple cards (Figure~\ref{fig:3-4-column-component})
     \item a card -- contains information about a task (Figure~\ref{fig:3-4-card-component})
 \end{itemize}
 
 The navigation map in Figure~\ref{fig:3-4-navigation-map} sums up all application screens and their relationships.
-This setup covers all four CRUD operations, making the case study representative of real-life applications.
+Such a setup covers all four CRUD operations, making the case study representative of real-life applications.
 Management of boards and columns within a board was omitted to keep the example as small as possible;
 for the same reason, the interface was only implemented in a mobile version -- it is considered a good practice to design applications and websites using the \enquote{mobile first} principle\furl{https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Responsive/Mobile_first}.
 
@@ -140,12 +140,12 @@ The total score $T_{\text{requirements}}$ for the whole representation is calcul
     \end{minipage}
 \end{figure}
 
-The boards' view (presented in Figure~\ref{fig:3-4-boards-view}) is meant to be the entry point of the application.
-In this case study, it is rather simple -- it only consists of the header and the list of boards the user can access.
-The user can navigate to each of the boards by clicking a card with the board's name.
+The boards' view (presented in Figure~\ref{fig:3-4-boards-view}) is the application entry point.
+In this case study, it only consists of the header and the list of boards the user can access.
+The user can navigate to each board by clicking a card with its name.
 
 \subsubsection{The board view}
-The board view, presented in figure~\ref{fig:3-4-board-view-expanded} consists of a title and multiple columns.
+The board view, presented in figure~\ref{fig:3-4-board-view-expanded}, consists of a title and multiple columns.
 Only the part with the green background is visible to the user;
 the rest of the columns need to be scrolled to the view to be visible.
 
@@ -169,14 +169,14 @@ the rest of the columns need to be scrolled to the view to be visible.
 \end{figure}
 
 \subsubsection{The column component}
-The column component, presented in figure~\ref{fig:3-4-column-component} consists of three parts: a title at the top, a set of cards, and a button for adding new cards at the bottom.
+The column component, presented in figure~\ref{fig:3-4-column-component}, consists of three parts: a title at the top, a set of cards, and a button for adding new cards at the bottom.
 The button opens a dialog window with a form for providing data about the card.
-The top and bottom parts are \enquote{stuck} to the edges of the container: the title is always on the top of the container and the button is at the bottom;
-cards take the rest of the space of the container, scrolling if they cannot fit.
+The top and bottom parts are \enquote{stuck} to the edges of the container: the title is always on the top of the container;
+the button is at the bottom, and cards take the rest of the space of the container, scrolling if they cannot fit.
 
 \subsubsection{The card component}
 Figure~\ref{fig:3-4-card-component} depicts a card component, consisting of a title and various indicators (short texts with an icon) -- that unobtrusively signal information about a list item.
-In the top-right corner of the card, there is a button that opens a context menu with two items: one that allows for editing a card (by opening a dialog), and the other that deletes a card.
+In the top-right corner of the card, there is a button that opens a context menu with two items: one that allows for editing a card (by opening a dialog) and the other that deletes a card.
 
 \begin{figure}
     \centering
@@ -198,11 +198,11 @@ In the top-right corner of the card, there is a button that opens a context menu
 \end{figure}
 
 \subsubsection{The card editing dialog}
-The dialog is presented in figures~\ref{fig:3-4-card-dialog} (on its own) and~\ref{fig:3-4-board-view-with-dialog} (in the context of a board view).
+The dialog is presented in Figures~\ref{fig:3-4-card-dialog} (on its own) and~\ref{fig:3-4-board-view-with-dialog} (in the context of a board view).
 It is essentially a simple form -- a user can use it to provide information about a card: a title, a description, a person responsible for the card, a date, and the column.
-Two buttons are placed at the bottom of the view -- one for discarding the edits and the other one for saving them.
+Two buttons are placed at the bottom of the view -- one for discarding the edits and the other for saving them.
 Only the title field is explicitly validated as a mandatory field.
-The column field is also required, but it does not need validation, as its value is selected from a set of given values (columns).
+The column field is also required but does not need validation, as its value is selected from a set of given values (columns).
 The rest of the fields are optional.
 
 \begin{figure}
