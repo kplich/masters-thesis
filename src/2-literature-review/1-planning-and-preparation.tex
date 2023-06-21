@@ -25,7 +25,10 @@ The initial search string was used to perform a tentative search;
 it helped validate that the returned results contained relevant papers and helped refine the search string by adding more synonyms of selected keywords.
 Additionally, the term \emph{user interface description language} and its initialism \emph{UIDL} -- recognizable expressions that would not be matched by previous keywords -- were appended to the search string.
 Listing~\ref{lst:general-search-string-rq-1} shows the final search string.
-\begin{lstlisting}[label=lst:general-search-string-rq-1,caption=The search string, basicstyle=\ttfamily]
+
+\vspace{10pt}
+\begin{minipage}[c]{\textwidth}
+\begin{lstlisting}[label=lst:general-search-string-rq-1,caption=The search string, basicstyle=\ttfamily,captionpos=b]
 (
   (UI OR "user interface")
   AND
@@ -43,6 +46,8 @@ Listing~\ref{lst:general-search-string-rq-1} shows the final search string.
 OR ("user interface description language" OR UIDL)
     \label
 \end{lstlisting}
+\end{minipage}
+\vspace{10pt}
 
 To improve and narrow down the results of the searches, additional criteria were used:
 \begin{samepage}
