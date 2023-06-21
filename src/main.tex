@@ -91,6 +91,8 @@
 \setlength{\foremargin}{2.5cm}
 \setlength{\marginparsep}{2mm}
 \setlength{\marginparwidth}{2.3mm}
+\setlrmarginsandblock{2.5cm}{2.5cm}{*}
+\setulmarginsandblock{2.5cm}{2.5cm}{*}
 %\settrimmedsize{297mm}{210mm}{*}
 %\settrims{0mm}{0mm}	
 \checkandfixthelayout[fixed] % konieczne, aby się dobrze wszystko poustawiało
@@ -690,11 +692,6 @@ Listing \thelstlisting: #1\hfill%\hfill%
 \makeatother
 
 % fix plain
-\copypagestyle{plain}{headings} % overwrite plain with outer
-\makeoddhead{plain}{}{}{} % remove right header
-\makeevenhead{plain}{}{}{} % remove left header
-\makeevenfoot{plain}{}{}{}
-\makeoddfoot{plain}{}{}{}
 
 \copypagestyle{empty}{headings} % overwrite plain with outer
 \makeoddhead{empty}{}{}{} % remove right header
@@ -907,7 +904,7 @@ Specialty: & {\bfseries \@specjalnosc}\\
 %\chapterstyle{noNumbered}
 % STRESZCZENIE (proszę zajrzeć do środka na zakomentowane komendy)
 \include{0-abstract}
-\pagestyle{outer}
+\pagestyle{plain}
 \clearpage
 
 % SPIS TREŚCI (zostanie wygenerowany automatycznie)
