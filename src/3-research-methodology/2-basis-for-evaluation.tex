@@ -23,7 +23,7 @@ The concept is implemented, for example, in the \texttt{<dialog>} element\furl{h
 \subsubsection{Component (element)}
 \emph{Elements}/\emph{components} are the smallest units of the description of the content of the user interface.
 The category of components is broad;
-it is, therefore, best understood by looking at it from multiple perspectives, described below.
+it is, therefore, best understood by looking at it from multiple perspectives, as described below.
 
 \paragraph{Containers and widgets}
 This classification describes if the element is intended to contain and handle child components -- in that case, it is called a \emph{container}.
@@ -79,7 +79,7 @@ Only rarely do the representations abandon this approach and give the possibilit
 
 Description languages (similarly to final technologies) often predefine certain events applicable to most elements.
 The most popular are mouse events (e.g., a \emph{left-}/\emph{right click}) and keyboard events (e.g., pressing a key or a set of keys), although many other types could exist\furl{https://developer.mozilla.org/en-US/docs/Web/Events}.
-Furthermore, some description languages also allow defining custom events, which is especially useful with custom widgets.
+Furthermore, some description languages also allow for defining custom events, which is especially useful with custom widgets.
 
 \subsubsection{Control structures}
 Control structures such as \texttt{if-else} blocks, \texttt{while} loops, and \texttt{for} loops are an indispensable part of every programming language.
@@ -92,12 +92,12 @@ therefore, a similar solution would also be expected in an expressive UIDL\@.
 
 \subsubsection{Expressions}
 To enable any reasonable logic and processing of data, expressions that operate on various data types are necessary.
-Just as regular programming languages, UIDLs can provide the possibility to reference data from different sources and use them in some arithmetic, textual or boolean expressions.
+Just as regular programming languages, UIDLs can provide the possibility to reference data from different sources and use them in some arithmetic, textual, or boolean expressions.
 They could be used both within handlers and inside the UI content;
-such mechanism of replacing the variables or calculations in a string/template with their values is known in some UI technologies as \emph{interpolation}\furl{https://angular.io/guide/interpolation}.
+such a mechanism of replacing the variables or calculations in a string/template with their values is known in some UI technologies as \emph{interpolation}\furl{https://angular.io/guide/interpolation}.
 
 \subsubsection{State}
-It is necessary to be able to define, read and modify some state (e.g., loaded user data, currently viewed item, form data) when one wants to encapsulate logic in components or views that constitute the UI\@.
+It is necessary to be able to define, read, and modify some state (e.g., loaded user data, currently viewed item, form data) when one wants to encapsulate logic in components or views that constitute the UI\@.
 In final UI technologies (as well as most software in general), this is achieved simply through declaring \emph{variables}, \emph{fields}, or \emph{properties}.
 
 \subsubsection{Custom component definition}
@@ -105,9 +105,9 @@ Some approaches also allow defining their own, reusable stateful components, jus
 This is possible thanks to techniques described in other parts of this section: content, handlers, custom events, internal state, and appearance.
 
 An additional aspect that needs to be considered when defining custom components is the mechanism of input parameters -- they are necessary to make them manageable, reusable, and applicable in different contexts.
-One type of parameter of inputs allows for configuring the components and changing their appearance or functionality -- these parameters can be called \emph{attributes}.
+One type of input parameters allows for configuring the components and changing their appearance or functionality -- these parameters can be called \emph{attributes}.
 In many XML-based languages, properties are passed as attributes\furl{https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started\#attributes}\furl{https://learn.microsoft.com/en-us/dotnet/desktop/wpf/xaml/?view=netdesktop-7.0\#attribute-syntax-properties}.
-Client-side Web frameworks additionally use an additional mechanism (alongside HTML attributes) for passing data to components, called \emph{props}\furl{https://vuejs.org/guide/essentials/component-basics.html\#passing-props} (short for \enquote{properties}).
+Client-side Web frameworks additionally use an additional mechanism (along with HTML attributes) for passing data to components, called \emph{props}\furl{https://vuejs.org/guide/essentials/component-basics.html\#passing-props} (short for \enquote{properties}).
 The other type of input allows for defining their content.
 In XML-based languages, for example, this typically happens by simply nesting elements\furl{https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started\#nesting_elements}.
 
@@ -133,7 +133,7 @@ An example of a different sizing option would be proportional sizing (where all 
 \subsubsection{Positioning}
 \emph{Positioning} is a complementary aspect of sizing.
 Part of this topic overlaps with layout -- it also concerns the positioning of items.
-Such a split occurs because the child can override or modify the sizing and positioning settings of its parent.
+This split occurs because the child can override or modify the sizing and positioning settings of its parent.
 Apart from the default setting, a child component can specify its position as absolute or relative to the default position.
 
 \subsubsection{Other presentation properties}

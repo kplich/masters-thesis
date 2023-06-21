@@ -2,8 +2,8 @@
 This section describes the practical experiment used to evaluate representations.
 
 \subsection{Scenario and context}\label{subsec:scenario-and-context}
-The goal of the case study was to validate the previous evaluation in a more realistic scenario.
-Additionally, this was an opportunity to assess the experience of development using the representations.
+The purpose of the case study was to validate the previous evaluation in a more realistic scenario.
+Additionally, this was an opportunity to assess the development experience using the representations.
 These objectives were achieved by recreating a few screens of a fictional application modeled after Trello\furl{trello.com} -- a well-known Web application for creating Kanban-style lists.
 The choice was motivated by its popularity and relative complexity.
 
@@ -11,9 +11,9 @@ The capabilities of the original application are broad and include detailed mana
 It would not be reasonable to implement all these functionalities -- to keep the case study manageable, it was necessary to limit its scope.
 The selected area to implement concerns the simple management of cards across two views and a single dialog window:
 \begin{itemize}
-    \item the first view allows for viewing all boards the user has access to and navigating to a board (Figure~\ref{fig:3-4-boards-view})
-    \item the second view allows for viewing a particular board and its data -- name, columns, and cards (Figure~\ref{fig:3-4-board-view})
-    \item the dialog window allows for adding or editing a single card (Figure~\ref{fig:3-4-card-dialog})
+    \item the first view allows viewing all boards the user has access to and navigating to a board (Figure~\ref{fig:3-4-boards-view})
+    \item the second view allows viewing a particular board and its data -- name, columns, and cards (Figure~\ref{fig:3-4-board-view})
+    \item the dialog window allows adding or editing a single card (Figure~\ref{fig:3-4-card-dialog})
 \end{itemize}
 Additionally, the representations should be able to represent two prominent components:
 \begin{itemize}
@@ -21,9 +21,9 @@ Additionally, the representations should be able to represent two prominent comp
     \item a card -- contains information about a task (Figure~\ref{fig:3-4-card-component})
 \end{itemize}
 
-The navigation map in Figure~\ref{fig:3-4-navigation-map} sums up all application screens and their relationships.
-Such a setup covers all four CRUD operations, making the case study representative of real-life applications.
-Management of boards and columns within a board was omitted to keep the example as small as possible;
+The navigation map in Figure~\ref{fig:3-4-navigation-map} sums up all the application screens and their relationships.
+This setup covers all four CRUD operations, making the case study representative of real-life applications.
+The management of boards and columns within a board was omitted to keep the example as small as possible;
 for the same reason, the interface was only implemented in a mobile version -- it is considered a good practice to design applications and websites using the \enquote{mobile first} principle\furl{https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Responsive/Mobile_first}.
 
 \begin{figure}
@@ -142,7 +142,7 @@ The total score $T_{\text{requirements}}$ for the whole representation is calcul
 
 The boards' view (presented in Figure~\ref{fig:3-4-boards-view}) is the application entry point.
 In this case study, it only consists of the header and the list of boards the user can access.
-The user can navigate to each board by clicking a card with its name.
+The user can navigate to each board by clicking on a card with its name.
 
 \subsubsection{The board view}
 The board view, presented in figure~\ref{fig:3-4-board-view-expanded}, consists of a title and multiple columns.
@@ -171,7 +171,7 @@ the rest of the columns need to be scrolled to the view to be visible.
 \subsubsection{The column component}
 The column component, presented in figure~\ref{fig:3-4-column-component}, consists of three parts: a title at the top, a set of cards, and a button for adding new cards at the bottom.
 The button opens a dialog window with a form for providing data about the card.
-The top and bottom parts are \enquote{stuck} to the edges of the container: the title is always on the top of the container;
+The upper and lower parts are \enquote{stuck} to the edges of the container: the title is always on the top of the container;
 the button is at the bottom, and cards take the rest of the space of the container, scrolling if they cannot fit.
 
 \subsubsection{The card component}
