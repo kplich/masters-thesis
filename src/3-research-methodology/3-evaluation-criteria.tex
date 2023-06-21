@@ -57,16 +57,26 @@ Criterion \textbf{A2} comprises two subcriteria, so the score for this criterion
 The same mechanism applies to criteria A3.1, A3.2, and criterion \textbf{A3} -- its value is an average of scores for criteria A3.1 and A3.2.
 Finally, the same principle of averaging the criteria scores is used to calculate the score for the entire section.
 
-\begin{table}[]
-    \small
-    \caption{Example results of evaluation (transposed for readability)}
-    \label{tab:my-table}
-    \begin{tabular}{||c|c|c|ccc|cccccccc||}
-        No. & Total  & \textbf{A1} & \textbf{A2} & A2.1       & A2.2   & \textbf{A3} & A3.1   & \textit{A3.1.1} & \textit{A3.1.2} & \textit{A3.1.3} & A3.2    & \textit{A3.2.1} & \textit{A3.2.2} \\
-        R1  & 77.8\% & \cmark\ (100\%)  & 50.0\%      & \cmark & \xmark & 83.4\%      & 66.7\% & \xmark          & \cmark          & \cmark          & 100.0\% & \cmark          & \cmark          \\
-        R2  & 47.2\% & \xmark\ (0\%)    & 100.0\%     & \cmark & \cmark & 41.7\%      & 33.3\% & \cmark          & \xmark          & \xmark          & 50.0\%  & \cmark          & \xmark
-    \end{tabular}
-\end{table}
+\begin{longtblr}[
+    caption = {Example results of evaluation},
+    label = {tab:my-table},
+]{
+    colspec = {ccccccccc},
+    vline{1,10} = {1-3}{1pt,solid},
+    vline{1,10} = {5-7}{1pt,solid},
+    vline{3,4,7} = {1-3}{solid},
+    vline{2} = {1-3}{1pt,solid},
+    vline{2} = {5-7}{1pt,solid},
+    rows = {m},
+}
+                & \textbf{Total} & \textbf{A1}     & \textbf{A2}     & A2.1            & A2.2            &         &                 &                 \\
+    \textbf{R1} & 77.8\%         & \cmark\ (100\%) & 50.0\%          & \cmark          & \xmark          &         &                 &                 \\
+    \textbf{R2} & 47.2\%         & \xmark\ (0\%)   & 100.0\%         & \cmark          & \cmark          &         &                 &                 \\
+                &                &                 &                 &                 &                 &         &                 &                 \\
+                & \textbf{A3}    & A3.1            & \textit{A3.1.1} & \textit{A3.1.2} & \textit{A3.1.3} & A3.2    & \textit{A3.2.1} & \textit{A3.2.2} \\
+    \textbf{R1} & 83.4\%         & 66.7\%          & \xmark          & \cmark          & \cmark          & 100.0\% & \cmark          & \cmark          \\
+    \textbf{R2} & 41.7\%         & 33.3\%          & \cmark          & \xmark          & \xmark          & 50.0\%  & \cmark          & \xmark
+\end{longtblr}
 
 \subsection{Architecture and structure}\label{subsec:architecture-and-structure}
 
@@ -307,11 +317,11 @@ Criterion \textbf{C6} describes the interaction components.
     \textit{C4.3.6}  & \textit{email}                         & \textemdash                                                                             \\*
     \textit{C4.3.7}  & \textit{file}                          & \textemdash                                                                             \\*
     \textit{C4.3.8}  & \textit{password}                      & \textemdash                                                                             \\*
-    \textit{C4.3.8}  & \textit{range}                         & \textemdash                                                                             \\*
-    \textit{C4.3.9}  & \textit{search}                        & an input type for providing a search term                                               \\*
-    \textit{C4.3.10} & \textit{telephone}                     & \textemdash                                                                             \\*
-    \textit{C4.3.11} & \textit{short text}                    & an input type for providing one-line text                                               \\*
-    \textit{C4.3.12} & \textit{long text}                     & an input type for providing multi-line text                                             \\*
+    \textit{C4.3.9}  & \textit{range}                         & \textemdash                                                                             \\*
+    \textit{C4.3.10} & \textit{search}                        & an input type for providing a search term                                               \\*
+    \textit{C4.3.11} & \textit{telephone}                     & \textemdash                                                                             \\*
+    \textit{C4.3.12} & \textit{short text}                    & an input type for providing one-line text                                               \\*
+    \textit{C4.3.13} & \textit{long text}                     & an input type for providing multi-line text                                             \\*
     \hline[dashed]
     C4.4             & Radio input field                      & single option input                                                                     \\*
     C4.5             & Checkbox                               & element for making a binary selection or choose multiple options from a list            \\*
