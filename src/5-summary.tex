@@ -1,13 +1,25 @@
 \chapter{Summary}\label{ch:summary}
 
 The goal of the thesis was to evaluate the expressiveness of abstract UI representations, understood as the ability to influence the implementation details of the generated interface (final UI in the Cameleon Reference Framework).
-A systematic literature review was conducted to gather information for the research.
-Analysis of the documents found determined features implemented by the described representations, grouped into three areas of UI development: architecture, behavior, and appearance.
-The survey results informed the definition of criteria for the evaluation and a case study to complement the theoretical assessment.
+The objective was realized by formulating three research questions:
+\begin{itemize}
+    \item \textbf{RQ1}: What abstract UI representations exist?
+    \item \textbf{RQ2}: How do these representations allow for influencing the final UI? What aspects of UI programming are necessary to create one suitable for development?
+    \item \textbf{RQ3}: To what extent can the studied representations be considered expressive? What is their effectiveness in development tasks?
+\end{itemize}
 
-The analysis of the results shows that, in general, the expressiveness of the representations ranges from low to moderate -- they scored around 30--40\% in the theoretical evaluation.
+A systematic literature review (Chapter~\ref{ch:literature-review}) was conducted to gather information for the research and answer RQ1.
+As a result, 12 approaches and UI representations were described, as well as other literature not considered for further research.
+
+Analysis of the documents provided an answer to the RQ2.
+Features implemented by the described representations we grouped into three areas of UI development: architecture, behavior, and appearance and then described them in detail (Section~\ref{sec:basis-for-evaluation}).
+The survey results informed the definition of criteria for the evaluation (Section~\ref{sec:evaluation-criteria}) and a case study to complement the theoretical assessment (Section~\ref{sec:case-study}).
+Five representations were excluded from the theoretical evaluation due to low availability; one additional representation was also not included in the practical evaluation due to technical difficulties.
+
+Evaluation of the selected representations (Section~\ref{sec:results-of-evaluation}) and analysis of the results (Sections~\ref{sec:analysis-of-results} and~\ref{sec:evaluation-discussion-of-results}) made it possible to answer RQ3.
+In general, the expressiveness of the representations ranges from low to moderate -- they usually scored around 30--40\% in the theoretical evaluation.
 Some achieved noteworthy scores in individual areas, but none were adequately functional across all of them, which limits their applicability in general development.
-The conclusions apply even to OpenUIDL -- the most flexible representation found; although its capabilities could suffice for prototyping, they will probably not meet the needs of developers.
+The conclusions apply even to OpenUIDL -- the most flexible representation (69\% in the overall evaluation); although its capabilities could suffice for prototyping, they will probably not meet the needs of developers.
 
 The findings indicate the need for further progress in user interface representations;
 even though the gap between the current and desired capabilities of UI representations is narrow and possible to bridge, it remains unfilled.
